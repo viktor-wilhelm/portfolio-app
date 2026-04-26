@@ -1,0 +1,26 @@
+# Kontaktformular-Backend (enthält persönliche E-Mail-Adresse)
+mail.php
+
+# Betriebssystem
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Logs
+*.log
+npm-debug.log*
+
+# Abhängigkeiten (falls später npm genutzt wird)
+node_modules/
+
+# Umgebungsvariablen
+.env
+.env.local
+.env.production

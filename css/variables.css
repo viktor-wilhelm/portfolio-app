@@ -1,0 +1,41 @@
+/* ============================================================
+   CSS Custom Properties
+   ============================================================ */
+
+:root {
+  /* Colors */
+  --color-primary: #your-primary;
+  --color-secondary: #your-secondary;
+  --color-accent: #your-accent;
+  --color-bg: #ffffff;
+  --color-bg-alt: #f5f5f5;
+  --color-text: #1a1a1a;
+  --color-text-muted: #666666;
+  --color-error: #e53e3e;
+  --color-success: #38a169;
+
+  /* Typography */
+  --font-base: 'YourFont', sans-serif;
+  --font-size-base: 1rem;
+  --font-size-sm: 0.875rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+  --font-size-3xl: 3rem;
+  --line-height-base: 1.6;
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 4rem;
+  --space-2xl: 8rem;
+
+  /* Layout */
+  --max-width: 1200px;
+  --border-radius: 8px;
+
+  /* Transitions */
+  --transition-base: 200ms ease;
+}

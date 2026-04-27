@@ -1,12 +1,180 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <title>Vorname Nachname – Web Developer</title>
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+    <!-- Fonts -->
+    <!-- <link rel="stylesheet" href="assets/fonts/fonts.css" /> -->
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/components/navbar.css" />
+    <link rel="stylesheet" href="css/sections/hero.css" />
+    <link rel="stylesheet" href="css/sections/about.css" />
+    <link rel="stylesheet" href="css/sections/projects.css" />
+    <link rel="stylesheet" href="css/sections/contact.css" />
+    <link rel="stylesheet" href="css/components/footer.css" />
+  </head>
+  <body>
+
+    <!-- ===== HEADER / NAVIGATION ===== -->
+    <header class="header">
+      <nav class="nav">
+        <a href="#hero" class="nav__logo">VN</a>
+        <ul class="nav__links">
+          <li><a href="#about" class="nav__link" data-i18n="navAbout">Über mich</a></li>
+          <li><a href="#projects" class="nav__link" data-i18n="navProjects">Projekte</a></li>
+          <li><a href="#contact" class="nav__link" data-i18n="navContact">Kontakt</a></li>
+        </ul>
+        <div class="lang-switch">
+          <button class="lang-switch__btn lang-switch__btn--active" data-lang="de">DE</button>
+          <span class="lang-switch__divider" aria-hidden="true">|</span>
+          <button class="lang-switch__btn" data-lang="en">EN</button>
+        </div>
+        <button class="nav__burger" aria-label="Menü öffnen" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+    </header>
+
+    <main>
+
+      <!-- ===== HERO ===== -->
+      <section id="hero" class="hero">
+        <div class="hero__content">
+          <p class="hero__greeting" data-i18n="heroGreeting">Hallo, ich bin</p>
+          <h1 class="hero__name">Vorname Nachname</h1>
+          <p class="hero__title" data-i18n="heroTitle">Frontend Web Developer</p>
+          <a href="#contact" class="hero__cta btn btn--primary" data-i18n="heroCta">Kontakt aufnehmen</a>
+        </div>
+      </section>
+
+      <!-- ===== ABOUT ===== -->
+      <section id="about" class="about">
+        <div class="about__container">
+          <div class="about__image-wrapper">
+            <img
+              src="assets/img/profile.jpg"
+              alt="Vorname Nachname"
+              class="about__image"
+              width="400"
+              height="400"
+            />
+          </div>
+          <div class="about__text">
+            <h2 class="about__heading" data-i18n="aboutHeading">Über mich</h2>
+            <p class="about__bio" data-i18n="aboutBio">Kurze Vorstellung...</p>
+            <ul class="about__skills">
+              <li class="about__skill">HTML5</li>
+              <li class="about__skill">CSS3</li>
+              <li class="about__skill">JavaScript</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== PROJECTS ===== -->
+      <section id="projects" class="projects">
+        <div class="projects__container">
+          <h2 class="projects__heading" data-i18n="projectsHeading">Projekte</h2>
+          <div class="projects__grid">
+            <!-- Projektkarten werden hier eingefügt -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== CONTACT ===== -->
+      <section id="contact" class="contact">
+        <div class="contact__container">
+          <h2 class="contact__heading" data-i18n="contactHeading">Kontakt</h2>
+          <form id="contact-form" class="contact__form" novalidate>
+
+            <div class="form__group">
+              <label for="name" data-i18n="formName">Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                autocomplete="name"
+                required
+              />
+              <span class="form__error" id="name-error" aria-live="polite"></span>
+            </div>
+
+            <div class="form__group">
+              <label for="email" data-i18n="formEmail">E-Mail</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                autocomplete="email"
+                required
+              />
+              <span class="form__error" id="email-error" aria-live="polite"></span>
+            </div>
+
+            <div class="form__group">
+              <label for="message" data-i18n="formMessage">Nachricht</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                required
+              ></textarea>
+              <span class="form__error" id="message-error" aria-live="polite"></span>
+            </div>
+
+            <div class="form__group form__group--checkbox">
+              <input type="checkbox" id="privacy" name="privacy" required />
+              <label for="privacy">
+                <span data-i18n="formPrivacy">Ich habe die</span>
+                <a href="#datenschutz" data-i18n="formPrivacyLink">Datenschutzerklärung</a>
+                <span data-i18n="formPrivacyRead">gelesen und akzeptiert.</span>
+              </label>
+              <span class="form__error" id="privacy-error" aria-live="polite"></span>
+            </div>
+
+            <button type="submit" class="form__submit btn btn--primary" disabled data-i18n="formSubmit">
+              Nachricht senden
+            </button>
+
+            <div class="form__feedback" id="form-feedback" aria-live="polite"></div>
+
+          </form>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      <div class="footer__social">
+        <a href="https://linkedin.com/in/DEIN-PROFIL" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <!-- LinkedIn SVG -->
+        </a>
+        <a href="https://github.com/DEIN-USERNAME" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <!-- GitHub SVG -->
+        </a>
+      </div>
+      <nav class="footer__legal" aria-label="Rechtliches">
+        <a href="#impressum" data-i18n="footerImprint">Impressum</a>
+        <a href="#datenschutz" data-i18n="footerPrivacy">Datenschutz</a>
+      </nav>
+      <p class="footer__copy">&copy; <span id="current-year"></span> Vorname Nachname</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/translations.js"></script>
+    <script src="js/language.js"></script>
+    <script src="js/contact-form.js"></script>
+    <script>
+      document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+
+  </body>
 </html>
-</section>

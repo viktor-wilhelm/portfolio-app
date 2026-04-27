@@ -6,9 +6,7 @@ A professional, bilingual (DE/EN) developer portfolio website built as a one-pag
 
 ## Design Preview
 
-![About Me Section](docs/design-preview.png)
-
-> **Note:** Save the screenshot as `docs/design-preview.png` and commit it for the image to appear on GitHub.
+![Design Preview](assets/img/readme.png)
 
 ---
 
@@ -87,8 +85,8 @@ Add new keys to `js/translations.js`:
 
 ```js
 const translations = {
-  de: { myKey: 'Mein Text' },
-  en: { myKey: 'My text' },
+  de: { myKey: "Mein Text" },
+  en: { myKey: "My text" },
 };
 ```
 

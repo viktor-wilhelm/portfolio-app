@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
   <head>
     <meta charset="UTF-8" />
@@ -19,7 +19,6 @@
     <link rel="stylesheet" href="css/components/footer.css" />
   </head>
   <body>
-
     <!-- ===== HEADER / NAVIGATION ===== -->
     <header class="header">
       <nav class="nav">
@@ -43,7 +42,6 @@
     </header>
 
     <main>
-
       <!-- ===== HERO ===== -->
       <section id="hero" class="hero">
         <div class="hero__content">
@@ -58,13 +56,7 @@
       <section id="about" class="about">
         <div class="about__container">
           <div class="about__image-wrapper">
-            <img
-              src="assets/img/profile.jpg"
-              alt="Vorname Nachname"
-              class="about__image"
-              width="400"
-              height="400"
-            />
+            <img src="assets/img/profile.jpg" alt="Vorname Nachname" class="about__image" width="400" height="400" />
           </div>
           <div class="about__text">
             <h2 class="about__heading" data-i18n="aboutHeading">Über mich</h2>
@@ -93,39 +85,21 @@
         <div class="contact__container">
           <h2 class="contact__heading" data-i18n="contactHeading">Kontakt</h2>
           <form id="contact-form" class="contact__form" novalidate>
-
             <div class="form__group">
               <label for="name" data-i18n="formName">Name</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                autocomplete="name"
-                required
-              />
+              <input type="text" id="name" name="name" autocomplete="name" required />
               <span class="form__error" id="name-error" aria-live="polite"></span>
             </div>
 
             <div class="form__group">
               <label for="email" data-i18n="formEmail">E-Mail</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                autocomplete="email"
-                required
-              />
+              <input type="email" id="email" name="email" autocomplete="email" required />
               <span class="form__error" id="email-error" aria-live="polite"></span>
             </div>
 
             <div class="form__group">
               <label for="message" data-i18n="formMessage">Nachricht</label>
-              <textarea
-                id="message"
-                name="message"
-                rows="5"
-                required
-              ></textarea>
+              <textarea id="message" name="message" rows="5" required></textarea>
               <span class="form__error" id="message-error" aria-live="polite"></span>
             </div>
 
@@ -144,11 +118,9 @@
             </button>
 
             <div class="form__feedback" id="form-feedback" aria-live="polite"></div>
-
           </form>
         </div>
       </section>
-
     </main>
 
     <!-- ===== FOOTER ===== -->
@@ -173,8 +145,7 @@
     <script src="js/language.js"></script>
     <script src="js/contact-form.js"></script>
     <script>
-      document.getElementById('current-year').textContent = new Date().getFullYear();
+      document.getElementById("current-year").textContent = new Date().getFullYear();
     </script>
-
   </body>
 </html>

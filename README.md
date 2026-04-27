@@ -10,7 +10,6 @@ A professional, bilingual (DE/EN) developer portfolio website built as a one-pag
 
 ---
 
-
 ## Tech Stack
 
 | Area        | Technology                    |

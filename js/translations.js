@@ -5,6 +5,7 @@ const translations = {
   de: {
     navAbout: "Über mich",
     navProjects: "Projekte",
+    navSkills: "Fähigkeiten",
     navContact: "Kontakt",
     heroGreeting: "Hallo, ich bin",
     heroTitle: "Frontend Web Developer",
@@ -29,8 +30,9 @@ const translations = {
     errorMessage: "Es ist ein Fehler aufgetreten. Bitte versuche es erneut.",
   },
   en: {
-    navAbout: "About",
+    navAbout: "About me",
     navProjects: "Projects",
+    navSkills: "Skills",
     navContact: "Contact",
     heroGreeting: "Hello, I am",
     heroTitle: "Frontend Web Developer",

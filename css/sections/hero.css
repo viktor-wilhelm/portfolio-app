@@ -1,0 +1,125 @@
+/* ============================================================
+   Hero Section
+   ============================================================ */
+
+.hero {
+  position: relative;
+  height: 100vh;
+  width: 1440px;
+  height: 900px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  background-color: var(--color-bg);
+}
+
+.hero__background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  user-select: none;
+  pointer-events: none;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  padding: 0 var(--space-lg);
+  padding-top: var(--nav-height);
+  max-width: var(--max-width);
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* "Hello world" pill */
+.hero__greeting {
+  display: inline-block;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 999px;
+  padding: 0.3rem 1rem;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-text-light);
+  letter-spacing: 0.04em;
+  margin-bottom: var(--space-md);
+}
+
+.hero__name {
+  font-size: var(--font-size-xl);
+  font-weight: 400;
+  color: var(--color-text-light);
+  margin-bottom: var(--space-sm);
+  opacity: 0.85;
+}
+
+/* "Frontend DEVELOPER" – two-line heading */
+.hero__title {
+  line-height: 0.95;
+  margin-bottom: var(--space-lg);
+}
+
+.hero__title-top {
+  display: block;
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  font-weight: 700;
+  color: var(--color-text-light);
+  letter-spacing: -0.02em;
+}
+
+.hero__title-bottom {
+  display: block;
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  font-weight: 800;
+  color: var(--color-text-light);
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+/* CTA Button */
+.hero__cta {
+  display: inline-block;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 999px;
+  padding: 0.75rem 2rem;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text-light);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background-color var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.hero__cta:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Polaroid Photo (rechts) */
+.hero__polaroid {
+  display: none;
+  position: absolute;
+  right: clamp(2rem, 8vw, 10rem);
+  top: 50%;
+  transform: translateY(-50%) rotate(3deg);
+  z-index: 1;
+}
+
+.hero__polaroid-frame {
+  width: clamp(160px, 18vw, 240px);
+}
+
+@media (min-width: 768px) {
+  .hero__content {
+    padding-left: var(--space-xl);
+  }
+
+  .hero__polaroid {
+    display: block;
+  }
+}

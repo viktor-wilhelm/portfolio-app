@@ -1,0 +1,125 @@
+/* ============================================================
+   About Section
+   ============================================================ */
+
+.about {
+  background-color: var(--color-light);
+  padding: var(--space-2xl) 0;
+}
+
+.about__container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  align-items: center;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+/* === Sticker Column === */
+.about__stickers {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  width: 100%;
+  max-width: 340px;
+}
+
+.about__sticker {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.about__sticker img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.about__sticker-text {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--color-text);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.about__sticker--yellow {
+  transform: rotate(-1.5deg);
+}
+
+.about__sticker--blue {
+  transform: rotate(1deg);
+}
+
+.about__sticker--orange {
+  transform: rotate(-0.8deg);
+}
+
+/* === Text Column === */
+.about__label {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-sm);
+}
+
+.about__heading {
+  font-size: var(--font-size-3xl);
+  font-weight: 800;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-md);
+}
+
+.about__bio {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-text-muted);
+  max-width: 52ch;
+  margin-bottom: var(--space-lg);
+}
+
+.about__cta {
+  display: inline-block;
+  border: 2px solid var(--color-text);
+  border-radius: 999px;
+  padding: 0.6rem 1.75rem;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background-color var(--transition-base),
+    color var(--transition-base);
+}
+
+.about__cta:hover {
+  background-color: var(--color-text);
+  color: var(--color-light);
+}
+
+/* Desktop: side by side */
+@media (min-width: 768px) {
+  .about__container {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-2xl);
+  }
+
+  .about__stickers {
+    flex-shrink: 0;
+    width: clamp(260px, 30vw, 340px);
+  }
+}

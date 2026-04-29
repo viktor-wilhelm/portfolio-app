@@ -4,15 +4,22 @@
 
 :root {
   /* Colors */
-  --color-primary: #your-primary;
-  --color-secondary: #your-secondary;
-  --color-accent: #your-accent;
+  --color-dark: #141414;
+  --color-light: #ffffff;
+  --color-accent: #4a90e2;
+  --color-accent-hover: #3a7bd5;
   --color-bg: #ffffff;
-  --color-bg-alt: #f5f5f5;
+  --color-bg-dark: #141414;
   --color-text: #1a1a1a;
-  --color-text-muted: #666666;
+  --color-text-light: #ffffff;
+  --color-text-muted: #888888;
   --color-error: #e53e3e;
   --color-success: #38a169;
+
+  /* Sticker colors */
+  --color-sticker-yellow: #f5c518;
+  --color-sticker-blue: #4a7bf7;
+  --color-sticker-orange: #e8593d;
 
   /* Typography */
   --font-base: "Bricolage Grotesque", sans-serif;
@@ -22,6 +29,7 @@
   --font-size-xl: 1.5rem;
   --font-size-2xl: 2rem;
   --font-size-3xl: 3rem;
+  --font-size-hero: clamp(3.5rem, 8vw, 7rem);
   --line-height-base: 1.6;
 
   /* Spacing */
@@ -35,6 +43,7 @@
   /* Layout */
   --max-width: 1200px;
   --border-radius: 8px;
+  --nav-height: 72px;
 
   /* Transitions */
   --transition-base: 200ms ease;

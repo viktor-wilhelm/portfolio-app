@@ -30,22 +30,34 @@ function applyTranslations(lang) {
 }
 
 /**
- * Updates the active state on language switch buttons.
+ * Updates the active state on language switch buttons and toggle.
  * @param {string} lang - Currently active language code.
  */
 function updateLangButtons(lang) {
   document.querySelectorAll(".lang-switch__btn").forEach((btn) => {
     btn.classList.toggle("lang-switch__btn--active", btn.dataset.lang === lang);
   });
+  const switcher = document.querySelector(".lang-switch");
+  if (switcher) {
+    switcher.classList.toggle("lang-switch--de", lang === "de");
+    switcher.classList.toggle("lang-switch--en", lang === "en");
+  }
 }
 
 /**
- * Registers click handlers on all language switch buttons.
+ * Registers click handlers on all language switch buttons and the toggle.
  */
 function setupLangSwitch() {
   document.querySelectorAll(".lang-switch__btn").forEach((btn) => {
     btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
   });
+  const toggle = document.querySelector(".lang-switch__toggle");
+  if (toggle) {
+    toggle.addEventListener("click", () => {
+      const current = localStorage.getItem("lang") ?? "de";
+      setLanguage(current === "de" ? "en" : "de");
+    });
+  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {

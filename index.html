@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
     <title>Viktor Wilhelm – Frontend Developer</title>
-    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/vw-favicon.png" />
     <!-- Fonts -->
     <link rel="stylesheet" href="css/fonts.css" />
     <!-- Styles -->
@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="css/components/navbar.css" />
     <link rel="stylesheet" href="css/sections/hero.css" />
     <link rel="stylesheet" href="css/sections/about.css" />
+    <link rel="stylesheet" href="css/sections/skills.css" />
     <link rel="stylesheet" href="css/sections/projects.css" />
     <link rel="stylesheet" href="css/sections/contact.css" />
     <link rel="stylesheet" href="css/components/footer.css" />
@@ -22,16 +23,21 @@
     <!-- ===== HEADER / NAVIGATION ===== -->
     <header class="header">
       <nav class="nav">
-        <a href="#hero" class="nav__logo">VN</a>
+        <a href="#hero" class="nav__logo">
+          <img src="assets/img/vw-logo.png" alt="VW Logo" class="nav__logo-img" />
+        </a>
         <ul class="nav__links">
           <li><a href="#about" class="nav__link" data-i18n="navAbout">Über mich</a></li>
+          <li><a href="#skills" class="nav__link" data-i18n="navSkills">Skills</a></li>
           <li><a href="#projects" class="nav__link" data-i18n="navProjects">Projekte</a></li>
           <li><a href="#contact" class="nav__link" data-i18n="navContact">Kontakt</a></li>
         </ul>
-        <div class="lang-switch">
-          <button class="lang-switch__btn lang-switch__btn--active" data-lang="de">DE</button>
-          <span class="lang-switch__divider" aria-hidden="true">|</span>
+        <div class="lang-switch lang-switch--de" aria-label="Sprache wechseln">
           <button class="lang-switch__btn" data-lang="en">EN</button>
+          <button class="lang-switch__toggle" aria-label="Sprache wechseln">
+            <span class="lang-switch__knob"></span>
+          </button>
+          <button class="lang-switch__btn lang-switch__btn--active" data-lang="de">DE</button>
         </div>
         <button class="nav__burger" aria-label="Menü öffnen" aria-expanded="false">
           <span></span>
@@ -44,36 +50,92 @@
     <main>
       <!-- ===== HERO ===== -->
       <section id="hero" class="hero">
+        <img
+          src="assets/img/01_Background/Design Size Relation@3x/01_Hero.png"
+          alt=""
+          class="hero__background"
+          aria-hidden="true"
+        />
         <div class="hero__content">
-          <p class="hero__greeting" data-i18n="heroGreeting">Hallo, ich bin</p>
-          <h1 class="hero__name">Viktor Wilhelm</h1>
-          <p class="hero__title" data-i18n="heroTitle">Frontend Developer</p>
-          <a href="#contact" class="hero__cta btn btn--primary" data-i18n="heroCta">Kontakt aufnehmen</a>
+          <p class="hero__greeting" data-i18n="heroGreeting">Hello world</p>
+          <p class="hero__name">Viktor Wilhelm</p>
+          <h1 class="hero__title">
+            <span class="hero__title-top">Frontend</span>
+            <span class="hero__title-bottom">Developer</span>
+          </h1>
+          <a href="#contact" class="hero__cta" data-i18n="heroCta">Get in Touch</a>
+        </div>
+        <div class="hero__polaroid" aria-hidden="true">
+          <img src="assets/img/03_Stickers/Polaroid Frame.png" alt="" class="hero__polaroid-frame" />
         </div>
       </section>
 
       <!-- ===== ABOUT ===== -->
       <section id="about" class="about">
         <div class="about__container">
-          <div class="about__image-wrapper">
-            <img src="assets/img/profile.jpg" alt="Vorname Nachname" class="about__image" width="400" height="400" />
+          <div class="about__stickers" aria-hidden="true">
+            <div class="about__sticker about__sticker--yellow">
+              <img src="assets/img/02_Ripped Paper/Option 1/Yellow.png" alt="" />
+              <span class="about__sticker-text">&#128205; Based in Munich</span>
+            </div>
+            <div class="about__sticker about__sticker--blue">
+              <img src="assets/img/02_Ripped Paper/Option 1/2 Blue.png" alt="" />
+              <span class="about__sticker-text">&#8599; Open to relocate</span>
+            </div>
+            <div class="about__sticker about__sticker--orange">
+              <img src="assets/img/02_Ripped Paper/Option 1/3 Orange.png" alt="" />
+              <span class="about__sticker-text">&#128187; Open to work remote</span>
+            </div>
           </div>
           <div class="about__text">
-            <h2 class="about__heading" data-i18n="aboutHeading">Über mich</h2>
-            <p class="about__bio" data-i18n="aboutBio">Kurze Vorstellung...</p>
-            <ul class="about__skills">
-              <li class="about__skill">HTML5</li>
-              <li class="about__skill">CSS3</li>
-              <li class="about__skill">JavaScript</li>
-            </ul>
+            <p class="about__label">WHO'S VIKTOR</p>
+            <h2 class="about__heading" data-i18n="aboutHeading">About me</h2>
+            <p class="about__bio" data-i18n="aboutBio">
+              Hey there, I'm Viktor. Write something about yourself that is IT related. Why are you passionate about
+              coding? What is your source of inspiration for improving your programming skills?
+            </p>
+            <a href="#contact" class="about__cta" data-i18n="aboutCta">Let's talk</a>
           </div>
+        </div>
+      </section>
+
+      <!-- ===== SKILLS ===== -->
+      <section id="skills" class="skills">
+        <img
+          src="assets/img/01_Background/Design Size Relation@3x/03_Skills.png"
+          alt=""
+          class="skills__background"
+          aria-hidden="true"
+        />
+        <div class="skills__container">
+          <p class="skills__label">MY STACK</p>
+          <div class="skills__header">
+            <h2 class="skills__heading">Skill set</h2>
+            <p class="skills__description">
+              A short introduction of your skills. Highlight your experience of using different front-end technologies
+              and showcase your openness to learning and adapting to new technologies.
+            </p>
+          </div>
+          <ul class="skills__grid">
+            <li class="skill"><span class="skill__name">HTML</span></li>
+            <li class="skill"><span class="skill__name">CSS</span></li>
+            <li class="skill"><span class="skill__name">JavaScript</span></li>
+            <li class="skill"><span class="skill__name">TypeScript</span></li>
+            <li class="skill"><span class="skill__name">Angular</span></li>
+            <li class="skill"><span class="skill__name">Supabase</span></li>
+            <li class="skill"><span class="skill__name">Git</span></li>
+            <li class="skill"><span class="skill__name">REST API</span></li>
+            <li class="skill"><span class="skill__name">Scrum</span></li>
+            <li class="skill"><span class="skill__name">Material Design</span></li>
+          </ul>
         </div>
       </section>
 
       <!-- ===== PROJECTS ===== -->
       <section id="projects" class="projects">
         <div class="projects__container">
-          <h2 class="projects__heading" data-i18n="projectsHeading">Projekte</h2>
+          <p class="projects__label">MY CRAFT</p>
+          <h2 class="projects__heading" data-i18n="projectsHeading">Projects</h2>
           <div class="projects__grid">
             <!-- Projektkarten werden hier eingefügt -->
           </div>

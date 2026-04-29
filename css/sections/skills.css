@@ -1,0 +1,105 @@
+/* ============================================================
+   Skills Section
+   ============================================================ */
+
+.skills {
+  position: relative;
+  background-color: var(--color-bg-dark);
+  padding: var(--space-2xl) 0;
+  overflow: hidden;
+}
+
+.skills__background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.6;
+  pointer-events: none;
+  user-select: none;
+}
+
+.skills__container {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+.skills__label {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-sm);
+}
+
+.skills__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.skills__heading {
+  font-size: var(--font-size-3xl);
+  font-weight: 800;
+  color: var(--color-text-light);
+  letter-spacing: -0.02em;
+}
+
+.skills__description {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-text-muted);
+  max-width: 42ch;
+}
+
+/* Skill Grid */
+.skills__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+.skill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.skill__icon {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.skill__name {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-text-light);
+  text-align: center;
+}
+
+/* Desktop: 5 columns, header side-by-side */
+@media (min-width: 768px) {
+  .skills__header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .skills__description {
+    max-width: 36ch;
+    padding-top: 0.5rem;
+  }
+
+  .skills__grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}

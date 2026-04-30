@@ -20,33 +20,6 @@
     <link rel="stylesheet" href="css/components/footer.css" />
   </head>
   <body>
-    <!-- ===== HEADER / NAVIGATION ===== -->
-    <header class="header">
-      <nav class="nav">
-        <a href="#hero" class="nav__logo">
-          <img src="assets/img/vw-logo.png" alt="VW Logo" class="nav__logo-img" />
-        </a>
-        <ul class="nav__links">
-          <li><a href="#about" class="nav__link" data-i18n="navAbout">Über mich</a></li>
-          <li><a href="#skills" class="nav__link" data-i18n="navSkills">Skills</a></li>
-          <li><a href="#projects" class="nav__link" data-i18n="navProjects">Projekte</a></li>
-          <li><a href="#contact" class="nav__link" data-i18n="navContact">Kontakt</a></li>
-        </ul>
-        <div class="lang-switch lang-switch--de" aria-label="Sprache wechseln">
-          <button class="lang-switch__btn" data-lang="en">EN</button>
-          <button class="lang-switch__toggle" aria-label="Sprache wechseln">
-            <span class="lang-switch__knob"></span>
-          </button>
-          <button class="lang-switch__btn lang-switch__btn--active" data-lang="de">DE</button>
-        </div>
-        <button class="nav__burger" aria-label="Menü öffnen" aria-expanded="false">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </nav>
-    </header>
-
     <main>
       <!-- ===== HERO ===== -->
       <section id="hero" class="hero">
@@ -56,6 +29,32 @@
           class="hero__background"
           aria-hidden="true"
         />
+        <!-- ===== HEADER / NAVIGATION ===== -->
+        <header class="header">
+          <nav class="nav">
+            <a href="#hero" class="nav__logo">
+              <img src="assets/img/vw-logo.png" alt="VW Logo" class="nav__logo-img" />
+            </a>
+            <ul class="nav__links">
+              <li><a href="#about" class="nav__link" data-i18n="navAbout">Über mich</a></li>
+              <li><a href="#skills" class="nav__link" data-i18n="navSkills">Skills</a></li>
+              <li><a href="#projects" class="nav__link" data-i18n="navProjects">Projekte</a></li>
+              <li><a href="#contact" class="nav__link" data-i18n="navContact">Kontakt</a></li>
+            </ul>
+            <div class="lang-switch lang-switch--de" aria-label="Sprache wechseln">
+              <button class="lang-switch__btn" data-lang="en">EN</button>
+              <button class="lang-switch__toggle" aria-label="Sprache wechseln">
+                <span class="lang-switch__knob"></span>
+              </button>
+              <button class="lang-switch__btn lang-switch__btn--active" data-lang="de">DE</button>
+            </div>
+            <button class="nav__burger" aria-label="Menü öffnen" aria-expanded="false">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </nav>
+        </header>
         <div class="hero__content">
           <p class="hero__greeting" data-i18n="heroGreeting">Hello world</p>
           <h1 class="hero__title">

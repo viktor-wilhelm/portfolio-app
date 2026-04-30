@@ -11,11 +11,15 @@
 }
 
 html {
+  max-width: 100%;
+  overflow-x: hidden;
   scroll-behavior: smooth;
   font-size: 16px;
 }
 
 body {
+  max-width: 100%;
+  overflow-x: hidden;
   font-family: var(--font-base);
   font-size: var(--font-size-base);
   line-height: var(--line-height-base);

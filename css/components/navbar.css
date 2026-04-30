@@ -3,14 +3,12 @@
    ============================================================ */
 
 .header {
-  position: fixed;
-  top: 0;
-  left: 0;
+  position: relative;
   width: 100%;
+  box-sizing: border-box;
   z-index: 100;
   height: var(--nav-height);
   background-color: transparent;
-  transition: background-color var(--transition-base);
 }
 
 .header--scrolled {

@@ -4,11 +4,12 @@
 
 .hero {
   position: relative;
-  width: 1440px;
+  width: 100%;
+  max-width: 1440px;
   height: 900px;
   overflow: hidden;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   background-color: var(--color-bg);
 }
 
@@ -27,10 +28,13 @@
   position: relative;
   z-index: 1;
   padding: 0 var(--space-lg);
-  padding-top: var(--nav-height);
   max-width: var(--max-width);
   width: 100%;
   margin: 0 auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* "Hello world" pill */
@@ -44,15 +48,15 @@
   color: var(--color-text-light);
   letter-spacing: 0.04em;
   margin-bottom: var(--space-md);
-  margin-left: 15%;
+  margin-left: 1%;
 }
 
 /* "Frontend DEVELOPER" – two-line heading */
 .hero__title {
   line-height: 1;
   margin-bottom: var(--space-lg);
-  width: 66%;
-  margin-left: 15%;
+  width: 75%;
+  margin-left: 1%;
 }
 
 .hero__title-top {
@@ -101,7 +105,7 @@
 .hero__polaroid {
   display: none;
   position: absolute;
-  right: 22%;
+  right: 30%;
   top: 23%;
   transform: rotate(8deg);
   z-index: 1;

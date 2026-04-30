@@ -4,7 +4,6 @@
 
 .hero {
   position: relative;
-  height: 100vh;
   width: 1440px;
   height: 900px;
   overflow: hidden;
@@ -45,37 +44,35 @@
   color: var(--color-text-light);
   letter-spacing: 0.04em;
   margin-bottom: var(--space-md);
-}
-
-.hero__name {
-  font-size: var(--font-size-xl);
-  font-weight: 400;
-  color: var(--color-text-light);
-  margin-bottom: var(--space-sm);
-  opacity: 0.85;
+  margin-left: 15%;
 }
 
 /* "Frontend DEVELOPER" – two-line heading */
 .hero__title {
-  line-height: 0.95;
+  line-height: 1;
   margin-bottom: var(--space-lg);
+  width: 66%;
+  margin-left: 15%;
 }
 
 .hero__title-top {
   display: block;
-  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  font-size: clamp(4rem, 7vw, 8rem);
   font-weight: 700;
   color: var(--color-text-light);
   letter-spacing: -0.02em;
+  text-align: left;
+  transform: translateY(-1rem);
 }
 
 .hero__title-bottom {
   display: block;
-  font-size: clamp(3.5rem, 8vw, 7rem);
+  font-size: clamp(4rem, 7vw, 8rem);
   font-weight: 800;
   color: var(--color-text-light);
   letter-spacing: -0.03em;
   text-transform: uppercase;
+  text-align: right;
 }
 
 /* CTA Button */
@@ -100,18 +97,21 @@
   border-color: rgba(255, 255, 255, 0.9);
 }
 
-/* Polaroid Photo (rechts) */
+/* Polaroid Photo – linke Ecke auf Höhe Unterkante "Frontend" */
 .hero__polaroid {
   display: none;
   position: absolute;
-  right: clamp(2rem, 8vw, 10rem);
-  top: 50%;
-  transform: translateY(-50%) rotate(3deg);
+  right: 22%;
+  top: 23%;
+  transform: rotate(8deg);
   z-index: 1;
 }
 
 .hero__polaroid-frame {
-  width: clamp(160px, 18vw, 240px);
+  width: 203.57px;
+  height: 244px;
+  object-fit: cover;
+  opacity: 1;
 }
 
 @media (min-width: 768px) {

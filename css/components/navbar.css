@@ -34,7 +34,7 @@
 }
 
 .nav__logo:hover .nav__logo-img {
-  filter: brightness(0) saturate(100%) invert(89%) sepia(73%) saturate(700%) hue-rotate(0deg) brightness(105%);
+  filter: brightness(0) saturate(100%) invert(85%) sepia(60%) saturate(740%) hue-rotate(-13deg) brightness(97%);
 }
 
 .nav__logo-img {

@@ -101,13 +101,13 @@
   border-color: rgba(255, 255, 255, 0.9);
 }
 
-/* Polaroid Photo – linke Ecke auf Höhe Unterkante "Frontend" */
+/* Polaroid Photo */
 .hero__polaroid {
-  display: none;
-  position: absolute;
-  right: 30%;
-  top: 23%;
+  display: block;
+  position: relative;
+  margin: var(--space-lg) auto;
   transform: rotate(8deg);
+  width: fit-content;
   z-index: 1;
 }
 
@@ -124,6 +124,9 @@
   }
 
   .hero__polaroid {
-    display: block;
+    position: absolute;
+    right: 30%;
+    top: 23%;
+    margin: 0;
   }
 }

@@ -21,7 +21,7 @@
   align-items: center;
   justify-content: space-between;
   height: 100%;
-  padding: 0 4rem;
+  padding: 0 var(--space-md);
 }
 
 .nav__logo {
@@ -158,6 +158,9 @@
 
 /* From 620px: show links, hide burger */
 @media (min-width: 620px) {
+  .nav {
+    padding: 0 var(--space-md);
+  }
   .nav__links {
     display: flex;
   }
@@ -178,7 +181,7 @@
   }
 
   .nav__links {
-    gap: clamp(1rem, 2.5vw, 2.5rem);
+    gap: clamp(1rem, 7.5vw, 6.5rem);
   }
 
   .nav__link {
@@ -188,9 +191,9 @@
 
 /* Full desktop layout: from 1000px */
 @media (min-width: 1000px) {
-  /* .nav {
+  .nav {
     padding: 0 var(--space-xl);
-  } */
+  }
 
   .nav__links {
     gap: var(--space-2xl);

@@ -21,9 +21,7 @@
   align-items: center;
   justify-content: space-between;
   height: 100%;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 var(--space-xl);
+  padding: 0 4rem;
 }
 
 .nav__logo {
@@ -58,6 +56,25 @@
 
 .nav__link:hover {
   opacity: 0.7;
+}
+
+/* About Me – hand-drawn circle hover */
+.nav__link--about {
+  position: relative;
+}
+
+.nav__link--about::after {
+  content: "";
+  position: absolute;
+  inset: -0.55em -0.7em;
+  background: url("../../assets/img/00_Hand-drawn lines/00_Header/Color option 1/1.png") center / 100% 100% no-repeat;
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 400ms ease;
+  pointer-events: none;
+}
+
+.nav__link--about:hover::after {
+  clip-path: inset(0 0 0% 0);
 }
 
 /* Language Switch */
@@ -171,9 +188,9 @@
 
 /* Full desktop layout: from 1000px */
 @media (min-width: 1000px) {
-  .nav {
+  /* .nav {
     padding: 0 var(--space-xl);
-  }
+  } */
 
   .nav__links {
     gap: var(--space-2xl);

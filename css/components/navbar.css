@@ -139,8 +139,8 @@
   filter: brightness(0) saturate(100%) invert(46%) sepia(94%) saturate(597%) hue-rotate(198deg) brightness(130%);
 }
 
-/* Ab 451px: Links einblenden, Burger ausblenden */
-@media (min-width: 451px) {
+/* From 620px: show links, hide burger */
+@media (min-width: 620px) {
   .nav__links {
     display: flex;
   }
@@ -154,8 +154,8 @@
   }
 }
 
-/* Kompakt-Range: 451px – 999px */
-@media (min-width: 451px) and (max-width: 999px) {
+/* Compact range: 620px – 999px */
+@media (min-width: 620px) and (max-width: 999px) {
   .nav {
     padding: 0 var(--space-lg);
   }
@@ -169,7 +169,7 @@
   }
 }
 
-/* Vollständiges Desktop-Layout: ab 1000px */
+/* Full desktop layout: from 1000px */
 @media (min-width: 1000px) {
   .nav {
     padding: 0 var(--space-xl);

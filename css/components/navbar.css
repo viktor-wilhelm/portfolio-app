@@ -212,7 +212,7 @@
   transform: translate(0, -50%);
   width: 16px;
   height: 16px;
-  background-color: #4a7bf7;
+  background-color: #3355ff;
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.4);
   transition: transform var(--transition-base);

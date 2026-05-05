@@ -38,17 +38,145 @@
 }
 
 /* "Hello world" pill */
-.hero__greeting {
+/* Greeting container */
+.hero__greeting-container {
+  position: relative;
   display: inline-block;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: 999px;
-  padding: 0.3rem 1rem;
-  font-size: var(--font-size-sm);
-  font-weight: 500;
-  color: var(--color-text-light);
-  letter-spacing: 0.04em;
   margin-bottom: var(--space-md);
   margin-left: 1%;
+}
+
+/* Spring keyframes – button width (gentle single overshoot) */
+@keyframes greeting-button-spring {
+  0% {
+    width: 145px;
+  }
+  60% {
+    width: 224px;
+  }
+  80% {
+    width: 215px;
+  }
+  100% {
+    width: 218px;
+  }
+}
+
+/* Hand keyframes – starts upside-down, rotates 112.5deg clockwise to final position */
+@keyframes greeting-hand-spin {
+  0% {
+    transform: translateX(0) rotate(-112.5deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  60% {
+    transform: translateX(79px) rotate(5deg);
+    opacity: 1;
+  }
+  80% {
+    transform: translateX(70px) rotate(-3deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(73px) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+/* Wave hand – fixed at right edge, rotates into view from upside-down */
+.hero__greeting-icon {
+  position: absolute;
+  bottom: 100%;
+  left: 99px;
+  height: 40px;
+  width: 40px;
+  display: block;
+  transform-origin: center center;
+  transform: translateX(0) rotate(-112.5deg);
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero__greeting-container:hover .hero__greeting-icon {
+  animation: greeting-hand-spin 700ms ease forwards;
+}
+
+/* Pill button – grows only in X+ direction with spring */
+.hero__greeting {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: 145px;
+  height: 40px;
+  padding: 12px 24px;
+  border-radius: 100px;
+  border: 1.5px solid #f8f9fa;
+  white-space: nowrap;
+  overflow: hidden;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: border-color 300ms ease;
+}
+
+.hero__greeting-container:hover .hero__greeting {
+  animation: greeting-button-spring 800ms ease forwards;
+  border-color: #f8f9fa;
+}
+
+/* Blue fill – right is already full, unfolds to the left */
+.hero__greeting::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: #3355ff;
+  border-radius: 100px;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 650ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hero__greeting-container:hover .hero__greeting::before {
+  transform: scaleX(1);
+}
+
+/* Text layers – fixed at left edge, never move */
+.hero__greeting-text--default,
+.hero__greeting-text--hover {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 24px;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 1.2;
+  letter-spacing: 0;
+  color: var(--color-text-light);
+}
+
+.hero__greeting-text--default {
+  opacity: 1;
+  transition: opacity 150ms ease;
+}
+
+.hero__greeting-text--hover {
+  opacity: 0;
+  transition: opacity 150ms ease;
+}
+
+.hero__greeting-container:hover .hero__greeting-text--default {
+  opacity: 0;
+}
+
+.hero__greeting-container:hover .hero__greeting-text--hover {
+  opacity: 1;
+  transition: opacity 150ms 150ms ease;
 }
 
 /* "Frontend DEVELOPER" – two-line heading */

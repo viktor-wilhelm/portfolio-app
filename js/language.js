@@ -51,13 +51,6 @@ function setupLangSwitch() {
   document.querySelectorAll(".lang-switch__btn").forEach((btn) => {
     btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
   });
-  const toggle = document.querySelector(".lang-switch__toggle");
-  if (toggle) {
-    toggle.addEventListener("click", () => {
-      const current = localStorage.getItem("lang") ?? "de";
-      setLanguage(current === "de" ? "en" : "de");
-    });
-  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {

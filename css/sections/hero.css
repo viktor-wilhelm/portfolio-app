@@ -42,7 +42,7 @@
 .hero__greeting-container {
   position: relative;
   display: inline-block;
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-lg);
   margin-left: 1%;
 }
 
@@ -189,7 +189,7 @@
 
 .hero__title-top {
   display: block;
-  font-size: clamp(4rem, 7vw, 8rem);
+  font-size: clamp(4rem, 9vw, 8rem);
   font-weight: 700;
   color: var(--color-text-light);
   letter-spacing: -0.02em;
@@ -199,29 +199,38 @@
 
 .hero__title-bottom {
   display: block;
-  font-size: clamp(4rem, 7vw, 8rem);
+  font-size: clamp(4rem, 9vw, 8rem);
   font-weight: 800;
   color: var(--color-text-light);
   letter-spacing: -0.03em;
   text-transform: uppercase;
   text-align: right;
+  margin-left: 10rem;
 }
 
 /* CTA Button */
 .hero__cta {
-  display: inline-block;
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  border-radius: 999px;
-  padding: 0.75rem 2rem;
-  font-size: var(--font-size-sm);
-  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-end;
+  margin-right: 7.5rem;
+  width: 154px;
+  height: 40px;
+  padding: 12px 24px;
+  gap: 10px;
+  border-radius: 100px;
+  border: 1.5px solid #f8f9fa;
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 1.2;
+  letter-spacing: 0;
   color: var(--color-text-light);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  white-space: nowrap;
+  box-sizing: border-box;
   cursor: pointer;
-  transition:
-    background-color var(--transition-base),
-    border-color var(--transition-base);
 }
 
 .hero__cta:hover {
@@ -248,13 +257,14 @@
 
 @media (min-width: 768px) {
   .hero__content {
-    padding-left: var(--space-xl);
+    padding-left: 10rem;
+    top: -40px;
   }
 
   .hero__polaroid {
     position: absolute;
-    right: 30%;
-    top: 23%;
+    right: 16%;
+    top: 15%;
     margin: 0;
   }
 }

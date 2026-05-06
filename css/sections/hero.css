@@ -101,7 +101,7 @@
 }
 
 .hero__greeting-container:hover .hero__greeting-icon {
-  animation: greeting-hand-spin 700ms ease forwards;
+  animation: greeting-hand-spin 900ms ease forwards;
 }
 
 /* Pill button – grows only in X+ direction with spring */
@@ -135,7 +135,7 @@
   border-radius: 100px;
   transform: scaleX(0);
   transform-origin: right;
-  transition: transform 650ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: transform 250ms cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .hero__greeting-container:hover .hero__greeting::before {
@@ -210,32 +210,72 @@
 
 /* CTA Button */
 .hero__cta {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   align-self: flex-end;
   margin-right: 7.5rem;
-  width: 154px;
-  height: 40px;
-  padding: 12px 24px;
-  gap: 10px;
+  width: 156px;
+  height: 44px;
   border-radius: 100px;
-  border: 1.5px solid #f8f9fa;
-  font-family: "Bricolage Grotesque", sans-serif;
-  font-weight: 500;
-  font-style: normal;
-  font-size: 18px;
-  line-height: 1.2;
-  letter-spacing: 0;
-  color: var(--color-text-light);
-  white-space: nowrap;
-  box-sizing: border-box;
   cursor: pointer;
+  text-decoration: none;
+  transform: translate(0, 0);
+  transition: transform 90ms ease-in;
 }
 
 .hero__cta:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.9);
+  transform: translate(4px, 4px);
+}
+
+/* Default PNG – fades out on hover */
+.hero__cta-img {
+  position: absolute;
+  inset: 0;
+  width: 156px;
+  height: 44px;
+  border-radius: 100px;
+  transition: opacity 80ms ease-in;
+}
+
+.hero__cta:hover .hero__cta-img {
+  opacity: 0;
+}
+
+/* Orange fill – snaps in on hover */
+.hero__cta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: #f0644a;
+  border: 1.5px solid #f8f9fa;
+  border-radius: 100px;
+  opacity: 0;
+  transition: opacity 80ms ease-in;
+}
+
+.hero__cta:hover::after {
+  opacity: 1;
+}
+
+/* Text – hidden in default (text baked into PNG), visible on hover for i18n */
+.hero__cta-text {
+  position: relative;
+  z-index: 1;
+  white-space: nowrap;
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.2;
+  color: var(--color-text-light);
+  opacity: 0;
+  transition: opacity 80ms ease-in;
+}
+
+.hero__cta:hover .hero__cta-text {
+  opacity: 1;
 }
 
 /* Polaroid Photo */

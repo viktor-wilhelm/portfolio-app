@@ -206,6 +206,41 @@
   text-transform: uppercase;
   text-align: right;
   margin-left: 10rem;
+  white-space: nowrap;
+}
+
+/* Letter hover effect */
+.hero__title-letter {
+  display: inline-block;
+  transition:
+    color 150ms ease,
+    transform 150ms ease;
+  cursor: default;
+}
+
+.hero__title-letter:hover {
+  color: #f7c518;
+  transform: scale(1.15);
+}
+
+/* Lowercase letter in .hero__title-top → becomes UPPERCASE */
+.hero__title-top .hero__title-letter--lower:hover {
+  text-transform: uppercase;
+}
+
+/* Uppercase letter in .hero__title-top → becomes lowercase */
+.hero__title-top .hero__title-letter--upper:hover {
+  text-transform: lowercase;
+}
+
+/* In .hero__title-bottom (parent is uppercase): cancel on hover → shows original lowercase */
+.hero__title-bottom .hero__title-letter--lower:hover {
+  text-transform: none;
+}
+
+/* Uppercase letter in .hero__title-bottom → becomes lowercase */
+.hero__title-bottom .hero__title-letter--upper:hover {
+  text-transform: lowercase;
 }
 
 /* CTA Button */

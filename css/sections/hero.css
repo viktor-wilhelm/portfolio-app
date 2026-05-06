@@ -212,42 +212,71 @@
 /* Letter hover effect */
 .hero__title-letter {
   display: inline-block;
+  box-sizing: border-box;
   padding-inline: 0.04em;
+  text-align: center;
   transform-origin: bottom center;
-  transition:
-    color 150ms ease,
-    transform 150ms ease;
+  position: relative;
+  transition: transform 350ms ease;
   cursor: default;
 }
 
-.hero__title-letter:hover {
+/* Normal char – fades out on hover */
+.hero__title-letter__normal {
+  display: inline-block;
+  transition: opacity 350ms ease;
+}
+
+/* Hover char – sits on top, fades in on hover */
+.hero__title-letter__hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  opacity: 0;
   color: #f7c518;
-  transform: scale(1.15);
-}
-
-/* Lowercase letter in .hero__title-top → becomes UPPERCASE, no extra scale */
-.hero__title-top .hero__title-letter--lower:hover {
-  text-transform: uppercase;
-  transform: scale(1);
-}
-
-/* Uppercase letter in .hero__title-top → becomes lowercase, no scale to stay on baseline */
-.hero__title-top .hero__title-letter--upper:hover {
-  text-transform: lowercase;
-  transform: scale(1);
-}
-
-/* In .hero__title-bottom (parent is uppercase): cancel on hover → shows original lowercase */
-.hero__title-bottom .hero__title-letter--lower:hover {
   text-transform: none;
+  transition: opacity 350ms ease;
+}
+
+.hero__title-letter:hover .hero__title-letter__normal {
+  opacity: 0;
+}
+
+.hero__title-letter:hover .hero__title-letter__hover {
+  opacity: 1;
+}
+
+/* DEVELOPER: base transform stays at 1 */
+.hero__title-bottom .hero__title-letter {
+  transition:
+    transform 350ms ease,
+    width 350ms ease;
+}
+
+/* Frontend: all letters stay on baseline, no scale change */
+.hero__title-top .hero__title-letter:hover {
   transform: scale(1);
 }
 
-/* Uppercase letter in .hero__title-bottom → becomes lowercase, clearly smaller */
-/* translateY compensates for the baseline-drop caused by scale + transform-origin:bottom */
-.hero__title-bottom .hero__title-letter--upper:hover {
-  text-transform: lowercase;
-  transform: scale(1) ;
+/* Frontend: lowercase letters grow → animate width to push neighbors */
+.hero__title-top .hero__title-letter--lower {
+  transition:
+    transform 350ms ease,
+    width 350ms ease;
+}
+
+/* Frontend: uppercase letters shrink → animate width to pull neighbors */
+.hero__title-top .hero__title-letter--upper {
+  transition:
+    transform 350ms ease,
+    width 350ms ease;
+}
+
+/* DEVELOPER: all letters stay on baseline, crossfade handles the size change */
+.hero__title-bottom .hero__title-letter:hover {
+  transform: scale(1);
 }
 
 /* CTA Button */

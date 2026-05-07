@@ -329,6 +329,7 @@
 
 .hero__cta:hover::after {
   opacity: 1;
+  box-shadow: inset 0 0 0 1px #f8f9fa;
 }
 
 /* Text – hidden in default (text baked into PNG), visible on hover for i18n */

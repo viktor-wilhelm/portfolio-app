@@ -221,10 +221,10 @@
   cursor: default;
 }
 
-/* Normal char – fades out on hover */
+/* Normal char – fades out on hover (60ms delay prevents ghost-hover flicker) */
 .hero__title-letter__normal {
   display: inline-block;
-  transition: opacity 350ms ease;
+  transition: opacity 350ms ease 0ms;
 }
 
 /* Hover char – sits on top, fades in on hover */
@@ -237,15 +237,17 @@
   opacity: 0;
   color: #f7c518;
   text-transform: none;
-  transition: opacity 350ms ease;
+  transition: opacity 350ms ease 0ms;
 }
 
 .hero__title-letter:hover .hero__title-letter__normal {
   opacity: 0;
+  transition: opacity 350ms ease 60ms;
 }
 
 .hero__title-letter:hover .hero__title-letter__hover {
   opacity: 1;
+  transition: opacity 350ms ease 60ms;
 }
 
 /* DEVELOPER: base transform stays at 1 */

@@ -33,6 +33,15 @@ function splitTitleLetters() {
   });
 }
 
+let lastMoveTime = 0;
+document.addEventListener("mousemove", () => {
+  lastMoveTime = Date.now();
+});
+
+function isRealHover() {
+  return Date.now() - lastMoveTime < 100;
+}
+
 function fixLetterWidths() {
   const letters = document.querySelectorAll(".hero__title-letter");
   letters.forEach((span) => {
@@ -51,6 +60,7 @@ function fixLetterWidths() {
       span.style.width = wNormal + "px";
       let enterTimer = null;
       span.addEventListener("mouseenter", () => {
+        if (!isRealHover()) return;
         enterTimer = setTimeout(() => {
           span.style.width = wHover + "px";
         }, 80);
@@ -74,6 +84,7 @@ function fixLetterWidths() {
     span.style.width = wNormal + "px";
     let enterTimer = null;
     span.addEventListener("mouseenter", () => {
+      if (!isRealHover()) return;
       enterTimer = setTimeout(() => {
         span.style.width = wHover + "px";
       }, 80);

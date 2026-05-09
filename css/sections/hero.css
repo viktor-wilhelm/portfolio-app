@@ -409,6 +409,37 @@
   animation: photo-color-spring 700ms ease forwards;
 }
 
+@keyframes caption-spring {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  15% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  35% {
+    transform: translateX(-1.5px);
+    opacity: 1;
+  }
+  55% {
+    transform: translateX(1.25px);
+    opacity: 1;
+  }
+  72% {
+    transform: translateX(-0.75px);
+    opacity: 1;
+  }
+  86% {
+    transform: translateX(0.5px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 .hero__polaroid-caption {
   position: absolute;
   bottom: 6%;
@@ -439,7 +470,7 @@
 }
 
 .hero__polaroid:hover .hero__polaroid-caption--hover {
-  opacity: 1;
+  animation: caption-spring 600ms ease forwards;
 }
 
 @media (min-width: 768px) {

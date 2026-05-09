@@ -409,6 +409,39 @@
   animation: photo-color-spring 700ms ease forwards;
 }
 
+.hero__polaroid-caption {
+  position: absolute;
+  bottom: 6%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-family: "Kalam", cursive;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 120%;
+  color: rgba(0, 0, 0, 1);
+  pointer-events: none;
+  z-index: 2;
+  transition: opacity 300ms ease;
+}
+
+.hero__polaroid-caption--default {
+  opacity: 1;
+}
+
+.hero__polaroid-caption--hover {
+  opacity: 0;
+}
+
+.hero__polaroid:hover .hero__polaroid-caption--default {
+  opacity: 0;
+}
+
+.hero__polaroid:hover .hero__polaroid-caption--hover {
+  opacity: 1;
+}
+
 @media (min-width: 768px) {
   .hero__content {
     padding-left: 10rem;

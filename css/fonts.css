@@ -54,3 +54,11 @@
   font-weight: 800;
   src: url("../assets/fonts/bricolage-grotesque/bricolage-grotesque-v9-latin-800.woff2") format("woff2");
 }
+/* kalam-700 - latin */
+@font-face {
+  font-display: swap;
+  font-family: "Kalam";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../assets/fonts/kalam/kalam-v18-latin-700.woff2") format("woff2");
+}

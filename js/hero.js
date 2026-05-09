@@ -80,7 +80,18 @@ function fixLetterWidths() {
   letters.forEach(initLetter);
 }
 
+function initSocialFlash() {
+  const links = document.querySelectorAll(".hero__social-link");
+  links.forEach((link) => {
+    link.addEventListener("mouseleave", () => {
+      link.classList.add("hero__social-link--leaving");
+      setTimeout(() => link.classList.remove("hero__social-link--leaving"), 100);
+    });
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   splitTitleLetters();
+  initSocialFlash();
   document.fonts.ready.then(fixLetterWidths);
 });

@@ -40,7 +40,7 @@ document.addEventListener("mousemove", () => {
 });
 
 function isRealHover() {
-  return Date.now() - lastMoveTime < 100;
+  return Date.now() - lastMoveTime < 200;
 }
 
 function measureWidths(span) {
@@ -55,18 +55,21 @@ function measureWidths(span) {
   return { wNormal, wHover };
 }
 
-function bindLetterEvents(span, wNormal, wHover) {
-  let enterTimer = null;
-  span.addEventListener("mouseenter", () => {
-    if (!isRealHover()) return;
-    enterTimer = setTimeout(() => {
-      span.style.width = wHover + "px";
-    }, 80);
-  });
-  span.addEventListener("mouseleave", () => {
-    clearTimeout(enterTimer);
+function onLetterEnter(span, wHover, timer) {
+  clearTimeout(timer.id);
+  span.style.width = wHover + "px";
+}
+
+function onLetterLeave(span, wNormal, timer) {
+  timer.id = setTimeout(() => {
     span.style.width = wNormal + "px";
-  });
+  }, 20);
+}
+
+function bindLetterEvents(span, wNormal, wHover) {
+  const timer = { id: null };
+  span.addEventListener("mouseenter", () => onLetterEnter(span, wHover, timer));
+  span.addEventListener("mouseleave", () => onLetterLeave(span, wNormal, timer));
 }
 
 function initLetter(span) {
@@ -90,8 +93,18 @@ function initSocialFlash() {
   });
 }
 
+function initDevRHover() {
+  const bottom = document.querySelector(".hero__title-bottom");
+  if (!bottom) return;
+  const last = bottom.querySelector(".hero__title-letter:last-child");
+  if (!last) return;
+  last.addEventListener("mouseenter", () => bottom.classList.add("hero__title-bottom--r-hover"));
+  last.addEventListener("mouseleave", () => bottom.classList.remove("hero__title-bottom--r-hover"));
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   splitTitleLetters();
   initSocialFlash();
+  initDevRHover();
   document.fonts.ready.then(fixLetterWidths);
 });

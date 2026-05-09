@@ -217,14 +217,14 @@
   text-align: center;
   transform-origin: bottom center;
   position: relative;
-  transition: transform 350ms ease;
+  transition: transform 53ms ease;
   cursor: default;
 }
 
 /* Normal char – fades out on hover (60ms delay prevents ghost-hover flicker) */
 .hero__title-letter__normal {
   display: inline-block;
-  transition: opacity 350ms ease 0ms;
+  transition: opacity 53ms ease 0ms;
 }
 
 /* Hover char – sits on top, fades in on hover */
@@ -237,48 +237,58 @@
   opacity: 0;
   color: #f7c518;
   text-transform: none;
-  transition: opacity 350ms ease 0ms;
+  transition: opacity 53ms ease 0ms;
 }
 
 .hero__title-letter:hover .hero__title-letter__normal {
   opacity: 0;
-  transition: opacity 350ms ease 60ms;
+  transition: opacity 53ms ease 0ms;
 }
 
 .hero__title-letter:hover .hero__title-letter__hover {
   opacity: 1;
-  transition: opacity 350ms ease 60ms;
+  transition: opacity 53ms ease 0ms;
 }
 
-/* DEVELOPER: base transform stays at 1 */
-.hero__title-bottom .hero__title-letter {
-  transition:
-    transform 350ms ease,
-    width 350ms ease;
-}
-
-/* Frontend: all letters stay on baseline, no scale change */
-.hero__title-top .hero__title-letter:hover {
+/* Frontend + Developer: letters stay on baseline */
+.hero__title-top .hero__title-letter:hover,
+.hero__title-bottom .hero__title-letter:hover {
   transform: scale(1);
 }
 
 /* Frontend: lowercase letters grow → animate width to push neighbors */
 .hero__title-top .hero__title-letter--lower {
   transition:
-    transform 350ms ease,
-    width 350ms ease;
+    transform 53ms ease,
+    width 53ms ease;
 }
 
 /* Frontend: uppercase letters shrink → animate width to pull neighbors */
 .hero__title-top .hero__title-letter--upper {
   transition:
-    transform 350ms ease,
-    width 350ms ease;
+    transform 53ms ease,
+    width 53ms ease;
 }
 
-/* DEVELOPER: all letters stay on baseline, crossfade handles the size change */
-.hero__title-bottom .hero__title-letter:hover {
-  transform: scale(1);
+/* Developer: lowercase letters grow → same behavior as Frontend */
+.hero__title-bottom .hero__title-letter--lower {
+  transition:
+    transform 53ms ease,
+    width 53ms ease;
+}
+
+/* Developer: uppercase letters shrink → same behavior as Frontend */
+.hero__title-bottom .hero__title-letter--upper {
+  transition:
+    transform 53ms ease,
+    width 53ms ease;
+}
+
+/* Developer: all letters slide right together when hovering last letter "r" */
+.hero__title-bottom--r-hover .hero__title-letter,
+.hero__title-bottom--r-hover .hero__title-letter:hover {
+  transform: translateX(1.5rem);
+  transition: transform 350ms ease, width 53ms ease;
 }
 
 /* CTA Button */

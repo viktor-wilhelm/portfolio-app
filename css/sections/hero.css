@@ -198,13 +198,14 @@
 }
 
 .hero__title-bottom {
-  display: block;
+  display: flex;
+  justify-content: flex-end;
+  align-items: baseline;
   font-size: clamp(4rem, 9vw, 8rem);
   font-weight: 700;
   color: var(--color-text-light);
   letter-spacing: -0.1em;
   text-transform: uppercase;
-  text-align: right;
   margin-left: 10rem;
   white-space: nowrap;
 }

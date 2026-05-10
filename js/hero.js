@@ -34,15 +34,6 @@ function splitTitleLetters() {
   titleEls.forEach(splitElement);
 }
 
-let lastMoveTime = 0;
-document.addEventListener("mousemove", () => {
-  lastMoveTime = Date.now();
-});
-
-function isRealHover() {
-  return Date.now() - lastMoveTime < 200;
-}
-
 function measureWidths(span) {
   const normal = span.querySelector(".hero__title-letter__normal");
   const hover = span.querySelector(".hero__title-letter__hover");
@@ -55,32 +46,72 @@ function measureWidths(span) {
   return { wNormal, wHover };
 }
 
-function onLetterEnter(span, wHover, timer) {
-  clearTimeout(timer.id);
-  span.style.width = wHover + "px";
-}
-
-function onLetterLeave(span, wNormal, timer) {
-  timer.id = setTimeout(() => {
+function initLetterWidths() {
+  document.querySelectorAll(".hero__title-letter").forEach((span) => {
+    const { wNormal, wHover } = measureWidths(span);
+    span.dataset.wNormal = wNormal;
+    span.dataset.wHover = wHover;
     span.style.width = wNormal + "px";
-  }, 20);
+  });
+  document.querySelectorAll(".hero__title-letter").forEach((span) => {
+    const rect = span.getBoundingClientRect();
+    span.dataset.initCenterX = rect.left + rect.width / 2;
+    span.dataset.initHalfW = rect.width / 2;
+  });
 }
 
-function bindLetterEvents(span, wNormal, wHover) {
-  const timer = { id: null };
-  span.addEventListener("mouseenter", () => onLetterEnter(span, wHover, timer));
-  span.addEventListener("mouseleave", () => onLetterLeave(span, wNormal, timer));
+function activateLetter(span) {
+  span.classList.add("hero__title-letter--active");
+  span.style.width = span.dataset.wHover + "px";
 }
 
-function initLetter(span) {
-  const { wNormal, wHover } = measureWidths(span);
-  span.style.width = wNormal + "px";
-  bindLetterEvents(span, wNormal, wHover);
+function deactivateLetter(span) {
+  span.classList.remove("hero__title-letter--active");
+  span.style.width = span.dataset.wNormal + "px";
 }
 
-function fixLetterWidths() {
-  const letters = document.querySelectorAll(".hero__title-letter");
-  letters.forEach(initLetter);
+const ACTIVATE_ZONE = 1.4;
+
+function clearRowActive(rowEl) {
+  rowEl.querySelectorAll(".hero__title-letter--active").forEach(deactivateLetter);
+}
+
+function onRowMouseMove(rowEl, isBottom, e) {
+  const letters = Array.from(rowEl.querySelectorAll(".hero__title-letter"));
+  const cx = e.clientX;
+  letters.forEach((span) => {
+    const centerX = parseFloat(span.dataset.initCenterX);
+    const halfW = parseFloat(span.dataset.initHalfW);
+    const inZone = Math.abs(cx - centerX) < halfW * ACTIVATE_ZONE;
+    const isActive = span.classList.contains("hero__title-letter--active");
+    if (inZone && !isActive) activateLetter(span);
+    else if (!inZone && isActive) deactivateLetter(span);
+  });
+  if (!isBottom) return;
+  const last = letters[letters.length - 1];
+  rowEl.classList.toggle("hero__title-bottom--r-hover", last.classList.contains("hero__title-letter--active"));
+}
+
+function onRowMouseLeave(rowEl, isBottom) {
+  clearRowActive(rowEl);
+  if (isBottom) rowEl.classList.remove("hero__title-bottom--r-hover");
+}
+
+function initRowHover(rowEl) {
+  const isBottom = rowEl.classList.contains("hero__title-bottom");
+  let rafId = null;
+  rowEl.addEventListener("mousemove", (e) => {
+    if (rafId) return;
+    rafId = requestAnimationFrame(() => {
+      onRowMouseMove(rowEl, isBottom, e);
+      rafId = null;
+    });
+  });
+  rowEl.addEventListener("mouseleave", () => onRowMouseLeave(rowEl, isBottom));
+}
+
+function initTitleHover() {
+  document.querySelectorAll(".hero__title-top, .hero__title-bottom").forEach(initRowHover);
 }
 
 function initSocialFlash() {
@@ -93,18 +124,9 @@ function initSocialFlash() {
   });
 }
 
-function initDevRHover() {
-  const bottom = document.querySelector(".hero__title-bottom");
-  if (!bottom) return;
-  const last = bottom.querySelector(".hero__title-letter:last-child");
-  if (!last) return;
-  last.addEventListener("mouseenter", () => bottom.classList.add("hero__title-bottom--r-hover"));
-  last.addEventListener("mouseleave", () => bottom.classList.remove("hero__title-bottom--r-hover"));
-}
-
 document.addEventListener("DOMContentLoaded", () => {
   splitTitleLetters();
   initSocialFlash();
-  initDevRHover();
-  document.fonts.ready.then(fixLetterWidths);
+  initTitleHover();
+  document.fonts.ready.then(initLetterWidths);
 });

@@ -243,19 +243,19 @@
   transition: opacity 120ms ease;
 }
 
-.hero__title-letter:hover .hero__title-letter__normal {
+.hero__title-letter--active .hero__title-letter__normal {
   opacity: 0;
   transition: opacity 53ms ease 0ms;
 }
 
-.hero__title-letter:hover .hero__title-letter__hover {
+.hero__title-letter--active .hero__title-letter__hover {
   opacity: 1;
   transition: opacity 120ms ease;
 }
 
 /* Frontend + Developer: letters stay on baseline */
-.hero__title-top .hero__title-letter:hover,
-.hero__title-bottom .hero__title-letter:hover {
+.hero__title-top .hero__title-letter--active,
+.hero__title-bottom .hero__title-letter--active {
   transform: scale(1);
 }
 
@@ -281,7 +281,7 @@
 
 /* Developer: all letters slide right together when hovering last letter "r" */
 .hero__title-bottom--r-hover .hero__title-letter,
-.hero__title-bottom--r-hover .hero__title-letter:hover {
+.hero__title-bottom--r-hover .hero__title-letter--active {
   transform: translateX(1.5rem);
   transition: transform 350ms ease;
 }

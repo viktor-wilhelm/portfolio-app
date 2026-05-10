@@ -217,13 +217,15 @@
   text-align: center;
   transform-origin: bottom center;
   position: relative;
+  will-change: transform;
   transition: transform 200ms ease;
   cursor: default;
 }
 
-/* Normal char – fades out on hover (60ms delay prevents ghost-hover flicker) */
+/* Normal char – fades out on hover */
 .hero__title-letter__normal {
   display: inline-block;
+  pointer-events: none;
   transition: opacity 53ms ease 0ms;
 }
 
@@ -237,7 +239,8 @@
   opacity: 0;
   color: #f7c518;
   text-transform: none;
-  transition: none;
+  pointer-events: none;
+  transition: opacity 120ms ease;
 }
 
 .hero__title-letter:hover .hero__title-letter__normal {
@@ -247,7 +250,7 @@
 
 .hero__title-letter:hover .hero__title-letter__hover {
   opacity: 1;
-  transition: none;
+  transition: opacity 120ms ease;
 }
 
 /* Frontend + Developer: letters stay on baseline */
@@ -256,39 +259,31 @@
   transform: scale(1);
 }
 
-/* Frontend: lowercase letters grow → animate width to push neighbors */
+/* Frontend: lowercase letters grow */
 .hero__title-top .hero__title-letter--lower {
-  transition:
-    transform 200ms ease,
-    width 200ms ease;
+  transition: transform 200ms ease;
 }
 
-/* Frontend: uppercase letters shrink → animate width to pull neighbors */
+/* Frontend: uppercase letters shrink */
 .hero__title-top .hero__title-letter--upper {
-  transition:
-    transform 200ms ease,
-    width 200ms ease;
+  transition: transform 200ms ease;
 }
 
-/* Developer: lowercase letters grow → same behavior as Frontend */
+/* Developer: lowercase letters grow */
 .hero__title-bottom .hero__title-letter--lower {
-  transition:
-    transform 200ms ease,
-    width 200ms ease;
+  transition: transform 200ms ease;
 }
 
-/* Developer: uppercase letters shrink → same behavior as Frontend */
+/* Developer: uppercase letters shrink */
 .hero__title-bottom .hero__title-letter--upper {
-  transition:
-    transform 200ms ease,
-    width 200ms ease;
+  transition: transform 200ms ease;
 }
 
 /* Developer: all letters slide right together when hovering last letter "r" */
 .hero__title-bottom--r-hover .hero__title-letter,
 .hero__title-bottom--r-hover .hero__title-letter:hover {
   transform: translateX(1.5rem);
-  transition: transform 350ms ease, width 53ms ease;
+  transition: transform 350ms ease;
 }
 
 /* CTA Button */

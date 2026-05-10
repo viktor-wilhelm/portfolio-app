@@ -217,7 +217,7 @@
   text-align: center;
   transform-origin: bottom center;
   position: relative;
-  transition: transform 53ms ease;
+  transition: transform 200ms ease;
   cursor: default;
 }
 
@@ -237,7 +237,7 @@
   opacity: 0;
   color: #f7c518;
   text-transform: none;
-  transition: opacity 53ms ease 0ms;
+  transition: none;
 }
 
 .hero__title-letter:hover .hero__title-letter__normal {
@@ -247,7 +247,7 @@
 
 .hero__title-letter:hover .hero__title-letter__hover {
   opacity: 1;
-  transition: opacity 53ms ease 0ms;
+  transition: none;
 }
 
 /* Frontend + Developer: letters stay on baseline */
@@ -259,29 +259,29 @@
 /* Frontend: lowercase letters grow → animate width to push neighbors */
 .hero__title-top .hero__title-letter--lower {
   transition:
-    transform 53ms ease,
-    width 53ms ease;
+    transform 200ms ease,
+    width 200ms ease;
 }
 
 /* Frontend: uppercase letters shrink → animate width to pull neighbors */
 .hero__title-top .hero__title-letter--upper {
   transition:
-    transform 53ms ease,
-    width 53ms ease;
+    transform 200ms ease,
+    width 200ms ease;
 }
 
 /* Developer: lowercase letters grow → same behavior as Frontend */
 .hero__title-bottom .hero__title-letter--lower {
   transition:
-    transform 53ms ease,
-    width 53ms ease;
+    transform 200ms ease,
+    width 200ms ease;
 }
 
 /* Developer: uppercase letters shrink → same behavior as Frontend */
 .hero__title-bottom .hero__title-letter--upper {
   transition:
-    transform 53ms ease,
-    width 53ms ease;
+    transform 200ms ease,
+    width 200ms ease;
 }
 
 /* Developer: all letters slide right together when hovering last letter "r" */

@@ -195,6 +195,7 @@
   letter-spacing: -0.1em;
   text-align: left;
   transform: translateY(-1rem);
+  white-space: nowrap;
 }
 
 .hero__title-bottom {

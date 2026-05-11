@@ -295,7 +295,9 @@
   justify-content: center;
   align-self: flex-end;
   margin-right: 7.5rem;
-  width: 156px;
+  min-width: 156px;
+  width: auto;
+  padding: 0 1rem;
   height: 44px;
   border-radius: 100px;
   cursor: pointer;
@@ -313,8 +315,8 @@
 .hero__cta-img {
   position: absolute;
   inset: 0;
-  width: 156px;
-  height: 44px;
+  width: 100%;
+  height: 100%;
   border-radius: 100px;
   transition: opacity 80ms ease-in;
 }
@@ -355,6 +357,26 @@
 }
 
 .hero__cta:hover .hero__cta-text {
+  opacity: 1;
+}
+
+/* German: hide baked-in PNG text, always show translated span */
+[lang="de"] .hero__cta-img {
+  opacity: 0;
+  pointer-events: none;
+}
+
+[lang="de"] .hero__cta {
+  box-shadow:
+    inset 0 0 0 1px #f8f9fa,
+    3px 3.5px 0 0 #f8f9fa;
+}
+
+[lang="de"] .hero__cta:hover {
+  box-shadow: inset 0 0 0 1px #f8f9fa;
+}
+
+[lang="de"] .hero__cta-text {
   opacity: 1;
 }
 

@@ -6,7 +6,7 @@
   position: relative;
   width: 100%;
   max-width: 1440px;
-  height: 900px;
+  height: 100svh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -28,13 +28,14 @@
   position: relative;
   z-index: 1;
   padding: 0 var(--space-lg);
+  padding-top: 6rem;
   max-width: var(--max-width);
   width: 100%;
   margin: 0 auto;
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 /* "Hello world" pill */
@@ -44,6 +45,7 @@
   display: inline-block;
   margin-bottom: var(--space-lg);
   margin-left: 1%;
+  width: 15%;
 }
 
 /* Spring keyframes – button width (gentle single overshoot) */
@@ -183,7 +185,7 @@
 .hero__title {
   line-height: 1;
   margin-bottom: var(--space-lg);
-  width: 75%;
+  width: 100%;
   margin-left: 1%;
 }
 
@@ -199,14 +201,14 @@
 
 .hero__title-bottom {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: baseline;
   font-size: clamp(4rem, 9vw, 8rem);
   font-weight: 700;
   color: var(--color-text-light);
   letter-spacing: -0.1em;
   text-transform: uppercase;
-  margin-left: 10rem;
+  margin-left: 0;
   white-space: nowrap;
 }
 
@@ -560,10 +562,46 @@
   animation: caption-spring 600ms ease forwards;
 }
 
+@media (max-width: 767px) {
+  .hero__title-top,
+  .hero__title-bottom {
+    font-size: clamp(2.2rem, 11vw, 4rem);
+  }
+
+  .hero__polaroid {
+    order: 1;
+  }
+
+  .hero__cta {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 684px) {
+  .hero__social {
+    display: none;
+  }
+}
+
 @media (min-width: 768px) {
+  .hero {
+    height: 900px;
+  }
+
   .hero__content {
+    padding-top: 0;
     padding-left: 10rem;
+    justify-content: center;
     top: -40px;
+  }
+
+  .hero__title {
+    width: 75%;
+  }
+
+  .hero__title-bottom {
+    justify-content: flex-end;
+    margin-left: 10rem;
   }
 
   .hero__polaroid {

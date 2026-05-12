@@ -606,7 +606,7 @@
 
   .hero__polaroid {
     position: absolute;
-    right: 16%;
+    right: clamp(1.25rem, calc(43vw - 286px), 16%);
     top: 15%;
     margin: 0;
   }

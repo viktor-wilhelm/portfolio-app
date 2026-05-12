@@ -114,6 +114,41 @@ function initTitleHover() {
   document.querySelectorAll(".hero__title-top, .hero__title-bottom").forEach(initRowHover);
 }
 
+function recalcLetterWidths() {
+  document.querySelectorAll(".hero__title-letter").forEach((span) => {
+    span.style.width = "";
+  });
+  void document.querySelector(".hero__title")?.offsetWidth;
+  document.querySelectorAll(".hero__title-letter").forEach((span) => {
+    const { wNormal, wHover } = measureWidths(span);
+    span.dataset.wNormal = wNormal;
+    span.dataset.wHover = wHover;
+    span.style.width = wNormal + "px";
+  });
+  document.querySelectorAll(".hero__title-letter").forEach((span) => {
+    const rect = span.getBoundingClientRect();
+    span.dataset.initCenterX = rect.left + rect.width / 2;
+    span.dataset.initHalfW = rect.width / 2;
+  });
+}
+
+function setupResizeRecalc() {
+  const titleEl = document.querySelector(".hero__title");
+  if (!titleEl) return;
+  let rafId = null;
+  new ResizeObserver(() => {
+    if (rafId) return;
+    rafId = requestAnimationFrame(() => {
+      document.querySelectorAll(".hero__title-top, .hero__title-bottom").forEach((row) => {
+        clearRowActive(row);
+        row.classList.remove("hero__title-bottom--r-hover");
+      });
+      recalcLetterWidths();
+      rafId = null;
+    });
+  }).observe(titleEl);
+}
+
 function initSocialFlash() {
   const links = document.querySelectorAll(".hero__social-link");
   links.forEach((link) => {
@@ -128,5 +163,8 @@ document.addEventListener("DOMContentLoaded", () => {
   splitTitleLetters();
   initSocialFlash();
   initTitleHover();
-  document.fonts.ready.then(initLetterWidths);
+  document.fonts.ready.then(() => {
+    initLetterWidths();
+    setupResizeRecalc();
+  });
 });

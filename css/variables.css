@@ -23,13 +23,13 @@
 
   /* Typography */
   --font-base: "Bricolage Grotesque", sans-serif;
-  --font-size-base: 1rem;
-  --font-size-sm: 0.875rem;
-  --font-size-lg: 1.25rem;
-  --font-size-xl: 1.5rem;
-  --font-size-2xl: 2rem;
-  --font-size-3xl: 3rem;
-  --font-size-hero: clamp(3.5rem, 8vw, 7rem);
+  --font-size-base: 1rem; /* 16px */
+  --font-size-sm: 0.875rem; /* 14px */
+  --font-size-lg: 1.25rem; /* 20px */
+  --font-size-xl: 1.5rem; /* 24px */
+  --font-size-2xl: 2rem; /* 32px */
+  --font-size-3xl: 3rem; /* 48px */
+  --font-size-hero: clamp(3.5rem, 8vw, 7rem); /* 56px - 112px */
   --line-height-base: 1.6;
 
   /* Spacing */

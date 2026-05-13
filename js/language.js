@@ -37,11 +37,10 @@ function updateLangButtons(lang) {
   document.querySelectorAll(".lang-switch__btn").forEach((btn) => {
     btn.classList.toggle("lang-switch__btn--active", btn.dataset.lang === lang);
   });
-  const switcher = document.querySelector(".lang-switch");
-  if (switcher) {
+  document.querySelectorAll(".lang-switch").forEach((switcher) => {
     switcher.classList.toggle("lang-switch--de", lang === "de");
     switcher.classList.toggle("lang-switch--en", lang === "en");
-  }
+  });
 }
 
 /**

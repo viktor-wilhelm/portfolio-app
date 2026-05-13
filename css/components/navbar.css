@@ -221,7 +221,7 @@
   height: 16px;
   background-color: #3355ff;
   border-radius: 50%;
-   border: 1.5px solid #f8f9fa;
+  border: 1.5px solid #f8f9fa;
   transition: transform var(--transition-base);
   pointer-events: none;
 }
@@ -256,6 +256,7 @@
   }
   .nav__links {
     display: flex;
+    gap: 3.5vw;
   }
 
   .lang-switch {
@@ -274,7 +275,7 @@
   }
 
   .nav__links {
-    gap: clamp(1rem, 7.5vw, 6.5rem);
+    gap: 6.5vw;
   }
 
   .nav__link {
@@ -289,7 +290,7 @@
   }
 
   .nav__links {
-    gap: clamp(0.5rem, 13vw, calc(var(--space-2xl) + 4rem));
+    gap: min(13vw, calc(var(--space-2xl) + 4rem));
   }
 
   .nav__link {

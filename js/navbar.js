@@ -8,9 +8,11 @@ function openOverlay() {
 
 function closeOverlay() {
   const overlay = document.getElementById("nav-overlay");
+  const burger = document.querySelector(".nav__burger");
+  burger.focus();
   overlay.classList.remove("nav__overlay--open");
   overlay.setAttribute("aria-hidden", "true");
-  document.querySelector(".nav__burger").setAttribute("aria-expanded", "false");
+  burger.setAttribute("aria-expanded", "false");
   document.body.style.overflow = "";
 }
 

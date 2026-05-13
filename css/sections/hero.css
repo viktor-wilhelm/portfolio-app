@@ -562,6 +562,12 @@
   animation: caption-spring 600ms ease forwards;
 }
 
+@media (min-width: 620px) {
+  .hero__social {
+    display: flex;
+  }
+}
+
 @media (max-width: 767px) {
   .hero__title-top,
   .hero__title-bottom {
@@ -606,7 +612,6 @@
   }
 
   .hero__social {
-    display: flex;
     left: max(var(--space-lg), calc((100% - var(--max-width)) / 2 - 48px));
   }
 }

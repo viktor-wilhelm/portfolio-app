@@ -385,7 +385,7 @@
 /* Social Media Links */
 .hero__social {
   position: absolute;
-  left: -48px;
+  left: var(--space-lg);
   bottom: 4.8rem;
   display: flex;
   flex-direction: column;
@@ -575,11 +575,14 @@
   .hero__cta {
     margin-right: 0;
   }
-}
 
-@media (max-width: 684px) {
   .hero__social {
-    display: none;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 2rem;
   }
 }
 
@@ -609,5 +612,9 @@
     right: clamp(1.25rem, calc(43vw - 286px), 16%);
     top: 15%;
     margin: 0;
+  }
+
+  .hero__social {
+    left: max(var(--space-lg), calc((100% - var(--max-width)) / 2 - 48px));
   }
 }

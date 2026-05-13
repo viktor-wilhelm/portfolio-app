@@ -391,6 +391,7 @@
   flex-direction: column;
   gap: 0.5rem;
   z-index: 2;
+  bottom: 7rem;
 }
 
 .hero__social-link {

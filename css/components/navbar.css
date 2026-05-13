@@ -399,6 +399,10 @@
   margin-bottom: 6.2rem;
 }
 
+.nav__overlay-social a {
+  cursor: pointer;
+}
+
 @media (min-width: 620px) {
   .nav__overlay {
     display: none;

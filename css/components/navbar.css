@@ -316,6 +316,11 @@
   background-image: url("../../assets/img/01_Background/Design Size Relation@3x/01_Hero.png");
   background-size: cover;
   background-position: center;
+  visibility: hidden;
+  opacity: 0;
+  transition:
+    opacity 250ms ease,
+    visibility 250ms ease;
 }
 
 .nav__overlay--open {
@@ -331,10 +336,21 @@
   flex-shrink: 0;
 }
 
+.nav__overlay-logo-link {
+  cursor: default;
+  display: flex;
+  align-items: center;
+}
+
+.nav__overlay-logo-link:hover .nav__overlay-logo-img {
+  filter: brightness(0) saturate(100%) invert(85%) sepia(60%) saturate(740%) hue-rotate(-13deg) brightness(97%);
+}
+
 .nav__overlay-logo-img {
   height: 60px;
   width: auto;
   object-fit: contain;
+  transition: filter 400ms ease;
 }
 
 .nav__overlay-close {

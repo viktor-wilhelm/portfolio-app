@@ -24,7 +24,7 @@
 .about__stickers {
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
+  gap: 0;
   width: 100%;
   max-width: 340px;
 }
@@ -33,9 +33,10 @@
   position: relative;
   display: flex;
   align-items: center;
+ 
 }
 
-.about__sticker img {
+.about__sticker > img {
   width: 100%;
   height: auto;
   object-fit: contain;
@@ -52,21 +53,44 @@
   color: rgba(248, 249, 250, 1);
   white-space: nowrap;
   pointer-events: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.about__sticker-icon {
+  width: 24px;
+  height: 36px;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 .about__sticker--yellow {
-  transform: rotate(-1.5deg);
+  width: 560px;
+  height: 152px;
+  transform: rotate(-4deg);
+  margin-bottom: -47px;
+  z-index: 3;
 }
 
 .about__sticker--blue {
-  transform: rotate(1deg);
+  width: 560px;
+  height: 152px;
 }
 
 .about__sticker--orange {
-  transform: rotate(-0.8deg);
+  width: 560px;
+  height: 152px;
+  transform: rotate(4deg);
 }
 
 /* === Text Column === */
+.about__text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 .about__label {
   font-family: "Bricolage Grotesque", sans-serif;
   font-size: 20px;
@@ -131,13 +155,15 @@
 .about__cta {
   position: relative;
   display: inline-flex;
+  align-self: flex-end;
   align-items: center;
   justify-content: center;
   isolation: isolate;
-  min-width: 156px;
-  padding: 0 1.5rem;
-  height: 44px;
-  border: 1.5px solid rgba(14, 16, 19, 1);
+  min-width: 132px;
+  padding: 12px 24px;
+  height: 40px;
+  gap: 10px;
+  border: 1px solid rgba(14, 16, 19, 1);
   border-radius: 100px;
   cursor: pointer;
   text-decoration: none;

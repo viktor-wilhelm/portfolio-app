@@ -16,7 +16,7 @@
   gap: var(--space-xl);
   align-items: center;
   max-width: var(--max-width);
-  margin: 0 auto;
+  margin: 0 0;
   padding: 0 var(--space-lg);
 }
 
@@ -33,7 +33,6 @@
   position: relative;
   display: flex;
   align-items: center;
- 
 }
 
 .about__sticker > img {
@@ -48,8 +47,11 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  font-size: var(--font-size-lg);
-  font-weight: 700;
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0;
   color: rgba(248, 249, 250, 1);
   white-space: nowrap;
   pointer-events: none;
@@ -59,8 +61,8 @@
 }
 
 .about__sticker-icon {
-  width: 24px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   object-fit: contain;
   flex-shrink: 0;
 }
@@ -73,9 +75,15 @@
   z-index: 3;
 }
 
+.about__sticker--yellow .about__sticker-text {
+  top: 40%;
+}
+
 .about__sticker--blue {
   width: 560px;
   height: 152px;
+  margin-bottom: -47px;
+  z-index: 2;
 }
 
 .about__sticker--orange {
@@ -89,6 +97,8 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  margin-left: 13rem;
+  margin-bottom: 3rem
 }
 
 .about__label {
@@ -99,7 +109,7 @@
   letter-spacing: 0;
   text-transform: uppercase;
   color: rgba(14, 16, 19, 1);
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-md);
 }
 
 .about__heading {

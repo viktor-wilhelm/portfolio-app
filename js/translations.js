@@ -45,7 +45,7 @@ const translations = {
     heroCta: "Get in touch",
     aboutHeading: "About me",
     aboutBio1:
-      "Hey, I'm Viktor — a Frontend Developer with a background in CAD/CAM engineering and a passion for building modern, responsive web experiences.",
+      "Hey there, I'm Viktor — a Frontend Developer with a background in CAD/CAM engineering and a passion for building modern, responsive web experiences.",
     aboutBio2:
       "I enjoy turning ideas into clean and interactive interfaces while continuously improving my skills in JavaScript, TypeScript and Angular.",
     aboutBio3:

@@ -4,7 +4,10 @@
 
 .about {
   background-color: var(--color-light);
-  padding: var(--space-2xl) 0;
+  max-width: 1440px;
+  height: 720px;
+  display: flex;
+  align-items: center;
 }
 
 .about__container {
@@ -74,17 +77,46 @@
 }
 
 .about__heading {
-  font-size: var(--font-size-3xl);
+  font-size: 64px;
   font-weight: 800;
   color: var(--color-text);
   letter-spacing: -0.02em;
+  margin-bottom: var(--space-sm);
+  width: 303px;
+  height: 64px;
+}
+
+@keyframes about-underline-sweep {
+  0% {
+    clip-path: inset(0 100% 0 0);
+  }
+  10% {
+    clip-path: inset(0 0% 0 0);
+  }
+  70% {
+    clip-path: inset(0 0% 0 0);
+  }
+  80% {
+    clip-path: inset(0 100% 0 0);
+  }
+  100% {
+    clip-path: inset(0 100% 0 0);
+  }
+}
+
+.about__heading-underline {
+  display: block;
+  width: clamp(160px, 60%, 280px);
+  height: auto;
   margin-bottom: var(--space-md);
+  object-fit: contain;
+  animation: about-underline-sweep 5s ease-in-out infinite;
 }
 
 .about__bio {
   font-size: var(--font-size-base);
   line-height: var(--line-height-base);
-  color: var(--color-text-muted);
+  color: rgba(14, 16, 19, 1);
   max-width: 52ch;
   margin-bottom: var(--space-lg);
 }
@@ -116,6 +148,7 @@
     flex-direction: row;
     align-items: center;
     gap: var(--space-2xl);
+    padding: 0 var(--space-xl);
   }
 
   .about__stickers {

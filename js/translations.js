@@ -12,14 +12,12 @@ const translations = {
     heroCta: "Kontakt aufnehmen",
     aboutHeading: "Über mich",
     aboutBio1:
-      "Ich bin Viktor — ein Frontend-Entwickler mit einem Hintergrund im CAD/CAM-Engineering und über 20 Jahren Erfahrung in technischen Systemen und Prozessoptimierung.",
+      "Ich bin Viktor — ein Frontend-Entwickler mit einem Hintergrund im CAD/CAM-Engineering und einer Leidenschaft für moderne, responsive Web-Erlebnisse.",
     aboutBio2:
-      "Mein Weg in die Webentwicklung begann mit einer starken Leidenschaft für saubere Struktur, Problemlösung und moderne Nutzererlebnisse. Heute entwickle ich responsive Webanwendungen mit HTML, CSS und JavaScript und erweitere kontinuierlich meine Kenntnisse in TypeScript und Angular.",
+      "Ich verwandle gerne Ideen in saubere und interaktive Interfaces und verbessere dabei kontinuierlich meine Kenntnisse in JavaScript, TypeScript und Angular.",
     aboutBio3:
-      "Was mich am meisten antreibt, ist der Prozess, Ideen in interaktive und intuitive digitale Erlebnisse zu verwandeln. Ich analysiere gerne komplexe Probleme, verfeinere Details und finde elegante Lösungen — ob im Code, bei UI-Interaktionen oder im responsiven Design.",
-    aboutBio4:
-      "Mein Hintergrund in einer hochgradig technischen Branche lehrte mich strukturiertes Denken, Präzision und Ausdauer — Qualitäten, die ich täglich in die Frontend-Entwicklung einbringe.",
-    aboutBio5: "Lass uns gemeinsam etwas Bemerkenswertes bauen.",
+      "Problemlösung, strukturiertes Denken und Detailgenauigkeit sind Qualitäten, die ich aus über 20 Jahren technischer Erfahrung in die Frontend-Entwicklung einbringe.",
+    aboutBio4: "Lass uns gemeinsam etwas Bemerkenswertes bauen.",
     projectsHeading: "Projekte",
     contactHeading: "Kontakt",
     formName: "Name",
@@ -47,14 +45,12 @@ const translations = {
     heroCta: "Get in touch",
     aboutHeading: "About me",
     aboutBio1:
-      "Hey, I'm Viktor — a Frontend Developer with a background in CAD/CAM engineering and over 20 years of experience in technical systems and process optimization.",
+      "Hey, I'm Viktor — a Frontend Developer with a background in CAD/CAM engineering and a passion for building modern, responsive web experiences.",
     aboutBio2:
-      "My journey into web development started with a strong passion for clean structure, problem-solving and modern user experiences. Today, I build responsive web applications with HTML, CSS and JavaScript while continuously expanding my skills in TypeScript and Angular.",
+      "I enjoy turning ideas into clean and interactive interfaces while continuously improving my skills in JavaScript, TypeScript and Angular.",
     aboutBio3:
-      "What drives me most is the process of turning ideas into interactive and intuitive digital experiences. I enjoy analyzing complex problems, refining details and finding elegant solutions — whether in code, UI interactions or responsive design.",
-    aboutBio4:
-      "Coming from a highly technical industry taught me structured thinking, precision and persistence — qualities I now bring into frontend development every day.",
-    aboutBio5: "Let's build something remarkable together.",
+      "Problem-solving, structured thinking and attention to detail are qualities I bring from over 20 years of technical experience into frontend development today.",
+    aboutBio4: "Let’s collaborate and build something remarkable together!",
     projectsHeading: "Projects",
     contactHeading: "Contact",
     formName: "Name",

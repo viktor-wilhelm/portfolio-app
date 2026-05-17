@@ -98,7 +98,7 @@
   flex-direction: column;
   align-items: flex-start;
   margin-left: 13rem;
-  margin-bottom: 3rem
+  margin-bottom: 3rem;
 }
 
 .about__label {
@@ -119,7 +119,7 @@
   color: var(--color-text);
   letter-spacing: -0.02em;
   margin-bottom: var(--space-sm);
-  width: 303px;
+  white-space: nowrap;
 }
 
 @keyframes about-underline-sweep {
@@ -219,8 +219,8 @@
   .about__container {
     flex-direction: row;
     align-items: center;
-    gap: var(--space-2xl);
-    padding: 0 var(--space-xl);
+    gap: 5.9rem;
+    padding: 0 7.5rem;
   }
 
   .about__stickers {

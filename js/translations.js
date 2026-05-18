@@ -12,7 +12,7 @@ const translations = {
     heroCta: "Kontakt aufnehmen",
     aboutLabel: "WER IST VIKTOR?",
     aboutHeading: "Über mich",
-    stickerLocation: "Standort München",
+    stickerLocation: "Standort Ibbenbüren",
     stickerRelocation: "Umzug möglich",
     stickerRemote: "Remote möglich",
     aboutBio1:
@@ -50,7 +50,7 @@ const translations = {
     heroCta: "Get in touch",
     aboutLabel: "WHO'S VIKTOR?",
     aboutHeading: "About me",
-    stickerLocation: "Based in Munich",
+    stickerLocation: "Based in Ibbenbüren",
     stickerRelocation: "Open to relocate",
     stickerRemote: "Open to work remote",
     aboutBio1:

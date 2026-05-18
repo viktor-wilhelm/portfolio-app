@@ -47,7 +47,7 @@ const translations = {
     navContact: "Contact",
     heroGreeting: "Hello world",
     heroTitle: "Frontend Web Developer",
-    heroCta: "Get in touch",
+    heroCta: "Get in Touch",
     aboutLabel: "WHO'S VIKTOR?",
     aboutHeading: "About me",
     stickerLocation: "Based in Ibbenbüren",

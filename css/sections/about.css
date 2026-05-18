@@ -72,7 +72,7 @@
 
 .about__sticker--yellow {
   transform: rotate(-4deg);
-  margin-bottom: 12px;
+  margin-bottom: -1.6rem;
   z-index: 3;
 }
 
@@ -81,12 +81,12 @@
 }
 
 .about__sticker--blue {
-  margin-top: -15px;
+  margin-top: -0.9rem;
   z-index: 2;
 }
 
 .about__sticker--orange {
-  margin-top: -15px;
+  margin-top: -2.5rem;
   transform: rotate(4deg);
 }
 
@@ -258,6 +258,11 @@
   .about__sticker--yellow,
   .about__sticker--blue {
     margin-bottom: -47px;
+  }
+
+  .about__sticker--blue,
+  .about__sticker--orange {
+    margin-top: 0;
   }
 
   .about__sticker-text {

@@ -94,6 +94,18 @@
   transform: rotate(4deg);
 }
 
+@media (max-width: 360px) {
+  .about__sticker-text {
+    font-size: 17px;
+    gap: 6px;
+  }
+
+  .about__sticker-icon {
+    width: 34px;
+    height: 50px;
+  }
+}
+
 /* === Text Column === */
 .about__text {
   order: 1;
@@ -220,15 +232,14 @@
 /* Desktop: side by side */
 @media (min-width: 768px) {
   .about {
-    height: 720px;
-    padding: 0;
+    padding: clamp(3rem, 5vw, 5rem) 0;
     align-items: center;
   }
 
   .about__container {
     flex-direction: row;
     align-items: center;
-    gap: 4.7rem;
+    gap: clamp(1.5rem, 4vw, 4.7rem);
     padding: 0 var(--space-md);
     margin: 0 auto;
   }
@@ -239,7 +250,8 @@
     min-width: 0;
   }
 
-  .about__sticker > img {
+  .about__sticker > img,
+  .about__sticker--blue > img {
     height: auto;
     object-fit: contain;
   }
@@ -247,7 +259,7 @@
   .about__stickers {
     order: 0;
     flex-shrink: 0;
-    width: 560px;
+    width: clamp(260px, 44vw, 560px);
     max-width: none;
     margin: 0 0 0 -14px;
   }
@@ -255,13 +267,13 @@
   .about__sticker--yellow,
   .about__sticker--blue,
   .about__sticker--orange {
-    width: 560px;
-    height: 152px;
+    width: 100%;
+    aspect-ratio: 1680 / 456;
   }
 
   .about__sticker--yellow,
   .about__sticker--blue {
-    margin-bottom: -47px;
+    margin-bottom: clamp(-47px, -3vw, -15px);
   }
 
   .about__sticker--blue,
@@ -270,12 +282,12 @@
   }
 
   .about__sticker-text {
-    font-size: 24px;
+    font-size: clamp(18px, 2vw, 24px);
   }
 
   .about__sticker-icon {
-    width: 40px;
-    height: 40px;
+    width: clamp(28px, 3vw, 40px);
+    height: clamp(28px, 3vw, 40px);
   }
 
   .about__label {

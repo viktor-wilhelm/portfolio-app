@@ -16,11 +16,10 @@ const translations = {
     stickerRelocation: "Umzug möglich",
     stickerRemote: "Remote möglich",
     aboutBio1:
-      "Hey, ich bin Viktor — ein Frontend-Entwickler mit einem Hintergrund im CAD/CAM-Engineering und einer Leidenschaft für moderne, responsive Web-Erlebnisse.",
-    aboutBio2:
-      "Ich verwandle gerne Ideen in saubere und interaktive Interfaces und setze dabei moderne Technologien wie JavaScript, TypeScript und Angular gezielt ein.",
+      "Hey, ich bin Viktor — Frontend-Entwickler mit einem Hintergrund im CAD/CAM-Engineering und einer Leidenschaft für moderne, responsive Web-Erlebnisse.",
+    aboutBio2: "Ich entwickle gerne saubere und interaktive Interfaces mit JavaScript, TypeScript und Angular.",
     aboutBio3:
-      "Problemlösung, strukturiertes Denken und Detailgenauigkeit sind Qualitäten, die ich aus über 20 Jahren technischer Erfahrung in die Frontend-Entwicklung einbringe.",
+      "Strukturiertes Denken, Problemlösung und über 20 Jahre technische Erfahrung prägen heute meinen Weg in der Frontend-Entwicklung.",
     aboutBio4: "Lass uns zusammenarbeiten und gemeinsam etwas Bemerkenswertes erschaffen!",
     aboutCta: "Lass uns reden",
     projectsHeading: "Projekte",
@@ -55,10 +54,9 @@ const translations = {
     stickerRemote: "Open to work remote",
     aboutBio1:
       "Hey there, I'm Viktor — a Frontend Developer with a background in CAD/CAM engineering and a passion for modern, responsive web experiences.",
-    aboutBio2:
-      "I enjoy turning ideas into clean and interactive interfaces while using modern technologies like JavaScript, TypeScript and Angular in a purposeful way.",
+    aboutBio2: "I enjoy creating clean and interactive interfaces using JavaScript, TypeScript and Angular.",
     aboutBio3:
-      "Problem-solving, structured thinking and attention to detail are qualities I bring from over 20 years of technical experience into frontend development.",
+      "Structured thinking, problem-solving and over 20 years of technical experience shape my journey in frontend development today.",
     aboutBio4: "Let’s collaborate and build something remarkable together!",
     aboutCta: "Let's talk",
     projectsHeading: "Projects",

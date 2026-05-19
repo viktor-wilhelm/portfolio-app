@@ -634,3 +634,13 @@
     left: max(var(--space-lg), calc((100% - var(--max-width)) / 2 - 48px));
   }
 }
+
+@media (max-height: 650px) {
+  .hero__content {
+    top: -120px;
+  }
+
+  .hero__social {
+    bottom: 20rem;
+  }
+}

@@ -15,11 +15,8 @@ const translations = {
     stickerLocation: "Standort Ibbenbüren",
     stickerRelocation: "Umzug möglich",
     stickerRemote: "Remote möglich",
-    aboutBio1:
-      "Hey, ich bin Viktor — Frontend-Entwickler mit einem Hintergrund im CAD/CAM-Engineering und einer Leidenschaft für moderne, responsive Web-Erlebnisse.",
-    aboutBio2: "Ich entwickle gerne saubere und interaktive Interfaces mit JavaScript, TypeScript und Angular.",
-    aboutBio3:
-      "Strukturiertes Denken, Problemlösung und über 20 Jahre technische Erfahrung prägen heute meinen Weg in der Frontend-Entwicklung.",
+    aboutBio:
+      "Hey, ich bin Viktor — Frontend-Entwickler mit einem Hintergrund im CAD/CAM-Engineering und einer Leidenschaft für moderne, responsive Web-Erlebnisse. Ich entwickle gerne saubere und interaktive Interfaces mit JavaScript, TypeScript und Angular. Strukturiertes Denken, Problemlösung und über 20 Jahre technische Erfahrung prägen heute meinen Weg in der Frontend-Entwicklung.",
     aboutBio4: "Lass uns zusammenarbeiten und gemeinsam etwas Bemerkenswertes erschaffen!",
     aboutCta: "Lass uns reden",
     projectsHeading: "Projekte",
@@ -52,11 +49,8 @@ const translations = {
     stickerLocation: "Based in Ibbenbüren",
     stickerRelocation: "Open to relocate",
     stickerRemote: "Open to work remote",
-    aboutBio1:
-      "Hey there, I'm Viktor — a Frontend Developer with a background in CAD/CAM engineering and a passion for modern, responsive web experiences.",
-    aboutBio2: "I enjoy creating clean and interactive interfaces using JavaScript, TypeScript and Angular.",
-    aboutBio3:
-      "Structured thinking, problem-solving and over 20 years of technical experience shape my journey in frontend development today.",
+    aboutBio:
+      "Hey there, I'm Viktor — a Frontend Developer with a background in CAD/CAM engineering and a passion for modern, responsive web experiences. I enjoy creating clean and interactive interfaces using JavaScript, TypeScript and Angular. Structured thinking, problem-solving and over 20 years of technical experience shape my journey in frontend development today.",
     aboutBio4: "Let’s collaborate and build something remarkable together!",
     aboutCta: "Let's talk",
     projectsHeading: "Projects",

@@ -181,6 +181,10 @@
   margin-top: var(--space-md);
 }
 
+:lang(en) .about__bio--closing {
+  white-space: nowrap;
+}
+
 .about__cta {
   position: relative;
   display: inline-flex;
@@ -267,7 +271,7 @@
     align-self: flex-start;
     width: clamp(260px, 44vw, 560px);
     max-width: none;
-    margin: 7rem 0 0 -14px;
+    margin: 4rem 0 0 -14px;
   }
 
   .about__sticker--yellow,

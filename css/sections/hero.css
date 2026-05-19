@@ -584,6 +584,24 @@
   }
 }
 
+@media (max-width: 540px) {
+  .hero__content {
+    padding-top: 3.5rem;
+  }
+
+  .hero__greeting-container {
+    margin-bottom: var(--space-md);
+  }
+
+  .hero__title {
+    margin-bottom: var(--space-md);
+  }
+
+  .hero__polaroid {
+    margin: var(--space-sm) auto 0;
+  }
+}
+
 @media (min-width: 768px) {
   .hero {
     height: 900px;

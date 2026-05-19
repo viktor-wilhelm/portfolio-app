@@ -586,19 +586,19 @@
 
 @media (max-width: 540px) {
   .hero__content {
-    padding-top: 3.5rem;
+    padding-top: clamp(0rem, 2svh, 2rem);
   }
 
   .hero__greeting-container {
-    margin-bottom: var(--space-md);
+    margin-bottom: clamp(0.5rem, 2svh, 1.5rem);
   }
 
   .hero__title {
-    margin-bottom: var(--space-md);
+    margin-bottom: clamp(0.5rem, 2svh, 1.5rem);
   }
 
   .hero__polaroid {
-    margin: var(--space-sm) auto 0;
+    margin: clamp(1.5rem, 5svh, 3.5rem) auto 0;
   }
 }
 

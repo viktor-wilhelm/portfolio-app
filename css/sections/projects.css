@@ -3,6 +3,7 @@
    ============================================================ */
 
 .projects {
+  max-width: 1440px;
   background-color: var(--color-light);
   padding: var(--space-2xl) 0;
 }

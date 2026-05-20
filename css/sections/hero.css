@@ -308,6 +308,8 @@
   transform: translate(0, 0);
   transition: transform 90ms ease-in;
   box-shadow: inset 0 0 0 1px #f8f9fa;
+  -webkit-user-drag: none;
+  user-drag: none;
 }
 
 .hero__cta:hover {
@@ -322,6 +324,8 @@
   height: 100%;
   border-radius: 100px;
   transition: opacity 80ms ease-in;
+  -webkit-user-drag: none;
+  user-drag: none;
 }
 
 .hero__cta:hover .hero__cta-img {

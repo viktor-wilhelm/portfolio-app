@@ -27,6 +27,7 @@
 .nav__logo {
   display: flex;
   align-items: center;
+  -webkit-user-drag: none;
 }
 
 .nav__logo:hover .nav__logo-img {
@@ -39,6 +40,7 @@
   object-fit: contain;
   transition: filter 400ms ease;
   cursor: default;
+  -webkit-user-drag: none;
 }
 
 .nav__links {
@@ -55,6 +57,7 @@
   letter-spacing: 0;
   color: var(--color-text-light);
   transition: opacity var(--transition-base);
+  -webkit-user-drag: none;
 }
 
 .nav__link:hover {

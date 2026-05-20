@@ -46,7 +46,6 @@
   object-fit: fill;
   display: block;
   -webkit-user-drag: none;
-  user-drag: none;
 }
 
 .about__sticker-text {

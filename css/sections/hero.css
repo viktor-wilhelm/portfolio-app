@@ -309,7 +309,6 @@
   transition: transform 90ms ease-in;
   box-shadow: inset 0 0 0 1px #f8f9fa;
   -webkit-user-drag: none;
-  user-drag: none;
 }
 
 .hero__cta:hover {
@@ -325,7 +324,6 @@
   border-radius: 100px;
   transition: opacity 80ms ease-in;
   -webkit-user-drag: none;
-  user-drag: none;
 }
 
 .hero__cta:hover .hero__cta-img {
@@ -407,12 +405,14 @@
   overflow: hidden;
   position: relative;
   cursor: pointer;
+  -webkit-user-drag: none;
 }
 
 .hero__social-icon {
   width: 40px;
   height: 40px;
   display: block;
+  -webkit-user-drag: none;
 }
 
 .hero__social-link::after {
@@ -455,6 +455,7 @@
   transform: rotate(8deg);
   width: fit-content;
   z-index: 1;
+  -webkit-user-drag: none;
 }
 
 .hero__polaroid-frame {
@@ -466,6 +467,7 @@
   position: relative;
   z-index: 1;
   pointer-events: none;
+  -webkit-user-drag: none;
 }
 
 .hero__polaroid-photo {
@@ -477,6 +479,7 @@
   object-fit: cover;
   filter: grayscale(100%);
   transition: filter 500ms ease;
+  -webkit-user-drag: none;
 }
 
 @keyframes photo-color-spring {

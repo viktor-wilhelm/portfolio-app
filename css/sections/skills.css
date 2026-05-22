@@ -32,10 +32,13 @@
 }
 
 .skills__label {
-  font-size: var(--font-size-sm);
-  font-weight: 600;
-  letter-spacing: 0.1em;
+  font-family: var(--font-base);
+  font-size: 1.25rem; /* 20px */
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0;
   text-transform: uppercase;
+  text-align: right;
   color: var(--color-text-muted);
   margin-bottom: var(--space-sm);
 }
@@ -48,10 +51,12 @@
 }
 
 .skills__heading {
-  font-size: var(--font-size-3xl);
-  font-weight: 800;
+  font-family: var(--font-base);
+  font-size: 4rem; /* 64px */
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0;
   color: var(--color-text-light);
-  letter-spacing: -0.02em;
 }
 
 .skills__description {

@@ -7,7 +7,7 @@
   width: 100%;
   max-width: 1440px;
   height: 800px;
-  padding: 144px 120px;
+  padding: 140px 120px;
   overflow: hidden;
   background-color: var(--color-light);
 }
@@ -31,6 +31,22 @@
   z-index: 2;
 }
 
+.skills__header {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: var(--space-xl);
+  margin-bottom: var(--space-xl);
+}
+
+.skills__title-group {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  margin-left: auto;
+  margin-top: 2rem;
+}
+
 .skills__label {
   font-family: var(--font-base);
   font-size: 1.25rem; /* 20px */
@@ -39,15 +55,9 @@
   letter-spacing: 0;
   text-transform: uppercase;
   text-align: right;
-  color: var(--color-text-muted);
-  margin-bottom: var(--space-sm);
-}
-
-.skills__header {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
-  margin-bottom: var(--space-xl);
+  width: 100%;
+  color: var(--color-text-light);
+  margin-bottom: 1rem;
 }
 
 .skills__heading {
@@ -57,6 +67,57 @@
   line-height: 1;
   letter-spacing: 0;
   color: var(--color-text-light);
+  position: relative;
+  z-index: 1;
+}
+
+.skills__heading-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.skills__decoration-positioner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 105%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  user-select: none;
+}
+
+.skills__decoration-scaler {
+  transform-origin: 93% 28%;
+  animation: skills-oval 4s linear infinite;
+}
+
+.skills__heading-decoration {
+  display: block;
+  width: 100%;
+  height: auto;
+  transform: scaleX(-1);
+}
+
+@keyframes skills-oval {
+  0% {
+    transform: scale(0.02);
+    animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  5% {
+    transform: scale(1);
+    animation-timing-function: linear;
+  }
+  75% {
+    transform: scale(1);
+    animation-timing-function: ease-in;
+  }
+  80% {
+    transform: scale(0.02);
+    animation-timing-function: linear;
+  }
+  100% {
+    transform: scale(0.02);
+  }
 }
 
 .skills__description {

@@ -9,7 +9,7 @@
   height: 800px;
   padding: 140px 120px;
   background-color: var(--color-light);
-}
+ }
 
 .skills__background {
   position: absolute;
@@ -19,7 +19,8 @@
   right: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: fill;
+  transform: scaleX(1.011);
   object-position: bottom center;
   pointer-events: none;
   user-select: none;
@@ -128,7 +129,7 @@
   max-width: 100%;
   flex-shrink: 0;
   margin-top: 3rem;
-  margin-right: auto
+  margin-right: auto;
 }
 
 .skills__description-bg {

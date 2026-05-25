@@ -9,6 +9,7 @@
   height: 800px;
   padding: 140px 120px;
   background-color: var(--color-light);
+  user-select: none;
 }
 
 .skills__background {
@@ -223,7 +224,7 @@
 
 .skill:hover .skill__icon {
   filter: grayscale(0);
-  transform: scale(0.8);
+  transform: scale(0.7778);
 }
 
 .skill__name {

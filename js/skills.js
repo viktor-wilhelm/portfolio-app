@@ -4,7 +4,7 @@ const STICKER_STATES = [
   "assets/img/skills-set/Property 1=Hover.png",
 ];
 
-const FRAME_DELAY = 40;
+const FRAME_DELAY = 60;
 
 function playSequence(img, frames, onDone) {
   let i = 0;

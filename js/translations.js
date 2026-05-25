@@ -19,6 +19,8 @@ const translations = {
       "Hey, ich bin Viktor — Frontend-Entwickler mit einem Hintergrund im CAD/CAM-Engineering und einer Leidenschaft für moderne, responsive Web-Erlebnisse. Ich entwickle gerne saubere und interaktive Interfaces mit JavaScript, TypeScript und Angular. Strukturiertes Denken, Problemlösung und über 20 Jahre technische Erfahrung prägen heute meinen Weg in der Frontend-Entwicklung.",
     aboutBio4: "Lass uns zusammenarbeiten und gemeinsam etwas Bemerkenswertes erschaffen!",
     aboutCta: "Lass uns reden",
+    skillsDescription:
+      "Ich arbeite gerne mit modernen Frontend-Technologien und entwickle responsive sowie interaktive Benutzeroberflächen. Neugierig und lernbereit erweitere ich kontinuierlich meine Kenntnisse und passe mich neuen Tools und Technologien an.",
     projectsHeading: "Projekte",
     contactHeading: "Kontakt",
     formName: "Name",
@@ -53,6 +55,8 @@ const translations = {
       "Hey there, I'm Viktor — a Frontend Developer with a background in CAD/CAM engineering and a passion for modern, responsive web experiences. I enjoy creating clean and interactive interfaces using JavaScript, TypeScript and Angular. Structured thinking, problem-solving and over 20 years of technical experience shape my journey in frontend development today.",
     aboutBio4: "Let’s collaborate and build something remarkable together!",
     aboutCta: "Let's talk",
+    skillsDescription:
+      "I enjoy working with modern front-end technologies and creating responsive, interactive user experiences. Always curious and motivated to learn, I continuously expand my skills and adapt to new tools and technologies.",
     projectsHeading: "Projects",
     contactHeading: "Contact",
     formName: "Name",

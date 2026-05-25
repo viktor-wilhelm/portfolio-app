@@ -159,13 +159,47 @@
   color: #1a1a1a;
 }
 
+/* Skill Grid Row */
+.skills__grid-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 17.5rem;
+}
+
 /* Skill Grid */
 .skills__grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   width: 640px;
-  margin-left: 17.5rem;
   gap: 40px;
+  padding-top: 8px;
+}
+
+/* Sticker */
+.skills__sticker {
+  width: 200px;
+  height: 200px;
+  flex-shrink: 0;
+  cursor: pointer;
+  transform: rotate(8deg);
+  transition: transform 200ms ease;
+  user-select: none;
+  margin-right: 12px;
+}
+
+.skills__sticker:focus-visible {
+  outline: 2px solid var(--color-accent, #ff6b35);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.skills__sticker-img {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  display: block;
+  pointer-events: none;
 }
 
 .skill {

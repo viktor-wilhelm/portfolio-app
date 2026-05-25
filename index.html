@@ -253,52 +253,68 @@
               </p>
             </div>
           </div>
-          <ul class="skills__grid">
-            <li class="skill">
-              <img src="assets/img/skills-set/Property 1=HTML.png" alt="HTML" class="skill__icon" />
-              <span class="skill__name">HTML</span>
-            </li>
-            <li class="skill">
-              <img src="assets/img/skills-set/Property 1=CSS.png" alt="CSS" class="skill__icon" />
-              <span class="skill__name">CSS</span>
-            </li>
-            <li class="skill">
-              <img src="assets/img/skills-set/Property 1=Js.png" alt="JavaScript" class="skill__icon" />
-              <span class="skill__name">JavaScript</span>
-            </li>
-            <li class="skill">
-              <img src="assets/img/skills-set/Property 1=Ts.png" alt="TypeScript" class="skill__icon" />
-              <span class="skill__name">TypeScript</span>
-            </li>
-            <li class="skill">
-              <img src="assets/img/skills-set/Property 1=Angular.png" alt="Angular" class="skill__icon" />
-              <span class="skill__name">Angular</span>
-            </li>
-            <li class="skill">
-              <img src="assets/img/skills-set/Property 1=Supabase.png" alt="Supabase" class="skill__icon" />
-              <span class="skill__name">Supabase</span>
-            </li>
-            <li class="skill">
-              <img src="assets/img/skills-set/Property 1=Git.png" alt="Git" class="skill__icon" />
-              <span class="skill__name">Git</span>
-            </li>
-            <li class="skill">
-              <img src="assets/img/skills-set/Property 1=Rest-Api.png" alt="REST API" class="skill__icon" />
-              <span class="skill__name">REST API</span>
-            </li>
-            <li class="skill">
-              <img src="assets/img/skills-set/Property 1=Scrum.png" alt="Scrum" class="skill__icon" />
-              <span class="skill__name">Scrum</span>
-            </li>
-            <li class="skill">
+          <div class="skills__grid-row">
+            <ul class="skills__grid">
+              <li class="skill">
+                <img src="assets/img/skills-set/Property 1=HTML.png" alt="HTML" class="skill__icon" />
+                <span class="skill__name">HTML</span>
+              </li>
+              <li class="skill">
+                <img src="assets/img/skills-set/Property 1=CSS.png" alt="CSS" class="skill__icon" />
+                <span class="skill__name">CSS</span>
+              </li>
+              <li class="skill">
+                <img src="assets/img/skills-set/Property 1=Js.png" alt="JavaScript" class="skill__icon" />
+                <span class="skill__name">JavaScript</span>
+              </li>
+              <li class="skill">
+                <img src="assets/img/skills-set/Property 1=Ts.png" alt="TypeScript" class="skill__icon" />
+                <span class="skill__name">TypeScript</span>
+              </li>
+              <li class="skill">
+                <img src="assets/img/skills-set/Property 1=Angular.png" alt="Angular" class="skill__icon" />
+                <span class="skill__name">Angular</span>
+              </li>
+              <li class="skill">
+                <img src="assets/img/skills-set/Property 1=Supabase.png" alt="Supabase" class="skill__icon" />
+                <span class="skill__name">Supabase</span>
+              </li>
+              <li class="skill">
+                <img src="assets/img/skills-set/Property 1=Git.png" alt="Git" class="skill__icon" />
+                <span class="skill__name">Git</span>
+              </li>
+              <li class="skill">
+                <img src="assets/img/skills-set/Property 1=Rest-Api.png" alt="REST API" class="skill__icon" />
+                <span class="skill__name">REST API</span>
+              </li>
+              <li class="skill">
+                <img src="assets/img/skills-set/Property 1=Scrum.png" alt="Scrum" class="skill__icon" />
+                <span class="skill__name">Scrum</span>
+              </li>
+              <li class="skill">
+                <img
+                  src="assets/img/skills-set/Property 1=Material Design.png"
+                  alt="Material Design"
+                  class="skill__icon"
+                />
+                <span class="skill__name">Material Design</span>
+              </li>
+            </ul>
+            <div
+              class="skills__sticker"
+              id="skillsSticker"
+              role="button"
+              tabindex="0"
+              aria-label="Reveal additional skills"
+            >
               <img
-                src="assets/img/skills-set/Property 1=Material Design.png"
-                alt="Material Design"
-                class="skill__icon"
+                id="skillsStickerImg"
+                src="assets/img/skills-set/Property 1=Default.png"
+                alt="Pull to peel – click to reveal more skills"
+                class="skills__sticker-img"
               />
-              <span class="skill__name">Material Design</span>
-            </li>
-          </ul>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -445,6 +461,7 @@
     <script src="js/contact-form.js"></script>
     <script src="js/hero.js"></script>
     <script src="js/navbar.js"></script>
+    <script src="js/skills.js"></script>
     <script>
       document.getElementById("current-year").textContent = new Date().getFullYear();
     </script>

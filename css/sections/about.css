@@ -184,10 +184,6 @@
   margin-top: var(--space-md);
 }
 
-:lang(en) .about__bio--closing {
-  white-space: nowrap;
-}
-
 .about__cta {
   position: relative;
   display: inline-flex;
@@ -216,6 +212,7 @@
     transform 90ms ease-in,
     color 80ms ease-in,
     box-shadow 80ms ease-in;
+  margin-top: 1rem;
 }
 
 .about__cta::after {

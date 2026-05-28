@@ -6,7 +6,7 @@
   position: relative;
   width: 100%;
   max-width: 1440px;
-  height: 800px;
+  height: 818px;
   padding: 140px 120px;
   background-color: var(--color-light);
   user-select: none;
@@ -60,6 +60,7 @@
   width: 100%;
   color: var(--color-text-light);
   margin-bottom: 1rem;
+  transform: translate(8.2px, 1px);
 }
 
 .skills__heading {
@@ -129,7 +130,7 @@
   height: 124px;
   max-width: 100%;
   flex-shrink: 0;
-  margin-top: 3rem;
+  margin-top: 2.8rem;
   margin-right: auto;
 }
 
@@ -152,12 +153,14 @@
   flex-direction: column;
   justify-content: center;
   padding: 20px 32px;
-  font-family: var(--font-base);
-  font-size: 1.125rem; /* 18px */
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: 18px;
   font-weight: 400;
-  line-height: 1;
+  font-style: normal;
+  line-height: 1.12;
   letter-spacing: 0;
   color: #1a1a1a;
+  transform: translateX(1rem);
 }
 
 /* Skill Grid Row */
@@ -174,7 +177,11 @@
   grid-template-columns: repeat(5, 1fr);
   width: 640px;
   gap: 40px;
-  padding-top: 8px;
+  margin-top: -8px;
+}
+
+.skills__grid .skill:nth-child(n + 6) {
+  margin-top: -1rem;
 }
 
 /* Sticker */
@@ -187,6 +194,7 @@
   transition: transform 200ms ease;
   user-select: none;
   margin-right: 12px;
+  margin-top: -1rem;
 }
 
 .skills__sticker:focus-visible {

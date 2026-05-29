@@ -378,6 +378,10 @@
   }
 
   @media (max-width: 860px) {
+    .skills {
+      padding: 170px 85px;
+    }
+
     .skills__description-wrapper {
       padding: 4rem 1.5rem;
       margin-top: -6.5rem;

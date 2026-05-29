@@ -164,7 +164,11 @@ document.addEventListener("DOMContentLoaded", () => {
   initSocialFlash();
   initTitleHover();
   document.fonts.ready.then(() => {
-    initLetterWidths();
-    setupResizeRecalc();
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        initLetterWidths();
+        setupResizeRecalc();
+      });
+    });
   });
 });

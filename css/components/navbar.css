@@ -28,19 +28,37 @@
   display: flex;
   align-items: center;
   -webkit-user-drag: none;
+  position: relative;
 }
 
-.nav__logo:hover .nav__logo-img {
-  filter: brightness(0) saturate(100%) invert(85%) sepia(60%) saturate(740%) hue-rotate(-13deg) brightness(97%);
+/* Orange overlay image – fades in on hover */
+.nav__logo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("../../assets/img/04_Hero/vw-logo.png") center / contain no-repeat;
+  filter: brightness(0) saturate(100%) invert(85%) sepia(60%) saturate(740%) hue-rotate(347deg) brightness(97%);
+  opacity: 0;
+  transition: opacity 400ms ease;
+  pointer-events: none;
+}
+
+.nav__logo:hover::after {
+  opacity: 1;
 }
 
 .nav__logo-img {
   height: 60px;
   width: auto;
   object-fit: contain;
-  transition: filter 400ms ease;
+  filter: brightness(0) saturate(100%) invert(27%) sepia(82%) saturate(1800%) hue-rotate(218deg) brightness(107%);
+  transition: opacity 400ms ease;
   cursor: default;
   -webkit-user-drag: none;
+}
+
+.nav__logo:hover .nav__logo-img {
+  opacity: 0;
 }
 
 .nav__links {

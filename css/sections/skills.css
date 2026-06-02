@@ -8,7 +8,7 @@
   position: relative;
   width: 100%;
   height: auto;
-  min-height: 1160px;
+  min-height: 1330px;
   padding: 56px 16px;
   margin: 0 auto;
   background-color: var(--color-light);
@@ -43,22 +43,23 @@
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  gap: 5rem;
+  gap: 2rem;
   margin-bottom: 1.5rem;
 }
 
 .skills__title-group {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: flex-end;
   width: 100%;
-  margin-top: 0;
+  margin-top: 2.5rem;
 }
 
 .skills__label {
   font-family: var(--font-base);
-  font-size: 0.875rem;
+  font-size: 1.125rem;
   font-weight: 500;
+  font-style: normal;
   line-height: 1;
   letter-spacing: 0;
   text-transform: uppercase;
@@ -132,16 +133,16 @@
 .skills__description-wrapper {
   position: relative;
   width: 100%;
-  min-height: 130px;
+  min-height: auto;
   max-width: 100%;
   flex-shrink: 0;
   margin-top: 0;
   margin-right: auto;
-  padding: 14px 18px;
+  padding: 4rem 1.5rem 3rem;
   background-image: url("../../assets/img/02_Ripped Paper/1B.Mobile.png");
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  transform: translate(12px, 4px);
+  /* transform: translate(12px, 4px); */
 }
 
 .skills__description-bg {
@@ -158,7 +159,7 @@
 
 .skills__description {
   font-family: "Bricolage Grotesque", sans-serif;
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: 400;
   font-style: normal;
   line-height: 1.2;
@@ -172,7 +173,7 @@
   align-items: stretch;
   gap: 0.75rem;
   margin-left: 0;
-  margin-top: clamp(252px, 34vh, 382px);
+  margin-top: 1.5rem;
 }
 
 .skills__grid {
@@ -192,12 +193,12 @@
   height: 200px;
   flex-shrink: 0;
   cursor: pointer;
-  transform: rotate(-8deg);
+  transform: rotate(8deg);
   transition: transform 200ms ease;
   user-select: none;
   align-self: flex-end;
-
-  margin-top: 0;
+  margin-top: -4.5rem;
+  margin-right: 0.4rem;
 }
 
 .skills__sticker:focus-visible {
@@ -220,28 +221,29 @@
   align-items: center;
   width: auto;
   height: auto;
-  gap: 2px;
+  gap: 0.6rem;
 }
 
 .skill__icon {
   width: 56px;
   height: 56px;
   object-fit: contain;
-  filter: grayscale(1);
+  filter: grayscale(0);
   transition:
     filter 300ms ease,
     transform 80ms ease;
 }
 
 .skill:hover .skill__icon {
-  filter: grayscale(0);
+  filter: grayscale(1);
   transform: scale(0.7778);
 }
 
 .skill__name {
   font-family: "Bricolage Grotesque", sans-serif;
-  font-size: clamp(0.9rem, 3.8vw, 1.1rem);
+  font-size: 1.125rem;
   font-weight: 400;
+  font-style: normal;
   line-height: 1.2;
   letter-spacing: 0;
   color: var(--color-text-light);
@@ -366,6 +368,11 @@
   .skill__icon {
     width: clamp(44px, calc(12px + 4.167vw), 72px);
     height: clamp(44px, calc(12px + 4.167vw), 72px);
+    filter: grayscale(1);
+  }
+
+  .skill:hover .skill__icon {
+    filter: grayscale(0);
   }
 
   .skill__name {

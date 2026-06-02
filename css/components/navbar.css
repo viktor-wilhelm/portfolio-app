@@ -67,7 +67,7 @@
 }
 
 .nav__link {
-  font-family: "Bricolage Grotesque", sans-serif;
+  font-family: var(--font-base);
   font-size: 18px;
   font-weight: 700;
   font-style: normal;
@@ -181,7 +181,7 @@
 }
 
 .lang-switch__btn {
-  font-family: "Bricolage Grotesque", sans-serif;
+  font-family: var(--font-base);
   font-size: var(--font-size-base);
   font-weight: 600;
   font-style: normal;
@@ -227,7 +227,7 @@
   height: 8px;
   background-color: #e8593d;
   border-radius: 999px;
-  border: 1.5px solid #f8f9fa;
+  border: 1.5px solid var(--color-off-white);
   cursor: default;
   flex-shrink: 0;
 }
@@ -240,9 +240,9 @@
   transform: translate(0, -50%);
   width: 16px;
   height: 16px;
-  background-color: #3355ff;
+  background-color: var(--color-blue);
   border-radius: 50%;
-  border: 1.5px solid #f8f9fa;
+  border: 1.5px solid var(--color-off-white);
   transition: transform var(--transition-base);
   pointer-events: none;
 }

@@ -1,0 +1,36 @@
+/* ============================================================
+   Shared CTA Pill Button — Base
+   Used by: .hero__cta, .about__cta
+   ============================================================ */
+
+.hero__cta,
+.about__cta {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.hero__cta:hover,
+.about__cta:hover {
+  transform: translate(4px, 4px);
+}
+
+.hero__cta::after,
+.about__cta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--color-cta-hover);
+  border-radius: 100px;
+  opacity: 0;
+  transition: opacity 80ms ease-in;
+}
+
+.hero__cta:hover::after,
+.about__cta:hover::after {
+  opacity: 1;
+}

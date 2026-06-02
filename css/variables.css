@@ -13,6 +13,9 @@
   --color-text-muted: #888888;
   --color-error: #e53e3e;
   --color-success: #38a169;
+  --color-off-white: #f8f9fa;
+  --color-blue: #3355ff;
+  --color-cta-hover: #f0644a;
 
   /* Typography */
   --font-base: "Bricolage Grotesque", sans-serif;
@@ -35,6 +38,7 @@
 
   /* Layout */
   --max-width: 1200px;
+  --max-width-section: 1440px;
   --border-radius: 8px;
   --nav-height: 82px;
 

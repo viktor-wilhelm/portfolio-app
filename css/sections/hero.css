@@ -5,7 +5,7 @@
 .hero {
   position: relative;
   width: 100%;
-  max-width: 1440px;
+  max-width: var(--max-width-section);
   height: 100svh;
   overflow: hidden;
   display: flex;
@@ -116,7 +116,7 @@
   height: 40px;
   padding: 12px 24px;
   border-radius: 100px;
-  border: 1.5px solid #f8f9fa;
+  border: 1.5px solid var(--color-off-white);
   white-space: nowrap;
   overflow: hidden;
   box-sizing: border-box;
@@ -126,7 +126,7 @@
 
 .hero__greeting-container:hover .hero__greeting {
   animation: greeting-button-spring 800ms ease forwards;
-  border-color: #f8f9fa;
+  border-color: var(--color-off-white);
 }
 
 /* Blue fill – right is already full, unfolds to the left */
@@ -134,7 +134,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background-color: #3355ff;
+  background-color: var(--color-blue);
   border-radius: 100px;
   transform: scaleX(0);
   transform-origin: right;
@@ -154,7 +154,7 @@
   left: 24px;
   transform: translateY(-50%);
   white-space: nowrap;
-  font-family: "Bricolage Grotesque", sans-serif;
+  font-family: var(--font-base);
   font-weight: 500;
   font-style: normal;
   font-size: 18px;
@@ -309,27 +309,16 @@
 
 /* CTA Button */
 .hero__cta {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   align-self: flex-end;
   margin-right: 7.5rem;
   min-width: 156px;
   width: auto;
   padding: 0 1rem;
   height: 44px;
-  border-radius: 100px;
-  cursor: pointer;
-  text-decoration: none;
   transform: translate(0, 0);
   transition: transform 90ms ease-in;
-  box-shadow: inset 0 0 0 1px #f8f9fa;
+  box-shadow: inset 0 0 0 1px var(--color-off-white);
   -webkit-user-drag: none;
-}
-
-.hero__cta:hover {
-  transform: translate(4px, 4px);
 }
 
 /* Default PNG – fades out on hover */
@@ -349,19 +338,11 @@
 
 /* Orange fill – snaps in on hover */
 .hero__cta::after {
-  content: "";
-  position: absolute;
-  inset: 0;
   z-index: 0;
-  background: #f0644a;
-  border-radius: 100px;
-  opacity: 0;
-  transition: opacity 80ms ease-in;
 }
 
 .hero__cta:hover::after {
-  opacity: 1;
-  box-shadow: inset 0 0 0 1px #f8f9fa;
+  box-shadow: inset 0 0 0 1px var(--color-off-white);
 }
 
 /* Text – hidden in default (text baked into PNG), visible on hover for i18n */
@@ -369,7 +350,7 @@
   position: relative;
   z-index: 1;
   white-space: nowrap;
-  font-family: "Bricolage Grotesque", sans-serif;
+  font-family: var(--font-base);
   font-weight: 500;
   font-size: 18px;
   line-height: 1.2;
@@ -390,12 +371,12 @@
 
 [lang="de"] .hero__cta {
   box-shadow:
-    inset 0 0 0 1px #f8f9fa,
-    3px 3.5px 0 0 #f8f9fa;
+    inset 0 0 0 1px var(--color-off-white),
+    3px 3.5px 0 0 var(--color-off-white);
 }
 
 [lang="de"] .hero__cta:hover {
-  box-shadow: inset 0 0 0 1px #f8f9fa;
+  box-shadow: inset 0 0 0 1px var(--color-off-white);
 }
 
 [lang="de"] .hero__cta-text {
@@ -435,7 +416,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background-color: #3355ff;
+  background-color: var(--color-blue);
   border-radius: 50%;
   transform: scaleY(0);
   transform-origin: top center;

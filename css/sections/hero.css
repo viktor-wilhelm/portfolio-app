@@ -157,7 +157,7 @@
   font-family: var(--font-base);
   font-weight: 500;
   font-style: normal;
-  font-size: 18px;
+  font-size: 1.125rem;
   line-height: 1.2;
   letter-spacing: 0;
   color: var(--color-text-light);
@@ -352,7 +352,7 @@
   white-space: nowrap;
   font-family: var(--font-base);
   font-weight: 500;
-  font-size: 18px;
+  font-size: 1.125rem;
   line-height: 1.2;
   color: var(--color-text-light);
   opacity: 0;

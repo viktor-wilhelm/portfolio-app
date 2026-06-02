@@ -310,10 +310,6 @@
   .nav__links {
     gap: 6.5vw;
   }
-
-  .nav__link {
-    font-size: 18px;
-  }
 }
 
 /* Full desktop layout: from 1100px */
@@ -324,11 +320,6 @@
 
   .nav__links {
     gap: min(13vw, calc(var(--space-2xl) + 4rem));
-  }
-
-  .nav__link {
-    font-size: 18px;
-    font-weight: 700;
   }
 }
 

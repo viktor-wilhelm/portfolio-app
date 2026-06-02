@@ -4,10 +4,8 @@
 
 :root {
   /* Colors */
-  --color-dark: #141414;
   --color-light: #ffffff;
   --color-accent: #4a90e2;
-  --color-accent-hover: #3a7bd5;
   --color-bg: #ffffff;
   --color-bg-dark: #141414;
   --color-text: #1a1a1a;
@@ -15,11 +13,6 @@
   --color-text-muted: #888888;
   --color-error: #e53e3e;
   --color-success: #38a169;
-
-  /* Sticker colors */
-  --color-sticker-yellow: #f5c518;
-  --color-sticker-blue: #4a7bf7;
-  --color-sticker-orange: #e8593d;
 
   /* Typography */
   --font-base: "Bricolage Grotesque", sans-serif;

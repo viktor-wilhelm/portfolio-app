@@ -9,14 +9,14 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 100px;
+  border-radius: 6.25rem;
   cursor: pointer;
   text-decoration: none;
 }
 
 .hero__cta:hover,
 .about__cta:hover {
-  transform: translate(4px, 4px);
+  transform: translate(0.25rem, 0.25rem);
 }
 
 .hero__cta::after,
@@ -25,7 +25,7 @@
   position: absolute;
   inset: 0;
   background: var(--color-cta-hover);
-  border-radius: 100px;
+  border-radius: 6.25rem;
   opacity: 0;
   transition: opacity 80ms ease-in;
 }

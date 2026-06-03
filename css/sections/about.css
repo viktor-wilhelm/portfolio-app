@@ -14,7 +14,7 @@
 .about__container {
   display: flex;
   flex-direction: column;
-  gap: 3.125rem;
+  gap: 3rem;
   align-items: stretch;
   width: 100%;
   max-width: var(--max-width);
@@ -29,7 +29,7 @@
   flex-direction: column;
   gap: 0;
   width: 100%;
-  max-width: 21.4375rem;
+  max-width: 21rem;
   margin: 0 auto;
 }
 
@@ -68,7 +68,7 @@
 
 .about__sticker-icon {
   width: 2.5rem;
-  height: 3.875rem;
+  height: 4rem;
   object-fit: contain;
   flex-shrink: 0;
 }
@@ -84,12 +84,12 @@
 }
 
 .about__sticker--blue {
-  margin-top: -5px;
+  margin-top: -0.3rem;
   z-index: 2;
 }
 
 .about__sticker--blue > img {
-  height: 5.9375rem;
+  height: 6rem;
 }
 
 .about__sticker--orange {
@@ -99,13 +99,13 @@
 
 @media (max-width: 360px) {
   .about__sticker-text {
-    font-size: 1.0625rem;
-    gap: 0.375rem;
+    font-size: 1.1rem;
+    gap: 0.4rem;
   }
 
   .about__sticker-icon {
-    width: 2.125rem;
-    height: 3.125rem;
+    width: 2rem;
+    height: 3rem;
   }
 }
 
@@ -159,7 +159,7 @@
 
 .about__heading-underline {
   display: block;
-  width: clamp(14.8125rem, 47vw, 18.9375rem);
+  width: clamp(15rem, 47vw, 19rem);
   height: 1.25rem;
   object-fit: fill;
   margin-bottom: var(--space-lg);
@@ -175,7 +175,7 @@
   letter-spacing: 0;
   color: var(--color-text-dark);
   width: 100%;
-  max-width: 560px;
+  max-width: 35rem;
   margin-bottom: 0;
 }
 
@@ -186,14 +186,14 @@
 .about__cta {
   align-self: flex-end;
   isolation: isolate;
-  min-width: 123px;
-  padding: 12px 24px;
-  height: 40px;
-  gap: 10px;
+  min-width: 7.7rem;
+  padding: 1rem 1.5rem;
+  height: 2.5rem;
+  gap: 0.6rem;
   border: 1px solid var(--color-text-dark);
   font-family: var(--font-base);
   font-weight: 500;
-  font-size: 20px;
+  font-size: 1.25rem;
   line-height: 1.2;
   letter-spacing: 0;
   white-space: nowrap;
@@ -251,7 +251,7 @@
     align-self: flex-start;
     width: clamp(16.25rem, 44vw, 35rem);
     max-width: none;
-    margin: 4rem 0 0 -14px;
+    margin: 5rem 0 0 -14px;
   }
 
   .about__sticker--yellow,
@@ -312,11 +312,11 @@
 
   .about__stickers {
     width: clamp(15rem, 38vw, 25rem);
-    margin: 5rem 0 0 -14px;
+    margin: 5rem 0 0 -1rem;
   }
 
   .about__heading {
-    font-size: 3.375rem;
+    font-size: 3.4rem;
   }
 
   .about__heading-underline {

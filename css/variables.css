@@ -40,7 +40,7 @@
   /* Layout */
   --max-width: 1200px;
   --max-width-section: 1440px;
-  --border-radius: 8px;
+  --border-radius: 0.5rem;
   --nav-height: 82px;
 
   /* Transitions */

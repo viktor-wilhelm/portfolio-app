@@ -1,43 +1,301 @@
 /* ============================================================
-   Projects Section
+   Projects Section — Desktop 1440 px (no responsive logic yet)
    ============================================================ */
 
+/* ── Section wrapper ──────────────────────────────────────── */
+
 .projects {
-  max-width: var(--max-width-section);
-  background-color: var(--color-light);
-  padding: var(--space-2xl) 0;
+  width: 100%;
+  background-color: var(--color-bg);
+  padding: 6rem 7rem;
 }
 
-.projects__container {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 var(--space-lg);
+/* ── Top area: 2-column flex ──────────────────────────────── */
+
+.projects__top {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 4rem;
+  margin-bottom: 4rem;
+}
+
+/* ── Left column: title group ─────────────────────────────── */
+
+.projects__title-group {
+  flex: 0 0 auto;
+  width: 380px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
 }
 
 .projects__label {
+  font-family: var(--font-base);
   font-size: var(--font-size-sm);
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--color-text-muted);
-  margin-bottom: var(--space-sm);
+  margin: 0;
+}
+
+.projects__heading-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
 }
 
 .projects__heading {
-  font-size: var(--font-size-3xl);
+  font-family: var(--font-base);
+  font-size: 4rem;
   font-weight: 800;
-  color: var(--color-text);
+  line-height: 1;
   letter-spacing: -0.02em;
-  margin-bottom: var(--space-xl);
+  color: var(--color-text);
+  margin: 0;
 }
+
+.projects__heading-decoration {
+  display: block;
+  width: 220px;
+  height: auto;
+  user-select: none;
+  pointer-events: none;
+}
+
+.projects__description {
+  font-family: var(--font-base);
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--color-text);
+  margin: 0;
+}
+
+/* ── Right column: featured project ──────────────────────── */
+
+.projects__featured {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.projects__featured-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.projects__featured-visual {
+  position: relative;
+  width: 100%;
+}
+
+.projects__featured-image {
+  display: block;
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  border-radius: 0.75rem;
+  user-select: none;
+}
+
+.projects__featured-sticker {
+  position: absolute;
+  top: -1.5rem;
+  right: -1.5rem;
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  user-select: none;
+  pointer-events: none;
+}
+
+.projects__featured-name {
+  font-family: var(--font-base);
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.projects__featured-description {
+  font-family: var(--font-base);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--color-text);
+  margin: 0;
+  max-width: 56ch;
+}
+
+/* ── Project cards grid ───────────────────────────────────── */
 
 .projects__grid {
   display: grid;
-  gap: var(--space-lg);
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 6rem;
 }
 
-@media (min-width: 768px) {
-  .projects__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.project-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.project-card__image-wrapper {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 0.75rem;
+}
+
+.project-card__image {
+  display: block;
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  user-select: none;
+}
+
+.project-card__title {
+  font-family: var(--font-base);
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.project-card__description {
+  font-family: var(--font-base);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--color-text);
+  margin: 0;
+}
+
+/* ── Colleagues' Thoughts ─────────────────────────────────── */
+
+.testimonials {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+.testimonials__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+.testimonials__sub-label {
+  font-family: var(--font-base);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.testimonials__heading-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.testimonials__heading {
+  font-family: var(--font-base);
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.testimonials__heading-decoration {
+  display: block;
+  width: 280px;
+  height: auto;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* ── Testimonial cards ────────────────────────────────────── */
+
+.testimonials__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  width: 100%;
+}
+
+.testimonial-card {
+  position: relative;
+  min-height: 220px;
+  display: flex;
+  align-items: stretch;
+}
+
+.testimonial-card__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  user-select: none;
+  pointer-events: none;
+}
+
+.testimonial-card__body {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 2rem 1.75rem 1.75rem;
+  width: 100%;
+}
+
+.testimonial-card__quote {
+  font-family: var(--font-base);
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.testimonial-card__author {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.testimonial-card__name {
+  font-family: var(--font-base);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.testimonial-card__role {
+  font-family: var(--font-base);
+  font-size: var(--font-size-sm);
+  font-weight: 400;
+  color: var(--color-text-muted);
+  margin: 0;
 }

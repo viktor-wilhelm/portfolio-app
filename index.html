@@ -357,14 +357,174 @@
 
       <!-- ===== PROJECTS ===== -->
       <section id="projects" class="projects">
-        <div class="projects__container">
-          <p class="projects__label">MY CRAFT</p>
-          <h2 class="projects__heading" data-i18n="projectsHeading">Projects</h2>
-          <div class="projects__grid">
-            <!-- Projektkarten werden hier eingefügt -->
+        <!-- ── Top: Title group + Featured project ─────────────── -->
+        <div class="projects__top">
+          <!-- Left: label / heading / decoration / description -->
+          <div class="projects__title-group">
+            <p class="projects__label">MY CRAFT</p>
+            <div class="projects__heading-wrapper">
+              <h2 class="projects__heading" data-i18n="projectsHeading">Projects</h2>
+              <img
+                src="assets/img/00_Hand-drawn lines/03_Portfolio/Color option 1.png"
+                alt=""
+                class="projects__heading-decoration"
+                aria-hidden="true"
+                draggable="false"
+              />
+            </div>
+            <p class="projects__description" data-i18n="projectsDescription">
+              Encourage people to take a look and interact with your projects. Highlight your approach to creating
+              responsive, user-friendly projects with efficient code.
+            </p>
+          </div>
+
+          <!-- Right: featured project card -->
+          <div class="projects__featured">
+            <div class="projects__featured-card">
+              <div class="projects__featured-visual">
+                <img
+                  src="assets/img/04_Hero/Component 23.png"
+                  alt="Join – Task Manager App"
+                  class="projects__featured-image"
+                  draggable="false"
+                />
+                <img
+                  src="assets/img/03_Stickers/00_Round/00_Color option 1 - Blue.png"
+                  alt=""
+                  class="projects__featured-sticker"
+                  aria-hidden="true"
+                  draggable="false"
+                />
+              </div>
+              <h3 class="projects__featured-name">Join</h3>
+              <p class="projects__featured-description" data-i18n="projectJoinDescription">
+                Task manager inspired by the Kanban System. Create and organise tasks using drag and drop functions,
+                assign users and categories.
+              </p>
+            </div>
           </div>
         </div>
+        <!-- /.projects__top -->
+
+        <!-- ── Project cards grid ──────────────────────────────── -->
+        <div class="projects__grid">
+          <article class="project-card">
+            <div class="project-card__image-wrapper">
+              <img
+                src="assets/img/04_Hero/Component 23.png"
+                alt="El Pollo Loco – Jump &amp; Run Game"
+                class="project-card__image"
+                draggable="false"
+              />
+            </div>
+            <h3 class="project-card__title">El Pollo Loco</h3>
+            <p class="project-card__description" data-i18n="projectElPolloLocoDescription">
+              Jump, run and throw game based on object-oriented approach. Help Pepe to find coins and tabasco salsa to
+              fight against the crazy hen.
+            </p>
+          </article>
+
+          <article class="project-card">
+            <div class="project-card__image-wrapper">
+              <img
+                src="assets/img/04_Hero/Component 23.png"
+                alt="DaBubble – Slack Clone App"
+                class="project-card__image"
+                draggable="false"
+              />
+            </div>
+            <h3 class="project-card__title">DaBubble</h3>
+            <p class="project-card__description" data-i18n="projectDaBubbleDescription">
+              This App is a Slack Clone App. It revolutionises team communication and collaboration with its intuitive
+              interface, real-time messaging, and robust channel organisation.
+            </p>
+          </article>
+        </div>
+        <!-- /.projects__grid -->
+
+        <!-- ── Colleagues' Thoughts ────────────────────────────── -->
+        <section class="testimonials" aria-label="Colleagues' Thoughts">
+          <div class="testimonials__header">
+            <p class="testimonials__sub-label">IN THEIR WORDS</p>
+            <div class="testimonials__heading-wrapper">
+              <h2 class="testimonials__heading">Colleagues' Thoughts</h2>
+              <img
+                src="assets/img/00_Hand-drawn lines/04_Testimonials/Color option 1.png"
+                alt=""
+                class="testimonials__heading-decoration"
+                aria-hidden="true"
+                draggable="false"
+              />
+            </div>
+          </div>
+
+          <div class="testimonials__grid">
+            <article class="testimonial-card">
+              <img
+                src="assets/img/03_Stickers/02_Testimonials/Color option 1/A.png"
+                alt=""
+                class="testimonial-card__bg"
+                aria-hidden="true"
+                draggable="false"
+              />
+              <div class="testimonial-card__body">
+                <p class="testimonial-card__quote">
+                  Kim really kept the team together with his great organisation and clear communications. We wouldn't
+                  have got this far without his commitment.
+                </p>
+                <div class="testimonial-card__author">
+                  <p class="testimonial-card__name">Tobias Lange</p>
+                  <p class="testimonial-card__role">Frontend Developer</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonial-card">
+              <img
+                src="assets/img/03_Stickers/02_Testimonials/Color option 1/A.png"
+                alt=""
+                class="testimonial-card__bg"
+                aria-hidden="true"
+                draggable="false"
+              />
+              <div class="testimonial-card__body">
+                <p class="testimonial-card__quote">
+                  A pleasure to work with. He knew how to support team members to work possible, always adding
+                  relations. Regarding the well-being of all, he was always present and lend help others with a great
+                  attitude.
+                </p>
+                <div class="testimonial-card__author">
+                  <p class="testimonial-card__name">Maria Santos</p>
+                  <p class="testimonial-card__role">Frontend Developer</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonial-card">
+              <img
+                src="assets/img/03_Stickers/02_Testimonials/Color option 1/A.png"
+                alt=""
+                class="testimonial-card__bg"
+                aria-hidden="true"
+                draggable="false"
+              />
+              <div class="testimonial-card__body">
+                <p class="testimonial-card__quote">
+                  A great colleague to be at DA. His positive attitude inspires us all. His positive and made a
+                  significant contribution to all of us.
+                </p>
+                <div class="testimonial-card__author">
+                  <p class="testimonial-card__name">Anna Müller</p>
+                  <p class="testimonial-card__role">Frontend Developer</p>
+                </div>
+              </div>
+            </article>
+          </div>
+          <!-- /.testimonials__grid -->
+        </section>
+        <!-- /.testimonials -->
       </section>
+      <!-- /.projects -->
 
       <!-- ===== CONTACT ===== -->
       <section id="contact" class="contact">

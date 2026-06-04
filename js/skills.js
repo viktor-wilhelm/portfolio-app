@@ -1,7 +1,7 @@
 const STICKER_STATES = [
-  "assets/img/skills-set/Property 1=Default.png",
-  "assets/img/skills-set/Property 1=Variant3.png",
-  "assets/img/skills-set/Property 1=Hover.png",
+  "assets/img/06_skills-set/Property 1=Default.png",
+  "assets/img/06_skills-set/Property 1=Variant3.png",
+  "assets/img/06_skills-set/Property 1=Hover.png",
 ];
 
 const FRAME_DELAY = 60;

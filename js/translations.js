@@ -24,6 +24,8 @@ const translations = {
     projectsHeading: "Projekte",
     projectsDescription:
       "Ich entwickle responsive und benutzerfreundliche Webanwendungen mit Fokus auf sauberen Code, wartbare Strukturen und intuitive Nutzererlebnisse.\n\nMit jedem Projekt erweitere ich meine Frontend-Kenntnisse und vertiefe mein Wissen über moderne Technologien und bewährte Entwicklungspraktiken.",
+    projectJoinDescription:
+      "Task-Management-Anwendung inspiriert von der Kanban-Methodik. Organisiere Aufgaben per Drag-and-Drop, weise Nutzer und Kategorien zu und behalte Projekte strukturiert im Überblick.",
     contactHeading: "Kontakt",
     formName: "Name",
     formEmail: "E-Mail",
@@ -62,6 +64,8 @@ const translations = {
     projectsHeading: "Projects",
     projectsDescription:
       "I build responsive and user-friendly web applications with a focus on clean code, maintainable architecture and intuitive user experiences.\n\nEach project helps me strengthen my frontend skills while exploring modern technologies and best practices in web development.",
+    projectJoinDescription:
+      "Task management application inspired by the Kanban methodology. Organize tasks with drag-and-drop functionality, assign users and categories, and keep projects structured and efficient.",
     contactHeading: "Contact",
     formName: "Name",
     formEmail: "Email",

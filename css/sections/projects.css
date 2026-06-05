@@ -24,11 +24,12 @@
 
 .projects__title-group {
   flex: 0 0 auto;
-  width: 380px;
+  width: 560px;
+  height: 238px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 2.5rem;
+  gap: 3rem;
   margin-top: 11rem;
 }
 
@@ -115,12 +116,35 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 1.25rem;
+  gap: 5rem;
+}
+
+.projects__featured-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
 }
 
 .projects__featured-visual {
   position: relative;
-  width: 100%;
+  width: 560px;
+  height: 337px;
+}
+
+@keyframes projects-laptop-float {
+  0% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-6px);
+  }
+  70% {
+    transform: translateY(46px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .projects__featured-image {
@@ -130,14 +154,14 @@
   object-fit: cover;
   border-radius: 0.75rem;
   user-select: none;
+  animation: projects-laptop-float 5s cubic-bezier(0.45, 0, 0.55, 1) infinite;
 }
 
 .projects__featured-sticker {
   position: absolute;
-  top: -1.5rem;
-  right: -1.5rem;
-  width: 120px;
-  height: 120px;
+  top: 11rem;
+  width: 168px;
+  height: 168px;
   object-fit: contain;
   user-select: none;
   pointer-events: none;
@@ -145,7 +169,7 @@
 
 .projects__featured-name {
   font-family: var(--font-base);
-  font-size: var(--font-size-2xl);
+  font-size: var(--font-size-xl);
   font-weight: 700;
   line-height: 1;
   color: var(--color-text);
@@ -154,9 +178,9 @@
 
 .projects__featured-description {
   font-family: var(--font-base);
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.3;
   color: var(--color-text);
   margin: 0;
   max-width: 56ch;

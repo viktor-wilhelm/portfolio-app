@@ -117,6 +117,7 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 5rem;
+  cursor: pointer;
 }
 
 .projects__featured-info {
@@ -130,6 +131,13 @@
   position: relative;
   width: 560px;
   height: 337px;
+  border-radius: 1.3rem;
+}
+
+.projects__featured-laptop {
+  position: absolute;
+  inset: 0;
+  animation: projects-laptop-float 5s cubic-bezier(0.45, 0, 0.55, 1) infinite;
 }
 
 @keyframes projects-laptop-float {
@@ -147,14 +155,44 @@
   }
 }
 
-.projects__featured-image {
+.projects__featured-image,
+.projects__featured-image--hover {
   display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 340px;
+  height: 100%;
   object-fit: cover;
-  border-radius: 0.75rem;
+  border-radius: 1.3rem;
   user-select: none;
-  animation: projects-laptop-float 5s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+.projects__featured-image {
+  opacity: 1;
+  transition: opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: opacity, transform;
+}
+.projects__featured-image--hover {
+  opacity: 0;
+  animation: none;
+  top: 3rem;
+  transition: opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.projects__featured-card:hover .projects__featured-laptop {
+  animation-play-state: paused;
+  transform: scale(1.05);
+}
+
+.projects__featured-card:hover .projects__featured-image {
+  opacity: 0;
+  transform: scale(1.05);
+}
+
+.projects__featured-card:hover .projects__featured-image--hover {
+  opacity: 1;
 }
 
 .projects__featured-sticker {

@@ -134,6 +134,16 @@
   border-radius: 1.3rem;
 }
 
+/* Clips the crossfading images so the directional slide-in stays within
+   the rounded card edges. The sticker sits outside this frame, in
+   .projects__featured-visual, since it intentionally overflows the card. */
+.projects__featured-frame {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 1.3rem;
+}
+
 .projects__featured-laptop {
   position: absolute;
   inset: 0;
@@ -205,12 +215,12 @@
   transform: translate(0, 0);
 }
 
-.projects__featured-card:hover .projects__featured-laptop {
+.projects__featured-visual:hover .projects__featured-laptop {
   animation-play-state: paused;
   transform: scale(1.05);
 }
 
-.projects__featured-card:hover .projects__featured-image {
+.projects__featured-visual:hover .projects__featured-image {
   opacity: 0;
   transform: scale(1.05);
 }

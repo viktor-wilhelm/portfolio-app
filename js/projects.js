@@ -26,16 +26,15 @@ function revealFeaturedHoverImage(visual, hoverImage, edge) {
 }
 
 function initFeaturedHoverDirection() {
-  const card = document.querySelector(".projects__featured-card");
   const visual = document.querySelector(".projects__featured-visual");
   const hoverImage = document.querySelector(".projects__featured-image--hover");
-  if (!card || !visual || !hoverImage) return;
+  if (!visual || !hoverImage) return;
 
-  card.addEventListener("mouseenter", (event) => {
+  visual.addEventListener("mouseenter", (event) => {
     revealFeaturedHoverImage(visual, hoverImage, getEnterEdge(event, visual));
   });
 
-  card.addEventListener("mouseleave", () => {
+  visual.addEventListener("mouseleave", () => {
     visual.classList.remove("is-revealed");
   });
 }

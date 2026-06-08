@@ -12,30 +12,12 @@ function getEnterEdge(event, element) {
   return "left";
 }
 
-function revealFeaturedHoverImage(visual, hoverImage, edge) {
-  // :hover and the [data-enter-edge] change land in the same style
-  // recalculation, so a transition driven by :hover would always start
-  // from the *previous* off-stage position. Instead, jump to the new
-  // edge's position with transitions off, flush it, then reveal — that
-  // way the slide-in animates from the side the cursor just entered.
-  hoverImage.style.transition = "none";
-  visual.dataset.enterEdge = edge;
-  void hoverImage.offsetWidth;
-  hoverImage.style.transition = "";
-  visual.classList.add("is-revealed");
-}
-
 function initFeaturedHoverDirection() {
   const visual = document.querySelector(".projects__featured-visual");
-  const hoverImage = document.querySelector(".projects__featured-image--hover");
-  if (!visual || !hoverImage) return;
+  if (!visual) return;
 
   visual.addEventListener("mouseenter", (event) => {
-    revealFeaturedHoverImage(visual, hoverImage, getEnterEdge(event, visual));
-  });
-
-  visual.addEventListener("mouseleave", () => {
-    visual.classList.remove("is-revealed");
+    visual.dataset.enterEdge = getEnterEdge(event, visual);
   });
 }
 

@@ -134,16 +134,6 @@
   border-radius: 1.3rem;
 }
 
-/* Clips the crossfading images so the directional slide-in stays within
-   the rounded card edges. The sticker sits outside this frame, in
-   .projects__featured-visual, since it intentionally overflows the card. */
-.projects__featured-frame {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  border-radius: 1.3rem;
-}
-
 .projects__featured-laptop {
   position: absolute;
   inset: 0;
@@ -165,8 +155,7 @@
   }
 }
 
-.projects__featured-image,
-.projects__featured-image--hover {
+.projects__featured-image {
   display: block;
   position: absolute;
   top: 0;
@@ -176,55 +165,32 @@
   object-fit: cover;
   border-radius: 1.3rem;
   user-select: none;
-}
-
-.projects__featured-image {
-  opacity: 1;
-  transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  will-change: opacity, transform;
-}
-.projects__featured-image--hover {
-  opacity: 0;
-  animation: none;
-  transform: translateY(3rem);
-  transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              transform 0.72s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  will-change: opacity, transform;
-}
-
-/* Off-stage position the hover image starts from: slid toward the edge
-   the cursor entered through (js/projects.js writes [data-enter-edge]
-   *before* adding .is-revealed, so the transition below always plays in
-   from that side). It starts at its native size — the reveal is a pure
-   slide-and-fade — and only grows past 100% (scale 1.02) once it lands,
-   as an extra zoom on top of the reveal rather than a "shrink first". */
-.projects__featured-visual[data-enter-edge="top"] .projects__featured-image--hover {
-  transform: translateY(-3rem);
-}
-.projects__featured-visual[data-enter-edge="bottom"] .projects__featured-image--hover {
-  transform: translateY(3rem);
-}
-.projects__featured-visual[data-enter-edge="left"] .projects__featured-image--hover {
-  transform: translateX(-3rem);
-}
-.projects__featured-visual[data-enter-edge="right"] .projects__featured-image--hover {
-  transform: translateX(3rem);
-}
-
-.projects__featured-visual.is-revealed .projects__featured-image--hover {
-  opacity: 1;
-  transform: translate(0, 0) scale(1.05);
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
 }
 
 .projects__featured-visual:hover .projects__featured-laptop {
   animation-play-state: paused;
-  transform: scale(1.05);
 }
 
-.projects__featured-visual:hover .projects__featured-image {
-  opacity: 0;
-  transform: scale(1.05);
+/* On hover, the image leans slightly toward the edge the cursor entered
+   through (js/projects.js writes [data-enter-edge] on mouseenter) and
+   grows by 5% — a subtle "reaching toward the cursor" effect rather than
+   a crossfade to a different image. :hover and [data-enter-edge] land in
+   the same recalculation, which is fine here: there's no off-stage start
+   position to jump from, so the transition simply plays from the resting
+   transform to this leaned/grown one. */
+.projects__featured-visual[data-enter-edge="top"]:hover .projects__featured-image {
+  transform: translateY(-0.6rem) scale(1.05);
+}
+.projects__featured-visual[data-enter-edge="bottom"]:hover .projects__featured-image {
+  transform: translateY(0.6rem) scale(1.05);
+}
+.projects__featured-visual[data-enter-edge="left"]:hover .projects__featured-image {
+  transform: translateX(-0.6rem) scale(1.05);
+}
+.projects__featured-visual[data-enter-edge="right"]:hover .projects__featured-image {
+  transform: translateX(0.6rem) scale(1.05);
 }
 
 .projects__featured-sticker {

@@ -206,6 +206,31 @@
   pointer-events: none;
 }
 
+/* Pill badge that surfaces on hover, in place of the "Project details"
+   label that used to be baked into the (now-removed) second hover image. */
+.projects__featured-cta {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  padding: 0.6rem 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 6.25rem;
+  background-color: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(8px);
+  font-family: var(--font-base);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.51s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  pointer-events: none;
+  user-select: none;
+}
+
+.projects__featured-visual:hover .projects__featured-cta {
+  opacity: 1;
+}
+
 .projects__featured-name {
   font-family: var(--font-base);
   font-size: var(--font-size-xl);

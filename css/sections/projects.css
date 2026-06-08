@@ -116,7 +116,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 5rem;
+  gap: 3rem;
   cursor: pointer;
 }
 
@@ -130,14 +130,15 @@
 .projects__featured-visual {
   position: relative;
   width: 560px;
-  height: 337px;
+  height: 398px;
   border-radius: 1.3rem;
 }
 
 .projects__featured-laptop {
   position: absolute;
   inset: 0;
-  animation: projects-laptop-float 5s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  animation: projects-laptop-float 4.5s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  transition: transform 0.51s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 @keyframes projects-laptop-float {
@@ -145,18 +146,17 @@
     transform: translateY(0);
   }
   30% {
-    transform: translateY(-6px);
+    transform: translateY(-30px);
   }
   70% {
-    transform: translateY(46px);
+    transform: translateY(11px);
   }
   100% {
     transform: translateY(0);
   }
 }
 
-.projects__featured-image,
-.projects__featured-image--hover {
+.projects__featured-image {
   display: block;
   position: absolute;
   top: 0;
@@ -166,33 +166,22 @@
   object-fit: cover;
   border-radius: 1.3rem;
   user-select: none;
+  object-fit: contain;
+  transform: scale(0.95);
+  transition: transform 0.51s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
 }
 
-.projects__featured-image {
-  opacity: 1;
-  transition: opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  will-change: opacity, transform;
-}
-.projects__featured-image--hover {
-  opacity: 0;
-  animation: none;
-  top: 3rem;
-  transition: opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+.projects__featured-visual[data-enter-edge="top"]:hover .projects__featured-image {
+  transform: translateY(-0.6rem) scale(1.05);
 }
 
-.projects__featured-card:hover .projects__featured-laptop {
-  animation-play-state: paused;
-  transform: scale(1.05);
+.projects__featured-visual[data-enter-edge="left"]:hover .projects__featured-image {
+  transform: translateX(-0.6rem) scale(1.05);
 }
 
-.projects__featured-card:hover .projects__featured-image {
-  opacity: 0;
-  transform: scale(1.05);
-}
-
-.projects__featured-card:hover .projects__featured-image--hover {
-  opacity: 1;
+.projects__featured-visual[data-enter-edge="right"]:hover .projects__featured-image {
+  transform: translateX(0.6rem) scale(1.05);
 }
 
 .projects__featured-sticker {
@@ -203,6 +192,31 @@
   object-fit: contain;
   user-select: none;
   pointer-events: none;
+}
+
+/* Pill badge that surfaces on hover, in place of the "Project details"
+   label that used to be baked into the (now-removed) second hover image. */
+.projects__featured-cta {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  padding: 0.6rem 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 6.25rem;
+  background-color: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(8px);
+  font-family: var(--font-base);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.51s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  pointer-events: none;
+  user-select: none;
+}
+
+.projects__featured-visual:hover .projects__featured-cta {
+  opacity: 1;
 }
 
 .projects__featured-name {

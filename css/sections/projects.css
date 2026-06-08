@@ -177,8 +177,32 @@
 .projects__featured-image--hover {
   opacity: 0;
   animation: none;
-  top: 3rem;
-  transition: opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: translateY(3rem);
+  transition: opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: opacity, transform;
+}
+
+/* Off-stage position the hover image starts from. js/projects.js detects
+   which edge the cursor entered through and writes it to the visual's
+   [data-enter-edge] attribute *before* adding .is-revealed, so the
+   transition below always plays in from the side the mouse approached from. */
+.projects__featured-visual[data-enter-edge="top"] .projects__featured-image--hover {
+  transform: translateY(-3rem);
+}
+.projects__featured-visual[data-enter-edge="bottom"] .projects__featured-image--hover {
+  transform: translateY(3rem);
+}
+.projects__featured-visual[data-enter-edge="left"] .projects__featured-image--hover {
+  transform: translateX(-3rem);
+}
+.projects__featured-visual[data-enter-edge="right"] .projects__featured-image--hover {
+  transform: translateX(3rem);
+}
+
+.projects__featured-visual.is-revealed .projects__featured-image--hover {
+  opacity: 1;
+  transform: translate(0, 0);
 }
 
 .projects__featured-card:hover .projects__featured-laptop {
@@ -189,10 +213,6 @@
 .projects__featured-card:hover .projects__featured-image {
   opacity: 0;
   transform: scale(1.05);
-}
-
-.projects__featured-card:hover .projects__featured-image--hover {
-  opacity: 1;
 }
 
 .projects__featured-sticker {

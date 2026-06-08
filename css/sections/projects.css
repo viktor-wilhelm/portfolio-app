@@ -197,7 +197,7 @@
    the cursor entered through (js/projects.js writes [data-enter-edge]
    *before* adding .is-revealed, so the transition below always plays in
    from that side). It starts at its native size — the reveal is a pure
-   slide-and-fade — and only grows past 100% (scale 1.05) once it lands,
+   slide-and-fade — and only grows past 100% (scale 1.02) once it lands,
    as an extra zoom on top of the reveal rather than a "shrink first". */
 .projects__featured-visual[data-enter-edge="top"] .projects__featured-image--hover {
   transform: translateY(-3rem);
@@ -214,7 +214,7 @@
 
 .projects__featured-visual.is-revealed .projects__featured-image--hover {
   opacity: 1;
-  transform: translate(0, 0) scale(1.05);
+  transform: translate(0, 0) scale(1.02);
 }
 
 .projects__featured-visual:hover .projects__featured-laptop {

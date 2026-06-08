@@ -134,9 +134,28 @@
   border-radius: 1.3rem;
 }
 
-.projects__featured-laptop {
+.projects__featured-visual::after {
+  content: "";
   position: absolute;
   inset: 0;
+  border-radius: 1.3rem;
+  background: linear-gradient(to bottom, transparent 40%, rgba(0, 0, 0, 0.55) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease-out;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.projects__featured-visual:hover::after {
+  opacity: 1;
+}
+
+.projects__featured-laptop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 5px;
+  bottom: 0;
   animation: projects-laptop-float 4.5s cubic-bezier(0.45, 0, 0.55, 1) infinite;
   transition: transform 0.51s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
@@ -168,7 +187,7 @@
   user-select: none;
   object-fit: contain;
   transform: scale(0.95);
-  transition: transform 0.51s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   will-change: transform;
 }
 
@@ -198,25 +217,42 @@
    label that used to be baked into the (now-removed) second hover image. */
 .projects__featured-cta {
   position: absolute;
-  right: 1.5rem;
-  bottom: 1.5rem;
-  padding: 0.6rem 1.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  right: 2.5rem;
+  bottom: 2.5rem;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  padding: 0 1.5rem;
   border-radius: 6.25rem;
-  background-color: rgba(0, 0, 0, 0.35);
-  backdrop-filter: blur(8px);
+  box-shadow:
+    inset 0 0 0 1px var(--color-off-white),
+    2px 3.5px 0 0 var(--color-off-white);
   font-family: var(--font-base);
-  font-size: 0.9375rem;
+  font-size: 1.125rem;
   font-weight: 500;
-  color: #fff;
+  color: var(--color-text-light);
+  white-space: nowrap;
   opacity: 0;
-  transition: opacity 0.51s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition:
+    opacity 0.51s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform 90ms ease-in,
+    background-color 80ms ease-in,
+    box-shadow 90ms ease-in;
   pointer-events: none;
   user-select: none;
 }
 
 .projects__featured-visual:hover .projects__featured-cta {
   opacity: 1;
+  pointer-events: auto;
+}
+
+.projects__featured-cta:hover {
+  background-color: var(--color-cta-hover);
+  box-shadow: inset 0 0 0 2px var(--color-off-white);
+  transform: translate(0.25rem, 0.25rem);
 }
 
 .projects__featured-name {

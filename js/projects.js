@@ -36,8 +36,8 @@ function initFeaturedHoverDirection() {
   const laptop = document.querySelector(".projects__featured-laptop");
   if (!visual || !laptop) return;
 
-  visual.addEventListener("mouseenter", (event) => {
-    visual.dataset.enterEdge = getEnterEdge(event, visual);
+  visual.addEventListener("mouseenter", () => {
+    visual.dataset.enterEdge = "left";
     settleLaptopToCenter(laptop);
   });
 

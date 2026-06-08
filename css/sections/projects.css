@@ -134,10 +134,17 @@
   border-radius: 1.3rem;
 }
 
+/* The transition below isn't triggered by :hover — a CSS animation can't
+   hand off into a transition within the same recalculation, it would just
+   jump. Instead js/projects.js captures the float's current position on
+   mouseenter, silences the animation, and transitions to translateY(0) —
+   the keyframes' 0%/100% value — so the laptop settles into a centered
+   default spot from wherever it happened to be mid-float. */
 .projects__featured-laptop {
   position: absolute;
   inset: 0;
   animation: projects-laptop-float 5s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  transition: transform 0.51s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 @keyframes projects-laptop-float {
@@ -165,12 +172,8 @@
   object-fit: cover;
   border-radius: 1.3rem;
   user-select: none;
-  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: transform 0.51s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   will-change: transform;
-}
-
-.projects__featured-visual:hover .projects__featured-laptop {
-  animation-play-state: paused;
 }
 
 /* On hover, the image leans slightly toward the edge the cursor entered

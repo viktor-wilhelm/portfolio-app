@@ -12,12 +12,37 @@ function getEnterEdge(event, element) {
   return "left";
 }
 
+function settleLaptopToCenter(laptop) {
+  // The float animation continuously drives `transform`; capture its
+  // current value before silencing it so the settle-to-center transition
+  // starts from wherever the laptop happens to be, not from a jump.
+  const current = getComputedStyle(laptop).transform;
+  laptop.style.transition = "none";
+  laptop.style.animation = "none";
+  laptop.style.transform = current;
+  void laptop.offsetWidth;
+  laptop.style.transition = "";
+  laptop.style.transform = "translateY(0)";
+}
+
+function resumeLaptopFloat(laptop) {
+  laptop.style.transition = "";
+  laptop.style.animation = "";
+  laptop.style.transform = "";
+}
+
 function initFeaturedHoverDirection() {
   const visual = document.querySelector(".projects__featured-visual");
-  if (!visual) return;
+  const laptop = document.querySelector(".projects__featured-laptop");
+  if (!visual || !laptop) return;
 
   visual.addEventListener("mouseenter", (event) => {
     visual.dataset.enterEdge = getEnterEdge(event, visual);
+    settleLaptopToCenter(laptop);
+  });
+
+  visual.addEventListener("mouseleave", () => {
+    resumeLaptopFloat(laptop);
   });
 }
 

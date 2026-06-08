@@ -130,7 +130,7 @@
 .projects__featured-visual {
   position: relative;
   width: 560px;
-  height: 337px;
+  height: 380px;
   border-radius: 1.3rem;
 }
 
@@ -214,7 +214,7 @@
 
 .projects__featured-visual.is-revealed .projects__featured-image--hover {
   opacity: 1;
-  transform: translate(0, 0) scale(1.02);
+  transform: translate(0, 0) scale(1.05);
 }
 
 .projects__featured-visual:hover .projects__featured-laptop {

@@ -180,16 +180,16 @@
 
 .projects__featured-image {
   opacity: 1;
-  transition: opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   will-change: opacity, transform;
 }
 .projects__featured-image--hover {
   opacity: 0;
   animation: none;
-  transform: translateY(3rem) scale(0.92);
-  transition: opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: translateY(3rem) scale(0.8);
+  transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   will-change: opacity, transform;
 }
 
@@ -199,16 +199,16 @@
    from that side) and scaled down a touch, so it grows into place as it
    slides and fades in. */
 .projects__featured-visual[data-enter-edge="top"] .projects__featured-image--hover {
-  transform: translateY(-3rem) scale(0.92);
+  transform: translateY(-3rem) scale(0.8);
 }
 .projects__featured-visual[data-enter-edge="bottom"] .projects__featured-image--hover {
-  transform: translateY(3rem) scale(0.92);
+  transform: translateY(3rem) scale(0.8);
 }
 .projects__featured-visual[data-enter-edge="left"] .projects__featured-image--hover {
-  transform: translateX(-3rem) scale(0.92);
+  transform: translateX(-3rem) scale(0.8);
 }
 .projects__featured-visual[data-enter-edge="right"] .projects__featured-image--hover {
-  transform: translateX(3rem) scale(0.92);
+  transform: translateX(3rem) scale(0.8);
 }
 
 .projects__featured-visual.is-revealed .projects__featured-image--hover {

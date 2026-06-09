@@ -26,6 +26,10 @@ const translations = {
       "Ich entwickle responsive und benutzerfreundliche Webanwendungen mit Fokus auf sauberen Code, wartbare Strukturen und intuitive Nutzererlebnisse.\n\nMit jedem Projekt erweitere ich meine Frontend-Kenntnisse und vertiefe mein Wissen über moderne Technologien und bewährte Entwicklungspraktiken.",
     projectJoinDescription:
       "Task-Management-Anwendung inspiriert von der Kanban-Methodik. Organisiere Aufgaben per Drag-and-Drop, weise Nutzer und Kategorien zu und behalte Projekte strukturiert im Überblick.",
+    projectElPolloLocoDescription:
+      "Jump-and-Run-Spiel auf Basis objektorientierter Programmierung. Hilf Pepe dabei, Münzen und Tabasco-Salsa zu sammeln und gegen das verrückte Huhn zu kämpfen.",
+    projectDaBubbleDescription:
+      "Diese Anwendung ist ein Slack-ähnlicher Team-Messenger. Sie ermöglicht Echtzeit-Kommunikation, Kanalorganisation und eine intuitive Zusammenarbeit im Team.",
     projectDetailsCta: "Projektdetails",
     contactHeading: "Kontakt",
     formName: "Name",
@@ -67,6 +71,10 @@ const translations = {
       "I build responsive and user-friendly web applications with a focus on clean code, maintainable architecture and intuitive user experiences.\n\nEach project helps me strengthen my frontend skills while exploring modern technologies and best practices in web development.",
     projectJoinDescription:
       "Task management application inspired by the Kanban methodology. Organize tasks with drag-and-drop functionality, assign users and categories, and keep projects structured and efficient.",
+    projectElPolloLocoDescription:
+      "Jump, run and throw game based on object-oriented approach. Help Pepe to find coins and tabasco salsa to fight against the crazy hen.",
+    projectDaBubbleDescription:
+      "This App is a Slack Clone App. It revolutionises team communication and collaboration with its intuitive interface, real-time messaging, and robust channel organisation.",
     projectDetailsCta: "Project details",
     contactHeading: "Contact",
     formName: "Name",

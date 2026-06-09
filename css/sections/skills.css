@@ -12,7 +12,6 @@
   padding: 56px clamp(16px, calc(10.1vw - 21.3px), 56px);
   margin: 0 auto;
   background-color: var(--color-light);
-  user-select: none;
   overflow-x: clip;
 }
 
@@ -27,7 +26,6 @@
   object-fit: cover;
   object-position: center bottom;
   pointer-events: none;
-  user-select: none;
   filter: drop-shadow(0px 3px 4px rgba(0, 0, 0, 0.15));
 }
 
@@ -93,7 +91,6 @@
   width: 105%;
   transform: translate(-50%, -50%);
   pointer-events: none;
-  user-select: none;
 }
 
 .skills__decoration-scaler {
@@ -153,7 +150,6 @@
   height: 100%;
   object-fit: fill;
   pointer-events: none;
-  user-select: none;
 }
 
 .skills__description {
@@ -194,7 +190,6 @@
   cursor: pointer;
   transform: rotate(8deg);
   transition: transform 200ms ease;
-  user-select: none;
   align-self: flex-end;
   margin-top: -4.5rem;
   margin-right: 0;

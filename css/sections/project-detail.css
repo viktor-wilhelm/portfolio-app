@@ -5,7 +5,7 @@
 /* ── Body override for detail page ───────────────────────── */
 
 body:has(.detail) {
-  background-color: #e1bebe;
+  background-color: #000000;
 }
 
 /* ── Header override ──────────────────────────────────────── */
@@ -27,7 +27,6 @@ body:has(.detail) {
 .header--detail .nav__link--contact {
   color: #ffffff;
 }
-
 
 /* ── Page wrapper ─────────────────────────────────────────── */
 
@@ -78,6 +77,7 @@ body:has(.detail) {
   font-weight: 600;
   color: var(--color-text);
   text-decoration: none;
+  margin-top: 3rem;
   margin-bottom: 3rem;
   transition:
     color var(--transition-base),

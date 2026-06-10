@@ -33,3 +33,16 @@ function initFeaturedHoverDirection() {
 }
 
 document.addEventListener("DOMContentLoaded", initFeaturedHoverDirection);
+
+function handleScrollOnLoad() {
+  const target = sessionStorage.getItem("scrollTo");
+  if (!target) return;
+  sessionStorage.removeItem("scrollTo");
+  const el = document.getElementById(target);
+  if (!el) return;
+  document.documentElement.style.scrollBehavior = "auto";
+  el.scrollIntoView();
+  document.documentElement.style.scrollBehavior = "";
+}
+
+document.addEventListener("DOMContentLoaded", handleScrollOnLoad);

@@ -132,6 +132,8 @@
   width: 560px;
   height: 398px;
   border-radius: 1.3rem;
+  cursor: pointer;
+  display: block;
 }
 
 .projects__featured-visual::after {
@@ -202,6 +204,7 @@
   height: 168px;
   object-fit: contain;
   pointer-events: none;
+  z-index: 6;
 }
 
 /* Pill badge that surfaces on hover, in place of the "Project details"

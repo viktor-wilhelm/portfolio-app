@@ -9,6 +9,7 @@
   z-index: 100;
   height: var(--nav-height);
   background-color: transparent;
+  margin-top: 0.65rem;
 }
 
 .header--scrolled {

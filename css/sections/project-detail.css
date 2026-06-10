@@ -33,11 +33,11 @@ body:has(.detail) {
 .detail {
   position: relative;
   max-width: 1440px;
+  height: 900px;
   margin: 0 auto;
   min-height: calc(900px - var(--nav-height));
   background: rgba(29, 29, 29, 1);
   overflow: hidden;
-  border: 1px solid red;
 }
 
 .detail__bg {
@@ -52,7 +52,6 @@ body:has(.detail) {
   object-position: left top;
   pointer-events: none;
   z-index: 0;
-  border: 6px solid rgb(0, 170, 255);
 }
 
 .detail__container {
@@ -63,7 +62,6 @@ body:has(.detail) {
   padding: 3rem 7rem 6rem 7rem;
   display: flex;
   flex-direction: column;
-  border: 2px solid rgb(242, 255, 0);
 }
 
 /* ── Back link ────────────────────────────────────────────── */
@@ -72,9 +70,6 @@ body:has(.detail) {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  font-family: var(--font-base);
-  font-size: 1rem;
-  font-weight: 600;
   color: var(--color-text);
   text-decoration: none;
   margin-top: 3rem;

@@ -46,6 +46,14 @@ const translations = {
     errorPrivacy: "Bitte akzeptiere die Datenschutzerklärung.",
     successMessage: "Deine Nachricht wurde erfolgreich gesendet!",
     errorMessage: "Es ist ein Fehler aufgetreten. Bitte versuche es erneut.",
+    detailBackLink: "Zurück",
+    detailDescriptionHeading: "Beschreibung",
+    detailImplHeading: "Implementierungsdetails",
+    detailJoinImpl:
+      "Kurzer Text, der deine Rolle oder den Arbeitsablauf bei diesem Projekt beschreibt. Zeige Recruitern dein Wissen und deine Fähigkeit, selbstständig oder kollaborativ in einer strukturierten Umgebung zu arbeiten.",
+    detailDurationLabel: "Dauer:",
+    detailJoinDuration: "5 Wochen",
+    detailNextProject: "Nächstes Projekt",
   },
   en: {
     navAbout: "About me",
@@ -91,5 +99,13 @@ const translations = {
     errorPrivacy: "Please accept the privacy policy.",
     successMessage: "Your message was sent successfully!",
     errorMessage: "Something went wrong. Please try again.",
+    detailBackLink: "Go Back",
+    detailDescriptionHeading: "Description",
+    detailImplHeading: "Implementation Details",
+    detailJoinImpl:
+      "Short text that describes your role or the workflow for this specific project. Let a recruiter know more about your knowledge and ability to work independently or collaboratively in a structured way.",
+    detailDurationLabel: "Duration:",
+    detailJoinDuration: "5 weeks",
+    detailNextProject: "Next Project",
   },
 };

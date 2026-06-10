@@ -67,3 +67,16 @@ main > section {
   width: 100%;
   max-width: var(--max-width-section);
 }
+
+/* ============================================================
+   Typography Utilities
+   ============================================================ */
+
+.text-bold-18 {
+  font-family: var(--font-base);
+  font-weight: 700;
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.2; /* 120% */
+  letter-spacing: 0;
+  text-align: justify;
+}

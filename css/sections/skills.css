@@ -11,7 +11,7 @@
   min-height: 1330px;
   padding: 56px clamp(16px, calc(10.1vw - 21.3px), 56px);
   margin: 0 auto;
-  background-color: var(--color-light);
+  background-color: var(--color-bg);
   overflow-x: clip;
 }
 
@@ -159,7 +159,7 @@
   font-style: normal;
   line-height: 1.2;
   letter-spacing: 0;
-  color: #1a1a1a;
+  color: var(--color-text);
 }
 
 .skills__grid-row {

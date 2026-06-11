@@ -3,7 +3,7 @@
    ============================================================ */
 
 .about {
-  background-color: var(--color-light);
+  background-color: var(--color-bg);
   max-width: var(--max-width-section);
   display: flex;
   align-items: flex-start;
@@ -57,7 +57,7 @@
   font-weight: 400;
   line-height: 1.2;
   letter-spacing: 0;
-  color: rgba(248, 249, 250, 1);
+  color: var(--color-off-white);
   white-space: nowrap;
   pointer-events: none;
   display: flex;

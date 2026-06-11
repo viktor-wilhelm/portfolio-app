@@ -4,10 +4,9 @@
 
 :root {
   /* Colors */
-  --color-light: #ffffff;
-  --color-accent: #4a90e2;
   --color-bg: #ffffff;
   --color-bg-dark: #141414;
+  --color-accent: #4a90e2;
   --color-text: #1a1a1a;
   --color-text-dark: #0e1013;
   --color-text-light: #ffffff;
@@ -16,6 +15,7 @@
   --color-success: #38a169;
   --color-off-white: #f8f9fa;
   --color-blue: #3355ff;
+  --color-yellow: rgba(247, 197, 24, 1);
   --color-cta-hover: #f0644a;
 
   /* Typography */

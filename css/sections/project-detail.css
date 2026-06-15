@@ -6,6 +6,7 @@
 
 body:has(.detail) {
   background-color: #000000;
+  margin-top: calc((100vh - 900px) / 2);
 }
 
 /* ── Header override ──────────────────────────────────────── */

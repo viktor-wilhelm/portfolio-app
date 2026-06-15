@@ -77,7 +77,6 @@ body:has(.detail) {
   margin-left: -2.5rem;
   transition: color var(--transition-base);
   cursor: pointer;
-  
 }
 
 .detail__back:hover {
@@ -102,7 +101,6 @@ body:has(.detail) {
   padding-right: 3rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem; /* 32px */
 }
 
 .detail__title-wrap {
@@ -112,14 +110,13 @@ body:has(.detail) {
 
 .detail__title {
   font-family: var(--font-base);
-  font-size: 4rem; /* 64px */
+  font-size: var(--font-size-4xl);
   font-weight: 700;
   line-height: 1;
   letter-spacing: 0;
   color: var(--color-text-dark);
   margin: 0;
-  width: 121px;
-  height: 64px;
+  margin-top: 3rem;
 }
 
 @keyframes detail-underline-sweep {
@@ -155,6 +152,14 @@ body:has(.detail) {
   gap: 0.5rem;
 }
 
+.detail__title-wrap + .detail__section {
+  margin-top: 3rem; /* Join → Description */
+}
+
+.detail__section + .detail__section {
+  margin-top: 1.6rem; /* Description → Impl Details, Impl Details → Duration, Duration → Tags */
+}
+
 .detail__section-heading {
   font-family: var(--font-base);
   font-size: var(--font-size-xl);
@@ -186,23 +191,57 @@ body:has(.detail) {
   margin: 0;
 }
 
+.detail__duration-label span:last-child {
+  font-weight: 400;
+}
+
+.detail__section + .detail__tech {
+  margin-top: 1.6rem;
+}
+
 /* ── Tech stack tags ──────────────────────────────────────── */
 
 .detail__tech {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 1.25rem;
   overflow: hidden;
 }
 
 .detail__tech-tag {
   font-family: var(--font-base);
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 400;
   color: var(--color-text-dark);
-  border: 2px solid var(--color-text-dark);
-  border-radius: 6.25rem;
-  padding: 0.25rem 0.9rem;
+}
+
+.detail__tech-tag--icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.detail__tech-icon--angular {
+  width: 24px;
+  height: 27px;
+  opacity: 1;
+  object-fit: contain;
+  position: relative;
+  top: -1.54px;
+  left: -0.29px;
+}
+
+.detail__tech-icon--firebase-wrap {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  background-image: url('../../assets/img/07_Projects/Property 3=Firebase.png');
+  background-size: auto 100%;
+  background-position: left center;
+  background-repeat: no-repeat;
+  position: relative;
+  top: -1px;
 }
 
 /* ── Action buttons ───────────────────────────────────────── */

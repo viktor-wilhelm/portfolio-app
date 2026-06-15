@@ -197,6 +197,7 @@ body:has(.detail) {
 
 .detail__section + .detail__tech {
   margin-top: 1.6rem;
+  padding-left: 2rem;
 }
 
 /* ── Tech stack tags ──────────────────────────────────────── */

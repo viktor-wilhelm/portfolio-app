@@ -98,7 +98,7 @@ body:has(.detail) {
   flex: 1 1 0;
   min-width: 0;
   min-height: 398px;
-  padding-right: 3rem;
+  padding-right: 4rem;
   display: flex;
   flex-direction: column;
 }
@@ -179,6 +179,7 @@ body:has(.detail) {
   margin: 0;
   overflow-wrap: break-word;
   word-break: break-word;
+  padding-right: 1rem;
 }
 
 .detail__duration-label {

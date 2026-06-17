@@ -9,6 +9,10 @@ body:has(.detail) {
   margin-top: calc((100vh - 900px) / 2);
 }
 
+html.detail-preload .detail__container {
+  visibility: hidden;
+}
+
 /* ── Header override ──────────────────────────────────────── */
 
 .header--detail {
@@ -238,7 +242,7 @@ body:has(.detail) {
   width: 24px;
   height: 24px;
   flex-shrink: 0;
-  background-image: url('../../assets/img/07_Projects/Property 3=Firebase.png');
+  background-image: url("../../assets/img/07_Projects/Property 3=Firebase.png");
   background-size: auto 100%;
   background-position: left center;
   background-repeat: no-repeat;
@@ -342,6 +346,24 @@ body:has(.detail) {
   justify-content: flex-end;
   padding-top: 2.4rem;
   margin-right: -2.5rem;
+}
+
+.detail--project-el-pollo-loco .detail__next,
+.detail--project-da-bubble .detail__next {
+  position: absolute;
+  right: 4.5rem;
+  bottom: 5px;
+  padding-top: 0;
+  margin-right: 0;
+}
+
+html[data-project="el-pollo-loco"] .detail__next,
+html[data-project="da-bubble"] .detail__next {
+  position: absolute;
+  right: 4.5rem;
+  bottom: 5px;
+  padding-top: 0;
+  margin-right: 0;
 }
 
 .detail__next-btn {

@@ -45,7 +45,15 @@ const PROJECTS = {
 
 function getProjectData() {
   const key = new URLSearchParams(window.location.search).get("project") ?? "join";
-  return PROJECTS[key] ?? PROJECTS["join"];
+  if (PROJECTS[key]) return { key, ...PROJECTS[key] };
+  return { key: "join", ...PROJECTS["join"] };
+}
+
+function syncProjectClass(project) {
+  const detail = document.querySelector(".detail");
+  if (!detail) return;
+  detail.classList.remove("detail--project-join", "detail--project-el-pollo-loco", "detail--project-da-bubble");
+  detail.classList.add(`detail--project-${project.key}`);
 }
 
 function renderTechTag(tag) {
@@ -91,6 +99,7 @@ function populateVisual(project) {
 
 function initProject() {
   const project = getProjectData();
+  syncProjectClass(project);
   populateText(project);
   populateTech(project);
   populateVisual(project);
@@ -106,7 +115,15 @@ function initBackLink() {
   });
 }
 
+function markDetailReady() {
+  document.documentElement.classList.remove("detail-preload");
+}
+
 document.addEventListener("DOMContentLoaded", () => {
-  initProject();
-  initBackLink();
+  try {
+    initProject();
+    initBackLink();
+  } finally {
+    markDetailReady();
+  }
 });

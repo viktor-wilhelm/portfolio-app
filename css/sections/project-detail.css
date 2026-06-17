@@ -139,7 +139,7 @@ body:has(.detail) {
 
 .detail__title-underline {
   display: block;
-  width: 7.563rem;
+  width: auto;
   height: 1.25rem;
   object-fit: fill;
   animation: detail-underline-sweep 5s ease-out infinite;
@@ -341,7 +341,6 @@ body:has(.detail) {
   display: flex;
   justify-content: flex-end;
   padding-top: 2.4rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.12);
   margin-right: -2.5rem;
 }
 

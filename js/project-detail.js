@@ -37,7 +37,7 @@ const PROJECTS = {
     sticker: "assets/img/07_Projects/Sticker-yellow.png",
     github: "#",
     live: "#",
-    tech: [{ id: "angular" }, "TypeScript", { id: "firebase" }, "HTML", "CSS"],
+    tech: ["JavaScript", "HTML", "CSS"],
     underlineWidth: "20rem",
     next: "join",
   },

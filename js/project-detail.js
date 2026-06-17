@@ -1,3 +1,28 @@
+const PROJECT_TITLES = {
+  join: "Join",
+  "el-pollo-loco": "El Pollo Loco",
+  "da-bubble": "DA Bubble",
+};
+
+function getProjectKey() {
+  const keyFromHtml = document.documentElement.dataset.project;
+  if (PROJECT_TITLES[keyFromHtml]) return keyFromHtml;
+
+  const keyFromUrl = new URLSearchParams(window.location.search).get("project") ?? "join";
+  if (PROJECT_TITLES[keyFromUrl]) return keyFromUrl;
+
+  return "join";
+}
+
+function bootstrapProjectDetailPage() {
+  const projectKey = getProjectKey();
+  document.documentElement.dataset.project = projectKey;
+  document.documentElement.classList.add("detail-preload");
+  document.title = `${PROJECT_TITLES[projectKey]} – Viktor Wilhelm`;
+}
+
+bootstrapProjectDetailPage();
+
 const PROJECTS = {
   join: {
     title: "Join",
@@ -44,7 +69,7 @@ const PROJECTS = {
 };
 
 function getProjectData() {
-  const key = new URLSearchParams(window.location.search).get("project") ?? "join";
+  const key = getProjectKey();
   if (PROJECTS[key]) return { key, ...PROJECTS[key] };
   return { key: "join", ...PROJECTS["join"] };
 }

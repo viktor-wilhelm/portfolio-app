@@ -86,6 +86,24 @@
   }
 }
 
+@keyframes testimonials-underline-sweep {
+  0% {
+    clip-path: inset(0 0% 0 100%);
+  }
+  10% {
+    clip-path: inset(0 100% 0 0);
+  }
+  70% {
+    clip-path: inset(0 100% 0 0);
+  }
+  80% {
+    clip-path: inset(0 0% 0 100%);
+  }
+  100% {
+    clip-path: inset(0 0% 0 100%);
+  }
+}
+
 .projects__heading-decoration {
   display: block;
   width: 16.25rem;
@@ -423,11 +441,31 @@
   margin: 0;
 }
 
+@keyframes testimonials-underline-sweep {
+  0% {
+    clip-path: inset(0 0 0 100%);
+  }
+  10% {
+    clip-path: inset(0 0 0 0%);
+  }
+  70% {
+    clip-path: inset(0 0 0 0%);
+  }
+  80% {
+    clip-path: inset(0 0 0 100%);
+  }
+  100% {
+    clip-path: inset(0 0 0 100%);
+  }
+}
+
 .testimonials__heading-decoration {
   display: block;
-  width: 280px;
-  height: auto;
+  width: 100px;
+  height: 36px;
   pointer-events: none;
+  animation: testimonials-underline-sweep 3.5s ease-out infinite;
+  animation-delay: 3000ms;
 }
 
 /* ── Testimonial cards ────────────────────────────────────── */

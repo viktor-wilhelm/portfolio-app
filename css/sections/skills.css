@@ -294,7 +294,7 @@
   }
 
   .skills__heading {
-    font-size: 4rem; /* 64px */
+    font-size: var(--font-size-section-heading);
     white-space: nowrap;
   }
 

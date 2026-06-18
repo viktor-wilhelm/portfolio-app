@@ -60,7 +60,7 @@
 
 .projects__heading {
   font-family: var(--font-base);
-  font-size: 4rem;
+  font-size: var(--font-size-section-heading);
   font-weight: 700;
   line-height: 1;
   letter-spacing: 0;
@@ -409,34 +409,36 @@
 .testimonials__header {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  align-self: flex-end;
+}
+
+.testimonials__annotation {
+  display: flex;
+  flex-direction: row;
   align-items: center;
   gap: 0.75rem;
-  text-align: center;
+  align-self: flex-end;
 }
 
 .testimonials__sub-label {
   font-family: var(--font-base);
-  font-size: var(--font-size-sm);
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0;
   text-transform: uppercase;
-  color: var(--color-text-muted);
+  color: var(--color-text-dark);
   margin: 0;
-}
-
-.testimonials__heading-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
 }
 
 .testimonials__heading {
   font-family: var(--font-base);
-  font-size: 3rem;
-  font-weight: 800;
+  font-size: var(--font-size-section-heading);
+  font-weight: 700;
   line-height: 1;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
   color: var(--color-text);
   margin: 0;
 }
@@ -463,6 +465,7 @@
   display: block;
   width: 100px;
   height: 36px;
+  opacity: 1;
   pointer-events: none;
   animation: testimonials-underline-sweep 3.5s ease-out infinite;
   animation-delay: 3000ms;
@@ -471,17 +474,36 @@
 /* ── Testimonial cards ────────────────────────────────────── */
 
 .testimonials__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 0;
 }
 
 .testimonial-card {
   position: relative;
+  width: 360px;
   min-height: 220px;
+  flex-shrink: 0;
   display: flex;
   align-items: stretch;
+}
+
+.testimonial-card:nth-child(1) {
+  transform: rotate(-10deg);
+  margin-right: -90px;
+  z-index: 1;
+}
+
+.testimonial-card:nth-child(2) {
+  transform: rotate(-1deg) translateY(-20px);
+  z-index: 3;
+}
+
+.testimonial-card:nth-child(3) {
+  transform: rotate(8deg);
+  margin-left: -90px;
+  z-index: 2;
 }
 
 .testimonial-card__bg {

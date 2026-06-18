@@ -7,7 +7,7 @@
   --color-bg: #ffffff;
   --color-bg-dark: #141414;
   --color-accent: #4a90e2;
-  --color-text: #1a1a1a;
+  --color-text: #0e1013;
   --color-text-dark: #0e1013;
   --color-text-light: #ffffff;
   --color-text-muted: #888888;
@@ -20,6 +20,7 @@
 
   /* Typography */
   --font-base: "Bricolage Grotesque", sans-serif;
+  --font-size-section-heading: 4rem; /* 64px — all section H2 headings */
   --font-size-base: 1rem; /* 16px */
   --font-size-sm: 0.875rem; /* 14px */
   --font-size-lg: 1.25rem; /* 20px */

@@ -68,6 +68,12 @@ main > section {
   max-width: var(--max-width-section);
 }
 
+h1,
+h2,
+h3 {
+  color: var(--color-text-dark);
+}
+
 /* ============================================================
    Typography Utilities
    ============================================================ */

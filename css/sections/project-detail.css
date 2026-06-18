@@ -114,7 +114,7 @@ html.detail-preload .detail__container {
 
 .detail__title {
   font-family: var(--font-base);
-  font-size: var(--font-size-4xl);
+  font-size: var(--font-size-section-heading);
   font-weight: 700;
   line-height: 1;
   letter-spacing: 0;

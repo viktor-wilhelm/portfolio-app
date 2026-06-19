@@ -8,6 +8,8 @@
   width: 100%;
   background-color: var(--color-bg);
   padding: 6rem 7rem;
+  position: relative;
+  z-index: 1;
 }
 
 /* ── Top area: 2-column flex ──────────────────────────────── */
@@ -477,7 +479,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 3rem 0;
+  padding: 3rem 0 6rem;
 }
 
 .testimonial-card {
@@ -489,8 +491,7 @@
   align-items: stretch;
   border-radius: 1.3rem;
   overflow: hidden;
-  will-change: transform;
-  transition: box-shadow 0.3s ease;
+  transition: filter 0.3s ease;
 }
 
 .testimonial-card:nth-child(1) {
@@ -512,7 +513,7 @@
 
 .testimonial-card:hover {
   z-index: 10;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.45);
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.45));
 }
 
 .testimonial-card__bg {

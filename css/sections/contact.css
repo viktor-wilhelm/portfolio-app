@@ -60,23 +60,39 @@
   color: rgba(255, 255, 255, 0.75);
   margin: 0;
   max-width: 34rem;
+  text-align: justify;
+}
+
+@keyframes contact-decoration-sweep {
+  0%   { clip-path: inset(0 100% 0 0); }
+  10%  { clip-path: inset(0 0%   0 0); }
+  70%  { clip-path: inset(0 0%   0 0); }
+  80%  { clip-path: inset(0 100% 0 0); }
+  100% { clip-path: inset(0 100% 0 0); }
 }
 
 .contact__decoration {
   display: block;
-  width: 12rem;
+  width: 280px;
+  height: 44px;
   object-fit: contain;
   margin-top: 3rem;
   pointer-events: none;
+  align-self: flex-end;
+  animation: contact-decoration-sweep 5s ease-out infinite;
+  animation-delay: 3000ms;
 }
 
 /* ── Right column ───────────────────────────────────────── */
 
 .contact__right {
-  flex: 1 1 0;
-  min-width: 0;
+  flex: 0 0 480px;
   position: relative;
-  padding-top: 2rem;
+  padding-top: 8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .contact__badge {
@@ -105,7 +121,7 @@
 .form__group label {
   font-family: var(--font-base);
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1.2;
   color: var(--color-text-light);
   margin-bottom: 0.5rem;
@@ -121,6 +137,7 @@
   font-family: var(--font-base);
   font-size: 1.125rem;
   font-weight: 400;
+  line-height: 1.2;
   color: var(--color-text-light);
   -webkit-text-fill-color: var(--color-text-light);
   outline: none;
@@ -129,8 +146,25 @@
 
 .form__group input::placeholder,
 .form__group textarea::placeholder {
-  color: rgba(255, 255, 255, 0.35);
-  -webkit-text-fill-color: rgba(255, 255, 255, 0.35);
+  font-family: var(--font-base);
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 1.2;
+  letter-spacing: 0;
+  color: var(--color-text-light);
+  -webkit-text-fill-color: var(--color-text-light);
+}
+
+.form__group input.input--error::placeholder,
+.form__group textarea.input--error::placeholder {
+  color: var(--color-error);
+  -webkit-text-fill-color: var(--color-error);
+}
+
+#name-error,
+#email-error,
+#message-error {
+  display: none;
 }
 
 .form__group input:-webkit-autofill,
@@ -183,19 +217,19 @@
 
 .form__submit {
   align-self: flex-end;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 999px;
-  padding: 0.75rem 2.5rem;
+  height: 44px;
+  padding: 0 1.5rem;
+  border: none;
+  box-shadow:
+    inset 0 0 0 1px var(--color-off-white),
+    3px 3.5px 0 0 var(--color-off-white);
   font-family: var(--font-base);
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: 500;
+  line-height: 1.2;
   color: var(--color-text-light);
-  letter-spacing: 0.04em;
-  cursor: pointer;
   margin-top: 2rem;
-  transition:
-    background-color var(--transition-base),
-    opacity var(--transition-base);
+  transition: transform 90ms ease-in;
 }
 
 .form__submit:disabled {
@@ -204,7 +238,7 @@
 }
 
 .form__submit:not(:disabled):hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 0 0 1px var(--color-off-white);
 }
 
 .form__feedback {

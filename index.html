@@ -18,7 +18,6 @@
     <link rel="stylesheet" href="css/sections/skills.css" />
     <link rel="stylesheet" href="css/sections/projects.css" />
     <link rel="stylesheet" href="css/sections/contact.css" />
-    <link rel="stylesheet" href="css/components/footer.css" />
   </head>
   <body>
     <main>
@@ -182,9 +181,9 @@
         <div class="skills__container">
           <div class="skills__header">
             <div class="skills__title-group">
-              <p class="skills__label">MY STACK</p>
+              <p class="skills__label" data-i18n="skillsLabel">MY STACK</p>
               <div class="skills__heading-wrapper">
-                <h2 class="skills__heading">Skill set</h2>
+                <h2 class="skills__heading" data-i18n="skillsHeading">Skill set</h2>
                 <div class="skills__decoration-positioner">
                   <div class="skills__decoration-scaler">
                     <img
@@ -449,9 +448,9 @@
                 aria-hidden="true"
                 draggable="false"
               />
-              <p class="testimonials__sub-label">IN THEIR WORDS:</p>
+              <p class="testimonials__sub-label" data-i18n="testimonialsSubLabel">IN THEIR WORDS:</p>
             </div>
-            <h2 class="testimonials__heading">Colleagues' Thoughts</h2>
+            <h2 class="testimonials__heading" data-i18n="testimonialsHeading">Colleagues' Thoughts</h2>
           </div>
 
           <div class="testimonials__grid">
@@ -636,8 +635,5 @@
     <script src="js/navbar.js"></script>
     <script src="js/skills.js"></script>
     <script src="js/projects.js"></script>
-    <script>
-      document.getElementById("current-year").textContent = new Date().getFullYear();
-    </script>
   </body>
 </html>

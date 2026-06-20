@@ -5,6 +5,12 @@ const privacyInput = document.getElementById("privacy");
 const submitBtn = document.querySelector(".form__submit");
 const feedback = document.getElementById("form-feedback");
 
+const originalPlaceholders = {
+  name: nameInput.placeholder,
+  email: emailInput.placeholder,
+  message: messageInput.placeholder,
+};
+
 /**
  * Returns the current language from localStorage.
  * @returns {string} Language code ('de' or 'en').
@@ -14,43 +20,55 @@ function getCurrentLang() {
 }
 
 /**
- * Returns the error element for a given input field.
- * @param {HTMLElement} input - The input element.
- * @returns {HTMLElement} The corresponding error span.
+ * Shows error message as red placeholder inside the input.
+ * @param {HTMLElement} input
+ * @param {string} message
  */
-function getErrorEl(input) {
-  return document.getElementById(`${input.id}-error`);
+function setInputError(input, message) {
+  input.placeholder = message;
+  input.classList.add("input--error");
 }
 
 /**
- * Validates a required text input and sets its error message.
- * @param {HTMLInputElement} input - The input to validate.
- * @returns {boolean} True if valid.
+ * Clears error state and restores original placeholder.
+ * @param {HTMLElement} input
+ */
+function clearInputError(input) {
+  input.placeholder = originalPlaceholders[input.id];
+  input.classList.remove("input--error");
+}
+
+/**
+ * Validates a required text input.
+ * @param {HTMLInputElement} input
+ * @returns {boolean}
  */
 function validateTextField(input) {
-  const errorEl = getErrorEl(input);
   const valid = input.value.trim().length > 0;
-  errorEl.textContent = valid ? "" : translations[getCurrentLang()].errorRequired;
+  valid
+    ? clearInputError(input)
+    : setInputError(input, translations[getCurrentLang()].errorRequired);
   return valid;
 }
 
 /**
  * Validates the email input field.
- * @returns {boolean} True if the email is valid.
+ * @returns {boolean}
  */
 function validateEmailField() {
-  const errorEl = getErrorEl(emailInput);
   const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim());
-  errorEl.textContent = valid ? "" : translations[getCurrentLang()].errorEmail;
+  valid
+    ? clearInputError(emailInput)
+    : setInputError(emailInput, translations[getCurrentLang()].errorEmail);
   return valid;
 }
 
 /**
  * Validates the privacy checkbox.
- * @returns {boolean} True if checked.
+ * @returns {boolean}
  */
 function validatePrivacy() {
-  const errorEl = getErrorEl(privacyInput);
+  const errorEl = document.getElementById("privacy-error");
   const valid = privacyInput.checked;
   errorEl.textContent = valid ? "" : translations[getCurrentLang()].errorPrivacy;
   return valid;
@@ -70,20 +88,19 @@ function updateSubmitButton() {
 
 /**
  * Handles the contact form submission.
- * @param {SubmitEvent} event - The submit event.
+ * @param {SubmitEvent} event
  */
 async function handleFormSubmit(event) {
   event.preventDefault();
   const t = translations[getCurrentLang()];
-
   try {
     const formData = new FormData(event.target);
     const response = await fetch("mail.php", { method: "POST", body: formData });
-
     if (response.ok) {
       feedback.textContent = t.successMessage;
       feedback.className = "form__feedback form__feedback--success";
       event.target.reset();
+      [nameInput, emailInput, messageInput].forEach(clearInputError);
       submitBtn.disabled = true;
     } else {
       throw new Error("Server error");
@@ -94,22 +111,9 @@ async function handleFormSubmit(event) {
   }
 }
 
-// onBlur validation
-nameInput.addEventListener("blur", () => {
-  validateTextField(nameInput);
-  updateSubmitButton();
-});
-emailInput.addEventListener("blur", () => {
-  validateEmailField();
-  updateSubmitButton();
-});
-messageInput.addEventListener("blur", () => {
-  validateTextField(messageInput);
-  updateSubmitButton();
-});
-privacyInput.addEventListener("change", () => {
-  validatePrivacy();
-  updateSubmitButton();
-});
+nameInput.addEventListener("blur", () => { validateTextField(nameInput); updateSubmitButton(); });
+emailInput.addEventListener("blur", () => { validateEmailField(); updateSubmitButton(); });
+messageInput.addEventListener("blur", () => { validateTextField(messageInput); updateSubmitButton(); });
+privacyInput.addEventListener("change", () => { validatePrivacy(); updateSubmitButton(); });
 
 document.getElementById("contact-form").addEventListener("submit", handleFormSubmit);

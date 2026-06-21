@@ -217,8 +217,9 @@
 
 .form__submit {
   align-self: flex-end;
-  height: 44px;
-  padding: 0 1.5rem;
+  min-width: 154px;
+  height: 40px;
+  padding: 0 24px;
   border: none;
   box-shadow:
     inset 0 0 0 1px var(--color-off-white),
@@ -232,13 +233,21 @@
   transition: transform 90ms ease-in;
 }
 
+.form__submit::after {
+  z-index: -1;
+}
+
 .form__submit:disabled {
   opacity: 0.35;
   cursor: not-allowed;
 }
 
 .form__submit:not(:disabled):hover {
-  box-shadow: inset 0 0 0 1px var(--color-off-white);
+  box-shadow: none;
+}
+
+.form__submit:not(:disabled):hover::after {
+  box-shadow: inset 0 0 0 1.5px var(--color-off-white);
 }
 
 .form__feedback {

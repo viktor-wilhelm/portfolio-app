@@ -116,7 +116,7 @@ const translations = {
     formPrivacyLink: "privacy policy",
     formPrivacyRead: "and agree to the processing of my data as outlined.",
     formSubmit: "Send",
-    footerImprint: "Imprint",
+    footerImprint: "Legal Notice",
     footerPrivacy: "Privacy Policy",
     errorRequired: "This field is required.",
     errorEmail: "Please enter a valid email address.",

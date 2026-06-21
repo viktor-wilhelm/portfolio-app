@@ -75,15 +75,10 @@ function validatePrivacy() {
 }
 
 /**
- * Enables or disables the submit button based on all field states.
+ * Enables or disables the submit button based on the privacy checkbox.
  */
 function updateSubmitButton() {
-  const allValid =
-    nameInput.value.trim().length > 0 &&
-    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim()) &&
-    messageInput.value.trim().length > 0 &&
-    privacyInput.checked;
-  submitBtn.disabled = !allValid;
+  submitBtn.disabled = !privacyInput.checked;
 }
 
 /**
@@ -92,6 +87,11 @@ function updateSubmitButton() {
  */
 async function handleFormSubmit(event) {
   event.preventDefault();
+  const nameValid = validateTextField(nameInput);
+  const emailValid = validateEmailField();
+  const msgValid = validateTextField(messageInput);
+  const privacyValid = validatePrivacy();
+  if (!nameValid || !emailValid || !msgValid || !privacyValid) return;
   const t = translations[getCurrentLang()];
   try {
     const formData = new FormData(event.target);

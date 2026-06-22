@@ -5,8 +5,7 @@
 
 .hero__cta,
 .about__cta,
-.form__submit,
-.footer__nav-btn {
+.form__submit {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -18,15 +17,13 @@
 
 .hero__cta:hover,
 .about__cta:hover,
-.form__submit:not(:disabled):hover,
-.footer__nav-item:hover .footer__nav-btn {
+.form__submit:not(:disabled):hover {
   transform: translate(0.25rem, 0.25rem);
 }
 
 .hero__cta::after,
 .about__cta::after,
-.form__submit::after,
-.footer__nav-btn::after {
+.form__submit::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -38,7 +35,6 @@
 
 .hero__cta:hover::after,
 .about__cta:hover::after,
-.form__submit:not(:disabled):hover::after,
-.footer__nav-item:hover .footer__nav-btn::after {
+.form__submit:not(:disabled):hover::after {
   opacity: 1;
 }

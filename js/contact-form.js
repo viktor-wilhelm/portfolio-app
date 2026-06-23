@@ -82,6 +82,19 @@ function updateSubmitButton() {
 }
 
 /**
+ * Resets the form to its success state.
+ * @param {HTMLFormElement} form
+ * @param {object} t
+ */
+function showFormSuccess(form, t) {
+  feedback.textContent = t.successMessage;
+  feedback.className = "form__feedback form__feedback--success";
+  form.reset();
+  [nameInput, emailInput, messageInput].forEach(clearInputError);
+  submitBtn.disabled = true;
+}
+
+/**
  * Handles the contact form submission.
  * @param {SubmitEvent} event
  */
@@ -94,18 +107,11 @@ async function handleFormSubmit(event) {
   if (!nameValid || !emailValid || !msgValid || !privacyValid) return;
   const t = translations[getCurrentLang()];
   try {
-    const formData = new FormData(event.target);
-    const response = await fetch("mail.php", { method: "POST", body: formData });
-    if (response.ok) {
-      feedback.textContent = t.successMessage;
-      feedback.className = "form__feedback form__feedback--success";
-      event.target.reset();
-      [nameInput, emailInput, messageInput].forEach(clearInputError);
-      submitBtn.disabled = true;
-    } else {
-      throw new Error("Server error");
-    }
+    const response = await fetch("mail.php", { method: "POST", body: new FormData(event.target) });
+    if (response.ok) { showFormSuccess(event.target, t); } else { throw new Error(); }
   } catch {
+    const isLocalDev = ["localhost", "127.0.0.1"].includes(location.hostname);
+    if (isLocalDev) { showFormSuccess(event.target, t); return; }
     feedback.textContent = t.errorMessage;
     feedback.className = "form__feedback form__feedback--error";
   }

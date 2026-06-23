@@ -50,10 +50,17 @@ ol {
   list-style: none;
 }
 
+input,
+textarea {
+  background: transparent;
+}
+
 /* Webkit Autofill Fix */
-input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0 1000px var(--color-bg) inset;
-  -webkit-text-fill-color: var(--color-text);
+input:-webkit-autofill,
+textarea:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px transparent inset;
+  -webkit-text-fill-color: inherit;
+  transition: background-color 9999s ease-in-out;
 }
 
 main {

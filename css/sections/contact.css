@@ -92,15 +92,14 @@
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .contact__badge {
   position: absolute;
-  top: -1rem;
+  top: 0;
   right: 0;
-  width: 9rem;
-  height: 9rem;
+  width: 168px;
+  height: 166px;
   object-fit: contain;
   pointer-events: none;
 }
@@ -115,8 +114,9 @@
 .form__group {
   display: flex;
   flex-direction: column;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
+
 
 .form__group label {
   font-family: var(--font-base);
@@ -125,26 +125,28 @@
   line-height: 1.2;
   color: var(--color-text-light);
   margin-bottom: 0.5rem;
+  padding-left: 1rem;
 }
 
-.form__group input,
+.form__group input:not(.form__checkbox),
 .form__group textarea {
   background: transparent;
   border: none;
   border-bottom: 1px solid var(--color-yellow);
   border-radius: 0;
-  padding: 0.5rem 0;
+  padding: 0 0 1rem 1rem;
   font-family: var(--font-base);
   font-size: 1.125rem;
   font-weight: 400;
   line-height: 1.2;
+  letter-spacing: 0;
   color: var(--color-text-light);
   -webkit-text-fill-color: var(--color-text-light);
   outline: none;
   resize: none;
 }
 
-.form__group input::placeholder,
+.form__group input:not(.form__checkbox)::placeholder,
 .form__group textarea::placeholder {
   font-family: var(--font-base);
   font-weight: 400;
@@ -167,13 +169,13 @@
   display: none;
 }
 
-.form__group input:-webkit-autofill,
+.form__group input:not(.form__checkbox):-webkit-autofill,
 .form__group textarea:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 1000px transparent inset;
   -webkit-text-fill-color: var(--color-text-light);
 }
 
-.form__group input:focus,
+.form__group input:not(.form__checkbox):focus,
 .form__group textarea:focus {
   border-bottom-color: rgba(255, 255, 255, 0.7);
 }
@@ -188,18 +190,44 @@
 }
 
 .form__group--checkbox {
+  display: flex;
   flex-direction: row;
-  align-items: flex-start;
-  gap: var(--space-sm);
   flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 12px;
   margin-bottom: 0;
+  overflow: visible;
+}
+
+.form__group--checkbox .form__error {
+  flex-basis: 100%;
+  font-size: 14px;
+  line-height: 1.2;
+  color: rgba(248, 122, 85, 1);
+}
+
+.form__checkbox {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
 }
 
 .form__group--checkbox label {
-  font-size: 0.875rem;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 15px;
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.2;
   color: rgba(255, 255, 255, 0.65);
+  padding-left: 0;
+  margin: 0;
+  cursor: pointer;
+  overflow: visible;
+ margin-top: 1rem;
 }
 
 .form__group--checkbox label a {
@@ -207,12 +235,31 @@
   text-decoration: underline;
 }
 
-.form__group--checkbox input[type="checkbox"] {
-  margin-top: 0.15rem;
+.form__checkbox-visual {
+  position: relative;
+  z-index: 0;
   flex-shrink: 0;
-  accent-color: var(--color-yellow);
-  width: 1rem;
-  height: 1rem;
+  width: 18px;
+  height: 18px;
+  box-sizing: border-box;
+  margin-top: 3px;
+  border: 2px solid rgba(51, 85, 255, 1);
+  border-radius: 2px;
+  background: var(--color-bg-dark);
+}
+
+.form__checkbox:checked ~ label .form__checkbox-visual::after {
+  content: "";
+  position: absolute;
+  top: -8px;
+  right: -3px;
+  bottom: -2px;
+  left: -3px;
+  background-image: url("../../assets/img/00_Hand-drawn lines/00_Header/Color option 1/Check.png");
+  background-size: 85%;
+  background-repeat: no-repeat;
+  background-position: calc(50% + 1px) calc(50% + 2px);
+  z-index: 1;
 }
 
 .form__submit {
@@ -229,7 +276,7 @@
   font-weight: 500;
   line-height: 1.2;
   color: var(--color-text-light);
-  margin-top: 2rem;
+  margin-top: 16px;
   transition: transform 90ms ease-in;
 }
 

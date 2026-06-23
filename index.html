@@ -598,16 +598,20 @@
 
               <div class="form__group">
                 <label for="message" data-i18n="formMessageQuestion">How can I help you?</label>
-                <textarea id="message" name="message" rows="3" placeholder="Hello Viktor, I am interested in…" required></textarea>
+                <textarea id="message" name="message" rows="1" placeholder="Hello Viktor, I am interested in…" required></textarea>
                 <span class="form__error" id="message-error" aria-live="polite"></span>
               </div>
 
               <div class="form__group form__group--checkbox">
-                <input type="checkbox" id="privacy" name="privacy" required />
+                <input type="checkbox" id="privacy" name="privacy" class="form__checkbox" required />
                 <label for="privacy">
-                  <span data-i18n="formPrivacy">I've read the</span>
-                  <a href="#datenschutz" data-i18n="formPrivacyLink">privacy policy</a>
-                  <span data-i18n="formPrivacyRead">and agree to the processing of my data as outlined.</span>
+                  <span class="form__checkbox-visual" aria-hidden="true"></span>
+                  <span class="form__checkbox-text">
+                    <span data-i18n="formPrivacy">I've read the</span>
+                    <a href="#datenschutz" data-i18n="formPrivacyLink">privacy policy</a>
+                    <span data-i18n="formPrivacyRead">and agree to the processing of my</span><br>
+                    <span data-i18n="formPrivacyRead2">data as outlined.</span>
+                  </span>
                 </label>
                 <span class="form__error" id="privacy-error" aria-live="polite"></span>
               </div>

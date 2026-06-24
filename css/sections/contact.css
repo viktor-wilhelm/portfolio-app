@@ -126,6 +126,7 @@
   color: var(--color-text-light);
   margin-bottom: 0.5rem;
   padding-left: 1rem;
+  cursor: pointer;
 }
 
 .form__group input:not(.form__checkbox),
@@ -172,7 +173,8 @@
 
 .form__group input:not(.form__checkbox):focus,
 .form__group textarea:focus {
-  border-bottom-color: rgba(255, 255, 255, 0.7);
+  border-bottom-color: var(--color-blue);
+  box-shadow: 0 -1px 0 0 var(--color-blue);
 }
 
 /* Reserved space prevents layout shift */

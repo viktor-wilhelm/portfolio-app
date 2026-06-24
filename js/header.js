@@ -71,10 +71,10 @@ function buildOverlayLang() {
 
 function buildOverlaySocial() {
   return `<nav class="nav__overlay-social" aria-label="Social Media">
-      <a href="https://linkedin.com" class="hero__social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+      <a href="https://www.linkedin.com/in/viktor-wilhelm/" class="hero__social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
         <img src="assets/img/04_Hero/17_Contact linkedin.png" alt="LinkedIn" class="hero__social-icon" />
       </a>
-      <a href="https://github.com" class="hero__social-link" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+      <a href="https://github.com/viktor-wilhelm" class="hero__social-link" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
         <img src="assets/img/04_Hero/18_Contact gihub.png" alt="GitHub" class="hero__social-icon" />
       </a>
       <a href="mailto:" class="hero__social-link" aria-label="E-Mail">

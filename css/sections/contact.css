@@ -127,6 +127,12 @@
   margin-bottom: 0.5rem;
   padding-left: 1rem;
   cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.form__group:hover label,
+.form__group:focus-within label {
+  color: rgba(248, 122, 85, 1);
 }
 
 .form__group input:not(.form__checkbox),
@@ -171,10 +177,37 @@
 }
 
 
+.form__group:hover input:not(.form__checkbox),
+.form__group:hover textarea,
 .form__group input:not(.form__checkbox):focus,
 .form__group textarea:focus {
   border-bottom-color: var(--color-blue);
-  box-shadow: 0 -1px 0 0 var(--color-blue);
+}
+
+.form__group:has(+ .form__group:hover) input:not(.form__checkbox),
+.form__group:has(+ .form__group:hover) textarea,
+.form__group:has(+ .form__group:focus-within) input:not(.form__checkbox),
+.form__group:has(+ .form__group:focus-within) textarea {
+  border-bottom-color: var(--color-blue);
+}
+
+.form__group:first-child {
+  position: relative;
+}
+
+.form__group:first-child::before {
+  content: '';
+  position: absolute;
+  top: -1rem;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: transparent;
+}
+
+.form__group:first-child:hover::before,
+.form__group:first-child:focus-within::before {
+  background: var(--color-blue);
 }
 
 /* Reserved space prevents layout shift */

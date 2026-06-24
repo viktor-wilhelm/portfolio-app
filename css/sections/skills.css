@@ -254,10 +254,10 @@
 
 @media (min-width: 768px) {
   .skills {
-    max-width: var(--max-width-section);
+    width: 100%;
     height: 818px;
     min-height: unset;
-    padding: 140px clamp(30px, calc(13.393vw - 72.857px), 120px);
+    padding: 140px 0;
     margin: unset;
   }
 
@@ -268,9 +268,10 @@
   }
 
   .skills__container {
-    max-width: unset;
-    width: auto;
-    margin: unset;
+    max-width: var(--max-width-section);
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 clamp(30px, calc(13.393vw - 72.857px), 120px);
   }
 
   .skills__header {

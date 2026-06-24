@@ -7,9 +7,17 @@
 .projects {
   width: 100%;
   background-color: var(--color-bg);
-  padding: 6rem 7rem;
+  padding: 6rem 0;
   position: relative;
   z-index: 1;
+}
+
+.projects__top,
+.projects__grid,
+.testimonials {
+  max-width: var(--max-width-section);
+  margin: 0 auto;
+  padding: 0 7.5rem;
 }
 
 /* ── Top area: 2-column flex ──────────────────────────────── */

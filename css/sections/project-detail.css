@@ -64,7 +64,7 @@ html.detail-preload .detail__container {
   z-index: 1;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 3rem 7rem 6rem 7rem;
+  padding: 3rem 7.5rem 6rem 7.5rem;
   display: flex;
   flex-direction: column;
 }

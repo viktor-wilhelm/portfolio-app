@@ -72,7 +72,6 @@ main {
 
 main > section {
   width: 100%;
-  max-width: var(--max-width-section);
 }
 
 h1,

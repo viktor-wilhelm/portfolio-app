@@ -1,5 +1,7 @@
 function getBase() {
-  return window.location.pathname.includes("project-detail") ? "index.html" : "";
+  const path = window.location.pathname;
+  if (path.includes("project-detail") || path.includes("legal-notice")) return "index.html";
+  return "";
 }
 
 function buildNavLinks(base) {

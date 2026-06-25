@@ -181,9 +181,8 @@
   inset: 0;
   background-color: var(--color-blue);
   border-radius: 100px;
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform 80ms ease-out;
+  opacity: 0;
+  transition: opacity 350ms ease;
 }
 
 .footer__nav-btn-text {
@@ -196,5 +195,5 @@
 }
 
 .footer__nav-item:hover .footer__nav-btn::before {
-  transform: scaleX(1);
+  opacity: 1;
 }

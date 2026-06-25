@@ -385,3 +385,8 @@ html[data-project="da-bubble"] .detail__next {
 .detail__next-btn:hover {
   color: var(--color-yellow);
 }
+
+.detail--project-join .detail__next-btn {
+  position: relative;
+  left: 8px;
+}

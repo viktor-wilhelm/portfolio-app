@@ -3,11 +3,6 @@
    Responsive styles will be added later.
    ============================================================ */
 
-/* Gray backdrop so page edges are visible */
-body {
-  background-color: #e0e0e0;
-}
-
 /* Language toggling for paragraphs with embedded links */
 html[lang="en"] [data-lang-de] { display: none; }
 html[lang="de"] [data-lang-en] { display: none; }
@@ -48,18 +43,32 @@ html[lang="de"] [data-lang-en] { display: none; }
 
 .legal-hero__container {
   position: absolute;
-  top: 200px;
-  left: 120px;
+  top: 140px;
+  left: 24px;
   z-index: 2;
+}
+
+@media (min-width: 900px) {
+  .legal-hero__container {
+    top: 200px;
+    left: 120px;
+  }
 }
 
 .legal-hero__title {
   font-family: var(--font-base);
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: 700;
-  line-height: 1;
+  line-height: 1.2;
   letter-spacing: 0;
   color: var(--color-text-light);
+}
+
+@media (min-width: 900px) {
+  .legal-hero__title {
+    font-size: 4rem;
+    line-height: 1;
+  }
 }
 
 /* ── Gap between dark and white ────────────────────────────── */

@@ -118,6 +118,7 @@ html[lang="de"] [data-lang-en] { display: none; }
   line-height: 1.2;
   letter-spacing: 0;
   color: var(--color-text);
+  margin-bottom: 1rem;
 }
 
 .legal-content__link {
@@ -146,7 +147,7 @@ html[lang="de"] [data-lang-en] { display: none; }
   line-height: 1.2;
   letter-spacing: 0;
   color: var(--color-text);
-  margin-top: 0.5rem;
+  margin-top: 1rem;
 }
 
 /* ── Footer overrides (white background) ───────────────────── */

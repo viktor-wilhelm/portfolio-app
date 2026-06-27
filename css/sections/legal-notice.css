@@ -97,7 +97,7 @@ html[lang="de"] [data-lang-en] { display: none; }
   line-height: 1.2;
   letter-spacing: 0;
   color: var(--color-blue);
-  margin-bottom: 1rem;
+  margin-bottom: 0;
 }
 
 .legal-content__section:first-child .legal-content__heading {

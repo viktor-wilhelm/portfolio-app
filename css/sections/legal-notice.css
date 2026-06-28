@@ -127,6 +127,9 @@ html[lang="de"] [data-lang-en] { display: none; }
   line-height: 1.2;
   letter-spacing: 0;
   color: var(--color-text);
+}
+
+.legal-content__p {
   margin-bottom: 1rem;
 }
 

@@ -70,6 +70,7 @@ const translations = {
     detailDaBubbleImpl:
       "Kurzer Text, der deine Rolle oder den Arbeitsablauf bei diesem Projekt beschreibt. Zeige Recruitern dein Wissen und deine Fähigkeit, selbstständig oder kollaborativ in einer strukturierten Umgebung zu arbeiten.",
     detailDaBubbleDuration: "8 Wochen",
+    legalBackLink: "Zurück",
     legalHeroTitle: "Impressum",
     legalImprintHeading: "Impressum",
     legalImprintNames: "Viktor Wilhelm",
@@ -153,6 +154,7 @@ const translations = {
     detailDaBubbleImpl:
       "Short text that describes your role or the workflow for this specific project. Let a recruiter know more about your knowledge and ability to work independently or collaboratively in a structured way.",
     detailDaBubbleDuration: "8 weeks",
+    legalBackLink: "Back",
     legalHeroTitle: "Legal notice",
     legalImprintHeading: "Imprint",
     legalImprintNames: "Viktor Wilhelm",

@@ -7,7 +7,6 @@
 html[lang="en"] [data-lang-de] { display: none; }
 html[lang="de"] [data-lang-en] { display: none; }
 
-/* Remove header's default top margin so no gap shows at viewport top */
 .legal-hero .header {
   margin-top: 0.5rem;
 }
@@ -27,14 +26,13 @@ html[lang="de"] [data-lang-en] { display: none; }
   display: none;
 }
 
-
 .legal-hero__bg {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position:  right bottom;
+  object-position: right bottom;
   transform: scaleX(1.011); /* Prevents a thin rendering gap on wide screens */
   pointer-events: none;
   filter: drop-shadow(0 3px 5px rgba(1, 1, 1, 0.5));
@@ -162,16 +160,7 @@ html[lang="de"] [data-lang-en] { display: none; }
   text-decoration: underline;
 }
 
-.legal-content__notice {
-  font-family: var(--font-base);
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.2;
-  letter-spacing: 0;
-  color: var(--color-text);
-  margin-top: 1rem;
-}
-
+.legal-content__notice,
 .legal-content__date {
   font-family: var(--font-base);
   font-size: 1rem;
@@ -187,8 +176,6 @@ html[lang="de"] [data-lang-en] { display: none; }
 @media (max-width: 619px) {
   .legal-hero {
     height: 271px;
-    background-color: var(--color-off-white);
-
   }
   .legal-hero__bg--desktop {
     display: none;
@@ -224,7 +211,6 @@ html[lang="de"] [data-lang-en] { display: none; }
     max-width: none;
     padding: 0 0 2.2rem;
   }
-
 
   /* ── Mobile footer layout ── */
   .legal-content .site-footer {
@@ -272,8 +258,8 @@ html[lang="de"] [data-lang-en] { display: none; }
   }
 }
 
-/* ── Fluid right margin (320px–1256px) ────────────────────── */
-@media (max-width: 1256px) {
+/* ── Fluid right margin (620px–1256px) ────────────────────── */
+@media (min-width: 620px) and (max-width: 1256px) {
   .legal-content__container {
     margin-right: clamp(27px, calc(9.94vw - 4.8px), 120px);
     max-width: none;
@@ -284,7 +270,6 @@ html[lang="de"] [data-lang-en] { display: none; }
 @media (min-width: 620px) and (max-width: 900px) {
   .legal-content__container {
     margin-left: clamp(2rem, calc(31.43vw - 10.18rem), 7.5rem);
-    max-width: none;
   }
   .legal-content .site-footer {
     padding-left: clamp(2rem, calc(31.43vw - 10.18rem), 7.5rem);

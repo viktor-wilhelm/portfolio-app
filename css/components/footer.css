@@ -157,11 +157,10 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: transform 200ms ease, border-color 150ms ease;
+  transition: transform 200ms ease;
   height: 40px;
   padding: 0 1.5rem;
   border-radius: 100px;
-  border: 1.5px solid transparent;
   font-family: var(--font-base);
   font-size: 1.125rem;
   font-weight: 700;
@@ -172,7 +171,6 @@
   position: relative;
   overflow: hidden;
   white-space: nowrap;
-  transition: border-color 150ms ease;
 }
 
 .footer__nav-btn::before {
@@ -188,10 +186,6 @@
 .footer__nav-btn-text {
   position: relative;
   z-index: 1;
-}
-
-.footer__nav-item:hover .footer__nav-btn {
-  border-color: var(--color-blue);
 }
 
 .footer__nav-item:hover .footer__nav-btn::before {

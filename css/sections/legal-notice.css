@@ -75,14 +75,7 @@ html[lang="de"] [data-lang-en] { display: none; }
   }
 }
 
-/* ── Gap between dark and white ────────────────────────────── */
-
-.legal-gap {
-  height: 80px;
-  background-color: var(--color-off-white);
-  display: flex;
-  align-items: center;
-}
+/* ── Back button ────────────────────────────────────────────── */
 
 .legal-back {
   display: none;
@@ -94,7 +87,6 @@ html[lang="de"] [data-lang-en] { display: none; }
   font-size: 1.125rem;
   font-weight: 700;
   line-height: 1.2;
-  padding-left: 20px;
   transition: color var(--transition-base);
 }
 
@@ -106,6 +98,7 @@ html[lang="de"] [data-lang-en] { display: none; }
 
 .legal-content {
   background-color: var(--color-off-white);
+  padding-top: 80px;
 }
 
 .legal-content__outer {
@@ -213,10 +206,15 @@ html[lang="de"] [data-lang-en] { display: none; }
   .legal-hero__title {
     white-space: nowrap;
   }
+  .legal-content {
+    padding-top: 18px;
+  }
   .legal-back {
     display: inline-flex;
-    margin-bottom: 1.4rem;
+    margin-bottom: 2.5rem;
+    padding-left: 20px;
   }
+
   .legal-content__container {
     margin-left: 20px;
     margin-right: 27px;
@@ -235,25 +233,30 @@ html[lang="de"] [data-lang-en] { display: none; }
     gap: 0;
     min-height: unset;
   }
+
   .legal-content .site-footer__copyright {
     margin-left: auto;
   }
+
   .legal-content .footer__nav {
     width: 100%;
     flex-wrap: wrap;
     margin-top: 2rem;
     justify-content: space-between;
   }
+
   .legal-content .footer__nav-link--legal {
     flex: 0 0 100%;
     text-align: right;
     margin-bottom: 3rem;
-        margin-top: -2rem;
+    margin-top: -2rem;
   }
+
   .legal-content .footer__nav-item {
     flex: 1;
     justify-content: center;
   }
+  
   .legal-content .footer__nav-btn {
     padding: 0.6rem 0.7rem;
     height: 2.125rem;
@@ -283,6 +286,10 @@ html[lang="de"] [data-lang-en] { display: none; }
 }
 
 /* ── Footer overrides (white background) ───────────────────── */
+
+.legal-content .site-footer {
+  background-color: var(--color-off-white);
+}
 
 .legal-content .footer__nav-icon {
   filter: brightness(0) opacity(0.5);

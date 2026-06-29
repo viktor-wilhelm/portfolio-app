@@ -19,12 +19,14 @@ html[lang="de"] [data-lang-en] { display: none; }
   width: 100%;
   height: 439px;
   background-color: var(--color-off-white);
-  overflow: hidden;
+  overflow-x: clip;
+  display: flow-root;
 }
 
 .legal-hero__bg--mobile {
   display: none;
 }
+
 
 .legal-hero__bg {
   position: absolute;
@@ -32,10 +34,10 @@ html[lang="de"] [data-lang-en] { display: none; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center bottom;
+  object-position:  right bottom;
   transform: scaleX(1.011); /* Prevents a thin rendering gap on wide screens */
   pointer-events: none;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.24));
+  filter: drop-shadow(0 3px 5px rgba(1, 1, 1, 0.5));
 }
 
 .legal-hero__inner {
@@ -229,7 +231,7 @@ html[lang="de"] [data-lang-en] { display: none; }
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    padding: 0 27px 58px 12px;
+    padding: 0 27px 58px 25px;
     gap: 0;
     min-height: unset;
   }

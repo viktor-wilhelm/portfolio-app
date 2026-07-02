@@ -343,3 +343,42 @@
   margin-top: 0.75rem;
   text-align: right;
 }
+
+/* ── Responsive (≤ 900px) ─────────────────────────────────── */
+
+@media (max-width: 900px) {
+  .contact {
+    min-height: auto;
+  }
+
+  .contact__inner {
+    position: relative;
+    flex-direction: column;
+    padding: 4rem 1.5rem 0;
+    gap: 2.5rem;
+  }
+
+  .contact__left {
+    flex: none;
+    max-width: none;
+  }
+
+  .contact__right {
+    position: static;
+    flex: none;
+    width: 100%;
+    padding-top: 0;
+  }
+
+  .contact__badge {
+    position: absolute;
+    top: 2rem;
+    right: 1.5rem;
+    width: 120px;
+    height: 118px;
+  }
+
+  .contact__desc {
+    max-width: none;
+  }
+}

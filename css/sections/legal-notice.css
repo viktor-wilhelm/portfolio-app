@@ -230,7 +230,7 @@ html[lang="de"] [data-lang-en] { display: none; }
     width: 100%;
     flex-wrap: wrap;
     margin-top: 2rem;
-    justify-content: space-between;
+    justify-content: space-evenly;
   }
 
   .legal-content .footer__nav-link--legal {
@@ -246,7 +246,7 @@ html[lang="de"] [data-lang-en] { display: none; }
   }
 
   .legal-content .footer__nav-item {
-    flex: 1;
+    flex: 0 0 auto;
     justify-content: center;
   }
   

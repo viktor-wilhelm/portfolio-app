@@ -17,7 +17,8 @@
 .testimonials {
   max-width: var(--max-width-section);
   margin: 0 auto;
-  padding: 0 clamp(2rem, 39.29vw - 445.8px, 7.5rem);
+  /* padding: 0 clamp(2rem, 39.29vw - 445.8px, 7.5rem); */
+  padding: 0 clamp(2rem, 5vw, 7.5rem);
 }
 
 /* ── Top area: 2-column flex ──────────────────────────────── */
@@ -667,7 +668,7 @@
   .projects__top,
   .projects__grid,
   .testimonials {
-    padding: 0 clamp(1.5rem, 5.5vw, 2rem);
+    padding: 0 clamp(1rem, 16vw - 64px, 5rem);
   }
 
   .projects__top {
@@ -687,6 +688,12 @@
     width: 100%;
     max-width: 560px;
     overflow: hidden;
+  }
+
+  .projects__featured-card {
+    max-width: 560px;
+    margin-right: auto;
+    margin-left: auto;
   }
 
   .projects__featured-cta {
@@ -725,6 +732,11 @@
     margin-bottom: 5rem;
   }
 
+  .project-card {
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
   .project-card__image-wrapper {
     max-width: 560px;
     height: auto;
@@ -754,5 +766,21 @@
     transform: none;
     margin: 0;
     z-index: 1;
+  }
+}
+
+/* ── Responsive (≤ 500px) ─────────────────────────────────── */
+
+@media (max-width: 500px) {
+  .projects {
+    padding-top: 0;
+  }
+
+  .projects__top {
+    gap: clamp(4rem, 153px - 17.78vw, 8rem);
+  }
+
+  .projects__heading {
+    font-size: 3rem;
   }
 }

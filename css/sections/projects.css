@@ -777,10 +777,20 @@
   }
 
   .projects__top {
-    gap: clamp(4rem, 153px - 17.78vw, 8rem);
+    gap: clamp(4rem, 153px - 2.78vw, 8rem);
   }
 
   .projects__heading {
     font-size: 3rem;
+  }
+
+  .projects__heading-wrapper {
+    display: block;
+    width: fit-content;
+  }
+
+  .projects__heading-decoration {
+    width: 100%;
+    margin-top: 0.75rem;
   }
 }

@@ -488,7 +488,7 @@
 
 .testimonial-card:nth-child(1) {
   transform: rotate(-4deg);
-  margin-right: calc(-90px - 5rem);
+  margin-right: clamp(-363px, -768px + 45vw, -170px);
   z-index: 1;
 }
 
@@ -499,7 +499,7 @@
 
 .testimonial-card:nth-child(3) {
   transform: rotate(4deg);
-  margin-left: calc(-90px - 5rem);
+  margin-left: clamp(-363px, -768px + 45vw, -170px);
   z-index: 2;
 }
 
@@ -727,23 +727,76 @@
 
   .testimonials__grid {
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
     padding: 1.5rem 0 3rem;
-    gap: 1.5rem;
+    gap: 1rem;
   }
 
   .testimonial-card {
-    width: 100%;
+    width: 327px;
     height: auto;
-    flex-shrink: unset;
+    flex-shrink: 0;
+    border-radius: 0;
+    overflow: visible;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+
+  .testimonial-card__bg,
+  .testimonial-card__hover {
+    display: none;
   }
 
   .testimonial-card:nth-child(1),
   .testimonial-card:nth-child(2),
   .testimonial-card:nth-child(3) {
-    transform: none;
     margin: 0;
     z-index: 1;
+  }
+
+  .testimonial-card:nth-child(1) {
+    transform: rotate(-4deg);
+    background-image: url('../../assets/img/07_Projects/mobile/Rectangle Sticker1.png');
+  }
+
+  .testimonial-card:nth-child(2) {
+    transform: none;
+    background-image: url('../../assets/img/07_Projects/mobile/Rectangle Sticker2.png');
+  }
+
+  .testimonial-card:nth-child(3) {
+    transform: rotate(4deg);
+    background-image: url('../../assets/img/07_Projects/mobile/Rectangle Sticker3.png');
+  }
+
+  .testimonial-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('../../assets/img/07_Projects/mobile/04_32_Rectangle Sticker ornament.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .testimonial-card:hover::after {
+    opacity: 0.6;
+  }
+
+  .testimonial-card__body {
+    width: 100%;
+    padding: 1.25rem;
+  }
+
+  .testimonial-card__quote {
+    font-size: var(--font-size-18px);
+  }
+
+  .testimonial-card__name {
+    font-size: var(--font-size-18px);
   }
 }
 

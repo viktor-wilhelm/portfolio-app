@@ -17,7 +17,6 @@
 .testimonials {
   max-width: var(--max-width-section);
   margin: 0 auto;
-  /* padding: 0 clamp(2rem, 39.29vw - 445.8px, 7.5rem); */
   padding: 0 clamp(2rem, 5vw, 7.5rem);
 }
 
@@ -94,24 +93,6 @@
   }
   100% {
     clip-path: inset(0 100% 0 0);
-  }
-}
-
-@keyframes testimonials-underline-sweep {
-  0% {
-    clip-path: inset(0 0% 0 100%);
-  }
-  10% {
-    clip-path: inset(0 100% 0 0);
-  }
-  70% {
-    clip-path: inset(0 100% 0 0);
-  }
-  80% {
-    clip-path: inset(0 0% 0 100%);
-  }
-  100% {
-    clip-path: inset(0 0% 0 100%);
   }
 }
 
@@ -213,7 +194,6 @@
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
   border-radius: 1.3rem;
   user-select: none;
   object-fit: contain;
@@ -493,7 +473,7 @@
 }
 
 .testimonial-card:nth-child(2) {
-  transform: rotate(0deg) translateY(3rem);
+  transform: translateY(3rem);
   z-index: 3;
 }
 
@@ -789,6 +769,14 @@
     opacity: 0.6;
   }
 
+  .testimonial-card:nth-child(1)::after {
+    transform: rotate(-4deg);
+  }
+
+  .testimonial-card:nth-child(3)::after {
+    transform: rotate(4deg);
+  }
+
   .testimonial-card__body {
     width: 100%;
     padding: 1rem;
@@ -801,11 +789,15 @@
 
   .testimonial-card:nth-child(3) .testimonial-card__body {
     transform: rotate(4deg);
-    margin: 1rem 1rem 1rem 1rem;
+    margin: 1rem;
   }
 
   .testimonial-card:nth-child(3) .testimonial-card__name {
     white-space: nowrap;
+  }
+
+  .testimonial-card:nth-child(3) .testimonial-card__linkedin {
+    transform: translateX(-1rem);
   }
 
   .testimonial-card__quote {

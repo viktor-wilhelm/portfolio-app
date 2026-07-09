@@ -243,20 +243,12 @@
   right: 2.5rem;
   bottom: 2.5rem;
   z-index: 10;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   height: 44px;
-  padding: 0 1.5rem;
-  border-radius: 6.25rem;
   box-shadow:
     inset 0 0 0 1px var(--color-off-white),
     2px 3.5px 0 0 var(--color-off-white);
-  font-family: var(--font-base);
   font-size: 1.125rem;
-  font-weight: 500;
   color: var(--color-text-light);
-  white-space: nowrap;
   opacity: 0;
   transition:
     opacity 0.51s cubic-bezier(0.25, 0.46, 0.45, 0.94),
@@ -346,20 +338,12 @@
   right: 3rem;
   bottom: 2.5rem;
   z-index: 10;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   height: 44px;
-  padding: 0 1.5rem;
-  border-radius: 6.25rem;
   box-shadow:
     inset 0 0 0 1px var(--color-off-white),
     3px 3.5px 0 0 var(--color-off-white);
-  font-family: var(--font-base);
   font-size: 1.125rem;
-  font-weight: 500;
   color: var(--color-text-light);
-  white-space: nowrap;
   opacity: 0;
   transition:
     opacity 0.4s ease-out,
@@ -367,7 +351,6 @@
     background-color 80ms ease-in,
     box-shadow 90ms ease-in;
   pointer-events: none;
-  cursor: pointer;
 }
 
 .project-card__image-wrapper:hover .project-card__image {
@@ -701,23 +684,16 @@
 
   .project-card__cta-mobile {
     display: inline-flex;
-    align-items: center;
-    justify-content: center;
     align-self: flex-end;
+    width: 172px;
     height: 40px;
-    padding: 0 1.5rem;
     gap: 0.625rem;
-    border-radius: 100px;
     margin-top: 1.5rem;
-    font-family: var(--font-base);
-    font-size: var(--font-size-lg);
-    font-weight: 500;
+    font-size: var(--font-size-18px);
     color: var(--color-text-dark);
-    text-decoration: none;
-    white-space: nowrap;
     background-color: rgba(0, 0, 0, 0.01);
-    border: 1px solid rgba(14, 16, 19, 1);
-    box-shadow: 2px 4px 0 0 rgba(14, 16, 19, 1);
+    border: 1px solid var(--color-text-dark);
+    box-shadow: 2px 4px 0 0 var(--color-text-dark);
     transition:
       transform 90ms ease-in,
       box-shadow 90ms ease-in;

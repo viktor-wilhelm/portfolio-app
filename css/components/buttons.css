@@ -38,3 +38,18 @@
 .form__submit:not(:disabled):hover::after {
   opacity: 1;
 }
+
+/* ── Shared pill button structure ─────────────────────────────── */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1.5rem;
+  border-radius: 6.25rem;
+  font-family: var(--font-base);
+  font-weight: 500;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+}

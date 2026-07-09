@@ -755,17 +755,20 @@
   }
 
   .testimonial-card:nth-child(1) {
-    transform: rotate(-4deg);
+    aspect-ratio: 367 / 381;
+    transform: none;
     background-image: url('../../assets/img/07_Projects/mobile/Rectangle Sticker1.png');
   }
 
   .testimonial-card:nth-child(2) {
+    aspect-ratio: 327 / 393;
     transform: none;
     background-image: url('../../assets/img/07_Projects/mobile/Rectangle Sticker2.png');
   }
 
   .testimonial-card:nth-child(3) {
-    transform: rotate(4deg);
+    aspect-ratio: 351 / 365;
+    transform: none;
     background-image: url('../../assets/img/07_Projects/mobile/Rectangle Sticker3.png');
   }
 
@@ -788,7 +791,21 @@
 
   .testimonial-card__body {
     width: 100%;
-    padding: 1.25rem;
+    padding: 1rem;
+  }
+
+  .testimonial-card:nth-child(1) .testimonial-card__body {
+    transform: rotate(-4deg);
+    margin: 1rem;
+  }
+
+  .testimonial-card:nth-child(3) .testimonial-card__body {
+    transform: rotate(4deg);
+    margin: 1rem 1rem 1rem 1rem;
+  }
+
+  .testimonial-card:nth-child(3) .testimonial-card__name {
+    white-space: nowrap;
   }
 
   .testimonial-card__quote {

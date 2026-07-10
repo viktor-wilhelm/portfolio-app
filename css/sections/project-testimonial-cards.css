@@ -278,9 +278,8 @@
     object-fit: fill;
   }
 
-  /* Body padding reduced for smaller cards */
   .testimonial-card__body {
-    padding: 1rem;
+    padding: 2rem 1.125rem;
   }
 
   .testimonial-card__quote {
@@ -293,5 +292,9 @@
 
   .testimonial-card:nth-child(3) .testimonial-card__name {
     white-space: nowrap;
+  }
+
+  .testimonial-card:hover {
+    z-index: 10;
   }
 }

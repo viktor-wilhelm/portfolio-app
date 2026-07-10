@@ -236,7 +236,7 @@
 
   /* Card base — same mechanism as desktop: img + overflow:hidden */
   .testimonial-card {
-    width: 327px;
+    width: clamp(280px, 86vw, 327px);
     height: auto;
     flex-shrink: 0;
     border-radius: 0;
@@ -260,7 +260,8 @@
   }
 
   .testimonial-card:nth-child(3) {
-    aspect-ratio: 351 / 365;
+    aspect-ratio: unset;
+    height: 340px;
     z-index: 1;
     transform: rotate(4deg);
     margin-left: 0;
@@ -282,6 +283,10 @@
     padding: 2rem 1.125rem;
   }
 
+  .testimonial-card:nth-child(2) .testimonial-card__body {
+    padding: 1.25rem 1.125rem;
+  }
+
   .testimonial-card__quote {
     font-size: var(--font-size-18px);
   }
@@ -290,11 +295,20 @@
     font-size: var(--font-size-18px);
   }
 
+  .testimonial-card:nth-child(1) .testimonial-card__name,
   .testimonial-card:nth-child(3) .testimonial-card__name {
     white-space: nowrap;
   }
 
+  .testimonial-card:nth-child(1) .testimonial-card__linkedin {
+    transform: translateX(-1rem);
+  }
+
+  .testimonial-card:nth-child(3) .testimonial-card__linkedin {
+    transform: translateX(-1.75rem);
+  }
+
   .testimonial-card:hover {
-    z-index: 10;
+    z-index: 5;
   }
 }

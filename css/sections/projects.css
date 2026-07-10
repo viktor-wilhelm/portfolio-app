@@ -469,18 +469,18 @@
 .testimonial-card:nth-child(1) {
   transform: rotate(-4deg);
   margin-right: clamp(-363px, -768px + 45vw, -170px);
-  z-index: 1;
+  z-index: 3;
 }
 
 .testimonial-card:nth-child(2) {
   transform: translateY(3rem);
-  z-index: 3;
+  z-index: 2;
 }
 
 .testimonial-card:nth-child(3) {
   transform: rotate(4deg);
   margin-left: clamp(-363px, -768px + 45vw, -170px);
-  z-index: 2;
+  z-index: 1;
 }
 
 .testimonial-card:hover {

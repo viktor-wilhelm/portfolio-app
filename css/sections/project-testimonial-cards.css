@@ -24,7 +24,7 @@
 .testimonials__annotation {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   gap: 0.75rem;
   align-self: flex-end;
 }
@@ -227,6 +227,24 @@
 /* ── Mobile (≤ 900px) ─────────────────────────────────────── */
 
 @media (max-width: 900px) {
+  .testimonials__header {
+    width: 100%;
+    align-items: flex-end;
+  }
+
+  .testimonials__annotation {
+    align-self: flex-end;
+  }
+
+  .testimonials__sub-label {
+    font-size: 1.125rem;
+  }
+
+  .testimonials__heading {
+    font-size: 3rem;
+    text-align: right;
+  }
+
   .testimonials__grid {
     flex-direction: column;
     align-items: center;

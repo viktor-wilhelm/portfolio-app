@@ -22,7 +22,7 @@ const translations = {
     skillsLabel: "MEIN STACK",
     skillsHeading: "Fähigkeiten",
     testimonialsSubLabel: "IN IHREN WORTEN:",
-    testimonialsHeading: "Was Kollegen sagen",
+    testimonialsHeading: "Kollegen sagen",
     skillsDescription:
       "Ich arbeite gerne mit modernen Frontend-Technologien und entwickle responsive sowie interaktive Benutzeroberflächen. Neugierig und lernbereit erweitere ich kontinuierlich meine Kenntnisse und passe mich neuen Tools und Technologien an.",
     projectsHeading: "Projekte",

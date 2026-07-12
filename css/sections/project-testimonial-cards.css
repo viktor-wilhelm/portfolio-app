@@ -333,6 +333,6 @@
 
 @media (max-width: 355px) {
     .testimonial-card__body {
-        padding: 1rem 1.125rem;
+        padding: 1rem 1rem;
     }
 }

@@ -330,3 +330,9 @@
     z-index: 5;
   }
 }
+
+@media (max-width: 355px) {
+    .testimonial-card__body {
+        padding: 1rem 1.125rem;
+    }
+}

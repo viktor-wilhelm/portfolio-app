@@ -39,7 +39,7 @@ const translations = {
     testimonialKonstantinQuote: "Viktor hat das Team wirklich zusammengehalten – durch seine hervorragende Organisation und klare Kommunikation. Ohne seinen Einsatz wären wir nicht so weit gekommen.",
     testimonialElenaQuote: "Besonders schätze ich an Viktor seine herzliche, unterstützende und aufbauende Art, womit er mir in wichtigen Situationen Motivation schenkte. Viktor ist dadurch für jedes Team eine Bereicherung und trägt mit seiner Persönlichkeit direkt zum Erfolg eines Projektes bei.",
     contactLabel: "KONTAKT",
-    contactHeading: "Bereit zusammenzu­arbeiten?",
+    contactHeading: "Bereit zu­sam­men­zu­ar­bei­ten?",
     contactDesc: "Ich freue mich auf neue Möglichkeiten und spannende Projekte. Ich möchte aktiv zum Teamerfolg beitragen, mich als Frontend-Entwickler weiterentwickeln und dabei großartige Nutzererlebnisse mitgestalten.",
     formNameQuestion: "Wie heißt du?",
     formEmailQuestion: "Deine E-Mail-Adresse?",

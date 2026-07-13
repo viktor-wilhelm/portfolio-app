@@ -355,12 +355,14 @@
     position: relative;
     flex-direction: column;
     padding: 4rem 1.5rem 0;
-    gap: 2.5rem;
+    gap: 2rem;
   }
 
   .contact__left {
     flex: none;
+    width: 100%;
     max-width: none;
+    min-width: 0;
   }
 
   .contact__right {
@@ -372,13 +374,29 @@
 
   .contact__badge {
     position: absolute;
-    top: 2rem;
-    right: 1.5rem;
+    top: 87px;
+    right: 1rem;
     width: 120px;
-    height: 118px;
+    height: 120px;
+  }
+
+  .contact__label {
+    font-size: var(--font-size-18px);
+    margin-top: 143px;
+  }
+
+  .contact__heading {
+    font-size: 3rem;
+    overflow-wrap: break-word;
+    hyphens: auto;
   }
 
   .contact__desc {
     max-width: none;
+    overflow-wrap: break-word;
+  }
+
+  .contact__decoration {
+    display: none;
   }
 }

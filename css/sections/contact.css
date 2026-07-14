@@ -400,3 +400,17 @@
     display: none;
   }
 }
+
+/* ── Narrow phones only (320px–326px) ─────────────────────── */
+
+@media (min-width: 320px) and (max-width: 326px) {
+  .form__group textarea {
+    min-height: 3.75rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .form__group textarea::placeholder {
+    font-size: 1rem;
+    line-height: 1.35;
+  }
+}

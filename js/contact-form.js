@@ -5,10 +5,10 @@ const privacyInput = document.getElementById("privacy");
 const submitBtn = document.querySelector(".form__submit");
 const feedback = document.getElementById("form-feedback");
 
-const originalPlaceholders = {
-  name: nameInput.placeholder,
-  email: emailInput.placeholder,
-  message: messageInput.placeholder,
+const PLACEHOLDER_KEYS = {
+  name: "formNamePlaceholder",
+  email: "formEmailPlaceholder",
+  message: "formMessagePlaceholder",
 };
 
 /**
@@ -30,11 +30,11 @@ function setInputError(input, message) {
 }
 
 /**
- * Clears error state and restores original placeholder.
+ * Clears error state and restores the translated placeholder.
  * @param {HTMLElement} input
  */
 function clearInputError(input) {
-  input.placeholder = originalPlaceholders[input.id];
+  input.placeholder = translations[getCurrentLang()][PLACEHOLDER_KEYS[input.id]];
   input.classList.remove("input--error");
 }
 

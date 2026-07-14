@@ -41,9 +41,29 @@ function highlightSkillsLastLetter(lang) {
  */
 function applyTranslations(lang) {
   const t = translations[lang];
+  applyTextTranslations(t);
+  applyPlaceholderTranslations(t);
+}
+
+/**
+ * Sets textContent on all elements with a data-i18n attribute.
+ * @param {object} t - Translation strings for the active language.
+ */
+function applyTextTranslations(t) {
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.dataset.i18n;
     if (t[key]) el.textContent = t[key];
+  });
+}
+
+/**
+ * Sets the placeholder on all elements with a data-i18n-placeholder attribute.
+ * @param {object} t - Translation strings for the active language.
+ */
+function applyPlaceholderTranslations(t) {
+  document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+    const key = el.dataset.i18nPlaceholder;
+    if (t[key]) el.placeholder = t[key];
   });
 }
 

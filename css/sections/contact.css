@@ -104,6 +104,10 @@
   pointer-events: none;
 }
 
+.contact__decoration-mobile {
+  display: none;
+}
+
 /* ── Form ───────────────────────────────────────────────── */
 
 .contact__form {
@@ -301,8 +305,15 @@
   z-index: 1;
 }
 
-.form__submit {
+.form__actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
   align-self: flex-end;
+  margin-top: 16px;
+}
+
+.form__submit {
   min-width: 154px;
   height: 40px;
   padding: 0 24px;
@@ -315,7 +326,6 @@
   font-weight: 500;
   line-height: 1.2;
   color: var(--color-text-light);
-  margin-top: 16px;
   transition: transform 90ms ease-in;
 }
 
@@ -354,7 +364,7 @@
   .contact__inner {
     position: relative;
     flex-direction: column;
-    padding: 4rem 1.5rem 0;
+    padding: 4rem 1rem 0;
     gap: 2rem;
   }
 
@@ -399,6 +409,38 @@
   .contact__decoration {
     display: none;
   }
+
+  .contact__decoration-mobile {
+    display: block;
+    width: 152.97px;
+    height: 24px;
+    object-fit: contain;
+    flex-shrink: 0;
+    pointer-events: none;
+    animation: contact-decoration-sweep 5s ease-out infinite;
+    animation-delay: 3000ms;
+  }
+
+  .form__actions {
+    align-self: stretch;
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    row-gap: 0.75rem;
+  }
+
+  .form__submit {
+    margin-left: auto;
+  }
+
+  .form__privacy-break {
+    display: none;
+  }
+
+  .form__group--checkbox label {
+    font-size: 14px;
+    gap: 8px;
+  }
 }
 
 /* ── Narrow phones only (320px–326px) ─────────────────────── */
@@ -412,5 +454,10 @@
   .form__group textarea::placeholder {
     font-size: 1rem;
     line-height: 1.35;
+  }
+
+  .form__group--checkbox label {
+    font-size: 15px;
+    gap: 6px;
   }
 }

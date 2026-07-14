@@ -631,14 +631,24 @@
                   <span class="form__checkbox-text">
                     <span data-i18n="formPrivacy">I've read the</span>
                     <a href="#datenschutz" data-i18n="formPrivacyLink">privacy policy</a>
-                    <span data-i18n="formPrivacyRead">and agree to the processing of my</span><br>
+                    <span data-i18n="formPrivacyRead">and agree to the processing of my</span><br class="form__privacy-break">
                     <span data-i18n="formPrivacyRead2">data as outlined.</span>
                   </span>
                 </label>
                 <span class="form__error" id="privacy-error" aria-live="polite"></span>
               </div>
 
-              <button type="submit" class="form__submit" disabled data-i18n="formSubmit">Send</button>
+              <div class="form__actions">
+                <img
+                  src="assets/img/00_Hand-drawn lines/05_Contact/Color option 1.png"
+                  class="contact__decoration-mobile"
+                  alt=""
+                  aria-hidden="true"
+                  draggable="false"
+                />
+
+                <button type="submit" class="form__submit" disabled data-i18n="formSubmit">Send</button>
+              </div>
 
               <div class="form__feedback" id="form-feedback" aria-live="polite"></div>
             </form>

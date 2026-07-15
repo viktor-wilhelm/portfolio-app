@@ -61,6 +61,7 @@
   letter-spacing: 0;
   color: var(--color-text-light);
   margin: 0;
+  white-space: nowrap;
 }
 
 .site-footer__copy-symbol {
@@ -190,4 +191,82 @@
 
 .footer__nav-item:hover .footer__nav-btn::before {
   opacity: 1;
+}
+
+/* ── Responsive (≤ 900px) ───────────────────────────────────
+   Logo top-left; copyright + Legal Notice stacked top-right;
+   GitHub / LinkedIn / Email as a full-width row below. */
+
+@media (max-width: 900px) {
+  .site-footer {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto auto;
+    gap: var(--space-sm);
+    padding: var(--space-md) var(--space-md) 50px;
+    min-height: 0;
+  }
+
+  .site-footer__logo-link {
+    position: absolute;
+    top: var(--space-md);
+    left: var(--space-md);
+    transform: translateY(-2.5rem);
+  }
+
+  .site-footer__copyright {
+    grid-column: 1 / 4;
+    grid-row: 1;
+    min-width: 0;
+    text-align: right;
+    transform: translateY(-1.5rem);
+  }
+
+  .footer__nav {
+    display: contents;
+  }
+
+  .footer__nav-link--legal {
+    grid-column: 1 / 4;
+    grid-row: 2;
+    min-width: 0;
+    text-align: right;
+    margin-top: var(--space-md);
+    transform: translateY(-2rem);
+  }
+
+  .footer__nav-link--legal::after {
+    left: auto;
+    right: 0.5em;
+  }
+
+  .footer__nav-item {
+    grid-row: 3;
+    align-self: center;
+    align-items: center;
+  }
+
+  .footer__nav-item:nth-of-type(1) {
+    grid-column: 1;
+    justify-self: start;
+    margin-left: 1rem;
+  }
+
+  .footer__nav-item:nth-of-type(2) {
+    grid-column: 2;
+    justify-self: center;
+  }
+
+  .footer__nav-item--email {
+    grid-column: 3;
+    justify-self: end;
+    margin-right: 1rem;
+  }
+
+  .footer__nav-btn {
+    height: 2rem;
+    padding: 1rem 1rem;
+    font-size: var(--font-size-sm);
+  }
 }

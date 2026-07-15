@@ -9,7 +9,7 @@
   --color-accent: #4a90e2;
   --color-text: #0e1013;
   --color-text-dark: #0e1013;
-  --color-text-light: #ffffff;
+  --color-text-light: var(--color-off-white);
   --color-text-muted: #888888;
   --color-error: #e53e3e;
   --color-success: #38a169;

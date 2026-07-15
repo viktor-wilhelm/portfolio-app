@@ -171,9 +171,9 @@ html[lang="de"] [data-lang-en] { display: none; }
   margin-top: 1rem;
 }
 
-/* ── Mobile responsive (max 619px) ────────────────────────── */
+/* ── Mobile responsive (max 568px) ────────────────────────── */
 
-@media (max-width: 619px) {
+@media (max-width: 568px) {
   .legal-hero {
     height: 271px;
   }
@@ -212,8 +212,12 @@ html[lang="de"] [data-lang-en] { display: none; }
     padding: 0 0 2.2rem;
   }
 
-  /* ── Mobile footer layout ── */
+  /* ── Mobile footer layout ──
+     footer.css targets these same classes (unscoped) for the main page's
+     grid layout; explicitly reset display/transform/grid-* here so those
+     rules don't leak into this page's own flex-based layout. */
   .legal-content .site-footer {
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
@@ -222,11 +226,22 @@ html[lang="de"] [data-lang-en] { display: none; }
     min-height: unset;
   }
 
+  .legal-content .site-footer__logo-link {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+  }
+
   .legal-content .site-footer__copyright {
+    grid-column: auto;
+    grid-row: auto;
     margin-left: auto;
+    transform: none;
   }
 
   .legal-content .footer__nav {
+    display: flex;
     width: 100%;
     flex-wrap: wrap;
     margin-top: 2rem;
@@ -234,10 +249,13 @@ html[lang="de"] [data-lang-en] { display: none; }
   }
 
   .legal-content .footer__nav-link--legal {
+    grid-column: auto;
+    grid-row: auto;
     flex: 0 0 100%;
     text-align: right;
     margin-bottom: 3.35rem;
     margin-top: -1.4rem;
+    transform: none;
   }
 
   .legal-content .footer__nav-link--legal::after {
@@ -246,10 +264,13 @@ html[lang="de"] [data-lang-en] { display: none; }
   }
 
   .legal-content .footer__nav-item {
+    grid-row: auto;
     flex: 0 0 auto;
     justify-content: center;
+    margin-left: 0;
+    margin-right: 0;
   }
-  
+
   .legal-content .footer__nav-btn {
     padding: 0.6rem 0.7rem;
     height: 2.125rem;
@@ -258,22 +279,61 @@ html[lang="de"] [data-lang-en] { display: none; }
   }
 }
 
-/* ── Fluid right margin (620px–1256px) ────────────────────── */
-@media (min-width: 620px) and (max-width: 1256px) {
+/* ── Fluid right margin (569px–1256px) ────────────────────── */
+@media (min-width: 569px) and (max-width: 1256px) {
   .legal-content__container {
     margin-right: clamp(27px, calc(9.94vw - 4.8px), 120px);
     max-width: none;
   }
 }
 
-/* ── Intermediate layout (620px–900px) ────────────────────── */
-@media (min-width: 620px) and (max-width: 900px) {
+/* ── Intermediate layout (569px–900px) ──────────────────────
+   footer.css switches .site-footer to its mobile grid at 900px for the
+   main page; reset those leaked properties here so this page keeps its
+   own desktop-style flex layout down to the 568px breakpoint above. */
+@media (min-width: 569px) and (max-width: 900px) {
   .legal-content__container {
     margin-left: clamp(2rem, calc(31.43vw - 10.18rem), 7.5rem);
   }
   .legal-content .site-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
     padding-left: clamp(2rem, calc(31.43vw - 10.18rem), 7.5rem);
     padding-right: 27px;
+  }
+  .legal-content .site-footer__logo-link {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+  }
+  .legal-content .site-footer__copyright {
+    grid-column: auto;
+    grid-row: auto;
+    text-align: left;
+    transform: none;
+  }
+  .legal-content .footer__nav {
+    display: flex;
+    width: 100%;
+  }
+  .legal-content .footer__nav-link--legal {
+    grid-column: auto;
+    grid-row: auto;
+    text-align: left;
+    margin-top: 0;
+    transform: none;
+  }
+  .legal-content .footer__nav-link--legal::after {
+    left: 0.5em;
+    right: auto;
+  }
+  .legal-content .footer__nav-item {
+    grid-row: auto;
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 

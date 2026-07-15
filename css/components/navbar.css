@@ -364,23 +364,46 @@
   justify-content: space-between;
   height: 64px;
   flex-shrink: 0;
+  margin-top: 0.5rem;
 }
 
 .nav__overlay-logo-link {
   cursor: default;
   display: flex;
   align-items: center;
+  position: relative;
+}
+
+/* Orange overlay image – fades in on hover (same technique as .nav__logo / .site-footer__logo-link) */
+.nav__overlay-logo-link::after {
+  content: "";
+  position: absolute;
+  top: 0.5rem;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("../../assets/img/04_Hero/vw-logo.png") center / contain no-repeat;
+  filter: brightness(0) saturate(100%) invert(85%) sepia(60%) saturate(740%) hue-rotate(347deg) brightness(97%);
+  opacity: 0;
+  transition: opacity 400ms ease;
+  pointer-events: none;
+}
+
+.nav__overlay-logo-link:hover::after {
+  opacity: 1;
 }
 
 .nav__overlay-logo-link:hover .nav__overlay-logo-img {
-  filter: brightness(0) saturate(100%) invert(85%) sepia(60%) saturate(740%) hue-rotate(-13deg) brightness(97%);
+  opacity: 0;
 }
 
 .nav__overlay-logo-img {
   height: 60px;
   width: auto;
   object-fit: contain;
-  transition: filter 400ms ease;
+  filter: brightness(0) saturate(100%) invert(27%) sepia(82%) saturate(1800%) hue-rotate(218deg) brightness(107%);
+  transition: opacity 400ms ease;
+  margin-top: 0.5rem;
 }
 
 .nav__overlay-close {

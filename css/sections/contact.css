@@ -96,8 +96,8 @@
 
 .contact__badge {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: clamp(-2rem, 12.3vw - 8.9rem, 0rem);
+  right: clamp(-2rem, 12.3vw - 9.9rem, 0rem);
   width: 168px;
   height: 166px;
   object-fit: contain;

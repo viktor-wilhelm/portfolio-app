@@ -56,7 +56,7 @@
   object-fit: contain;
   filter: brightness(0) saturate(100%) invert(27%) sepia(82%) saturate(1800%) hue-rotate(218deg) brightness(107%);
   transition: opacity 400ms ease;
-  cursor: default;
+  cursor: pointer;
   -webkit-user-drag: none;
 }
 

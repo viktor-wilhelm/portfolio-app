@@ -1,6 +1,6 @@
 function getBase() {
   const path = window.location.pathname;
-  if (path.includes("project-detail") || path.includes("legal-notice")) return "index.html";
+  if (path.includes("project-detail") || path.includes("legal-notice") || path.includes("privacy-policy")) return "index.html";
   return "";
 }
 

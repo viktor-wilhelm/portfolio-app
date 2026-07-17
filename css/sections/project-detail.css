@@ -6,7 +6,7 @@
 
 body:has(.detail) {
   background-color: #000000;
-  margin-top: calc((100vh - 900px) / 2);
+  margin-top: max(0px, calc((100vh - 900px) / 2));
 }
 
 html.detail-preload .detail__container {
@@ -114,7 +114,7 @@ html.detail-preload .detail__container {
 
 .detail__title {
   font-family: var(--font-base);
-  font-size: var(--font-size-section-heading);
+  font-size: clamp(2rem, 9vw, var(--font-size-section-heading));
   font-weight: 700;
   line-height: 1;
   letter-spacing: 0;
@@ -144,6 +144,7 @@ html.detail-preload .detail__container {
 .detail__title-underline {
   display: block;
   width: auto;
+  max-width: 100%;
   height: 1.25rem;
   object-fit: fill;
   animation: detail-underline-sweep 5s ease-out infinite;
@@ -349,14 +350,7 @@ html.detail-preload .detail__container {
 }
 
 .detail--project-el-pollo-loco .detail__next,
-.detail--project-da-bubble .detail__next {
-  position: absolute;
-  right: 4.5rem;
-  bottom: 5px;
-  padding-top: 0;
-  margin-right: 0;
-}
-
+.detail--project-da-bubble .detail__next,
 html[data-project="el-pollo-loco"] .detail__next,
 html[data-project="da-bubble"] .detail__next {
   position: absolute;
@@ -389,4 +383,102 @@ html[data-project="da-bubble"] .detail__next {
 .detail--project-join .detail__next-btn {
   position: relative;
   left: 8px;
+}
+
+/* ── Responsive (≤ 900px) ─────────────────────────────────── */
+
+@media (max-width: 900px) {
+  body:has(.detail) {
+    margin-top: 0;
+  }
+
+  .detail {
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+  }
+
+  .detail__bg {
+    bottom: auto;
+    height: auto;
+  }
+
+  .detail__container {
+    padding: 1.5rem 1rem 4rem 1rem;
+  }
+
+  .detail__back {
+    margin-top: 4rem;
+    margin-left: 0;
+  }
+
+  .detail__layout {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2.5rem;
+  }
+
+  .detail__content {
+    flex: none;
+    padding-right: 0;
+    min-height: 0;
+  }
+
+  .detail__visual {
+    flex: none;
+    padding-top: 0;
+  }
+
+  .detail__image-wrap {
+    width: 100%;
+    max-width: 560px;
+    height: auto;
+    aspect-ratio: 560 / 398;
+    margin: 0 auto;
+  }
+
+  .detail__sticker {
+    width: 90px;
+    height: 90px;
+    right: -0.5rem;
+    bottom: 35%;
+  }
+
+  .detail__next {
+    margin-right: 0;
+  }
+
+  .detail--project-el-pollo-loco .detail__next,
+  .detail--project-da-bubble .detail__next,
+  html[data-project="el-pollo-loco"] .detail__next,
+  html[data-project="da-bubble"] .detail__next {
+    position: static;
+    right: auto;
+    bottom: auto;
+    padding-top: 2.4rem;
+    margin-right: 0;
+  }
+
+  .detail__actions {
+    justify-content: flex-start;
+    gap: 1rem;
+    padding-right: 0;
+  }
+}
+
+/* ── Narrow phones only (≤ 480px) ──────────────────────────── */
+
+@media (max-width: 480px) {
+  .detail__section + .detail__tech {
+    padding-left: 0;
+  }
+
+  .detail__description,
+  .detail__impl {
+    padding-right: 0;
+  }
+
+  .detail__actions {
+    gap: 0.75rem;
+  }
 }

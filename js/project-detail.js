@@ -35,7 +35,6 @@ const PROJECTS = {
     github: "https://github.com/viktor-wilhelm/join",
     live: "https://join.viktor-wilhelm.de/",
     tech: ["CSS", "HTML", { id: "firebase" }, { id: "angular" }, "TypeScript"],
-    underlineWidth: "7.563rem",
     next: "el-pollo-loco",
   },
   "el-pollo-loco": {
@@ -49,7 +48,6 @@ const PROJECTS = {
     github: "https://github.com/viktor-wilhelm/loco-app",
     live: "https://el-pollo-loco.viktor-wilhelm.de/",
     tech: ["JavaScript", "HTML", "CSS"],
-    underlineWidth: "24rem",
     next: "da-bubble",
   },
   "da-bubble": {
@@ -63,7 +61,6 @@ const PROJECTS = {
     github: "#",
     live: "#",
     tech: ["JavaScript", "HTML", "CSS"],
-    underlineWidth: "20rem",
     next: "join",
   },
 };
@@ -95,10 +92,13 @@ function populateTech(project) {
   tech.innerHTML = project.tech.map(renderTechTag).join("");
 }
 
-function syncUnderlineWidth(project) {
+function syncUnderlineWidth() {
   const underline = document.querySelector(".detail__title-underline");
-  if (!underline) return;
-  underline.style.width = project.underlineWidth;
+  const title = document.querySelector(".detail__title");
+  if (!underline || !title) return;
+  const range = document.createRange();
+  range.selectNodeContents(title);
+  underline.style.width = `${range.getBoundingClientRect().width}px`;
 }
 
 function populateText(project) {
@@ -109,7 +109,7 @@ function populateText(project) {
   document.querySelector(".detail__impl").dataset.i18n = project.implKey;
   document.querySelector(".detail__duration-value").dataset.i18n = project.durationKey;
   applyTranslations(lang);
-  syncUnderlineWidth(project);
+  syncUnderlineWidth();
 }
 
 function populateVisual(project) {
@@ -148,7 +148,12 @@ document.addEventListener("DOMContentLoaded", () => {
   try {
     initProject();
     initBackLink();
+    syncUnderlineWidth();
   } finally {
     markDetailReady();
   }
 });
+
+document.addEventListener("i18n:applied", syncUnderlineWidth);
+window.addEventListener("resize", syncUnderlineWidth);
+if (document.fonts) document.fonts.ready.then(syncUnderlineWidth);

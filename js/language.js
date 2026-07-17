@@ -43,6 +43,7 @@ function applyTranslations(lang) {
   const t = translations[lang];
   applyTextTranslations(t);
   applyPlaceholderTranslations(t);
+  document.dispatchEvent(new CustomEvent("i18n:applied"));
 }
 
 /**

@@ -23,6 +23,7 @@
 }
 
 .hero__content {
+  container-type: inline-size;
   position: relative;
   z-index: 1;
   padding: 0 var(--space-lg);
@@ -453,8 +454,8 @@
 
 .hero__polaroid-frame {
   display: block;
-  width: 203.57px;
-  height: 244px;
+  width: 200px;
+  height: 237px;
   object-fit: cover;
   opacity: 1;
   position: relative;
@@ -571,14 +572,22 @@
 }
 
 @media (max-width: 767px) {
+  .hero {
+    height: clamp(730px, calc(56.667vw + 548.667px), 900px);
+  }
+
   .hero__content {
     padding-left: 1rem;
     padding-right: 1rem;
   }
 
+  .hero__title {
+    margin-left: -4px;
+  }
+
   .hero__title-top,
   .hero__title-bottom {
-    font-size: clamp(3.15rem, 16vw, 4rem);
+    font-size: clamp(3.15rem, 17.5cqw, 4rem);
   }
 
   .hero__polaroid {

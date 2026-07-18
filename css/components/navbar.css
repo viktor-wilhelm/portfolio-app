@@ -269,7 +269,7 @@
 }
 
 .nav__burger-icon {
-  width: 32px;
+  width:1.8rem;
   height: auto;
   display: block;
 }
@@ -412,18 +412,18 @@
   object-fit: contain;
   filter: brightness(0) saturate(100%) invert(27%) sepia(82%) saturate(1800%) hue-rotate(218deg) brightness(107%);
   transition: opacity 400ms ease;
-  margin-top: 0.5rem;
 }
 
 .nav__overlay-close {
   cursor: pointer;
-  padding: var(--space-sm);
+  padding-right: 4px;
+  margin-top: -8px;
   background: none;
   border: none;
 }
 
 .nav__overlay-close-icon {
-  width: 32px;
+  width: 1.8rem;
   height: auto;
   display: block;
 }

@@ -270,3 +270,9 @@
     font-size: var(--font-size-sm);
   }
 }
+
+@media (max-width: 620px) {
+  .site-footer__logo {
+    height: 45px;
+  } 
+}

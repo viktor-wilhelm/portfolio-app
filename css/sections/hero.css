@@ -571,9 +571,14 @@
 }
 
 @media (max-width: 767px) {
+  .hero__content {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
   .hero__title-top,
   .hero__title-bottom {
-    font-size: clamp(2.2rem, 11vw, 4rem);
+    font-size: clamp(3.15rem, 16vw, 4rem);
   }
 
   .hero__polaroid {
@@ -587,7 +592,7 @@
 
 @media (max-width: 540px) {
   .hero__content {
-    padding-top: clamp(0rem, 2svh, 2rem);
+    padding-top: calc(1rem + clamp(0rem, 2svh, 2rem));
   }
 
   .hero__greeting-container {

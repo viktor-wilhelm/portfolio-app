@@ -587,7 +587,7 @@
 
   .hero__title-top,
   .hero__title-bottom {
-    font-size: clamp(3.15rem, 17.5cqw, 4rem);
+    font-size: clamp(3rem, calc(100cqw / 6), 4rem);
   }
 
   .hero__polaroid {
@@ -614,6 +614,12 @@
 
   .hero__polaroid {
     margin: clamp(1.5rem, 5svh, 3.5rem) auto 0;
+  }
+}
+
+@media (max-width: 330px) {
+  .hero__title {
+    margin-top: -80.375px;
   }
 }
 

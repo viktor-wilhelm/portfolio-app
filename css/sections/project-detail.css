@@ -398,9 +398,22 @@ html[data-project="da-bubble"] .detail__next {
     overflow: visible;
   }
 
+  .detail::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 16vw;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
+    pointer-events: none;
+    z-index: 0;
+  }
+
   .detail__bg {
     bottom: auto;
     height: auto;
+    transform-origin: top left;
   }
 
   .detail__container {

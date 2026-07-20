@@ -179,7 +179,7 @@ html.detail-preload .detail__container {
   font-family: var(--font-base);
   font-size: 1.125rem;
   font-weight: 400;
-  line-height: 1.45;
+  line-height: 1.35;
   color: var(--color-text);
   margin: 0;
   overflow-wrap: break-word;
@@ -412,8 +412,9 @@ html[data-project="da-bubble"] .detail__next {
 
   .detail__bg {
     bottom: auto;
-    width: 257.89vw; /* 2450/950 aspect of the mobile paper, swapped for the 90deg rotation */
-    height: 100vw;
+    max-width: none; /* the global img{max-width:100%} reset would otherwise cap this below 1440px */
+    width: 1440px; /* fixed at the object-fit: cover scale the desktop image has at a 900px viewport, so it never rescales */
+    height: 900px;
     transform: rotate(90deg) translateY(-100%);
     transform-origin: top left;
   }

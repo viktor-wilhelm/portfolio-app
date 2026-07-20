@@ -412,7 +412,9 @@ html[data-project="da-bubble"] .detail__next {
 
   .detail__bg {
     bottom: auto;
-    height: auto;
+    width: 257.89vw; /* 2450/950 aspect of the mobile paper, swapped for the 90deg rotation */
+    height: 100vw;
+    transform: rotate(90deg) translateY(-100%);
     transform-origin: top left;
   }
 

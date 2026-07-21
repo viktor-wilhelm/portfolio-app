@@ -421,7 +421,7 @@ html[data-project="da-bubble"] .detail__next {
   }
 
   .detail__container {
-    padding: 1.5rem 1rem 4rem 1rem;
+    padding: 1.5rem 1rem 2rem 1rem;
     display: grid;
     grid-template-columns: 1fr auto;
     grid-template-areas:

@@ -34,6 +34,20 @@ body.is-leaving {
   pointer-events: none;
 }
 
+/* Hide the scrollbar on mobile — scrolling still works, just no visible track */
+@media (max-width: 900px) {
+  html,
+  body {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* legacy Edge */
+  }
+
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, WebKit */
+  }
+}
+
 @keyframes page-fade-in {
   from { opacity: 0; transform: translateY(4px); }
   to   { opacity: 1; transform: translateY(0); }

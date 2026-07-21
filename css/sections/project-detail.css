@@ -346,14 +346,6 @@ html.detail-preload .detail__container {
 .detail__next {
   display: flex;
   justify-content: flex-end;
-  padding-top: 2.4rem;
-  margin-right: -2.5rem;
-}
-
-.detail--project-el-pollo-loco .detail__next,
-.detail--project-da-bubble .detail__next,
-html[data-project="el-pollo-loco"] .detail__next,
-html[data-project="da-bubble"] .detail__next {
   position: absolute;
   right: 4.5rem;
   bottom: 5px;
@@ -379,11 +371,6 @@ html[data-project="da-bubble"] .detail__next {
 
 .detail__next-btn:hover {
   color: var(--color-yellow);
-}
-
-.detail--project-join .detail__next-btn {
-  position: relative;
-  left: 8px;
 }
 
 /* ── Responsive (≤ 900px) ─────────────────────────────────── */
@@ -479,19 +466,11 @@ html[data-project="da-bubble"] .detail__next {
     grid-area: next;
     align-self: center;
     justify-self: end;
-    margin-right: 0;
-    padding-top: 0;
-  }
-
-  .detail--project-el-pollo-loco .detail__next,
-  .detail--project-da-bubble .detail__next,
-  html[data-project="el-pollo-loco"] .detail__next,
-  html[data-project="da-bubble"] .detail__next {
     position: static;
     right: auto;
     bottom: auto;
-    padding-top: 0;
     margin-right: 0;
+    padding-top: 0;
   }
 
   .detail__btn--github svg {

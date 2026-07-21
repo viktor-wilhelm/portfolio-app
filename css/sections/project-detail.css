@@ -66,7 +66,7 @@ html.detail-preload .detail__container {
   margin: 0 auto;
   padding-top: 3rem;
   padding-bottom: 6rem;
-  padding-inline: clamp(2rem, 16.3vw - 7.1667rem, 7.5rem); /* 7.5rem at 1440px viewport → 2rem at 900px, fluid in between */
+  padding-inline: clamp(2rem, 18.3vw - 7.1667rem, 7.5rem); /* 7.5rem at 1440px viewport → 2rem at 900px, fluid in between */
   display: flex;
   flex-direction: column;
 }
@@ -375,6 +375,14 @@ html.detail-preload .detail__container {
 .detail__next-btn:hover {
   color: var(--color-yellow);
 }
+
+@media (max-width: 1150px) {
+.detail__back {
+       margin-left: 0rem;
+ 
+  }
+}
+
 
 /* ── Responsive (≤ 900px) ─────────────────────────────────── */
 

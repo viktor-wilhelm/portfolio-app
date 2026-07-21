@@ -442,6 +442,10 @@ html.detail-preload .detail__container {
     min-height: 0;
   }
 
+  .detail__title {
+    margin-top: 8rem;
+  }
+
   .detail__visual {
     flex: none;
     padding-top: 0;

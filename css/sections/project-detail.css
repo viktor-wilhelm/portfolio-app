@@ -179,7 +179,8 @@ html.detail-preload .detail__container {
   font-family: var(--font-base);
   font-size: 1.125rem;
   font-weight: 400;
-  line-height: 1.3;
+  line-height: 1;
+  text-align: justify;
   color: var(--color-text);
   margin: 0;
   overflow-wrap: break-word;
@@ -211,7 +212,7 @@ html.detail-preload .detail__container {
 .detail__tech {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.25rem;
+  gap: 1.2rem;
   overflow: hidden;
 }
 
@@ -421,12 +422,25 @@ html[data-project="da-bubble"] .detail__next {
 
   .detail__container {
     padding: 1.5rem 1rem 4rem 1rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "layout layout"
+      "back next";
+    row-gap: 3.2rem;
+  }
+
+  .detail__layout {
+    grid-area: layout;
   }
 
   .detail__back {
-    order: 1;
-    margin-top: 2.5rem;
+    grid-area: back;
+    align-self: center;
+    justify-self: start;
+    margin-top: 0;
     margin-left: 0;
+    color: var(--color-off-white);
   }
 
   .detail__layout {
@@ -462,8 +476,11 @@ html[data-project="da-bubble"] .detail__next {
   }
 
   .detail__next {
-    order: 2;
+    grid-area: next;
+    align-self: center;
+    justify-self: end;
     margin-right: 0;
+    padding-top: 0;
   }
 
   .detail--project-el-pollo-loco .detail__next,
@@ -473,13 +490,20 @@ html[data-project="da-bubble"] .detail__next {
     position: static;
     right: auto;
     bottom: auto;
-    padding-top: 2.4rem;
+    padding-top: 0;
     margin-right: 0;
   }
 
-  .detail__actions {
-    justify-content: flex-start;
-    gap: 1rem;
+  .detail__btn--github svg {
+    display: none;
+  }
+
+  .detail__section + .detail__tech {
+    padding-left: 0;
+  }
+
+  .detail__description,
+  .detail__impl {
     padding-right: 0;
   }
 }
@@ -495,21 +519,14 @@ html[data-project="da-bubble"] .detail__next {
 /* ── Narrow phones only (≤ 480px) ──────────────────────────── */
 
 @media (max-width: 480px) {
-  .detail__section + .detail__tech {
-    padding-left: 0;
-  }
-
-  .detail__description,
-  .detail__impl {
-    padding-right: 0;
-  }
-
   .detail__actions {
-    gap: 0.75rem;
+    gap: 1.75rem;
+    padding-right: 0rem;
+    margin-top: 2rem;
   }
 
   .detail__title {
-    margin-top: 4.5rem;
+    margin-top: 3.5rem;
   }
 
   .detail__section-heading {
@@ -517,6 +534,11 @@ html[data-project="da-bubble"] .detail__next {
   }
 
   .detail__title-wrap + .detail__section {
-    margin-top: 2.5rem; /* Join → Description */
+    margin-top: 1.5rem; /* Join → Description */
+  }
+
+  .detail__tech {
+    margin-left: 1rem;
+    gap: 1rem;
   }
 }

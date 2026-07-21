@@ -34,7 +34,7 @@ const PROJECTS = {
     sticker: "assets/img/07_Projects/Sticker.png",
     github: "https://github.com/viktor-wilhelm/join",
     live: "https://join.viktor-wilhelm.de/",
-    tech: ["CSS", "HTML", { id: "firebase" }, { id: "angular" }, "TypeScript"],
+    tech: ["CSS", "HTML", { id: "firebase" }, "JavaScript"],
     next: "el-pollo-loco",
   },
   "el-pollo-loco": {

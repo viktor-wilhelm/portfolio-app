@@ -269,7 +269,7 @@
 }
 
 .nav__burger-icon {
-  width:1.8rem;
+  width: 1.8rem;
   height: auto;
   display: block;
 }
@@ -313,14 +313,24 @@
   }
 }
 
+@media (max-width: 900px) {
+  .header {
+    margin-top: 2rem;
+  }
+}
+
+/* DE only: nudge "Fähigkeiten" left so the whole word stays on the paper background */
+@media (min-width: 900px) {
+  html[lang="de"] .nav__link--skills {
+    display: inline-block;
+    transform: translateX(-1.4rem);
+  }
+}
+
 /* Compact range: 720px – 1100px */
 @media (min-width: 720px) and (max-width: 1100px) {
   .nav {
     padding: 0 var(--space-lg);
-  }
-
-  .nav__links {
-    gap: 6.5vw;
   }
 }
 
@@ -329,17 +339,38 @@
   .nav {
     padding: 0 var(--space-xl);
   }
+}
 
+/* Stepped nav link gap: 629px – 1440px */
+@media (min-width: 629px) and (max-width: 899px) {
   .nav__links {
-    gap: min(13vw, calc(var(--space-2xl) + 4rem));
+    gap: 4vw;
   }
 }
 
-/* DE only: nudge "Fähigkeiten" left so the whole word stays on the paper background */
-@media (min-width: 1150px) {
-  html[lang="de"] .nav__link--skills {
-    display: inline-block;
-    transform: translateX(-1.4rem);
+@media (min-width: 900px) and (max-width: 949px) {
+  .nav__links {
+    gap: 11.5vw;
+  }
+}
+
+@media (min-width: 950px) and (max-width: 989px) {
+  .nav__links {
+    gap: 12.5vw;
+  }
+}
+
+@media (min-width: 990px) and (max-width: 1440px) {
+  .nav__links {
+    gap: 13vw;
+  }
+}
+
+/* Beyond 1440px .nav is pinned to --max-width-section, so freeze the gap
+   at its 1440px value instead of letting vw keep growing past the container */
+@media (min-width: 1440px) {
+  .nav__links {
+    gap: 11.7rem;
   }
 }
 
@@ -381,7 +412,6 @@
   justify-content: space-between;
   height: 64px;
   flex-shrink: 0;
-
 }
 
 .nav__overlay-logo-link {

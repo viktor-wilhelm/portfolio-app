@@ -53,7 +53,7 @@ html.detail-preload .detail__container {
   right: auto;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: fill; /* .detail height is pinned at 900px, so this only compresses horizontally as width shrinks — never crops */
   object-position: left top;
   pointer-events: none;
   z-index: 0;
@@ -66,7 +66,7 @@ html.detail-preload .detail__container {
   margin: 0 auto;
   padding-top: 3rem;
   padding-bottom: 6rem;
-  padding-inline: clamp(2rem, 18.3vw - 7.1667rem, 7.5rem); /* 7.5rem at 1440px viewport → 2rem at 900px, fluid in between */
+  padding-inline: clamp(3rem, 13.333vw - 4.5rem, 7.5rem); /* 7.5rem at 1440px viewport → 3rem at 900px, fluid in between */
   display: flex;
   flex-direction: column;
 }

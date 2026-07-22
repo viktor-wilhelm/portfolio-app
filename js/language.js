@@ -15,24 +15,6 @@ function setLanguage(lang) {
   localStorage.setItem("lang", lang);
   applyTranslations(lang);
   updateLangButtons(lang);
-  highlightSkillsLastLetter(lang);
-}
-
-/**
- * In German, wraps the last letter of all skills nav links in a white span
- * so it stays readable where the word crosses the dark background.
- * @param {string} lang - Language code ('de' or 'en').
- */
-function highlightSkillsLastLetter(lang) {
-  const isWide = window.innerWidth >= 1415;
-  document.querySelectorAll(".nav__link--skills").forEach((el) => {
-    const text = el.textContent;
-    if (lang === "de" && text.length > 0 && isWide) {
-      el.innerHTML = text.slice(0, -1) + '<span style="color:#ffffff">' + text.slice(-1) + "</span>";
-    } else {
-      el.textContent = text;
-    }
-  });
 }
 
 /**
@@ -94,7 +76,4 @@ function setupLangSwitch() {
 document.addEventListener("DOMContentLoaded", () => {
   setupLangSwitch();
   initLanguage();
-  window.addEventListener("resize", () => {
-    highlightSkillsLastLetter(document.documentElement.lang);
-  });
 });

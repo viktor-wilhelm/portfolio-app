@@ -335,6 +335,14 @@
   }
 }
 
+/* DE only: nudge "Fähigkeiten" left so the whole word stays on the paper background */
+@media (min-width: 1150px) {
+  html[lang="de"] .nav__link--skills {
+    display: inline-block;
+    transform: translateX(-1.4rem);
+  }
+}
+
 /* ============================================================
    Mobile Nav Overlay
    ============================================================ */

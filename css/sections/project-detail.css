@@ -198,7 +198,7 @@ html.detail-preload .detail__container {
   margin: 0;
   overflow-wrap: break-word;
   word-break: break-word;
-  padding-right: 1rem;
+  padding-right: 2rem;
 }
 
 .detail__duration-label {
@@ -390,7 +390,19 @@ html.detail-preload .detail__container {
 @media (max-width: 1150px) {
 .detail__back {
        margin-left: 0rem;
- 
+
+  }
+
+  .detail__sticker {
+    display: none;
+  }
+}
+
+/* Longer titles ("El Pollo Loco") wrap to 2 lines once the text column gets
+   narrow — shrink smoothly instead of letting it break. */
+@media (min-width: 901px) and (max-width: 1050px) {
+  .detail__title {
+    font-size: clamp(3.5rem, 5.369vw + 0.475rem, 4rem);
   }
 }
 
@@ -430,7 +442,7 @@ html.detail-preload .detail__container {
   }
 
   .detail__container {
-    padding: 1.5rem 1rem 2rem 1rem;
+    padding: 1.5rem clamp(2rem, 2.909vw + 1.364rem, 3rem) 2rem; /* 3rem at 900px viewport → 2rem at 350px, fluid in between */
     display: grid;
     grid-template-columns: 1fr auto;
     grid-template-areas:
@@ -479,10 +491,6 @@ html.detail-preload .detail__container {
     height: auto;
     aspect-ratio: 560 / 398;
     margin: 0 auto;
-  }
-
-  .detail__sticker {
-    display: none;
   }
 
   .detail__next {
@@ -534,5 +542,20 @@ html.detail-preload .detail__container {
   .detail__tech {
     margin-left: 1rem;
     gap: 1rem;
+  }
+}
+
+/* ── Very narrow phones (≤ 350px) ────────────────────────────── */
+
+@media (max-width: 350px) {
+  .detail__container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* "El Pollo Loco" is the longest title and starts wrapping to 2 lines
+     around 320px — shrink smoothly instead of letting it break. */
+  .detail__title {
+    font-size: clamp(2.906rem, 5vw + 1.906rem, 3rem);
   }
 }

@@ -417,7 +417,6 @@ html.detail-preload .detail__container {
   .detail {
     height: auto;
     min-height: 0;
-    overflow: visible;
   }
 
   .detail::after {

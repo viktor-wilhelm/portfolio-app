@@ -370,7 +370,7 @@
    at its 1440px value instead of letting vw keep growing past the container */
 @media (min-width: 1440px) {
   .nav__links {
-    gap: 11.7rem;
+    gap: 13rem;
   }
 }
 

@@ -144,11 +144,32 @@ function markDetailReady() {
   document.documentElement.classList.remove("detail-preload");
 }
 
+/**
+ * Keeps "Next Project" exactly 3rem below the action buttons on desktop (>900px).
+ * The buttons' own height depends on the fluid project image, so a fixed CSS
+ * offset can't track it — this measures the real gap and sets it inline.
+ */
+function positionNextProjectLink() {
+  const next = document.querySelector(".detail__next");
+  if (!next) return;
+  if (window.innerWidth <= 900) {
+    next.style.top = "";
+    return;
+  }
+  const actions = document.querySelector(".detail__actions");
+  const container = document.querySelector(".detail__container");
+  if (!actions || !container) return;
+  const gapPx = parseFloat(getComputedStyle(document.documentElement).fontSize) * 3;
+  const top = actions.getBoundingClientRect().bottom - container.getBoundingClientRect().top + gapPx;
+  next.style.top = `${top}px`;
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   try {
     initProject();
     initBackLink();
     syncUnderlineWidth();
+    positionNextProjectLink();
   } finally {
     markDetailReady();
   }
@@ -156,4 +177,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener("i18n:applied", syncUnderlineWidth);
 window.addEventListener("resize", syncUnderlineWidth);
+window.addEventListener("resize", positionNextProjectLink);
 if (document.fonts) document.fonts.ready.then(syncUnderlineWidth);

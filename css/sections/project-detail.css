@@ -33,6 +33,16 @@ html.detail-preload .detail__container {
   color: var(--color-text-light);
 }
 
+/* Below 900px the paper/black split composition gives way to the stacked mobile
+   layout, so the dark-on-paper contrast for About/Skills no longer applies — all
+   four links go white like Projects/Contact already are. */
+@media (max-width: 900px) {
+  .header--detail .nav__link--about,
+  .header--detail .nav__link--skills {
+    color: var(--color-text-light);
+  }
+}
+
 /* ── Page wrapper ─────────────────────────────────────────── */
 
 .detail {
@@ -63,6 +73,7 @@ html.detail-preload .detail__container {
   position: relative;
   z-index: 1;
   max-width: 1440px;
+  height: 100%; /* pins .detail__next's absolute bottom offset to .detail's fixed 900px box, not to content height (which varies as text reflows) */
   margin: 0 auto;
   padding-top: 3rem;
   padding-bottom: 6rem;
@@ -351,7 +362,7 @@ html.detail-preload .detail__container {
   justify-content: flex-end;
   position: absolute;
   right: 4.5rem;
-  bottom: 5px;
+  top: 0; /* actual offset set inline by positionNextProjectLink() in project-detail.js, so it always sits exactly 3rem below .detail__actions */
   padding-top: 0;
   margin-right: 0;
 }

@@ -617,12 +617,6 @@
   }
 }
 
-@media (max-width: 330px) {
-  .hero__title {
-    margin-top: -80.375px;
-  }
-}
-
 @media (min-width: 768px) {
   .hero {
     height: 900px;

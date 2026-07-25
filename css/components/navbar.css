@@ -39,6 +39,7 @@
   content: "";
   position: absolute;
   inset: 0;
+  transform: translateY(-8px);
   background: url("../../assets/img/04_Hero/vw-logo.png") center / contain no-repeat;
   filter: brightness(0) saturate(100%) invert(85%) sepia(60%) saturate(740%) hue-rotate(347deg) brightness(97%);
   opacity: 0;
@@ -315,8 +316,12 @@
 }
 
 
-/* DE only: nudge "Fähigkeiten" left so the whole word stays on the paper background */
 @media (min-width: 900px) {
+  .nav {
+    margin-top: 4px;
+  }
+
+  /* DE only: nudge "Fähigkeiten" left so the whole word stays on the paper background */
   html[lang="de"] .nav__link--skills {
     display: inline-block;
     transform: translateX(-1.4rem);

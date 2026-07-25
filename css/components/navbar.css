@@ -9,7 +9,7 @@
   z-index: 100;
   height: var(--nav-height);
   background-color: transparent;
-  margin-top: 0.65rem;
+  margin-top: 0.4rem;
 }
 
 .header--scrolled {
@@ -311,15 +311,9 @@
   }
 
   .header {
-    margin-top: 0.65rem;
+    margin-top: 0.8rem;
   }
 }
-
-
-@media (min-width: 900px) {
-  .nav {
-    margin-top: 4px;
-  }
 
   /* DE only: nudge "Fähigkeiten" left so the whole word stays on the paper background */
   html[lang="de"] .nav__link--skills {

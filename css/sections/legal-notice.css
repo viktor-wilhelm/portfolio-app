@@ -7,9 +7,6 @@
 html[lang="en"] [data-lang-de] { display: none; }
 html[lang="de"] [data-lang-en] { display: none; }
 
-.legal-hero .header {
-  margin-top: 0.5rem;
-}
 
 /* ── Hero dark section ─────────────────────────────────────── */
 

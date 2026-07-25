@@ -9,7 +9,7 @@
   z-index: 100;
   height: var(--nav-height);
   background-color: transparent;
-  margin-top: 0.65rem; /* same as desktop; only the 620–900px range below gets more room for the wrapped nav */
+  margin-top: 0.4rem;
 }
 
 .header--scrolled {
@@ -39,6 +39,7 @@
   content: "";
   position: absolute;
   inset: 0;
+  transform: translateY(-8px);
   background: url("../../assets/img/04_Hero/vw-logo.png") center / contain no-repeat;
   filter: brightness(0) saturate(100%) invert(85%) sepia(60%) saturate(740%) hue-rotate(347deg) brightness(97%);
   opacity: 0;
@@ -52,6 +53,7 @@
 
 .nav__logo-img {
   height: 45px;
+  transform: translateY(-8px);
   width: auto;
   object-fit: contain;
   filter: brightness(0) saturate(100%) invert(27%) sepia(82%) saturate(1800%) hue-rotate(218deg) brightness(107%);
@@ -309,18 +311,11 @@
   }
 
   .header {
-    margin-top: 0.65rem;
+    margin-top: 0.8rem;
   }
 }
 
-@media (min-width: 620px) and (max-width: 900px) {
-  .header {
-    margin-top: 2rem;
-  }
-}
-
-/* DE only: nudge "Fähigkeiten" left so the whole word stays on the paper background */
-@media (min-width: 900px) {
+  /* DE only: nudge "Fähigkeiten" left so the whole word stays on the paper background */
   html[lang="de"] .nav__link--skills {
     display: inline-block;
     transform: translateX(-1.4rem);
@@ -341,8 +336,8 @@
   }
 }
 
-/* Stepped nav link gap: 629px – 1440px */
-@media (min-width: 629px) and (max-width: 899px) {
+/* Stepped nav link gap: 650px – 1440px */
+@media (min-width: 650px) and (max-width: 899px) {
   .nav__links {
     gap: 6vw;
   }

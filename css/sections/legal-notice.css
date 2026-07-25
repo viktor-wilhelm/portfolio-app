@@ -7,8 +7,12 @@
 html[lang="en"] [data-lang-de] { display: none; }
 html[lang="de"] [data-lang-en] { display: none; }
 
-.legal-hero .header {
-  margin-top: 0.5rem;
+/* Desktop (900px+) uses the shared .header/.nav spacing from navbar.css so the
+   header sits at the same height as on the Hero page. */
+@media (max-width: 899px) {
+  .legal-hero .header {
+    margin-top: 0.5rem;
+  }
 }
 
 /* ── Hero dark section ─────────────────────────────────────── */

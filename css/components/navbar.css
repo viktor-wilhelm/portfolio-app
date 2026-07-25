@@ -9,7 +9,7 @@
   z-index: 100;
   height: var(--nav-height);
   background-color: transparent;
-  margin-top: 0.65rem; /* same as desktop; only the 620–900px range below gets more room for the wrapped nav */
+  margin-top: 0.65rem;
 }
 
 .header--scrolled {
@@ -314,11 +314,6 @@
   }
 }
 
-@media (min-width: 620px) and (max-width: 900px) {
-  .header {
-    margin-top: 2rem;
-  }
-}
 
 /* DE only: nudge "Fähigkeiten" left so the whole word stays on the paper background */
 @media (min-width: 900px) {

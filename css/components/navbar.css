@@ -342,8 +342,8 @@
   }
 }
 
-/* Stepped nav link gap: 629px – 1440px */
-@media (min-width: 629px) and (max-width: 899px) {
+/* Stepped nav link gap: 650px – 1440px */
+@media (min-width: 650px) and (max-width: 899px) {
   .nav__links {
     gap: 6vw;
   }

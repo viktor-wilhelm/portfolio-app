@@ -441,6 +441,7 @@
 
 .nav__overlay-logo-img {
   height: 45px;
+  transform: translateY(-8px);
   width: auto;
   object-fit: contain;
   filter: brightness(0) saturate(100%) invert(27%) sepia(82%) saturate(1800%) hue-rotate(218deg) brightness(107%);

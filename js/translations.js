@@ -60,6 +60,8 @@ const translations = {
     successMessage: "Deine Nachricht wurde erfolgreich gesendet!",
     errorMessage: "Es ist ein Fehler aufgetreten. Bitte versuche es erneut.",
     detailBackLink: "Zurück",
+    repoComingSoonMessage: "Repository folgt in Kürze",
+    repoComingSoonBack: "Zurück zum Projekt",
     detailDescriptionHeading: "Beschreibung",
     detailImplHeading: "Implementierungsdetails",
     detailJoinImpl:
@@ -156,6 +158,8 @@ const translations = {
     successMessage: "Your message was sent successfully!",
     errorMessage: "Something went wrong. Please try again.",
     detailBackLink: "Go Back",
+    repoComingSoonMessage: "Repository coming soon",
+    repoComingSoonBack: "Back to project",
     detailDescriptionHeading: "Description",
     detailImplHeading: "Implementation Details",
     detailJoinImpl:

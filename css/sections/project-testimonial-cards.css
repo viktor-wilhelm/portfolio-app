@@ -252,20 +252,24 @@
     gap: 0;
   }
 
-  /* Card base — same mechanism as desktop: img + overflow:hidden */
+  /* Card base — the sticker PNG already carries the rounded corners, so no
+     clipping needed. overflow:visible also lets a card grow past its
+     aspect-ratio when the quote needs more lines. */
   .testimonial-card {
     width: clamp(280px, 86vw, 327px);
     height: auto;
     flex-shrink: 0;
     border-radius: 0;
-    overflow: hidden;
+    overflow: visible;
   }
 
-  /* Reset desktop transforms / margins */
+  /* Reset desktop transforms / margins.
+     Cards 1 + 3 use pre-rotated mobile stickers — no CSS rotation on top,
+     otherwise the tilt doubles and the text leaves the paper. */
   .testimonial-card:nth-child(1) {
-    aspect-ratio: 327 / 343;
+    aspect-ratio: 326 / 342;
     z-index: 3;
-    transform: rotate(-4deg);
+    transform: none;
     margin-right: 0;
     margin-bottom: -4px;
   }
@@ -278,10 +282,10 @@
   }
 
   .testimonial-card:nth-child(3) {
-    aspect-ratio: unset;
-    height: 340px;
+    aspect-ratio: 326 / 342;
+    height: auto;
     z-index: 1;
-    transform: rotate(4deg);
+    transform: none;
     margin-left: 0;
     margin-bottom: 0;
   }
@@ -294,11 +298,61 @@
     inset: 0;
     width: 100%;
     height: 100%;
-    /* object-fit: fill; */ padding-inline: 0.5rem;
+    object-fit: fill;
   }
 
+  /* Sticker 1 + 3 sit tilted inside a larger PNG with a transparent margin
+     (paper 326px in a 367 / 351px canvas), while sticker 2 is edge-to-edge.
+     Scale those two up so the paper itself spans the full card width — same
+     visual width as card 2 — and centre the overhang. */
+  .testimonial-card:nth-child(1) .testimonial-card__bg,
+  .testimonial-card:nth-child(3) .testimonial-card__bg {
+    inset: auto;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    max-width: none; /* base.css caps images at 100% */
+  }
+
+  .testimonial-card:nth-child(1) .testimonial-card__bg {
+    width: calc(100% * 367 / 326);
+    height: calc(100% * 381 / 342);
+  }
+
+  .testimonial-card:nth-child(3) .testimonial-card__bg {
+    width: calc(100% * 351 / 326);
+    height: calc(100% * 365 / 342);
+  }
+
+  /* Text and the yellow hover scribble follow the tilt baked into the sticker
+     (measured from the PNG alpha: -3.81deg / +3.87deg). Both boxes are sized to
+     the paper's true rectangle (325.3 x 341.2 inside a 326 x 342 bounding box),
+     so their corners land on the paper corners once rotated. */
+  .testimonial-card:nth-child(1) .testimonial-card__hover,
+  .testimonial-card:nth-child(3) .testimonial-card__hover {
+    inset: auto;
+    left: 50%;
+    top: 50%;
+    width: calc(100% * 325.3 / 326);
+    height: calc(100% * 341.2 / 342);
+    translate: -50% -50%;
+  }
+
+  .testimonial-card:nth-child(1) .testimonial-card__body,
+  .testimonial-card:nth-child(1) .testimonial-card__hover {
+    rotate: -3.81deg;
+  }
+
+  .testimonial-card:nth-child(3) .testimonial-card__body,
+  .testimonial-card:nth-child(3) .testimonial-card__hover {
+    rotate: 3.87deg;
+  }
+
+  /* The tilt shifts the paper edge by ~10px between the top and bottom row,
+     so cards 1 + 3 need a slightly wider gutter than card 2. */
   .testimonial-card__body {
-    padding: 2rem 1.125rem;
+    padding: 2rem 1.75rem;
+    gap: 1.5rem;
   }
 
   .testimonial-card:nth-child(2) .testimonial-card__body {
@@ -318,21 +372,32 @@
     white-space: nowrap;
   }
 
-  .testimonial-card:nth-child(1) .testimonial-card__linkedin {
-    transform: translateX(-1rem);
-  }
-
-  .testimonial-card:nth-child(3) .testimonial-card__linkedin {
-    transform: translateX(-1.75rem);
-  }
-
   .testimonial-card:hover {
     z-index: 5;
   }
 }
 
 @media (max-width: 355px) {
-    .testimonial-card__body {
-        padding: 1rem 1rem;
-    }
+  /* Tighter vertically, but the inline gutter has to stay wide enough to keep
+     the text on the sticker (cards 1 + 3 have an inset paper edge). */
+  .testimonial-card__body {
+    padding-block: 1rem;
+    padding-inline: 1.75rem;
+    gap: 1rem;
+  }
+
+  /* Name + badge no longer fit side by side on one line here */
+  .testimonial-card__author {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .testimonial-card__linkedin {
+    margin-left: auto;
+  }
+
+  .testimonial-card:nth-child(1) .testimonial-card__name,
+  .testimonial-card:nth-child(3) .testimonial-card__name {
+    white-space: normal;
+  }
 }

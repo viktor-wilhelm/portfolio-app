@@ -116,7 +116,9 @@ async function handleFormSubmit(event) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(Object.fromEntries(new FormData(event.target))),
     });
-    if (response.ok) { showFormSuccess(event.target, t); } else { throw new Error(); }
+    const data = await response.json();
+    if (!response.ok || data?.success !== true) throw new Error();
+    showFormSuccess(event.target, t);
   } catch {
     const isLocalDev = ["localhost", "127.0.0.1"].includes(location.hostname);
     if (isLocalDev) { showFormSuccess(event.target, t); return; }

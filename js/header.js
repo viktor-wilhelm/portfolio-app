@@ -85,7 +85,7 @@ function buildOverlaySocial() {
       <a href="https://github.com/viktor-wilhelm" class="hero__social-link" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
         <img src="assets/img/04_Hero/18_Contact gihub.png" alt="GitHub" class="hero__social-icon" />
       </a>
-      <a href="mailto:" class="hero__social-link" aria-label="E-Mail">
+      <a href="mailto:hello@viktor-wilhelm.de" class="hero__social-link" aria-label="E-Mail">
         <img src="assets/img/04_Hero/19. Button mail.png" alt="E-Mail" class="hero__social-icon" />
       </a>
     </nav>`;

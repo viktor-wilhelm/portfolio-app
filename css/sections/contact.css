@@ -183,10 +183,20 @@
   -webkit-text-fill-color: var(--color-error);
 }
 
+/* Visually hidden but still in the accessibility tree, so aria-live
+   announces the same message the red placeholder shows visually */
 #name-error,
 #email-error,
 #message-error {
-  display: none;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .form__group:hover input:not(.form__checkbox),
@@ -439,6 +449,10 @@
   .form__group--checkbox label {
     font-size: 14px;
     gap: 8px;
+  }
+
+  .form__feedback {
+    margin-bottom: 1.5rem;
   }
 }
 

@@ -27,6 +27,8 @@ function getCurrentLang() {
 function setInputError(input, message) {
   input.placeholder = message;
   input.classList.add("input--error");
+  const errorEl = document.getElementById(`${input.id}-error`);
+  if (errorEl) errorEl.textContent = message;
 }
 
 /**
@@ -36,6 +38,8 @@ function setInputError(input, message) {
 function clearInputError(input) {
   input.placeholder = translations[getCurrentLang()][PLACEHOLDER_KEYS[input.id]];
   input.classList.remove("input--error");
+  const errorEl = document.getElementById(`${input.id}-error`);
+  if (errorEl) errorEl.textContent = "";
 }
 
 /**
@@ -107,7 +111,11 @@ async function handleFormSubmit(event) {
   if (!nameValid || !emailValid || !msgValid || !privacyValid) return;
   const t = translations[getCurrentLang()];
   try {
-    const response = await fetch("mail.php", { method: "POST", body: new FormData(event.target) });
+    const response = await fetch("mail.php", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(Object.fromEntries(new FormData(event.target))),
+    });
     if (response.ok) { showFormSuccess(event.target, t); } else { throw new Error(); }
   } catch {
     const isLocalDev = ["localhost", "127.0.0.1"].includes(location.hostname);

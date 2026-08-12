@@ -63,15 +63,15 @@ const translations = {
     detailDescriptionHeading: "Beschreibung",
     detailImplHeading: "Implementierungsdetails",
     detailJoinImpl:
-      "Kurzer Text, der deine Rolle oder den Arbeitsablauf bei diesem Projekt beschreibt. Zeige Recruitern dein Wissen und deine Fähigkeit, selbstständig oder kollaborativ in einer strukturierten Umgebung zu arbeiten.",
+      "Der Fokus lag auf der Umsetzung eines Kanban-Boards mit Drag-and-Drop sowie einer strukturierten Verwaltung von Aufgaben und Kategorien mit JavaScript.",
     detailDurationLabel: "Dauer:",
     detailJoinDuration: "5 Wochen",
     detailNextProject: "Nächstes Projekt",
     detailElPolloLocoImpl:
-      "Kurzer Text, der deine Rolle oder den Arbeitsablauf bei diesem Projekt beschreibt. Zeige Recruitern dein Wissen und deine Fähigkeit, selbstständig oder kollaborativ in einer strukturierten Umgebung zu arbeiten.",
+      "Entwickelt wurde ein browserbasiertes 2D-Spiel mit objektorientiertem JavaScript. Schwerpunkte waren Spiellogik, Animationen, Kollisionserkennung sowie die Steuerung von Charakteren und Gegnern.",
     detailElPolloLocoDuration: "4 Wochen",
     detailPokedexImpl:
-      "Kurzer Text, der deine Rolle oder den Arbeitsablauf bei diesem Projekt beschreibt. Zeige Recruitern dein Wissen und deine Fähigkeit, selbstständig oder kollaborativ in einer strukturierten Umgebung zu arbeiten.",
+      "Umgesetzt wurde eine interaktive Pokédex-Anwendung mit Vanilla JavaScript und PokéAPI. Der Fokus lag auf Live-Suche, Autocomplete, responsivem Design und einer modularen Code-Struktur.",
     detailPokedexDuration: "1 Woche",
     legalBackLink: "Zurück",
     legalHeroTitle: "Impressum",
@@ -159,15 +159,15 @@ const translations = {
     detailDescriptionHeading: "Description",
     detailImplHeading: "Implementation Details",
     detailJoinImpl:
-      "Short text that describes your role or the workflow for this specific project. Let a recruiter know more about your knowledge and ability to work independently or collaboratively in a structured way.",
+      "The focus was on implementing a Kanban board with drag-and-drop functionality and structured task and category management using JavaScript.",
     detailDurationLabel: "Duration:",
     detailJoinDuration: "5 weeks",
     detailNextProject: "Next Project",
     detailElPolloLocoImpl:
-      "Short text that describes your role or the workflow for this specific project. Let a recruiter know more about your knowledge and ability to work independently or collaboratively in a structured way.",
+      "A browser-based 2D game was developed using object-oriented JavaScript. Key areas included game logic, animations, collision detection, and the control of characters and enemies.",
     detailElPolloLocoDuration: "4 weeks",
     detailPokedexImpl:
-      "Short text that describes your role or the workflow for this specific project. Let a recruiter know more about your knowledge and ability to work independently or collaboratively in a structured way.",
+      "An interactive Pokédex application was built with Vanilla JavaScript and the PokéAPI. The focus was on live search, autocomplete, responsive design, and a modular code structure.",
     detailPokedexDuration: "1 week",
     legalBackLink: "Back",
     legalHeroTitle: "Legal notice",

@@ -69,7 +69,7 @@ const PROJECTS = {
     sticker: "assets/img/07_Projects/badge-viktor.svg",
     github: "https://github.com/viktor-wilhelm/Pokedex",
     live: "https://pokedex.viktor-wilhelm.de/",
-    tech: ["JavaScript", "HTML", "CSS"],
+    tech: ["JavaScript", "HTML", "CSS", "REST API"],
     next: "join",
   },
 };

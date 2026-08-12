@@ -32,8 +32,8 @@ const translations = {
       "Task-Management-Anwendung inspiriert von der Kanban-Methodik. Organisiere Aufgaben per Drag-and-Drop, weise Nutzer und Kategorien zu und behalte Projekte strukturiert im Überblick.",
     projectElPolloLocoDescription:
       "Jump-and-Run-Spiel auf Basis objektorientierter Programmierung. Hilf Pepe dabei, Münzen und Tabasco-Salsa zu sammeln und gegen das verrückte Huhn zu kämpfen.",
-    projectDaBubbleDescription:
-      "Diese Anwendung ist ein Slack-ähnlicher Team-Messenger. Sie ermöglicht Echtzeit-Kommunikation, Kanalorganisation und eine intuitive Zusammenarbeit im Team.",
+    projectPokedexDescription:
+      "Interaktive Pokédex-Webanwendung mit Live-Suche und Autocomplete für alle Pokémon. Modernes Glasmorphismus-Design, vollständig responsive und mit Fokus auf Performance sowie Barrierefreiheit umgesetzt.",
     projectDetailsCta: "Projektdetails",
     testimonialWaldemarQuote: "Mit Viktor zu arbeiten ist eine großartige Erfahrung. Er bringt Struktur, Zuverlässigkeit und positive Energie ins Team. Seine technischen Fähigkeiten und seine Hilfsbereitschaft machen unsere Zusammenarbeit reibungslos und produktiv. Ich würde jederzeit wieder mit ihm arbeiten.",
     testimonialKonstantinQuote: "Viktor hat das Team wirklich zusammengehalten – durch seine hervorragende Organisation und klare Kommunikation. Ohne seinen Einsatz wären wir nicht so weit gekommen.",
@@ -60,8 +60,6 @@ const translations = {
     successMessage: "Deine Nachricht wurde erfolgreich gesendet!",
     errorMessage: "Es ist ein Fehler aufgetreten. Bitte versuche es erneut.",
     detailBackLink: "Zurück",
-    repoComingSoonMessage: "Repository folgt in Kürze",
-    repoComingSoonBack: "Zurück zum Projekt",
     detailDescriptionHeading: "Beschreibung",
     detailImplHeading: "Implementierungsdetails",
     detailJoinImpl:
@@ -72,9 +70,9 @@ const translations = {
     detailElPolloLocoImpl:
       "Kurzer Text, der deine Rolle oder den Arbeitsablauf bei diesem Projekt beschreibt. Zeige Recruitern dein Wissen und deine Fähigkeit, selbstständig oder kollaborativ in einer strukturierten Umgebung zu arbeiten.",
     detailElPolloLocoDuration: "4 Wochen",
-    detailDaBubbleImpl:
+    detailPokedexImpl:
       "Kurzer Text, der deine Rolle oder den Arbeitsablauf bei diesem Projekt beschreibt. Zeige Recruitern dein Wissen und deine Fähigkeit, selbstständig oder kollaborativ in einer strukturierten Umgebung zu arbeiten.",
-    detailDaBubbleDuration: "4 Wochen",
+    detailPokedexDuration: "1 Woche",
     legalBackLink: "Zurück",
     legalHeroTitle: "Impressum",
     legalImprintHeading: "Impressum",
@@ -130,8 +128,8 @@ const translations = {
       "Task management application inspired by the Kanban methodology. Organize tasks with drag-and-drop functionality, assign users and categories, and keep projects structured and efficient.",
     projectElPolloLocoDescription:
       "Jump, run and throw game based on object-oriented approach. Help Pepe to find coins and tabasco salsa to fight against the crazy hen.",
-    projectDaBubbleDescription:
-      "This App is a Slack Clone App. It revolutionises team communication and collaboration with its intuitive interface, real-time messaging, and robust channel organisation.",
+    projectPokedexDescription:
+      "Interactive Pokédex web app with live search and autocomplete for every Pokémon. Built with a modern glassmorphism design, fully responsive and focused on performance and accessibility.",
     projectDetailsCta: "Project details",
     testimonialWaldemarQuote: "Working with Viktor is a great experience. He brings structure, reliability and a positive energy to the team. His technical skills and willingness to help others make our collaboration smooth and productive. I would work with him again without hesitation.",
     testimonialKonstantinQuote: "Viktor really kept the team together with his great organisation and clear communications. We wouldn't have got this far without his commitment.",
@@ -158,8 +156,6 @@ const translations = {
     successMessage: "Your message was sent successfully!",
     errorMessage: "Something went wrong. Please try again.",
     detailBackLink: "Go Back",
-    repoComingSoonMessage: "Repository coming soon",
-    repoComingSoonBack: "Back to project",
     detailDescriptionHeading: "Description",
     detailImplHeading: "Implementation Details",
     detailJoinImpl:
@@ -170,9 +166,9 @@ const translations = {
     detailElPolloLocoImpl:
       "Short text that describes your role or the workflow for this specific project. Let a recruiter know more about your knowledge and ability to work independently or collaboratively in a structured way.",
     detailElPolloLocoDuration: "4 weeks",
-    detailDaBubbleImpl:
+    detailPokedexImpl:
       "Short text that describes your role or the workflow for this specific project. Let a recruiter know more about your knowledge and ability to work independently or collaboratively in a structured way.",
-    detailDaBubbleDuration: "4 weeks",
+    detailPokedexDuration: "1 week",
     legalBackLink: "Back",
     legalHeroTitle: "Legal notice",
     legalImprintHeading: "Imprint",

@@ -5,12 +5,7 @@
  */
 function getBase() {
   const path = window.location.pathname;
-  if (
-    path.includes("project-detail") ||
-    path.includes("legal-notice") ||
-    path.includes("privacy-policy") ||
-    path.includes("repo-coming-soon")
-  )
+  if (path.includes("project-detail") || path.includes("legal-notice") || path.includes("privacy-policy"))
     return "index.html";
   return "";
 }

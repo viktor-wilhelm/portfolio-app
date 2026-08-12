@@ -1,7 +1,7 @@
 const PROJECT_TITLES = {
   join: "Join",
   "el-pollo-loco": "El Pollo Loco",
-  "da-bubble": "DA Bubble",
+  pokedex: "Pokédex",
 };
 
 /**
@@ -57,18 +57,18 @@ const PROJECTS = {
     github: "https://github.com/viktor-wilhelm/loco-app",
     live: "https://el-pollo-loco.viktor-wilhelm.de/",
     tech: ["JavaScript", "HTML", "CSS"],
-    next: "da-bubble",
+    next: "pokedex",
   },
-  "da-bubble": {
-    title: "DA Bubble",
-    descKey: "projectDaBubbleDescription",
-    implKey: "detailDaBubbleImpl",
-    durationKey: "detailDaBubbleDuration",
-    image: "assets/img/07_Projects/Property 1=DABubble.png",
-    imageAlt: "DA Bubble – Team Messenger App",
+  pokedex: {
+    title: "Pokédex",
+    descKey: "projectPokedexDescription",
+    implKey: "detailPokedexImpl",
+    durationKey: "detailPokedexDuration",
+    image: "assets/img/07_Projects/pokedex_screenshot.png",
+    imageAlt: "Pokédex – Pokémon Search App",
     sticker: "assets/img/07_Projects/badge-viktor.svg",
-    github: "repo-coming-soon.html",
-    live: "repo-coming-soon.html",
+    github: "https://github.com/viktor-wilhelm/Pokedex",
+    live: "https://pokedex.viktor-wilhelm.de/",
     tech: ["JavaScript", "HTML", "CSS"],
     next: "join",
   },
@@ -93,7 +93,7 @@ function getProjectData() {
 function syncProjectClass(project) {
   const detail = document.querySelector(".detail");
   if (!detail) return;
-  detail.classList.remove("detail--project-join", "detail--project-el-pollo-loco", "detail--project-da-bubble");
+  detail.classList.remove("detail--project-join", "detail--project-el-pollo-loco", "detail--project-pokedex");
   detail.classList.add(`detail--project-${project.key}`);
 }
 

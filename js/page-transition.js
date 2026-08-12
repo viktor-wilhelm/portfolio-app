@@ -1,5 +1,11 @@
 const FADE_DURATION = 125;
 
+/**
+ * Fades the page out and navigates to the clicked link's target after the
+ * fade completes, instead of navigating immediately.
+ * @this {HTMLAnchorElement} The clicked link element.
+ * @param {MouseEvent} e - The click event.
+ */
 function handleNavClick(e) {
   e.preventDefault();
   const href = this.getAttribute('href');

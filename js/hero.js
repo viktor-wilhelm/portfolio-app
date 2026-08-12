@@ -1,3 +1,10 @@
+/**
+ * Creates a span for a single title letter with a normal and hover variant
+ * (the hover variant shows the opposite case, or lowercase for the bottom row).
+ * @param {string} char - The character to render.
+ * @param {boolean} inBottom - Whether the letter belongs to the bottom title row.
+ * @returns {HTMLSpanElement} The letter span element.
+ */
 function createLetterSpan(char, inBottom) {
   const isUpper = char === char.toUpperCase() && char !== char.toLowerCase();
   const span = document.createElement("span");
@@ -14,6 +21,13 @@ function createLetterSpan(char, inBottom) {
   return span;
 }
 
+/**
+ * Appends a character to a title element, as a plain text node for spaces
+ * or as a letter span (see createLetterSpan) otherwise.
+ * @param {HTMLElement} el - The title element to append to.
+ * @param {string} char - The character to append.
+ * @param {boolean} inBottom - Whether the element is the bottom title row.
+ */
 function appendChar(el, char, inBottom) {
   if (char === " ") {
     el.appendChild(document.createTextNode(" "));
@@ -22,6 +36,10 @@ function appendChar(el, char, inBottom) {
   el.appendChild(createLetterSpan(char, inBottom));
 }
 
+/**
+ * Replaces a title element's text content with per-letter spans.
+ * @param {HTMLElement} el - The title row element to split.
+ */
 function splitElement(el) {
   const inBottom = el.classList.contains("hero__title-bottom");
   const chars = el.textContent.split("");
@@ -29,11 +47,19 @@ function splitElement(el) {
   chars.forEach((char) => appendChar(el, char, inBottom));
 }
 
+/**
+ * Splits both hero title rows into per-letter spans.
+ */
 function splitTitleLetters() {
   const titleEls = document.querySelectorAll(".hero__title-top, .hero__title-bottom");
   titleEls.forEach(splitElement);
 }
 
+/**
+ * Measures a letter span's rendered width in both its normal and hover state.
+ * @param {HTMLSpanElement} span - The letter span to measure.
+ * @returns {{wNormal: number, wHover: number}} The measured widths in pixels.
+ */
 function measureWidths(span) {
   const normal = span.querySelector(".hero__title-letter__normal");
   const hover = span.querySelector(".hero__title-letter__hover");
@@ -46,6 +72,10 @@ function measureWidths(span) {
   return { wNormal, wHover };
 }
 
+/**
+ * Measures and stores each letter span's normal/hover widths and its
+ * initial center position, used later for hover-zone detection.
+ */
 function initLetterWidths() {
   document.querySelectorAll(".hero__title-letter").forEach((span) => {
     const { wNormal, wHover } = measureWidths(span);
@@ -60,11 +90,19 @@ function initLetterWidths() {
   });
 }
 
+/**
+ * Switches a letter span into its active (hover) visual state.
+ * @param {HTMLSpanElement} span - The letter span to activate.
+ */
 function activateLetter(span) {
   span.classList.add("hero__title-letter--active");
   span.style.width = span.dataset.wHover + "px";
 }
 
+/**
+ * Switches a letter span back to its normal (non-hover) visual state.
+ * @param {HTMLSpanElement} span - The letter span to deactivate.
+ */
 function deactivateLetter(span) {
   span.classList.remove("hero__title-letter--active");
   span.style.width = span.dataset.wNormal + "px";
@@ -72,10 +110,22 @@ function deactivateLetter(span) {
 
 const ACTIVATE_ZONE = 1.4;
 
+/**
+ * Deactivates all currently active letter spans within a title row.
+ * @param {HTMLElement} rowEl - The title row element.
+ */
 function clearRowActive(rowEl) {
   rowEl.querySelectorAll(".hero__title-letter--active").forEach(deactivateLetter);
 }
 
+/**
+ * Activates or deactivates each letter in a title row based on the cursor's
+ * horizontal distance from the letter's center, and updates the bottom
+ * row's hover class when its last letter is active.
+ * @param {HTMLElement} rowEl - The title row element.
+ * @param {boolean} isBottom - Whether the row is the bottom title row.
+ * @param {MouseEvent} e - The mousemove event.
+ */
 function onRowMouseMove(rowEl, isBottom, e) {
   const letters = Array.from(rowEl.querySelectorAll(".hero__title-letter"));
   const cx = e.clientX;
@@ -92,11 +142,21 @@ function onRowMouseMove(rowEl, isBottom, e) {
   rowEl.classList.toggle("hero__title-bottom--r-hover", last.classList.contains("hero__title-letter--active"));
 }
 
+/**
+ * Clears active letters when the cursor leaves a title row.
+ * @param {HTMLElement} rowEl - The title row element.
+ * @param {boolean} isBottom - Whether the row is the bottom title row.
+ */
 function onRowMouseLeave(rowEl, isBottom) {
   clearRowActive(rowEl);
   if (isBottom) rowEl.classList.remove("hero__title-bottom--r-hover");
 }
 
+/**
+ * Wires up mousemove (throttled via requestAnimationFrame) and mouseleave
+ * handlers for a title row's letter hover effect.
+ * @param {HTMLElement} rowEl - The title row element.
+ */
 function initRowHover(rowEl) {
   const isBottom = rowEl.classList.contains("hero__title-bottom");
   let rafId = null;
@@ -110,10 +170,17 @@ function initRowHover(rowEl) {
   rowEl.addEventListener("mouseleave", () => onRowMouseLeave(rowEl, isBottom));
 }
 
+/**
+ * Initializes the letter hover effect for both hero title rows.
+ */
 function initTitleHover() {
   document.querySelectorAll(".hero__title-top, .hero__title-bottom").forEach(initRowHover);
 }
 
+/**
+ * Resets and re-measures each letter span's widths and center position,
+ * used after the title's layout changes (e.g. on resize).
+ */
 function recalcLetterWidths() {
   document.querySelectorAll(".hero__title-letter").forEach((span) => {
     span.style.width = "";
@@ -132,6 +199,10 @@ function recalcLetterWidths() {
   });
 }
 
+/**
+ * Observes the hero title element for size changes and recalculates letter
+ * widths (throttled via requestAnimationFrame) whenever it resizes.
+ */
 function setupResizeRecalc() {
   const titleEl = document.querySelector(".hero__title");
   if (!titleEl) return;
@@ -149,6 +220,9 @@ function setupResizeRecalc() {
   }).observe(titleEl);
 }
 
+/**
+ * Adds a brief "leaving" class flash to social links on mouseleave.
+ */
 function initSocialFlash() {
   const links = document.querySelectorAll(".hero__social-link");
   links.forEach((link) => {

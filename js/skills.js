@@ -6,6 +6,13 @@ const STICKER_STATES = [
 
 const FRAME_DELAY = 60;
 
+/**
+ * Plays a sequence of image frames on an element with a fixed delay
+ * between frames, then invokes a callback.
+ * @param {HTMLImageElement} img - The image element to update.
+ * @param {string[]} frames - Ordered list of image src values to play.
+ * @param {Function} onDone - Called once the last frame has been shown.
+ */
 function playSequence(img, frames, onDone) {
   let i = 0;
   function step() {
@@ -16,8 +23,8 @@ function playSequence(img, frames, onDone) {
   step();
 }
 
-function handleStickerHover(img, state, open) {
-  if (state.animating || state.open === open) return;
+function handleStickerClick(img, state) {
+  if (state.animating) return;
   state.animating = true;
   const frames = open ? [...STICKER_STATES] : [...STICKER_STATES].reverse();
   playSequence(img, frames, () => {
@@ -26,6 +33,10 @@ function handleStickerHover(img, state, open) {
   });
 }
 
+/**
+ * Wires up click and keyboard (Enter/Space) activation for the skills
+ * sticker's open/close animation.
+ */
 function initSkillsSticker() {
   const sticker = document.getElementById("skillsSticker");
   const img = document.getElementById("skillsStickerImg");

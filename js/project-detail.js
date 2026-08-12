@@ -4,6 +4,11 @@ const PROJECT_TITLES = {
   "da-bubble": "DA Bubble",
 };
 
+/**
+ * Determines the active project key from the page's data-project attribute,
+ * falling back to the 'project' URL query parameter, then to 'join'.
+ * @returns {string} A valid key of PROJECT_TITLES/PROJECTS.
+ */
 function getProjectKey() {
   const keyFromHtml = document.documentElement.dataset.project;
   if (PROJECT_TITLES[keyFromHtml]) return keyFromHtml;
@@ -14,6 +19,10 @@ function getProjectKey() {
   return "join";
 }
 
+/**
+ * Sets the project data attribute, preload class and document title as
+ * early as possible, before the rest of the page has initialized.
+ */
 function bootstrapProjectDetailPage() {
   const projectKey = getProjectKey();
   document.documentElement.dataset.project = projectKey;
@@ -65,12 +74,22 @@ const PROJECTS = {
   },
 };
 
+/**
+ * Resolves the active project's key and data.
+ * @returns {object} The project data merged with its key, keyed as
+ *   { key, ...PROJECTS[key] }.
+ */
 function getProjectData() {
   const key = getProjectKey();
   if (PROJECTS[key]) return { key, ...PROJECTS[key] };
   return { key: "join", ...PROJECTS["join"] };
 }
 
+/**
+ * Sets the `.detail--project-{key}` modifier class on the detail container,
+ * removing any other project modifier classes first.
+ * @param {object} project - The active project data, including its key.
+ */
 function syncProjectClass(project) {
   const detail = document.querySelector(".detail");
   if (!detail) return;
@@ -78,6 +97,13 @@ function syncProjectClass(project) {
   detail.classList.add(`detail--project-${project.key}`);
 }
 
+/**
+ * Renders a single tech-stack tag's markup, handling the special Firebase
+ * icon tag, string tags, and defaulting to the Angular icon otherwise.
+ * @param {string|{id: string}} tag - A plain tag label, or an object with
+ *   an id identifying a special icon tag.
+ * @returns {string} HTML markup for the tech tag.
+ */
 function renderTechTag(tag) {
   if (typeof tag === "string") return `<span class="detail__tech-tag">${tag}</span>`;
   if (tag.id === "firebase") {
@@ -86,12 +112,19 @@ function renderTechTag(tag) {
   return `<span class="detail__tech-tag detail__tech-tag--icon"><img src="assets/img/06_skills-set/Property 1=Angular.png" alt="" aria-hidden="true" class="detail__tech-icon detail__tech-icon--angular" /> Angular</span>`;
 }
 
+/**
+ * Renders the project's tech-stack tags into the detail page.
+ * @param {object} project - The active project data.
+ */
 function populateTech(project) {
   const tech = document.querySelector(".detail__tech");
   if (!tech) return;
   tech.innerHTML = project.tech.map(renderTechTag).join("");
 }
 
+/**
+ * Sizes the title underline to match the rendered width of the title text.
+ */
 function syncUnderlineWidth() {
   const underline = document.querySelector(".detail__title-underline");
   const title = document.querySelector(".detail__title");
@@ -101,6 +134,11 @@ function syncUnderlineWidth() {
   underline.style.width = `${range.getBoundingClientRect().width}px`;
 }
 
+/**
+ * Populates the detail page's text content (title, description, i18n keys)
+ * for the active project and applies translations.
+ * @param {object} project - The active project data.
+ */
 function populateText(project) {
   const lang = localStorage.getItem("lang") ?? "de";
   document.title = `${project.title} – Viktor Wilhelm`;
@@ -112,6 +150,11 @@ function populateText(project) {
   syncUnderlineWidth();
 }
 
+/**
+ * Populates the detail page's visual elements (image, sticker, action
+ * links and the next-project link) for the active project.
+ * @param {object} project - The active project data.
+ */
 function populateVisual(project) {
   const img = document.querySelector(".detail__image");
   img.src = project.image;
@@ -122,6 +165,9 @@ function populateVisual(project) {
   document.querySelector(".detail__next-btn").href = `project-detail.html?project=${project.next}`;
 }
 
+/**
+ * Loads the active project's data and renders it into the detail page.
+ */
 function initProject() {
   const project = getProjectData();
   syncProjectClass(project);
@@ -130,6 +176,10 @@ function initProject() {
   populateVisual(project);
 }
 
+/**
+ * Wires up the back link to remember the projects section scroll target
+ * before navigating back to the homepage.
+ */
 function initBackLink() {
   const backLink = document.querySelector(".detail__back");
   if (!backLink) return;
@@ -140,6 +190,10 @@ function initBackLink() {
   });
 }
 
+/**
+ * Removes the preload class, revealing the detail page once it is fully
+ * rendered.
+ */
 function markDetailReady() {
   document.documentElement.classList.remove("detail-preload");
 }

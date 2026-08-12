@@ -16,6 +16,8 @@ html {
   overflow-x: hidden;
   scroll-behavior: smooth;
   font-size: 16px;
+  scrollbar-width: none; /* Firefox — hide the scrollbar track, scrolling itself stays enabled */
+  -ms-overflow-style: none; /* legacy Edge */
 }
 
 body {
@@ -27,6 +29,8 @@ body {
   color: var(--color-text);
   background-color: var(--color-bg);
   animation: page-fade-in 150ms ease forwards;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* legacy Edge */
 }
 
 body.is-leaving {
@@ -34,18 +38,14 @@ body.is-leaving {
   pointer-events: none;
 }
 
-/* Hide the scrollbar on mobile — scrolling still works, just no visible track */
-@media (max-width: 900px) {
-  html,
-  body {
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* legacy Edge */
-  }
-
-  html::-webkit-scrollbar,
-  body::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, WebKit */
-  }
+/* Hide the scrollbar track on every viewport size — scrolling (wheel, touchpad,
+   touch, keyboard) stays fully enabled, only the visible scrollbar is removed.
+   Also prevents it from flashing on during full-page navigations (e.g.
+   between Project Detail pages), since it now never renders in the first
+   place instead of toggling on/off around the transition. */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, WebKit */
 }
 
 @keyframes page-fade-in {

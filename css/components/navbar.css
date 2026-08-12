@@ -318,7 +318,7 @@
   /* DE only: nudge "Fähigkeiten" left so the whole word stays on the paper background */
   html[lang="de"] .nav__link--skills {
     display: inline-block;
-    transform: translateX(-1.4rem);
+    transform: translateX(-2.75rem);
   }
 
 

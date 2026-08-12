@@ -23,8 +23,8 @@ function playSequence(img, frames, onDone) {
   step();
 }
 
-function handleStickerClick(img, state) {
-  if (state.animating) return;
+function handleStickerHover(img, state, open) {
+  if (state.animating || state.open === open) return;
   state.animating = true;
   const frames = open ? [...STICKER_STATES] : [...STICKER_STATES].reverse();
   playSequence(img, frames, () => {
@@ -34,7 +34,7 @@ function handleStickerClick(img, state) {
 }
 
 /**
- * Wires up click and keyboard (Enter/Space) activation for the skills
+ * Wires up hover and keyboard (Enter/Space) activation for the skills
  * sticker's open/close animation.
  */
 function initSkillsSticker() {

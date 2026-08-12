@@ -252,19 +252,6 @@ html.detail-preload .detail__container {
   left: -0.29px;
 }
 
-.detail__tech-icon--firebase-wrap {
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  flex-shrink: 0;
-  background-image: url("../../assets/img/07_Projects/Property 3=Firebase.png");
-  background-size: auto 100%;
-  background-position: left center;
-  background-repeat: no-repeat;
-  position: relative;
-  top: -1px;
-}
-
 /* ── Action buttons ───────────────────────────────────────── */
 
 .detail__actions {

@@ -43,7 +43,7 @@ const PROJECTS = {
     sticker: "assets/img/07_Projects/Sticker.png",
     github: "https://github.com/viktor-wilhelm/join",
     live: "https://join.viktor-wilhelm.de/",
-    tech: ["CSS", "HTML", { id: "firebase" }, "JavaScript"],
+    tech: ["CSS", "HTML", "Firebase", "JavaScript"],
     next: "el-pollo-loco",
   },
   "el-pollo-loco": {
@@ -98,17 +98,14 @@ function syncProjectClass(project) {
 }
 
 /**
- * Renders a single tech-stack tag's markup, handling the special Firebase
- * icon tag, string tags, and defaulting to the Angular icon otherwise.
+ * Renders a single tech-stack tag's markup, handling string tags and
+ * defaulting to the Angular icon otherwise.
  * @param {string|{id: string}} tag - A plain tag label, or an object with
  *   an id identifying a special icon tag.
  * @returns {string} HTML markup for the tech tag.
  */
 function renderTechTag(tag) {
   if (typeof tag === "string") return `<span class="detail__tech-tag">${tag}</span>`;
-  if (tag.id === "firebase") {
-    return `<span class="detail__tech-tag detail__tech-tag--icon"><span class="detail__tech-icon--firebase-wrap" role="img" aria-hidden="true"></span> Firebase</span>`;
-  }
   return `<span class="detail__tech-tag detail__tech-tag--icon"><img src="assets/img/06_skills-set/Property 1=Angular.png" alt="" aria-hidden="true" class="detail__tech-icon detail__tech-icon--angular" /> Angular</span>`;
 }
 

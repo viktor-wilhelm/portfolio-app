@@ -16,12 +16,12 @@ function playSequence(img, frames, onDone) {
   step();
 }
 
-function handleStickerClick(img, state) {
-  if (state.animating) return;
+function handleStickerHover(img, state, open) {
+  if (state.animating || state.open === open) return;
   state.animating = true;
-  const frames = state.open ? [...STICKER_STATES].reverse() : [...STICKER_STATES];
+  const frames = open ? [...STICKER_STATES] : [...STICKER_STATES].reverse();
   playSequence(img, frames, () => {
-    state.open = !state.open;
+    state.open = open;
     state.animating = false;
   });
 }
@@ -31,9 +31,10 @@ function initSkillsSticker() {
   const img = document.getElementById("skillsStickerImg");
   if (!sticker || !img) return;
   const state = { open: false, animating: false };
-  sticker.addEventListener("click", () => handleStickerClick(img, state));
+  sticker.addEventListener("mouseenter", () => handleStickerHover(img, state, true));
+  sticker.addEventListener("mouseleave", () => handleStickerHover(img, state, false));
   sticker.addEventListener("keydown", (e) => {
-    if (e.key === "Enter" || e.key === " ") handleStickerClick(img, state);
+    if (e.key === "Enter" || e.key === " ") handleStickerHover(img, state, !state.open);
   });
 }
 

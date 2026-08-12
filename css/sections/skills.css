@@ -13,6 +13,7 @@
   margin: 0 auto;
   background-color: var(--color-bg);
   overflow-x: clip;
+  scroll-margin-top: -1rem;
 }
 
 .skills__background {

@@ -28,18 +28,6 @@ html.detail-preload .detail__container {
   transform: translateX(-50%);
 }
 
-/* .header--detail is position: absolute, so it takes no space in body's flex
-   layout and is not moved by the centering above. It must track the same
-   downward offset .detail gets from that centering, or its dark-on-paper
-   nav-link colors end up over the dark area above the now-lower paper canvas.
-   Desktop-only: at ≤900px .detail reverts to height: auto (no centering to
-   track), so the plain top: 3rem above stays in effect there. */
-@media (min-width: 901px) {
-  .header--detail {
-    top: calc(max(0px, (100vh - 900px) / 2) + 3rem);
-  }
-}
-
 .header--detail .nav__link--about,
 .header--detail .nav__link--skills {
   color: #1d1d1d;
@@ -64,8 +52,9 @@ html.detail-preload .detail__container {
 
 .detail {
   position: relative;
-  min-height: 900px; /* no longer stretches to 100vh — body now owns the vertical centering of the whole block */
-  background: rgba(29, 29, 29, 1);
+  width: 100%;
+  min-height: 100vh;
+  background-color: rgba(29, 29, 29, 1);
   overflow: hidden;
 }
 
@@ -81,6 +70,25 @@ html.detail-preload .detail__container {
   object-position: left top;
   pointer-events: none;
   z-index: 0;
+}
+
+/* Desktop: the paper/torn-edge image is applied straight to .detail (the
+   outer, full-viewport section) instead of the inner .detail__bg image, so
+   it always reaches the top/left/bottom edges of the viewport regardless of
+   its height, while .detail__container stays exactly where it was. Mobile
+   keeps using .detail__bg (rotated via transform below), since that's a
+   different, non-stretched composition this change doesn't touch. */
+@media (min-width: 901px) {
+  .detail {
+    background-image: url("../../assets/img/01_Background/Design Size Relation@3x/Note-book-paper.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: top left;
+  }
+
+  .detail__bg {
+    display: none;
+  }
 }
 
 .detail__container {

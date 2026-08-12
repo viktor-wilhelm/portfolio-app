@@ -45,6 +45,7 @@ const PROJECTS = {
     live: "https://join.viktor-wilhelm.de/",
     tech: ["CSS", "HTML", "Firebase", "JavaScript"],
     next: "el-pollo-loco",
+    prev: "pokedex",
   },
   "el-pollo-loco": {
     title: "El Pollo Loco",
@@ -58,6 +59,7 @@ const PROJECTS = {
     live: "https://el-pollo-loco.viktor-wilhelm.de/",
     tech: ["JavaScript", "HTML", "CSS"],
     next: "pokedex",
+    prev: "join",
   },
   pokedex: {
     title: "Pokédex",
@@ -71,6 +73,7 @@ const PROJECTS = {
     live: "https://pokedex.viktor-wilhelm.de/",
     tech: ["JavaScript", "HTML", "CSS", "REST API"],
     next: "join",
+    prev: "el-pollo-loco",
   },
 };
 
@@ -160,6 +163,7 @@ function populateVisual(project) {
   document.querySelector(".detail__btn--github").href = project.github;
   document.querySelector(".detail__btn--live").href = project.live;
   document.querySelector(".detail__next-btn").href = `project-detail.html?project=${project.next}`;
+  document.querySelector(".detail__prev-btn").href = `project-detail.html?project=${project.prev}`;
 }
 
 /**

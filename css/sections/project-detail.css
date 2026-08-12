@@ -5,7 +5,11 @@
 /* ── Body override for detail page ───────────────────────── */
 
 body:has(.detail) {
-  background-color: #000000;
+  background-color: rgba(29, 29, 29, 1); /* matches .detail's own background so the gaps this centering opens up above/below it show no seam */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centers the header + .detail as a single block, preserving the spacing between them */
+  min-height: 100vh;
 }
 
 html.detail-preload .detail__container {
@@ -22,6 +26,18 @@ html.detail-preload .detail__container {
   max-width: 1440px;
   left: 50%;
   transform: translateX(-50%);
+}
+
+/* .header--detail is position: absolute, so it takes no space in body's flex
+   layout and is not moved by the centering above. It must track the same
+   downward offset .detail gets from that centering, or its dark-on-paper
+   nav-link colors end up over the dark area above the now-lower paper canvas.
+   Desktop-only: at ≤900px .detail reverts to height: auto (no centering to
+   track), so the plain top: 3rem above stays in effect there. */
+@media (min-width: 901px) {
+  .header--detail {
+    top: calc(max(0px, (100vh - 900px) / 2) + 3rem);
+  }
 }
 
 .header--detail .nav__link--about,
@@ -48,10 +64,9 @@ html.detail-preload .detail__container {
 
 .detail {
   position: relative;
-  min-height: max(900px, 100vh);
+  min-height: 900px; /* no longer stretches to 100vh — body now owns the vertical centering of the whole block */
   background: rgba(29, 29, 29, 1);
   overflow: hidden;
-  justify-content: center;
 }
 
 .detail__bg {

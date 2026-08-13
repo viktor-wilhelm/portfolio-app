@@ -48,6 +48,17 @@ html.detail-preload .detail__container {
   }
 }
 
+/* Desktop only: the paper/black split sits close enough behind "Skills" that
+   the word can touch the black side, so nudge it left to keep it clear —
+   longer "Fähigkeiten" needs a bigger nudge than "Skills". Below 901px the
+   split composition is gone (see above), so no nudge is needed there. */
+@media (min-width: 901px) {
+  html[lang="en"] .header--detail .nav__link--skills {
+    display: inline-block;
+    transform: translateX(-1rem);
+  }
+}
+
 /* ── Page wrapper ─────────────────────────────────────────── */
 
 .detail {
@@ -220,7 +231,7 @@ html.detail-preload .detail__container {
   margin: 0;
   overflow-wrap: break-word;
   word-break: break-word;
-  padding-right: 2rem;
+  padding-right: 3rem;
 }
 
 .detail__duration-label {
@@ -375,7 +386,7 @@ html.detail-preload .detail__container {
 .detail__next {
   display: flex;
   justify-content: flex-end;
-  gap: 1.2rem; /* space between the Previous arrow and the Next control */
+  gap: 0.5rem; /* same spacing as between "Next Project" and its own arrow */
   position: absolute;
   right: 4.5rem;
   top: 0; /* actual offset set inline by positionNextProjectLink() in project-detail.js, so it always sits exactly 3rem below .detail__actions */
@@ -401,9 +412,13 @@ html.detail-preload .detail__container {
 }
 
 /* Same arrow image as Next Project, mirrored horizontally so it points the
-   other way, and placed before the label instead of after. */
+   other way, and placed before the label instead of after. Recolored red by
+   default (regardless of its original yellow), by flattening it to black
+   then rebuilding the exact target color, var(--color-error) (#e53e3e). */
 .detail__prev-btn img {
   transform: scaleX(-1);
+  filter: brightness(0) saturate(100%) invert(29%) sepia(82%) saturate(538%) hue-rotate(311deg)
+    brightness(116%) contrast(115%);
   transition:
     transform 90ms ease-in,
     filter 80ms ease-in;
@@ -420,11 +435,10 @@ html.detail-preload .detail__container {
      in that flipped coordinate system — a positive value here is what moves
      the icon left on screen, not a negative one */
   transform: scaleX(-1) translateX(5px);
-  /* recolors the icon to var(--color-error) (#e53e3e) regardless of its
-     original yellow, by flattening it to black then rebuilding the exact
-     target color */
-  filter: brightness(0) saturate(100%) invert(29%) sepia(82%) saturate(538%) hue-rotate(311deg)
-    brightness(116%) contrast(115%);
+  /* recolors the icon to var(--color-success) (#38a169) the same way as the
+     default red above */
+  filter: brightness(0) saturate(100%) invert(47%) sepia(100%) saturate(164%) hue-rotate(95deg)
+    brightness(90%) contrast(153%);
 }
 
 .detail__prev-btn:focus-visible {

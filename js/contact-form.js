@@ -5,10 +5,11 @@ const privacyInput = document.getElementById("privacy");
 const submitBtn = document.querySelector(".form__submit");
 const feedback = document.getElementById("form-feedback");
 
-const PLACEHOLDER_KEYS = {
-  name: "formNamePlaceholder",
-  email: "formEmailPlaceholder",
-  message: "formMessagePlaceholder",
+/* Figma copy: shown verbatim regardless of the active site language. */
+const REQUIRED_ERROR_MESSAGES = {
+  name: "Oops! it seems your name is missing",
+  email: "Hoppla! your email is required",
+  message: "What do you need to develop?",
 };
 
 /**
@@ -20,7 +21,9 @@ function getCurrentLang() {
 }
 
 /**
- * Shows error message as red placeholder inside the input.
+ * Shows the error message inside the field itself (as its placeholder), per
+ * the Figma design; the same text is also pushed into the field's error
+ * element for aria-live, but that element stays visually hidden.
  * @param {HTMLElement} input
  * @param {string} message
  */
@@ -36,7 +39,7 @@ function setInputError(input, message) {
  * @param {HTMLElement} input
  */
 function clearInputError(input) {
-  input.placeholder = translations[getCurrentLang()][PLACEHOLDER_KEYS[input.id]];
+  input.placeholder = translations[getCurrentLang()][input.dataset.i18nPlaceholder];
   input.classList.remove("input--error");
   const errorEl = document.getElementById(`${input.id}-error`);
   if (errorEl) errorEl.textContent = "";
@@ -69,16 +72,21 @@ function validateTextField(input) {
   const valid = isFieldFilled(input);
   valid
     ? clearInputError(input)
-    : setInputError(input, translations[getCurrentLang()].errorRequired);
+    : setInputError(input, REQUIRED_ERROR_MESSAGES[input.id]);
   return valid;
 }
 
 /**
- * Validates the email input field.
+ * Validates the email input field: empty and invalid-format get distinct messages.
  * @returns {boolean}
  */
 function validateEmailField() {
-  const valid = isEmailFormatValid(emailInput.value);
+  const value = emailInput.value.trim();
+  if (value === "") {
+    setInputError(emailInput, REQUIRED_ERROR_MESSAGES.email);
+    return false;
+  }
+  const valid = isEmailFormatValid(value);
   valid
     ? clearInputError(emailInput)
     : setInputError(emailInput, translations[getCurrentLang()].errorEmail);

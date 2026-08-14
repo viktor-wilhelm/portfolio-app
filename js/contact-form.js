@@ -43,12 +43,30 @@ function clearInputError(input) {
 }
 
 /**
+ * Checks whether a text input has a non-whitespace value.
+ * @param {HTMLInputElement} input
+ * @returns {boolean}
+ */
+function isFieldFilled(input) {
+  return input.value.trim().length > 0;
+}
+
+/**
+ * Checks whether a string is a plausible email address.
+ * @param {string} value
+ * @returns {boolean}
+ */
+function isEmailFormatValid(value) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+}
+
+/**
  * Validates a required text input.
  * @param {HTMLInputElement} input
  * @returns {boolean}
  */
 function validateTextField(input) {
-  const valid = input.value.trim().length > 0;
+  const valid = isFieldFilled(input);
   valid
     ? clearInputError(input)
     : setInputError(input, translations[getCurrentLang()].errorRequired);
@@ -60,7 +78,7 @@ function validateTextField(input) {
  * @returns {boolean}
  */
 function validateEmailField() {
-  const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim());
+  const valid = isEmailFormatValid(emailInput.value);
   valid
     ? clearInputError(emailInput)
     : setInputError(emailInput, translations[getCurrentLang()].errorEmail);
@@ -79,10 +97,23 @@ function validatePrivacy() {
 }
 
 /**
- * Enables or disables the submit button based on the privacy checkbox.
+ * Checks whether every required field currently holds a valid value.
+ * @returns {boolean}
+ */
+function isFormValid() {
+  return (
+    isFieldFilled(nameInput) &&
+    isEmailFormatValid(emailInput.value) &&
+    isFieldFilled(messageInput) &&
+    privacyInput.checked
+  );
+}
+
+/**
+ * Enables or disables the submit button based on the validity of all fields.
  */
 function updateSubmitButton() {
-  submitBtn.disabled = !privacyInput.checked;
+  submitBtn.disabled = !isFormValid();
 }
 
 /**
@@ -108,6 +139,7 @@ async function handleFormSubmit(event) {
   const emailValid = validateEmailField();
   const msgValid = validateTextField(messageInput);
   const privacyValid = validatePrivacy();
+  updateSubmitButton();
   if (!nameValid || !emailValid || !msgValid || !privacyValid) return;
   const t = translations[getCurrentLang()];
   try {

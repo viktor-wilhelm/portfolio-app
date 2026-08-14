@@ -157,13 +157,23 @@
   resize: none;
 }
 
+/* The contact section's background is a textured image, not a flat color, so
+   a solid inset box-shadow (the usual autofill-background-override trick)
+   would itself show up as a visible rectangle. Using a transparent inset
+   shadow together with a near-infinite background-color transition instead
+   suppresses Chrome/WebKit's native autofill paint entirely, leaving the
+   input's own transparent background (and the image behind it) untouched. */
 .form__group input:-webkit-autofill,
 .form__group input:-webkit-autofill:hover,
-.form__group input:-webkit-autofill:focus {
-  -webkit-box-shadow: 0 0 0 1000px var(--color-bg-dark) inset;
-  box-shadow: 0 0 0 1000px var(--color-bg-dark) inset;
+.form__group input:-webkit-autofill:focus,
+.form__group textarea:-webkit-autofill,
+.form__group textarea:-webkit-autofill:hover,
+.form__group textarea:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px transparent inset;
+  box-shadow: 0 0 0 1000px transparent inset;
   -webkit-text-fill-color: var(--color-text-light);
-  transition: background-color 5000s ease-in-out 0s;
+  caret-color: var(--color-text-light);
+  transition: background-color 600000s ease-in-out 0s;
 }
 
 .form__group input:not(.form__checkbox)::placeholder,
@@ -181,22 +191,6 @@
 .form__group textarea.input--error::placeholder {
   color: var(--color-error);
   -webkit-text-fill-color: var(--color-error);
-}
-
-/* Visually hidden but still in the accessibility tree, so aria-live
-   announces the same message the red placeholder shows visually */
-#name-error,
-#email-error,
-#message-error {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
 }
 
 .form__group:hover input:not(.form__checkbox),

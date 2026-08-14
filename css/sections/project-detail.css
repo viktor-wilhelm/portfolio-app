@@ -471,6 +471,13 @@ html.detail-preload .detail__container {
 @media (max-width: 900px) {
   body:has(.detail) {
     margin-top: 0;
+    /* Below 900px .detail no longer has a min-height:100vh floor (see below),
+       so its content height can be shorter than the viewport. The header is
+       position:absolute and never took part in this centering to begin with
+       (only .detail did), so centering here just pushes .detail down and
+       leaves an empty gap above the header — normal top alignment is what
+       the mobile layout actually wants. */
+    justify-content: flex-start;
   }
 
   .detail {

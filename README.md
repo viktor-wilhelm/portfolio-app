@@ -9,7 +9,7 @@ A professional, bilingual (DE/EN) developer portfolio built as a single-page app
 [![Git](https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white)](https://git-scm.com/)
 [![No Framework](https://img.shields.io/badge/Framework-None-333333?style=flat)](#tech-stack)
 
-**[🔗 Live Demo (Ctrl + Click → new tab)](https://viktor-wilhelm.de)**
+**[Live Demo (Ctrl + Click → new tab)](https://viktor-wilhelm.de)**
 
 ---
 

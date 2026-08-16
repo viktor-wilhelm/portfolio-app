@@ -124,6 +124,8 @@ function updateSubmitButton() {
   submitBtn.disabled = !isFormValid();
 }
 
+let successFeedbackTimeoutId = null;
+
 /**
  * Resets the form to its success state.
  * @param {HTMLFormElement} form
@@ -135,6 +137,10 @@ function showFormSuccess(form, t) {
   form.reset();
   [nameInput, emailInput, messageInput].forEach(clearInputError);
   submitBtn.disabled = true;
+  clearTimeout(successFeedbackTimeoutId);
+  successFeedbackTimeoutId = setTimeout(() => {
+    feedback.classList.add("form__feedback--hidden");
+  }, 4000);
 }
 
 /**

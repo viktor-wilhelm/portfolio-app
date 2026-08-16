@@ -374,6 +374,14 @@
   text-align: right;
 }
 
+.form__feedback--success {
+  transition: opacity 0.4s ease;
+}
+
+.form__feedback--success.form__feedback--hidden {
+  opacity: 0;
+}
+
 /* ── Responsive (≤ 900px) ─────────────────────────────────── */
 
 @media (max-width: 900px) {

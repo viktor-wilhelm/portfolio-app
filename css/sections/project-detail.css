@@ -48,12 +48,12 @@ html.detail-preload .detail__container {
   }
 }
 
-/* Desktop only: the paper/black split sits close enough behind "Skills" that
-   the word can touch the black side, so nudge it left to keep it clear —
-   longer "Fähigkeiten" needs a bigger nudge than "Skills". Below 901px the
-   split composition is gone (see above), so no nudge is needed there. */
+/* Desktop only: the paper/black split sits close enough behind "Skills" /
+   "Fähigkeiten" that the word can touch or be covered by the torn edge, so
+   nudge the shared slot left to keep it clear regardless of language. Below
+   901px the split composition is gone (see above), so no nudge is needed there. */
 @media (min-width: 901px) {
-  html[lang="en"] .header--detail .nav__link--skills {
+  .header--detail .nav__link--skills {
     display: inline-block;
     transform: translateX(-1rem);
   }
@@ -99,6 +99,24 @@ html.detail-preload .detail__container {
 
   .detail__bg {
     display: none;
+  }
+}
+
+/* Beyond 1440px, .detail__container stops growing with the viewport (it caps
+   at max-width:1440px and centers instead), so its content's right edge now
+   grows at 0.5px per viewport px. But background-size:100% 100% above still
+   ties the torn edge to a fixed ~42.7% fraction of the *viewport*, which
+   grows slower than that — so the gap between "edge" and "content" shrinks
+   as the viewport widens past 1440px, and by ~1660–1900px the edge has
+   already fallen behind the text. This isn't a one-off "ultra-wide" glitch
+   at some arbitrary breakpoint, it's continuous from 1440px up — so instead
+   of a threshold, grow the background at the same 0.5px-per-viewport-px rate
+   the content uses from 1440px onward (117.01% / -245px solve that rate for
+   this image's fixed 42.7% edge fraction), keeping pace at any width without
+   touching .detail__container or anything inside it. */
+@media (min-width: 1440px) {
+  .detail {
+    background-size: calc(117.01% - 245px) 100%;
   }
 }
 

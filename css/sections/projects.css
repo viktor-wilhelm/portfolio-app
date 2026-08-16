@@ -529,3 +529,17 @@
     font-size: var(--font-size-lg);
   }
 }
+
+/* Re-enable text selection for meaningful copy (heading/label/description/
+   titles), overriding the global user-select: none from base.css. The
+   "Project details" CTAs and card links stay non-selectable. */
+.projects__heading,
+.projects__label,
+.projects__description,
+.projects__featured-name,
+.projects__featured-description,
+.project-card__title,
+.project-card__description {
+  user-select: text;
+  -webkit-user-select: text;
+}

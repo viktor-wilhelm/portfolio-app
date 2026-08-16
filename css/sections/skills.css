@@ -398,3 +398,14 @@
     margin-top: -6.5rem;
   }
 }
+
+/* Re-enable text selection for meaningful copy (label/heading/description/
+   tech names), overriding the global user-select: none from base.css. The
+   reveal-more sticker (role="button") stays non-selectable. */
+.skills__label,
+.skills__heading,
+.skills__description,
+.skill__name {
+  user-select: text;
+  -webkit-user-select: text;
+}

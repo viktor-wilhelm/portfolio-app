@@ -326,3 +326,13 @@
     font-size: 1.125rem;
   }
 }
+
+/* Re-enable text selection for meaningful copy (label/heading/bio), overriding
+   the global user-select: none from base.css. Sticker text and the CTA link
+   stay non-selectable — they're decorative/interactive, not readable content. */
+.about__label,
+.about__heading,
+.about__bio {
+  user-select: text;
+  -webkit-user-select: text;
+}

@@ -645,3 +645,17 @@ html.detail-preload .detail__container {
     font-size: clamp(2.906rem, 5vw + 1.906rem, 3rem);
   }
 }
+
+/* Re-enable text selection for meaningful copy (title, section headings,
+   description, implementation details, duration, tech-stack tags),
+   overriding the global user-select: none from base.css. Back link, GitHub/
+   Live Test buttons and Prev/Next project controls stay non-selectable. */
+.detail__title,
+.detail__section-heading,
+.detail__description,
+.detail__impl,
+.detail__duration-label,
+.detail__tech-tag {
+  user-select: text;
+  -webkit-user-select: text;
+}

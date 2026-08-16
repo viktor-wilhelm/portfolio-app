@@ -485,3 +485,13 @@
     gap: 6px;
   }
 }
+
+/* Re-enable text selection for meaningful copy (label/heading/description),
+   overriding the global user-select: none from base.css. Form fields, the
+   submit button and footer nav stay non-selectable/interactive. */
+.contact__label,
+.contact__heading,
+.contact__desc {
+  user-select: text;
+  -webkit-user-select: text;
+}

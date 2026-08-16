@@ -183,8 +183,8 @@
   font-size: 1.125rem;
   line-height: 1.2;
   letter-spacing: 0;
-  color: var(--color-text-light);
-  -webkit-text-fill-color: var(--color-text-light);
+  color: var(--color-text-muted);
+  -webkit-text-fill-color: var(--color-text-muted);
 }
 
 .form__group input.input--error::placeholder,

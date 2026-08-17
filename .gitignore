@@ -1,5 +1,5 @@
 # Kontaktformular-Backend (enthält persönliche E-Mail-Adresse)
-mail.php
+# mail.php
 
 # Betriebssystem
 .DS_Store
@@ -24,3 +24,10 @@ node_modules/
 .env
 .env.local
 .env.production
+
+# Local GitHub/Copilot configuration
+.github/agents/
+.github/prompts/
+.github/copilot-instructions.md
+.github/workflows/BRANCH-MANAGEMENT.md
+.github/workflows/DEFINITION-OF-DONE.md

@@ -1,0 +1,24 @@
+name: Deploy Portfolio to IONOS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Upload portfolio to IONOS
+        uses: appleboy/scp-action@v1
+        with:
+          host: ${{ secrets.SFTP_HOST }}
+          username: ${{ secrets.SFTP_USERNAME }}
+          password: ${{ secrets.SFTP_PASSWORD }}
+          source: "assets,css,js,index.html,legal-notice.html,privacy-policy.html,project-detail.html,mail.php"
+          target: "/portfolio"
+          overwrite: true

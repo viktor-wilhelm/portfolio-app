@@ -38,6 +38,7 @@ jobs:
           put legal-notice.html -o /portfolio/legal-notice.html
           put privacy-policy.html -o /portfolio/privacy-policy.html
           put project-detail.html -o /portfolio/project-detail.html
+          put mail.php -o /portfolio/mail.php
 
           bye
           EOF

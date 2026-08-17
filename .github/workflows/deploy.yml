@@ -13,12 +13,31 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Upload portfolio to IONOS
-        uses: appleboy/scp-action@v1
-        with:
-          host: ${{ secrets.SFTP_HOST }}
-          username: ${{ secrets.SFTP_USERNAME }}
-          password: ${{ secrets.SFTP_PASSWORD }}
-          source: "assets,css,js,index.html,legal-notice.html,privacy-policy.html,project-detail.html,mail.php"
-          target: "/portfolio"
-          overwrite: true
+      - name: Install lftp
+        run: sudo apt-get update && sudo apt-get install -y lftp
+
+      - name: Trust IONOS SSH host key
+        env:
+          SFTP_HOST: ${{ secrets.SFTP_HOST }}
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H "$SFTP_HOST" >> ~/.ssh/known_hosts
+
+      - name: Deploy portfolio via SFTP
+        env:
+          SFTP_HOST: ${{ secrets.SFTP_HOST }}
+          SFTP_USERNAME: ${{ secrets.SFTP_USERNAME }}
+          SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+        run: |
+          lftp -u "$SFTP_USERNAME","$SFTP_PASSWORD" sftp://"$SFTP_HOST" <<EOF
+          mirror -R --verbose assets /portfolio/assets
+          mirror -R --verbose css /portfolio/css
+          mirror -R --verbose js /portfolio/js
+
+          put index.html -o /portfolio/index.html
+          put legal-notice.html -o /portfolio/legal-notice.html
+          put privacy-policy.html -o /portfolio/privacy-policy.html
+          put project-detail.html -o /portfolio/project-detail.html
+
+          bye
+          EOF

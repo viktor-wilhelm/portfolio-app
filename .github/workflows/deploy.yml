@@ -42,7 +42,7 @@ jobs:
 
           bye
           EOF
-          
+
       - name: Deploy portfolio to Developer Akademie
         env:
           DA_FTP_HOST: ${{ secrets.DA_FTP_HOST }}
@@ -52,6 +52,7 @@ jobs:
           lftp -u "$DA_FTP_USERNAME","$DA_FTP_PASSWORD" ftp://"$DA_FTP_HOST" <<EOF
           set ftp:ssl-force true
           set ftp:ssl-protect-data true
+          set ssl:verify-certificate no
 
           mirror -R --verbose assets /portfolio-app/assets
           mirror -R --verbose css /portfolio-app/css

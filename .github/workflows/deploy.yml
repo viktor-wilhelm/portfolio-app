@@ -30,15 +30,15 @@ jobs:
           SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
         run: |
           lftp -u "$SFTP_USERNAME","$SFTP_PASSWORD" sftp://"$SFTP_HOST" <<EOF
-          mirror -R --verbose assets /portfolio/assets
-          mirror -R --verbose css /portfolio/css
-          mirror -R --verbose js /portfolio/js
+          mirror -R --verbose assets /assets
+          mirror -R --verbose css /css
+          mirror -R --verbose js /js
 
-          put index.html -o /portfolio/index.html
-          put legal-notice.html -o /portfolio/legal-notice.html
-          put privacy-policy.html -o /portfolio/privacy-policy.html
-          put project-detail.html -o /portfolio/project-detail.html
-          put mail.php -o /portfolio/mail.php
+          put index.html -o /index.html
+          put legal-notice.html -o /legal-notice.html
+          put privacy-policy.html -o /privacy-policy.html
+          put project-detail.html -o /project-detail.html
+          put mail.php -o /mail.php
 
           bye
           EOF

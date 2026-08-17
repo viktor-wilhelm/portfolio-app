@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 825" role="img" aria-labelledby="title desc">
+<title id="title">VW initials logo</title>
+<desc id="desc">Vectorized VW initials logo.</desc>
+<defs>
+  <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#0b52ff"/>
+    <stop offset="100%" stop-color="#0737ff"/>
+  </linearGradient>
+</defs>
+<path d="M 420.0 792.5 L 385.5 730.0 L 256.5 472.0 L 91.0 127.5 L 224.5 129.0 L 428.5 565.0 L 438.5 544.0 L 441.5 544.0 L 492.5 648.0 L 492.5 653.0 L 420.0 792.5 Z" fill="url(#blue)"/>
+<path d="M 562.0 502.5 L 502.5 382.0 L 502.5 377.0 L 619.5 128.0 L 735.0 127.5 L 727.5 148.0 L 562.0 502.5 Z" fill="url(#blue)"/>
+<path d="M 525.0 670.5 L 451.5 533.0 L 364.0 348.5 L 471.5 349.0 L 575.5 567.0 L 525.0 670.5 Z" fill="url(#blue)"/>
+<path d="M 556.5 824.0 L 508.5 732.0 L 552.5 638.0 L 660.0 426.5 L 740.0 591.5 L 819.0 426.5 L 918.5 428.0 L 744.5 810.0 L 742.0 812.5 L 740.5 811.0 L 732.5 796.0 L 652.0 635.5 L 557.5 824.0 Z" fill="url(#blue)"/>
+</svg>

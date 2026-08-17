@@ -40,7 +40,7 @@
   position: absolute;
   inset: 0;
   transform: translateY(-8px);
-  background: url("../../assets/img/04_Hero/vw-logo.png") center / contain no-repeat;
+  background: url("../../assets/img/04_Hero/vw-logo-vectorized.svg") center / contain no-repeat;
   filter: brightness(0) saturate(100%) invert(85%) sepia(60%) saturate(740%) hue-rotate(347deg) brightness(97%);
   opacity: 0;
   transition: opacity 400ms ease;
@@ -54,7 +54,7 @@
 .nav__logo-img {
   height: 45px;
   transform: translateY(-8px);
-  width: auto;
+  width: 45px;
   object-fit: contain;
   filter: brightness(0) saturate(100%) invert(27%) sepia(82%) saturate(1800%) hue-rotate(218deg) brightness(107%);
   transition: opacity 400ms ease;
@@ -308,6 +308,7 @@
 
   .nav__logo-img {
     height: 60px;
+    width: 60px;
   }
 
   .header {
@@ -418,7 +419,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: url("../../assets/img/04_Hero/vw-logo.png") center / contain no-repeat;
+  background: url("../../assets/img/04_Hero/vw-logo-vectorized.svg") center / contain no-repeat;
   filter: brightness(0) saturate(100%) invert(85%) sepia(60%) saturate(740%) hue-rotate(347deg) brightness(97%);
   opacity: 0;
   transition: opacity 400ms ease;
@@ -436,7 +437,7 @@
 .nav__overlay-logo-img {
   height: 45px;
   transform: translateY(-8px);
-  width: auto;
+  width: 45px;
   object-fit: contain;
   filter: brightness(0) saturate(100%) invert(27%) sepia(82%) saturate(1800%) hue-rotate(218deg) brightness(107%);
   transition: opacity 400ms ease;

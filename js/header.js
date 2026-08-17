@@ -57,7 +57,7 @@ function buildHeader(base) {
   return `<header class="header${cls}">
     <nav class="nav">
       <a href="${base}#hero" class="nav__logo" draggable="false">
-        <img src="assets/img/04_Hero/vw-logo.png" alt="VW Logo" class="nav__logo-img" draggable="false" />
+        <img src="assets/img/04_Hero/vw-logo-vectorized.svg" alt="VW Logo" class="nav__logo-img" draggable="false" />
       </a>
       ${buildNavLinks(base)}
       ${buildLangSwitch()}
@@ -74,7 +74,7 @@ function buildHeader(base) {
 function buildOverlayTop(base) {
   return `<div class="nav__overlay-top">
       <a href="${base}#hero" class="nav__overlay-logo-link" aria-label="Zur Startseite">
-        <img src="assets/img/04_Hero/vw-logo.png" alt="VW Logo" class="nav__overlay-logo-img" />
+        <img src="assets/img/04_Hero/vw-logo-vectorized.svg" alt="VW Logo" class="nav__overlay-logo-img" />
       </a>
       <button class="nav__overlay-close" aria-label="Menü schließen">
         <img src="assets/img/00_Hand-drawn lines/00_Header/Menu - Mobile icon/Property 1=Close.png" alt="" aria-hidden="true" class="nav__overlay-close-icon nav__overlay-close-icon--default" />

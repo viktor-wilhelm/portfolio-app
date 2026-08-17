@@ -23,13 +23,14 @@
   position: relative;
   display: inline-block;
   margin-left: -0.5rem;
+  transform: translateY(-0.5rem);
 }
 
 .site-footer__logo-link::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: url("../../assets/img/04_Hero/vw-logo.png") center / contain no-repeat;
+  background: url("../../assets/img/04_Hero/vw-logo-vectorized.svg") center / contain no-repeat;
   filter: brightness(0) saturate(100%) invert(85%) sepia(60%) saturate(740%) hue-rotate(347deg) brightness(97%);
   opacity: 0;
   transition: opacity 400ms ease;
@@ -42,7 +43,7 @@
 
 .site-footer__logo {
   height: 60px;
-  width: auto;
+  width: 60px;
   object-fit: contain;
   filter: brightness(0) saturate(100%) invert(27%) sepia(82%) saturate(1800%) hue-rotate(218deg) brightness(107%);
   transition: opacity 400ms ease;
@@ -274,5 +275,6 @@
 @media (max-width: 620px) {
   .site-footer__logo {
     height: 45px;
-  } 
+    width: 45px;
+  }
 }

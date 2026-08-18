@@ -25,6 +25,9 @@ function applyTranslations(lang) {
   const t = translations[lang];
   applyTextTranslations(t);
   applyPlaceholderTranslations(t);
+  applySrcTranslations(t);
+  applyAltTranslations(t);
+  applyAriaLabelTranslations(t);
   document.dispatchEvent(new CustomEvent("i18n:applied"));
 }
 
@@ -47,6 +50,39 @@ function applyPlaceholderTranslations(t) {
   document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
     const key = el.dataset.i18nPlaceholder;
     if (t[key]) el.placeholder = t[key];
+  });
+}
+
+/**
+ * Sets the src on all elements with a data-i18n-src attribute.
+ * @param {object} t - Translation strings for the active language.
+ */
+function applySrcTranslations(t) {
+  document.querySelectorAll("[data-i18n-src]").forEach((el) => {
+    const key = el.dataset.i18nSrc;
+    if (t[key]) el.src = t[key];
+  });
+}
+
+/**
+ * Sets the alt text on all elements with a data-i18n-alt attribute.
+ * @param {object} t - Translation strings for the active language.
+ */
+function applyAltTranslations(t) {
+  document.querySelectorAll("[data-i18n-alt]").forEach((el) => {
+    const key = el.dataset.i18nAlt;
+    if (t[key]) el.alt = t[key];
+  });
+}
+
+/**
+ * Sets the aria-label on all elements with a data-i18n-aria-label attribute.
+ * @param {object} t - Translation strings for the active language.
+ */
+function applyAriaLabelTranslations(t) {
+  document.querySelectorAll("[data-i18n-aria-label]").forEach((el) => {
+    const key = el.dataset.i18nAriaLabel;
+    if (t[key]) el.setAttribute("aria-label", t[key]);
   });
 }
 

@@ -151,6 +151,17 @@ function populateText(project) {
 }
 
 /**
+ * Sets the project sticker image, swapping in the localized VW badge
+ * (via translations.js) for projects that use it.
+ * @param {object} project - The active project data.
+ */
+function updateStickerSrc(project) {
+  const lang = localStorage.getItem("lang") ?? "de";
+  const isVwBadge = project.sticker === translations.en.badgeViktorSrc;
+  document.querySelector(".detail__sticker").src = isVwBadge ? translations[lang].badgeViktorSrc : project.sticker;
+}
+
+/**
  * Populates the detail page's visual elements (image, sticker, action
  * links and the next-project link) for the active project.
  * @param {object} project - The active project data.
@@ -159,7 +170,7 @@ function populateVisual(project) {
   const img = document.querySelector(".detail__image");
   img.src = project.image;
   img.alt = project.imageAlt;
-  document.querySelector(".detail__sticker").src = project.sticker;
+  updateStickerSrc(project);
   document.querySelector(".detail__btn--github").href = project.github;
   document.querySelector(".detail__btn--live").href = project.live;
   document.querySelector(".detail__next-btn").href = `project-detail.html?project=${project.next}`;
@@ -231,6 +242,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("i18n:applied", syncUnderlineWidth);
+document.addEventListener("i18n:applied", () => updateStickerSrc(getProjectData()));
 window.addEventListener("resize", syncUnderlineWidth);
 window.addEventListener("resize", positionNextProjectLink);
 if (document.fonts) document.fonts.ready.then(syncUnderlineWidth);

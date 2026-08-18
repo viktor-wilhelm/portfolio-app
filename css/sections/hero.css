@@ -63,6 +63,28 @@
   }
 }
 
+/* Same spring curve, wider end value – fits the longer German hover text
+   ("ICH BIN VIKTOR WILHELM") with the same ~24px left/right padding as the
+   English pill. English is untouched; this only applies under lang="de". */
+@keyframes greeting-button-spring-de {
+  0% {
+    width: 145px;
+  }
+  60% {
+    width: 274px;
+  }
+  80% {
+    width: 265px;
+  }
+  100% {
+    width: 268px;
+  }
+}
+
+html[lang="de"] .hero__greeting-container:hover .hero__greeting {
+  animation-name: greeting-button-spring-de;
+}
+
 /* Hand keyframes – starts upside-down, rotates 112.5deg clockwise to final position */
 @keyframes greeting-hand-spin {
   0% {
@@ -86,6 +108,30 @@
   }
 }
 
+/* Same spin, shifted further right by the same 50px the German pill gains
+   (268px vs 218px), so the hand still lands at the pill's right edge. */
+@keyframes greeting-hand-spin-de {
+  0% {
+    transform: translateX(0) rotate(-112.5deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  60% {
+    transform: translateX(129px) rotate(5deg);
+    opacity: 1;
+  }
+  80% {
+    transform: translateX(120px) rotate(-3deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(123px) rotate(0deg);
+    opacity: 1;
+  }
+}
+
 /* Wave hand – fixed at right edge, rotates into view from upside-down */
 .hero__greeting-icon {
   position: absolute;
@@ -102,6 +148,10 @@
 
 .hero__greeting-container:hover .hero__greeting-icon {
   animation: greeting-hand-spin 900ms ease forwards;
+}
+
+html[lang="de"] .hero__greeting-container:hover .hero__greeting-icon {
+  animation-name: greeting-hand-spin-de;
 }
 
 /* Pill button – grows only in X+ direction with spring */

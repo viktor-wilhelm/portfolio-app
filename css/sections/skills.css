@@ -68,6 +68,10 @@
   margin-bottom: 0.6rem;
 }
 
+[lang="de"] .skills__label {
+  transform: translateY(-1rem);
+}
+
 .skills__heading {
   font-family: var(--font-base);
   font-size: clamp(2.5rem, 13vw, 3.25rem);
@@ -293,6 +297,10 @@
     font-size: 1.25rem; /* 20px */
     margin-bottom: 1rem;
     transform: translate(8.2px, 1px);
+  }
+
+  [lang="de"] .skills__label {
+    transform: translate(8.2px, -1rem);
   }
 
   .skills__heading {

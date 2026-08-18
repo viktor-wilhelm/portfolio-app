@@ -30,6 +30,7 @@ const translations = {
       "Ich arbeite gerne mit modernen Frontend-Technologien und entwickle responsive sowie interaktive Benutzeroberflächen. Neugierig und lernbereit erweitere ich kontinuierlich meine Kenntnisse und passe mich neuen Tools und Technologien an.",
     projectsLabel: "MEINE PROJEKTE",
     projectsHeading: "Projekte",
+    featuredStickerSrc: "assets/img/07_Projects/Sticker-de-v1.svg",
     projectsDescription:
       "Ich entwickle responsive und benutzerfreundliche Webanwendungen mit Fokus auf sauberen Code, wartbare Strukturen und intuitive Nutzererlebnisse.\n\nMit jedem Projekt erweitere ich meine Frontend-Kenntnisse und vertiefe mein Wissen über moderne Technologien und bewährte Entwicklungspraktiken.",
     projectJoinDescription:
@@ -137,6 +138,7 @@ const translations = {
       "I enjoy working with modern front-end technologies and creating responsive, interactive user experiences. Always curious and motivated to learn, I continuously expand my skills and adapt to new tools and technologies.",
     projectsLabel: "MY CRAFT",
     projectsHeading: "Projects",
+    featuredStickerSrc: "assets/img/07_Projects/Sticker.png",
     projectsDescription:
       "I build responsive and user-friendly web applications with a focus on clean code, maintainable architecture and intuitive user experiences.\n\nEach project helps me strengthen my frontend skills while exploring modern technologies and best practices in web development.",
     projectJoinDescription:

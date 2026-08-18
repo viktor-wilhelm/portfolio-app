@@ -150,15 +150,17 @@ function populateText(project) {
   syncUnderlineWidth();
 }
 
+const STICKER_I18N_KEYS = ["badgeViktorSrc", "featuredStickerSrc"];
+
 /**
- * Sets the project sticker image, swapping in the localized VW badge
- * (via translations.js) for projects that use it.
+ * Sets the project sticker image, swapping in the localized variant (via
+ * translations.js) for stickers that carry translated circular text.
  * @param {object} project - The active project data.
  */
 function updateStickerSrc(project) {
   const lang = localStorage.getItem("lang") ?? "de";
-  const isVwBadge = project.sticker === translations.en.badgeViktorSrc;
-  document.querySelector(".detail__sticker").src = isVwBadge ? translations[lang].badgeViktorSrc : project.sticker;
+  const key = STICKER_I18N_KEYS.find((k) => project.sticker === translations.en[k]);
+  document.querySelector(".detail__sticker").src = key ? translations[lang][key] : project.sticker;
 }
 
 /**

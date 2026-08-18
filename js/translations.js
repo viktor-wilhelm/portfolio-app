@@ -19,12 +19,13 @@ const translations = {
       "Hey, ich bin Viktor — Frontend-Entwickler mit einem Hintergrund im Industrial- und CAD/CAM-Engineering und einer Leidenschaft für moderne, responsive Web-Erlebnisse. Ich entwickle gerne saubere und interaktive Interfaces mit JavaScript, TypeScript und Angular. Strukturiertes Denken, Problemlösung und über 20 Jahre technische Erfahrung prägen heute meinen Weg in der Frontend-Entwicklung.",
     aboutBio4: "Lass uns zusammenarbeiten und gemeinsam etwas Bemerkenswertes erschaffen!",
     aboutCta: "Lass uns reden",
-    skillsLabel: "MEIN STACK",
+    skillsLabel: "MEINE TECHNOLOGIEN",
     skillsHeading: "Fähigkeiten",
     testimonialsSubLabel: "IN IHREN WORTEN:",
     testimonialsHeading: "Kollegen sagen",
     skillsDescription:
       "Ich arbeite gerne mit modernen Frontend-Technologien und entwickle responsive sowie interaktive Benutzeroberflächen. Neugierig und lernbereit erweitere ich kontinuierlich meine Kenntnisse und passe mich neuen Tools und Technologien an.",
+    projectsLabel: "MEINE PROJEKTE",
     projectsHeading: "Projekte",
     projectsDescription:
       "Ich entwickle responsive und benutzerfreundliche Webanwendungen mit Fokus auf sauberen Code, wartbare Strukturen und intuitive Nutzererlebnisse.\n\nMit jedem Projekt erweitere ich meine Frontend-Kenntnisse und vertiefe mein Wissen über moderne Technologien und bewährte Entwicklungspraktiken.",
@@ -121,6 +122,7 @@ const translations = {
     testimonialsHeading: "Colleagues' Thoughts",
     skillsDescription:
       "I enjoy working with modern front-end technologies and creating responsive, interactive user experiences. Always curious and motivated to learn, I continuously expand my skills and adapt to new tools and technologies.",
+    projectsLabel: "MY CRAFT",
     projectsHeading: "Projects",
     projectsDescription:
       "I build responsive and user-friendly web applications with a focus on clean code, maintainable architecture and intuitive user experiences.\n\nEach project helps me strengthen my frontend skills while exploring modern technologies and best practices in web development.",

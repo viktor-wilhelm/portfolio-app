@@ -189,6 +189,7 @@
 }
 
 .skills__sticker {
+  position: relative;
   width: 200px;
   height: 200px;
   flex-shrink: 0;
@@ -212,6 +213,55 @@
   object-fit: contain;
   display: block;
   pointer-events: none;
+}
+
+/* Text overlays – German only. English keeps its original, untouched PNGs
+   (baked-in text, no overlay), so it is guaranteed pixel-identical to
+   before. These sit on top of the German "-clean" frames (text removed)
+   and are hidden entirely outside of [lang="de"]. */
+.skills__sticker-label,
+.skills__sticker-reveal-text {
+  display: none;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: var(--color-off-white);
+  pointer-events: none;
+  user-select: none;
+  transition: opacity 180ms ease;
+}
+
+[lang="de"] .skills__sticker-label {
+  display: block;
+  top: 39.5%;
+  width: 88%;
+  white-space: pre-line;
+  font-family: "Kalam", cursive;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.28;
+  opacity: 1;
+}
+
+[lang="de"] .skills__sticker-reveal-text {
+  display: block;
+  top: 10%;
+  width: 85%;
+  white-space: pre-line;
+  font-family: var(--font-base);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.22;
+  opacity: 0;
+}
+
+.skills__sticker--open .skills__sticker-label {
+  opacity: 0;
+}
+
+.skills__sticker--open .skills__sticker-reveal-text {
+  opacity: 1;
 }
 
 .skill {

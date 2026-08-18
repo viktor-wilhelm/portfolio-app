@@ -24,7 +24,9 @@ const translations = {
     skillsLabel: "MEINE TECHNOLOGIEN",
     skillsHeading: "Fähigkeiten",
     skillsStickerAriaLabel: "Weitere Fähigkeiten anzeigen",
-    skillsStickerAlt: "Zum Abziehen ziehen – klicken, um weitere Fähigkeiten anzuzeigen",
+    skillsStickerAlt: "Hier klicken, um weitere Fähigkeiten anzuzeigen",
+    skillsStickerLabel: "Hier klicken",
+    skillsStickerRevealText: "Außerdem\ninteressiere ich\nmich für:",
     testimonialsSubLabel: "IN IHREN WORTEN:",
     testimonialsHeading: "Kollegen sagen",
     skillsDescription:
@@ -134,6 +136,8 @@ const translations = {
     skillsHeading: "Skill set",
     skillsStickerAriaLabel: "Reveal additional skills",
     skillsStickerAlt: "Pull to peel – click to reveal more skills",
+    skillsStickerLabel: "Pull to peel",
+    skillsStickerRevealText: "Also, I'm interested in diving into:",
     testimonialsSubLabel: "IN THEIR WORDS:",
     testimonialsHeading: "Colleagues' Thoughts",
     skillsDescription:

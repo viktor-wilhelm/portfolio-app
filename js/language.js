@@ -107,6 +107,11 @@ function setupLangSwitch() {
   document.querySelectorAll(".lang-switch__btn").forEach((btn) => {
     btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
   });
+  document.querySelectorAll(".lang-switch__toggle").forEach((toggle) => {
+    toggle.addEventListener("click", () => {
+      setLanguage(document.documentElement.lang === "de" ? "en" : "de");
+    });
+  });
 }
 
 document.addEventListener("DOMContentLoaded", () => {

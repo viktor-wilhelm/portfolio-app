@@ -3,6 +3,7 @@
  */
 const translations = {
   de: {
+    langSwitchToggleLabel: "Zu Englisch wechseln",
     navAbout: "Über mich",
     navProjects: "Projekte",
     navSkills: "Fähigkeiten",
@@ -111,6 +112,7 @@ const translations = {
     privacyDate: "Datum: 25. Juni 2026",
   },
   en: {
+    langSwitchToggleLabel: "Switch to German",
     navAbout: "About me",
     navProjects: "Projects",
     navSkills: "Skills",

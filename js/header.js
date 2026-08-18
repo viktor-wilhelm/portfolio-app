@@ -31,7 +31,7 @@ function buildNavLinks(base) {
 function buildLangSwitch() {
   return `<div class="lang-switch lang-switch--de" aria-label="Sprache wechseln">
       <button class="lang-switch__btn" data-lang="en">EN</button>
-      <button class="lang-switch__toggle" aria-label="Sprache wechseln"><span class="lang-switch__knob"></span></button>
+      <button class="lang-switch__toggle" data-i18n-aria-label="langSwitchToggleLabel" aria-label="Zu Englisch wechseln"><span class="lang-switch__knob"></span></button>
       <button class="lang-switch__btn lang-switch__btn--de lang-switch__btn--active" data-lang="de">DE</button>
     </div>`;
 }
@@ -104,7 +104,7 @@ function buildOverlayLinks(base) {
 function buildOverlayLang() {
   return `<div class="lang-switch lang-switch--de nav__overlay-lang" aria-label="Sprache wechseln">
       <button class="lang-switch__btn" data-lang="en">EN</button>
-      <button class="lang-switch__toggle" aria-label="Sprache wechseln"><span class="lang-switch__knob"></span></button>
+      <button class="lang-switch__toggle" data-i18n-aria-label="langSwitchToggleLabel" aria-label="Zu Englisch wechseln"><span class="lang-switch__knob"></span></button>
       <button class="lang-switch__btn lang-switch__btn--de lang-switch__btn--active" data-lang="de">DE</button>
     </div>`;
 }

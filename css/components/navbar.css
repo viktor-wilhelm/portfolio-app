@@ -233,7 +233,7 @@
   background-color: #e8593d;
   border-radius: 999px;
   border: 1.5px solid var(--color-off-white);
-  cursor: default;
+  cursor: pointer;
   flex-shrink: 0;
 }
 

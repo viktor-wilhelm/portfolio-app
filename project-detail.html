@@ -8,6 +8,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/img/04_Hero/vw-favicon.png" />
     <!-- Fonts -->
     <link rel="stylesheet" href="css/fonts.css" />
+    <!-- AOS (Animate On Scroll) -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
     <!-- Styles -->
     <link rel="stylesheet" href="css/variables.css" />
     <link rel="stylesheet" href="css/base.css" />
@@ -53,7 +55,7 @@
         <!-- Two-column layout -->
         <div class="detail__layout">
           <!-- Left: text content -->
-          <div class="detail__content">
+          <div class="detail__content" data-aos="fade-right">
             <div class="detail__title-wrap">
               <h1 class="detail__title"></h1>
               <img
@@ -87,7 +89,7 @@
           <!-- /.detail__content -->
 
           <!-- Right: project image + buttons -->
-          <div class="detail__visual">
+          <div class="detail__visual" data-aos="fade-left">
             <div class="detail__image-wrap">
               <img src="" alt="" class="detail__image" draggable="false" />
               <img src="" alt="" class="detail__sticker" aria-hidden="true" draggable="false" />
@@ -160,5 +162,7 @@
     <script src="js/translations.js"></script>
     <script src="js/language.js"></script>
     <script src="js/navbar.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+    <script src="js/aos-init.js" defer></script>
   </body>
 </html>

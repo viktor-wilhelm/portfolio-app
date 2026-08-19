@@ -8,6 +8,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/img/04_Hero/vw-favicon.png" />
     <!-- Fonts -->
     <link rel="stylesheet" href="css/fonts.css" />
+    <!-- AOS (Animate On Scroll) -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
     <!-- Styles -->
     <link rel="stylesheet" href="css/variables.css" />
     <link rel="stylesheet" href="css/base.css" />
@@ -117,7 +119,7 @@
       <!-- ===== ABOUT ===== -->
       <section id="about" class="about">
         <div class="about__container">
-          <div class="about__stickers" aria-hidden="true">
+          <div class="about__stickers" aria-hidden="true" data-aos="fade-left">
             <div class="about__sticker about__sticker--yellow">
               <img src="assets/img/02_Ripped Paper/Option 1/Yellow.png" alt="" draggable="false" />
               <span class="about__sticker-text"
@@ -155,9 +157,9 @@
               >
             </div>
           </div>
-          <div class="about__text">
+          <div class="about__text" data-aos="fade-right">
             <p class="about__label" data-i18n="aboutLabel">WHO'S VIKTOR?</p>
-            <h2 class="about__heading" data-i18n="aboutHeading">About me</h2>
+            <h2 class="about__heading" data-i18n="aboutHeading" data-aos="fade-up">About me</h2>
             <img
               src="assets/img/00_Hand-drawn lines/01_About me/Color option 1.png"
               alt=""
@@ -185,7 +187,7 @@
             <div class="skills__title-group">
               <p class="skills__label" data-i18n="skillsLabel">MY STACK</p>
               <div class="skills__heading-wrapper">
-                <h2 class="skills__heading" data-i18n="skillsHeading">Skill set</h2>
+                <h2 class="skills__heading" data-i18n="skillsHeading" data-aos="fade-up">Skill set</h2>
                 <div class="skills__decoration-positioner">
                   <div class="skills__decoration-scaler">
                     <img
@@ -216,7 +218,7 @@
           </div>
           <div class="skills__grid-row">
             <ul class="skills__grid">
-              <li class="skill">
+              <li class="skill" data-aos="fade-up" data-aos-delay="0">
                 <img
                   src="assets/img/06_skills-set/Property 1=HTML.png"
                   alt="HTML"
@@ -225,7 +227,7 @@
                 />
                 <span class="skill__name">HTML</span>
               </li>
-              <li class="skill">
+              <li class="skill" data-aos="fade-up" data-aos-delay="50">
                 <img
                   src="assets/img/06_skills-set/Property 1=CSS.png"
                   alt="CSS"
@@ -234,7 +236,7 @@
                 />
                 <span class="skill__name">CSS</span>
               </li>
-              <li class="skill">
+              <li class="skill" data-aos="fade-up" data-aos-delay="100">
                 <img
                   src="assets/img/06_skills-set/Property 1=Js.png"
                   alt="JavaScript"
@@ -243,7 +245,7 @@
                 />
                 <span class="skill__name">JavaScript</span>
               </li>
-              <li class="skill">
+              <li class="skill" data-aos="fade-up" data-aos-delay="150">
                 <img
                   src="assets/img/06_skills-set/Property 1=Ts.png"
                   alt="TypeScript"
@@ -252,7 +254,7 @@
                 />
                 <span class="skill__name">TypeScript</span>
               </li>
-              <li class="skill">
+              <li class="skill" data-aos="fade-up" data-aos-delay="200">
                 <img
                   src="assets/img/06_skills-set/Property 1=Angular.png"
                   alt="Angular"
@@ -261,7 +263,7 @@
                 />
                 <span class="skill__name">Angular</span>
               </li>
-              <li class="skill">
+              <li class="skill" data-aos="fade-up" data-aos-delay="250">
                 <img
                   src="assets/img/06_skills-set/Property 1=Supabase.png"
                   alt="Supabase"
@@ -270,7 +272,7 @@
                 />
                 <span class="skill__name">Supabase</span>
               </li>
-              <li class="skill">
+              <li class="skill" data-aos="fade-up" data-aos-delay="300">
                 <img
                   src="assets/img/06_skills-set/Property 1=Git.png"
                   alt="Git"
@@ -279,7 +281,7 @@
                 />
                 <span class="skill__name">Git</span>
               </li>
-              <li class="skill">
+              <li class="skill" data-aos="fade-up" data-aos-delay="350">
                 <img
                   src="assets/img/06_skills-set/Property 1=Rest-Api.png"
                   alt="REST API"
@@ -288,7 +290,7 @@
                 />
                 <span class="skill__name">REST API</span>
               </li>
-              <li class="skill">
+              <li class="skill" data-aos="fade-up" data-aos-delay="400">
                 <img
                   src="assets/img/06_skills-set/Property 1=Scrum.png"
                   alt="Scrum"
@@ -297,7 +299,7 @@
                 />
                 <span class="skill__name">Scrum</span>
               </li>
-              <li class="skill">
+              <li class="skill" data-aos="fade-up" data-aos-delay="450">
                 <img
                   src="assets/img/06_skills-set/Property 1=Material Design.png"
                   alt="Material Design"
@@ -342,7 +344,7 @@
             <div class="projects__title-top">
               <p class="projects__label" data-i18n="projectsLabel">MY CRAFT</p>
               <div class="projects__heading-wrapper">
-                <h2 class="projects__heading" data-i18n="projectsHeading">Projects</h2>
+                <h2 class="projects__heading" data-i18n="projectsHeading" data-aos="fade-up">Projects</h2>
                 <img
                   src="assets/img/00_Hand-drawn lines/03_Portfolio/Color option 1.png"
                   alt=""
@@ -359,7 +361,7 @@
           </div>
 
           <!-- Right: featured project card -->
-          <div class="projects__featured">
+          <div class="projects__featured" data-aos="fade-up" data-aos-delay="0">
             <div class="projects__featured-card">
               <a
                 href="project-detail.html?project=join"
@@ -402,7 +404,7 @@
 
         <!-- ── Project cards grid ──────────────────────────────── -->
         <div class="projects__grid">
-          <article class="project-card">
+          <article class="project-card" data-aos="fade-up" data-aos-delay="100">
             <a
               href="project-detail.html?project=el-pollo-loco"
               class="project-card__image-wrapper"
@@ -425,7 +427,7 @@
             <a href="project-detail.html?project=el-pollo-loco" class="project-card__cta-mobile btn" data-i18n="projectDetailsCta" draggable="false">Project details</a>
           </article>
 
-          <article class="project-card">
+          <article class="project-card" data-aos="fade-up" data-aos-delay="200">
             <a
               href="project-detail.html?project=pokedex"
               class="project-card__image-wrapper"
@@ -463,10 +465,10 @@
               />
               <p class="testimonials__sub-label" data-i18n="testimonialsSubLabel">IN THEIR WORDS:</p>
             </div>
-            <h2 class="testimonials__heading" data-i18n="testimonialsHeading">Colleagues' Thoughts</h2>
+            <h2 class="testimonials__heading" data-i18n="testimonialsHeading" data-aos="fade-up">Colleagues' Thoughts</h2>
           </div>
 
-          <div class="testimonials__grid">
+          <div class="testimonials__grid" data-aos="fade-up">
             <article class="testimonial-card">
               <picture>
                 <source media="(max-width: 900px)" srcset="assets/img/07_Projects/mobile/rectangle-sticker-1.png" />
@@ -592,8 +594,8 @@
           <!-- ── Left column ── -->
           <div class="contact__left">
             <p class="contact__label" data-i18n="contactLabel">CONTACT ME</p>
-            <h2 class="contact__heading" data-i18n="contactHeading">Ready to work together?</h2>
-            <p class="contact__desc" data-i18n="contactDesc">I'm excited about new opportunities and interesting projects. Let me know how I can contribute to your team with my experience and passion for frontend development.</p>
+            <h2 class="contact__heading" data-i18n="contactHeading" data-aos="fade-up">Ready to work together?</h2>
+            <p class="contact__desc" data-i18n="contactDesc" data-aos="fade-up" data-aos-delay="100">I'm excited about new opportunities and interesting projects. Let me know how I can contribute to your team with my experience and passion for frontend development.</p>
             <img
               src="assets/img/00_Hand-drawn lines/05_Contact/Color option 1.png"
               class="contact__decoration"
@@ -613,7 +615,7 @@
               aria-hidden="true"
               draggable="false"
             />
-            <form id="contact-form" class="contact__form" novalidate>
+            <form id="contact-form" class="contact__form" novalidate data-aos="fade-up" data-aos-delay="200">
 
               <div class="form__group">
                 <label for="name" data-i18n="formNameQuestion">What's your name?</label>
@@ -707,5 +709,7 @@
     <script src="js/skills.js"></script>
     <script src="js/projects.js"></script>
     <script src="js/page-transition.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+    <script src="js/aos-init.js" defer></script>
   </body>
 </html>

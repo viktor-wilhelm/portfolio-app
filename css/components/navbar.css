@@ -237,6 +237,16 @@
   flex-shrink: 0;
 }
 
+/* Enlarged invisible hit area — the visual track is only 8px tall and sits
+   right next to the EN/DE letters with just var(--space-sm) of gap, so the
+   pointer cursor was dropping out between them. This closes that gap and
+   matches the letters' own height without changing the track's look. */
+.lang-switch__toggle::before {
+  content: "";
+  position: absolute;
+  inset: -6px -10px;
+}
+
 /* Toggle Knob */
 .lang-switch__knob {
   position: absolute;

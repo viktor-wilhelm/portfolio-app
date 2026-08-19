@@ -5,7 +5,9 @@
 .hero {
   position: relative;
   width: 100%;
-  height: 100svh;
+  min-height: 100vh;
+  min-height: 100svh;
+  min-height: 100dvh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -438,7 +440,7 @@ html[lang="de"] .hero__greeting-container:hover .hero__greeting-icon {
   flex-direction: column;
   gap: 0.5rem;
   z-index: 2;
-  bottom: 12rem;
+  bottom: 8rem;
 }
 
 .hero__social-link {
@@ -622,10 +624,6 @@ html[lang="de"] .hero__greeting-container:hover .hero__greeting-icon {
 }
 
 @media (max-width: 767px) {
-  .hero {
-    height: clamp(730px, calc(56.667vw + 548.667px), 900px);
-  }
-
   .hero__content {
     padding-left: 1rem;
     padding-right: 1rem;
@@ -668,10 +666,6 @@ html[lang="de"] .hero__greeting-container:hover .hero__greeting-icon {
 }
 
 @media (min-width: 768px) {
-  .hero {
-    height: 900px;
-  }
-
   .hero__content {
     padding-top: 0;
     padding-left: 10rem;
@@ -702,10 +696,37 @@ html[lang="de"] .hero__greeting-container:hover .hero__greeting-icon {
 
 @media (min-width: 768px) and (max-height: 650px) {
   .hero__content {
-    top: -120px;
+    top: 0;
+    justify-content: flex-start;
+    padding-top: 2rem;
+  }
+
+  .hero__greeting-container {
+    margin-bottom: 1rem;
+  }
+
+  .hero__title {
+    margin-bottom: 1rem;
+  }
+
+  .hero__title-bottom {
+    margin-top: 7rem;
+  }
+
+  .hero__polaroid {
+    top: 1.5rem;
   }
 
   .hero__social {
-    bottom: 20rem;
+    bottom: 6rem;
+  }
+}
+
+/* Widescreen: only the social icons' vertical offset changes here. The
+   title keeps the same layout it has from the 768px breakpoint up (no
+   centering override for .hero__title-top or .hero__title-bottom). */
+@media (min-width: 1440px) {
+  .hero__social {
+    bottom: 14rem;
   }
 }

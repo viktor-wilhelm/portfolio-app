@@ -193,7 +193,6 @@
   width: 200px;
   height: 200px;
   flex-shrink: 0;
-  cursor: pointer;
   transform: rotate(8deg);
   transition: transform 200ms ease;
   align-self: flex-end;
@@ -213,6 +212,32 @@
   object-fit: contain;
   display: block;
   pointer-events: none;
+}
+
+/* Invisible hit zone over the folded corner in the artwork — grabbing it
+   is the only way to peel the sticker open (see js/skills.js). */
+.skills__sticker-grab-zone {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 42%;
+  height: 42%;
+  touch-action: none;
+  pointer-events: none;
+}
+
+.skills__sticker:not(.skills__sticker--open) .skills__sticker-grab-zone {
+  cursor: grab;
+  pointer-events: auto;
+}
+
+.skills__sticker--dragging,
+.skills__sticker.skills__sticker--dragging .skills__sticker-grab-zone {
+  cursor: grabbing;
+}
+
+.skills__sticker--open {
+  cursor: pointer;
 }
 
 /* Text overlays – German only. English keeps its original, untouched PNGs
@@ -239,7 +264,7 @@
   white-space: pre-line;
   font-family: "Kalam", cursive;
   font-weight: 700;
-  font-size: 36px;
+  font-size: 27px;
   line-height: 1.28;
   opacity: 1;
 }
@@ -256,11 +281,13 @@
   opacity: 0;
 }
 
-.skills__sticker--open .skills__sticker-label {
+.skills__sticker--open .skills__sticker-label,
+.skills__sticker--frame-open .skills__sticker-label {
   opacity: 0;
 }
 
-.skills__sticker--open .skills__sticker-reveal-text {
+.skills__sticker--open .skills__sticker-reveal-text,
+.skills__sticker--frame-open .skills__sticker-reveal-text {
   opacity: 1;
 }
 

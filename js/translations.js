@@ -25,7 +25,7 @@ const translations = {
     skillsHeading: "Fähigkeiten",
     skillsStickerAriaLabel: "Weitere Fähigkeiten anzeigen",
     skillsStickerAlt: "Hier klicken, um weitere Fähigkeiten anzuzeigen",
-    skillsStickerLabel: "Hier klicken",
+    skillsStickerLabel: "Zum\nÖffnen\nziehen",
     skillsStickerRevealText: "Außerdem\ninteressiere ich\nmich für:",
     testimonialsSubLabel: "IN IHREN WORTEN:",
     testimonialsHeading: "Kollegen sagen",

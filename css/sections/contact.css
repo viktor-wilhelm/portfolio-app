@@ -102,6 +102,7 @@
   height: 166px;
   object-fit: contain;
   pointer-events: none;
+  z-index: 1;
 }
 
 .contact__decoration-mobile {

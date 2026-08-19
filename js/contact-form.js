@@ -178,4 +178,10 @@ emailInput.addEventListener("blur", () => { validateEmailField(); updateSubmitBu
 messageInput.addEventListener("blur", () => { validateTextField(messageInput); updateSubmitButton(); });
 privacyInput.addEventListener("change", () => { validatePrivacy(); updateSubmitButton(); });
 
+[nameInput, emailInput, messageInput].forEach((input) => {
+  input.addEventListener("input", updateSubmitButton);
+});
+
 document.getElementById("contact-form").addEventListener("submit", handleFormSubmit);
+
+updateSubmitButton();

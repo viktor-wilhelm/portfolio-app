@@ -3,6 +3,7 @@
    ============================================================ */
 
 .hero {
+  --hero-paper-height: calc(max(100vw / 1.6, 100dvh) * 0.085);
   position: relative;
   width: 100%;
   min-height: 100vh;
@@ -39,8 +40,6 @@
   justify-content: flex-start;
 }
 
-/* "Hello world" pill */
-/* Greeting container */
 .hero__greeting-container {
   position: relative;
   display: inline-block;
@@ -440,7 +439,7 @@ html[lang="de"] .hero__greeting-container:hover .hero__greeting-icon {
   flex-direction: column;
   gap: 0.5rem;
   z-index: 2;
-  bottom: 8rem;
+  bottom: calc(var(--hero-paper-height) + 3rem);
 }
 
 .hero__social-link {
@@ -715,18 +714,5 @@ html[lang="de"] .hero__greeting-container:hover .hero__greeting-icon {
 
   .hero__polaroid {
     top: 1.5rem;
-  }
-
-  .hero__social {
-    bottom: 6rem;
-  }
-}
-
-/* Widescreen: only the social icons' vertical offset changes here. The
-   title keeps the same layout it has from the 768px breakpoint up (no
-   centering override for .hero__title-top or .hero__title-bottom). */
-@media (min-width: 1440px) {
-  .hero__social {
-    bottom: 14rem;
   }
 }

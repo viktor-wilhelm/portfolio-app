@@ -89,6 +89,33 @@
 
 /* ── Card base ────────────────────────────────────────────── */
 
+/* The wrapper (not the card) now owns stacking order. AOS applies its own
+   transform/opacity to [data-aos] elements, which makes .testimonial-wrap
+   a stacking-context root on its own — so z-index set on .testimonial-card
+   itself would only ever compete within its own wrapper, never against the
+   other two cards. Giving the wrapper an explicit position + z-index makes
+   the left-to-right overlap (and the hover-to-front behavior below)
+   resolve at the level where the cards actually compete. */
+.testimonial-wrap {
+  position: relative;
+}
+
+.testimonial-wrap:nth-child(1) {
+  z-index: 3;
+}
+
+.testimonial-wrap:nth-child(2) {
+  z-index: 2;
+}
+
+.testimonial-wrap:nth-child(3) {
+  z-index: 1;
+}
+
+.testimonial-wrap:hover {
+  z-index: 10;
+}
+
 .testimonial-card {
   position: relative;
   width: 512px;
@@ -101,25 +128,24 @@
   transition: filter 0.3s ease;
 }
 
-.testimonial-card:nth-child(1) {
+.testimonial-wrap:nth-child(1) .testimonial-card {
   transform: rotate(-4deg);
   margin-right: clamp(-363px, -768px + 45vw, -170px);
   z-index: 3;
 }
 
-.testimonial-card:nth-child(2) {
+.testimonial-wrap:nth-child(2) .testimonial-card {
   transform: translateY(3rem);
   z-index: 2;
 }
 
-.testimonial-card:nth-child(3) {
+.testimonial-wrap:nth-child(3) .testimonial-card {
   transform: rotate(4deg);
   margin-left: clamp(-363px, -768px + 45vw, -170px);
   z-index: 1;
 }
 
 .testimonial-card:hover {
-  z-index: 10;
   filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.45));
 }
 
@@ -182,8 +208,8 @@
   text-decoration: none;
 }
 
-.testimonial-card__author-link:hover .testimonial-card__name,
-.testimonial-card__author-link:hover .testimonial-card__role {
+.testimonial-card:hover .testimonial-card__name,
+.testimonial-card:hover .testimonial-card__role {
   color: var(--color-text-light);
   transition: color 0.2s ease;
 }
@@ -266,7 +292,7 @@
   /* Reset desktop transforms / margins.
      Cards 1 + 3 use pre-rotated mobile stickers — no CSS rotation on top,
      otherwise the tilt doubles and the text leaves the paper. */
-  .testimonial-card:nth-child(1) {
+  .testimonial-wrap:nth-child(1) .testimonial-card {
     aspect-ratio: 326 / 342;
     z-index: 3;
     transform: none;
@@ -274,14 +300,14 @@
     margin-bottom: -4px;
   }
 
-  .testimonial-card:nth-child(2) {
+  .testimonial-wrap:nth-child(2) .testimonial-card {
     aspect-ratio: 327 / 393;
     z-index: 2;
     transform: none;
     margin-bottom: -5px;
   }
 
-  .testimonial-card:nth-child(3) {
+  .testimonial-wrap:nth-child(3) .testimonial-card {
     aspect-ratio: 326 / 342;
     height: auto;
     z-index: 1;
@@ -305,8 +331,8 @@
      (paper 326px in a 367 / 351px canvas), while sticker 2 is edge-to-edge.
      Scale those two up so the paper itself spans the full card width — same
      visual width as card 2 — and centre the overhang. */
-  .testimonial-card:nth-child(1) .testimonial-card__bg,
-  .testimonial-card:nth-child(3) .testimonial-card__bg {
+  .testimonial-wrap:nth-child(1) .testimonial-card__bg,
+  .testimonial-wrap:nth-child(3) .testimonial-card__bg {
     inset: auto;
     left: 50%;
     top: 50%;
@@ -314,12 +340,12 @@
     max-width: none; /* base.css caps images at 100% */
   }
 
-  .testimonial-card:nth-child(1) .testimonial-card__bg {
+  .testimonial-wrap:nth-child(1) .testimonial-card__bg {
     width: calc(100% * 367 / 326);
     height: calc(100% * 381 / 342);
   }
 
-  .testimonial-card:nth-child(3) .testimonial-card__bg {
+  .testimonial-wrap:nth-child(3) .testimonial-card__bg {
     width: calc(100% * 351 / 326);
     height: calc(100% * 365 / 342);
   }
@@ -328,8 +354,8 @@
      (measured from the PNG alpha: -3.81deg / +3.87deg). Both boxes are sized to
      the paper's true rectangle (325.3 x 341.2 inside a 326 x 342 bounding box),
      so their corners land on the paper corners once rotated. */
-  .testimonial-card:nth-child(1) .testimonial-card__hover,
-  .testimonial-card:nth-child(3) .testimonial-card__hover {
+  .testimonial-wrap:nth-child(1) .testimonial-card__hover,
+  .testimonial-wrap:nth-child(3) .testimonial-card__hover {
     inset: auto;
     left: 50%;
     top: 50%;
@@ -338,13 +364,13 @@
     translate: -50% -50%;
   }
 
-  .testimonial-card:nth-child(1) .testimonial-card__body,
-  .testimonial-card:nth-child(1) .testimonial-card__hover {
+  .testimonial-wrap:nth-child(1) .testimonial-card__body,
+  .testimonial-wrap:nth-child(1) .testimonial-card__hover {
     rotate: -3.81deg;
   }
 
-  .testimonial-card:nth-child(3) .testimonial-card__body,
-  .testimonial-card:nth-child(3) .testimonial-card__hover {
+  .testimonial-wrap:nth-child(3) .testimonial-card__body,
+  .testimonial-wrap:nth-child(3) .testimonial-card__hover {
     rotate: 3.87deg;
   }
 
@@ -355,7 +381,7 @@
     gap: 1.5rem;
   }
 
-  .testimonial-card:nth-child(2) .testimonial-card__body {
+  .testimonial-wrap:nth-child(2) .testimonial-card__body {
     padding: 1.25rem 1.125rem;
   }
 
@@ -367,12 +393,12 @@
     font-size: var(--font-size-18px);
   }
 
-  .testimonial-card:nth-child(1) .testimonial-card__name,
-  .testimonial-card:nth-child(3) .testimonial-card__name {
+  .testimonial-wrap:nth-child(1) .testimonial-card__name,
+  .testimonial-wrap:nth-child(3) .testimonial-card__name {
     white-space: nowrap;
   }
 
-  .testimonial-card:hover {
+  .testimonial-wrap:hover {
     z-index: 5;
   }
 }
@@ -396,8 +422,8 @@
     margin-left: auto;
   }
 
-  .testimonial-card:nth-child(1) .testimonial-card__name,
-  .testimonial-card:nth-child(3) .testimonial-card__name {
+  .testimonial-wrap:nth-child(1) .testimonial-card__name,
+  .testimonial-wrap:nth-child(3) .testimonial-card__name {
     white-space: normal;
   }
 }

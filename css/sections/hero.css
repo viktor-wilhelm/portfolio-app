@@ -716,3 +716,59 @@ html[lang="de"] .hero__greeting-container:hover .hero__greeting-icon {
     top: 1.5rem;
   }
 }
+
+/* ── Entrance animation (page load only) ─────────────────────
+   Own keyframes, not AOS. Title has no static transform of its own, so it
+   can slide+fade directly. Polaroid and CTA already carry a permanent
+   transform (rotate(8deg) / the hover-transition base translate(0,0)) and
+   are also flex-order/position-critical (mobile `order`, desktop
+   `position: absolute`), so they only fade — opacity doesn't touch
+   `transform` and can't fight either concern. Social links have no static
+   transform (their hover effect lives on a ::after pseudo-element), so
+   they can slide+fade like the title. Skipped entirely under
+   prefers-reduced-motion. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero__title {
+    animation: hero-enter-up 700ms ease-out both;
+  }
+
+  .hero__polaroid {
+    animation: hero-enter-fade 700ms ease-out 150ms both;
+  }
+
+  .hero__cta {
+    animation: hero-enter-fade 700ms ease-out 300ms both;
+  }
+
+  .hero__social-link:nth-child(1) {
+    animation: hero-enter-up 700ms ease-out 450ms both;
+  }
+
+  .hero__social-link:nth-child(2) {
+    animation: hero-enter-up 700ms ease-out 500ms both;
+  }
+
+  .hero__social-link:nth-child(3) {
+    animation: hero-enter-up 700ms ease-out 550ms both;
+  }
+}
+
+@keyframes hero-enter-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-enter-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

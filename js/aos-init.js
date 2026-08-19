@@ -1,5 +1,5 @@
 /**
- * Initializes AOS (Animate On Scroll) with a subtle, one-shot config.
+ * Initializes AOS (Animate On Scroll) with a subtle, replaying config.
  * Respects prefers-reduced-motion by disabling animations entirely.
  */
 function initAOS() {
@@ -7,7 +7,7 @@ function initAOS() {
   AOS.init({
     duration: 700,
     easing: "ease-out",
-    once: true,
+    once: false,
     offset: 80,
     disable: prefersReducedMotion,
   });

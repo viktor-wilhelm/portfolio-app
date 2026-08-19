@@ -55,12 +55,14 @@ function isFieldFilled(input) {
 }
 
 /**
- * Checks whether a string is a plausible email address.
+ * Checks whether a string is a plausible email address. Rejects multiple
+ * "@", consecutive/leading/trailing dots in either part, and whitespace,
+ * while still allowing "+", hyphens, and subdomains.
  * @param {string} value
  * @returns {boolean}
  */
 function isEmailFormatValid(value) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+  return /^[^\s@.]+(\.[^\s@.]+)*@[^\s@.]+(\.[^\s@.]+)+$/.test(value.trim());
 }
 
 /**
@@ -87,9 +89,13 @@ function validateEmailField() {
     return false;
   }
   const valid = isEmailFormatValid(value);
-  valid
-    ? clearInputError(emailInput)
-    : setInputError(emailInput, translations[getCurrentLang()].errorEmail);
+  if (valid) {
+    clearInputError(emailInput);
+  } else {
+    const message = translations[getCurrentLang()].errorEmail;
+    setInputError(emailInput, message);
+    showToast(message, emailInput);
+  }
   return valid;
 }
 

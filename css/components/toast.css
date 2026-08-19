@@ -1,0 +1,32 @@
+/* ============================================================
+   Toast — reusable dismissible notification, anchored next to
+   whichever field triggered it (top/left set inline by toast.js)
+   ============================================================ */
+
+.toast {
+  position: fixed;
+  top: var(--space-lg);
+  left: var(--space-lg);
+  z-index: 1000;
+  max-width: min(90vw, 340px);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--border-radius);
+  border: 1.5px solid var(--color-error);
+  background-color: var(--color-bg-dark);
+  color: var(--color-error);
+  font-family: var(--font-base);
+  font-weight: 600;
+  font-size: var(--font-size-18px);
+  line-height: 1.3;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-8px);
+  transition:
+    opacity 200ms ease,
+    transform 200ms ease;
+}
+
+.toast--visible {
+  opacity: 1;
+  transform: translateY(0);
+}

@@ -4,6 +4,7 @@
 
 .hero {
   --hero-paper-height: calc(max(100vw / 1.6, 100dvh) * 0.085);
+  --hero-title-font: clamp(4rem, 9vw, 8rem);
   position: relative;
   width: 100%;
   min-height: 100vh;
@@ -46,6 +47,9 @@
   margin-bottom: var(--space-lg);
   margin-left: 1%;
   width: 15%;
+  /* Resting transform, overridden per-breakpoint below; the entrance
+     animation reads this var so it never fights a responsive offset. */
+  transform: var(--hero-greeting-rest, translateY(0));
 }
 
 /* Spring keyframes – button width (gentle single overshoot) */
@@ -230,6 +234,13 @@ html[lang="de"] .hero__greeting-container:hover .hero__greeting-icon {
   transition: opacity 250ms ease;
 }
 
+/* Wraps title + polaroid so the polaroid can be anchored to the title's
+   own box on desktop. Transparent to layout everywhere else so it doesn't
+   affect the existing flex order on mobile/tablet. */
+.hero__title-wrap {
+  display: contents;
+}
+
 /* "Frontend DEVELOPER" – two-line heading */
 .hero__title {
   line-height: 1;
@@ -240,7 +251,7 @@ html[lang="de"] .hero__greeting-container:hover .hero__greeting-icon {
 
 .hero__title-top {
   display: block;
-  font-size: clamp(4rem, 9vw, 8rem);
+  font-size: var(--hero-title-font);
   font-weight: 700;
   color: var(--color-text-light);
   letter-spacing: -0.1em;
@@ -252,7 +263,7 @@ html[lang="de"] .hero__greeting-container:hover .hero__greeting-icon {
   display: flex;
   justify-content: flex-start;
   align-items: baseline;
-  font-size: clamp(4rem, 9vw, 8rem);
+  font-size: var(--hero-title-font);
   font-weight: 700;
   color: var(--color-text-light);
   letter-spacing: -0.1em;
@@ -497,7 +508,9 @@ html[lang="de"] .hero__greeting-container:hover .hero__greeting-icon {
   display: block;
   position: relative;
   margin: var(--space-lg) auto;
-  transform: rotate(8deg);
+  /* Resting transform, overridden per-breakpoint below; the entrance
+     animation reads this var so it never fights a responsive offset. */
+  transform: var(--hero-polaroid-rest, rotate(8deg));
   width: fit-content;
   z-index: 1;
   -webkit-user-drag: none;
@@ -664,6 +677,69 @@ html[lang="de"] .hero__greeting-container:hover .hero__greeting-icon {
   }
 }
 
+/* Short mobile/tablet viewports (e.g. landscape phones): the stacked
+   content overflows a 600px-tall viewport and the polaroid + social
+   icons get clipped at the bottom, so shift the whole composition up
+   as one block instead of retuning each element's own spacing. */
+@media (max-width: 767px) and (max-height: 600px) {
+  .hero__content,
+  .hero__social {
+    transform: translateY(-3rem);
+  }
+}
+
+/* 541–767px is between the compact ≤540px spacing and the 768px+
+   desktop layout, so on short viewports it still uses the roomy base
+   spacing and the composition doesn't fit above the fold. Reuse the
+   same svh-based compact spacing as the ≤540px rule above. */
+@media (min-width: 541px) and (max-width: 767px) and (max-height: 600px) {
+  .hero__content {
+    padding-top: calc(1rem + clamp(0rem, 2svh, 2rem));
+  }
+
+  .hero__greeting-container {
+    margin-bottom: clamp(0.5rem, 2svh, 1.5rem);
+  }
+
+  .hero__title {
+    margin-bottom: clamp(0.5rem, 2svh, 1.5rem);
+  }
+
+  .hero__polaroid {
+    margin: clamp(1.5rem, 5svh, 3.5rem) auto 0;
+  }
+}
+
+/* 621–767px specifically: fine-tune around the shared -3rem shift
+   above. The social nav isn't part of .hero__content (it's a sibling
+   <nav>), so it only ever had its own -3rem transform, not the
+   parent's — cancel it here and let the nav fall back to its default
+   bottom-anchored position (~3rem above the hero's bottom edge).
+   Greeting+title and the polaroid get their own extra transform on
+   top of the inherited -3rem from .hero__content; .hero__cta is left
+   untouched so it keeps exactly its current position. */
+@media (min-width: 621px) and (max-width: 767px) and (max-height: 600px) {
+  .hero__social {
+    transform: none;
+  }
+
+  .hero__greeting-container {
+    --hero-greeting-rest: translateY(1rem);
+  }
+
+  .hero__title-top {
+    transform: translateY(0);
+  }
+
+  .hero__title-bottom {
+    transform: translateY(1rem);
+  }
+
+  .hero__polaroid {
+    --hero-polaroid-rest: translateY(-1rem) rotate(8deg);
+  }
+}
+
 @media (min-width: 768px) {
   .hero__content {
     padding-top: 0;
@@ -681,11 +757,16 @@ html[lang="de"] .hero__greeting-container:hover .hero__greeting-icon {
     margin-left: 10rem;
   }
 
+  .hero__title-wrap {
+    display: block;
+    position: relative;
+  }
+
   .hero__polaroid {
     position: absolute;
     right: clamp(1.25rem, calc(43vw - 286px), 16%);
-    top: 15%;
-    margin: 0;
+    bottom: 100%;
+    margin: 0 0 calc(var(--hero-title-font) * -0.8125);
   }
 
   .hero__social {
@@ -697,7 +778,9 @@ html[lang="de"] .hero__greeting-container:hover .hero__greeting-icon {
   .hero__content {
     top: 0;
     justify-content: flex-start;
-    padding-top: 2rem;
+    /* Enough room for the polaroid (anchored above the title, see the
+       min-width:768px rule) to clear the header without touching it. */
+    padding-top: max(2rem, calc(230px - var(--hero-title-font) * 0.8125));
   }
 
   .hero__greeting-container {
@@ -708,55 +791,53 @@ html[lang="de"] .hero__greeting-container:hover .hero__greeting-icon {
     margin-bottom: 1rem;
   }
 
-  .hero__title-bottom {
-    margin-top: 7rem;
-  }
-
-  .hero__polaroid {
-    top: 1.5rem;
-  }
 }
 
 /* ── Entrance animation (page load only) ─────────────────────
-   Own keyframes, not AOS. Title has no static transform of its own, so it
-   can slide+fade directly. Polaroid and CTA already carry a permanent
-   transform (rotate(8deg) / the hover-transition base translate(0,0)) and
-   are also flex-order/position-critical (mobile `order`, desktop
-   `position: absolute`), so they only fade — opacity doesn't touch
-   `transform` and can't fight either concern. Social links have no static
-   transform (their hover effect lives on a ::after pseudo-element), so
-   they can slide+fade like the title. Skipped entirely under
-   prefers-reduced-motion. */
+   Own keyframes, not AOS — plays once on load via CSS `animation`
+   (`animation-fill-mode: both`), never re-triggers on scroll since
+   nothing here is scroll-driven. Title, CTA and social links have no
+   competing static transform, so they slide+fade directly. Greeting
+   and polaroid DO carry a per-breakpoint resting transform (see
+   --hero-greeting-rest / --hero-polaroid-rest above), so their
+   keyframes read that var and append the entrance offset on top of it
+   instead of overwriting it — the animation's end state always
+   matches whatever the current breakpoint's static position is.
+   Skipped entirely under prefers-reduced-motion. */
 @media (prefers-reduced-motion: no-preference) {
-  .hero__title {
-    animation: hero-enter-up 700ms ease-out both;
+  .hero__greeting-container {
+    animation: hero-enter-greeting 900ms ease-out both;
   }
 
-  .hero__polaroid {
-    animation: hero-enter-fade 700ms ease-out 150ms both;
+  .hero__title {
+    animation: hero-enter-up 900ms ease-out 150ms both;
   }
 
   .hero__cta {
-    animation: hero-enter-fade 700ms ease-out 300ms both;
+    animation: hero-enter-up 900ms ease-out 300ms both;
+  }
+
+  .hero__polaroid {
+    animation: hero-enter-polaroid 900ms ease-out 450ms both;
   }
 
   .hero__social-link:nth-child(1) {
-    animation: hero-enter-up 700ms ease-out 450ms both;
+    animation: hero-enter-up 900ms ease-out 600ms both;
   }
 
   .hero__social-link:nth-child(2) {
-    animation: hero-enter-up 700ms ease-out 500ms both;
+    animation: hero-enter-up 900ms ease-out 630ms both;
   }
 
   .hero__social-link:nth-child(3) {
-    animation: hero-enter-up 700ms ease-out 550ms both;
+    animation: hero-enter-up 900ms ease-out 660ms both;
   }
 }
 
 @keyframes hero-enter-up {
   from {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(48px);
   }
   to {
     opacity: 1;
@@ -764,11 +845,24 @@ html[lang="de"] .hero__greeting-container:hover .hero__greeting-icon {
   }
 }
 
-@keyframes hero-enter-fade {
+@keyframes hero-enter-greeting {
   from {
     opacity: 0;
+    transform: var(--hero-greeting-rest, translateY(0)) translateY(48px);
   }
   to {
     opacity: 1;
+    transform: var(--hero-greeting-rest, translateY(0));
+  }
+}
+
+@keyframes hero-enter-polaroid {
+  from {
+    opacity: 0;
+    transform: var(--hero-polaroid-rest, rotate(8deg)) translateY(48px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: var(--hero-polaroid-rest, rotate(8deg)) scale(1);
   }
 }

@@ -230,6 +230,14 @@ html[lang="de"] .hero__greeting-container:hover .hero__greeting-icon {
   transition: opacity 250ms ease;
 }
 
+/* Wraps title + polaroid so the polaroid can be anchored to the title's
+   own box on desktop. Transparent to layout everywhere else so it doesn't
+   affect the existing flex order on mobile/tablet. */
+.hero__title-wrap {
+  --hero-title-font: clamp(4rem, 9vw, 8rem);
+  display: contents;
+}
+
 /* "Frontend DEVELOPER" – two-line heading */
 .hero__title {
   line-height: 1;
@@ -240,7 +248,7 @@ html[lang="de"] .hero__greeting-container:hover .hero__greeting-icon {
 
 .hero__title-top {
   display: block;
-  font-size: clamp(4rem, 9vw, 8rem);
+  font-size: var(--hero-title-font);
   font-weight: 700;
   color: var(--color-text-light);
   letter-spacing: -0.1em;
@@ -252,7 +260,7 @@ html[lang="de"] .hero__greeting-container:hover .hero__greeting-icon {
   display: flex;
   justify-content: flex-start;
   align-items: baseline;
-  font-size: clamp(4rem, 9vw, 8rem);
+  font-size: var(--hero-title-font);
   font-weight: 700;
   color: var(--color-text-light);
   letter-spacing: -0.1em;
@@ -681,11 +689,16 @@ html[lang="de"] .hero__greeting-container:hover .hero__greeting-icon {
     margin-left: 10rem;
   }
 
+  .hero__title-wrap {
+    display: block;
+    position: relative;
+  }
+
   .hero__polaroid {
     position: absolute;
     right: clamp(1.25rem, calc(43vw - 286px), 16%);
-    top: 15%;
-    margin: 0;
+    bottom: 100%;
+    margin: 0 0 calc(var(--hero-title-font) * -0.8125);
   }
 
   .hero__social {
@@ -712,8 +725,13 @@ html[lang="de"] .hero__greeting-container:hover .hero__greeting-icon {
     margin-top: 7rem;
   }
 
+  /* Not enough room above the title for the polaroid to float fully
+     above it without hitting the header, so pin its top to the title's
+     top instead of its bottom. */
   .hero__polaroid {
-    top: 1.5rem;
+    bottom: auto;
+    top: 0;
+    margin: 0;
   }
 }
 

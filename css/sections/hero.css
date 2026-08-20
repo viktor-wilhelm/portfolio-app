@@ -4,6 +4,7 @@
 
 .hero {
   --hero-paper-height: calc(max(100vw / 1.6, 100dvh) * 0.085);
+  --hero-title-font: clamp(4rem, 9vw, 8rem);
   position: relative;
   width: 100%;
   min-height: 100vh;
@@ -234,7 +235,6 @@ html[lang="de"] .hero__greeting-container:hover .hero__greeting-icon {
    own box on desktop. Transparent to layout everywhere else so it doesn't
    affect the existing flex order on mobile/tablet. */
 .hero__title-wrap {
-  --hero-title-font: clamp(4rem, 9vw, 8rem);
   display: contents;
 }
 
@@ -672,6 +672,69 @@ html[lang="de"] .hero__greeting-container:hover .hero__greeting-icon {
   }
 }
 
+/* Short mobile/tablet viewports (e.g. landscape phones): the stacked
+   content overflows a 600px-tall viewport and the polaroid + social
+   icons get clipped at the bottom, so shift the whole composition up
+   as one block instead of retuning each element's own spacing. */
+@media (max-width: 767px) and (max-height: 600px) {
+  .hero__content,
+  .hero__social {
+    transform: translateY(-3rem);
+  }
+}
+
+/* 541–767px is between the compact ≤540px spacing and the 768px+
+   desktop layout, so on short viewports it still uses the roomy base
+   spacing and the composition doesn't fit above the fold. Reuse the
+   same svh-based compact spacing as the ≤540px rule above. */
+@media (min-width: 541px) and (max-width: 767px) and (max-height: 600px) {
+  .hero__content {
+    padding-top: calc(1rem + clamp(0rem, 2svh, 2rem));
+  }
+
+  .hero__greeting-container {
+    margin-bottom: clamp(0.5rem, 2svh, 1.5rem);
+  }
+
+  .hero__title {
+    margin-bottom: clamp(0.5rem, 2svh, 1.5rem);
+  }
+
+  .hero__polaroid {
+    margin: clamp(1.5rem, 5svh, 3.5rem) auto 0;
+  }
+}
+
+/* 621–767px specifically: fine-tune around the shared -3rem shift
+   above. The social nav isn't part of .hero__content (it's a sibling
+   <nav>), so it only ever had its own -3rem transform, not the
+   parent's — cancel it here and let the nav fall back to its default
+   bottom-anchored position (~3rem above the hero's bottom edge).
+   Greeting+title and the polaroid get their own extra transform on
+   top of the inherited -3rem from .hero__content; .hero__cta is left
+   untouched so it keeps exactly its current position. */
+@media (min-width: 621px) and (max-width: 767px) and (max-height: 600px) {
+  .hero__social {
+    transform: none;
+  }
+
+  .hero__greeting-container {
+    transform: translateY(1rem);
+  }
+
+  .hero__title-top {
+    transform: translateY(0);
+  }
+
+  .hero__title-bottom {
+    transform: translateY(1rem);
+  }
+
+  .hero__polaroid {
+    transform: translateY(-1rem) rotate(8deg);
+  }
+}
+
 @media (min-width: 768px) {
   .hero__content {
     padding-top: 0;
@@ -710,7 +773,9 @@ html[lang="de"] .hero__greeting-container:hover .hero__greeting-icon {
   .hero__content {
     top: 0;
     justify-content: flex-start;
-    padding-top: 2rem;
+    /* Enough room for the polaroid (anchored above the title, see the
+       min-width:768px rule) to clear the header without touching it. */
+    padding-top: max(2rem, calc(230px - var(--hero-title-font) * 0.8125));
   }
 
   .hero__greeting-container {
@@ -721,18 +786,6 @@ html[lang="de"] .hero__greeting-container:hover .hero__greeting-icon {
     margin-bottom: 1rem;
   }
 
-  .hero__title-bottom {
-    margin-top: 7rem;
-  }
-
-  /* Not enough room above the title for the polaroid to float fully
-     above it without hitting the header, so pin its top to the title's
-     top instead of its bottom. */
-  .hero__polaroid {
-    bottom: auto;
-    top: 0;
-    margin: 0;
-  }
 }
 
 /* ── Entrance animation (page load only) ─────────────────────

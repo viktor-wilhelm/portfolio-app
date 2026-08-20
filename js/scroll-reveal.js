@@ -1,8 +1,8 @@
 /**
- * Reveals [data-aos] elements as they scroll into view and hides them again
- * once they leave, reusing AOS's own CSS effects/timing but driven by a
- * plain IntersectionObserver instead of AOS's bundled scroll listener —
- * this replays reliably on slow scrolls in both directions.
+ * Reveals [data-aos] elements the first time they scroll into view, reusing
+ * AOS's own CSS effects/timing but driven by a plain IntersectionObserver
+ * instead of AOS's bundled scroll listener. Each element animates once and
+ * then stays revealed, even when scrolling back up.
  */
 function initScrollReveal() {
   document.body.dataset.aosDuration = "700";
@@ -32,20 +32,27 @@ function revealInstantly(elements) {
  * @param {NodeListOf<Element>} elements
  */
 function observeElements(elements) {
-  const observer = new IntersectionObserver(handleIntersect, {
-    rootMargin: "0px 0px 80px 0px",
-    threshold: 0,
-  });
+  const observer = new IntersectionObserver(
+    (entries) => handleIntersect(entries, observer),
+    {
+      rootMargin: "0px 0px 80px 0px",
+      threshold: 0,
+    }
+  );
   elements.forEach((el) => observer.observe(el));
 }
 
 /**
- * Adds aos-animate while an element intersects, removes it once it leaves.
+ * Adds aos-animate the first time an element intersects, then stops
+ * observing it so it never re-animates on subsequent scrolls.
  * @param {IntersectionObserverEntry[]} entries
+ * @param {IntersectionObserver} observer
  */
-function handleIntersect(entries) {
+function handleIntersect(entries, observer) {
   entries.forEach((entry) => {
-    entry.target.classList.toggle("aos-animate", entry.isIntersecting);
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add("aos-animate");
+    observer.unobserve(entry.target);
   });
 }
 

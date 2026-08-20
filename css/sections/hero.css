@@ -47,6 +47,9 @@
   margin-bottom: var(--space-lg);
   margin-left: 1%;
   width: 15%;
+  /* Resting transform, overridden per-breakpoint below; the entrance
+     animation reads this var so it never fights a responsive offset. */
+  transform: var(--hero-greeting-rest, translateY(0));
 }
 
 /* Spring keyframes – button width (gentle single overshoot) */
@@ -505,7 +508,9 @@ html[lang="de"] .hero__greeting-container:hover .hero__greeting-icon {
   display: block;
   position: relative;
   margin: var(--space-lg) auto;
-  transform: rotate(8deg);
+  /* Resting transform, overridden per-breakpoint below; the entrance
+     animation reads this var so it never fights a responsive offset. */
+  transform: var(--hero-polaroid-rest, rotate(8deg));
   width: fit-content;
   z-index: 1;
   -webkit-user-drag: none;
@@ -719,7 +724,7 @@ html[lang="de"] .hero__greeting-container:hover .hero__greeting-icon {
   }
 
   .hero__greeting-container {
-    transform: translateY(1rem);
+    --hero-greeting-rest: translateY(1rem);
   }
 
   .hero__title-top {
@@ -731,7 +736,7 @@ html[lang="de"] .hero__greeting-container:hover .hero__greeting-icon {
   }
 
   .hero__polaroid {
-    transform: translateY(-1rem) rotate(8deg);
+    --hero-polaroid-rest: translateY(-1rem) rotate(8deg);
   }
 }
 
@@ -789,45 +794,50 @@ html[lang="de"] .hero__greeting-container:hover .hero__greeting-icon {
 }
 
 /* ── Entrance animation (page load only) ─────────────────────
-   Own keyframes, not AOS. Title has no static transform of its own, so it
-   can slide+fade directly. Polaroid and CTA already carry a permanent
-   transform (rotate(8deg) / the hover-transition base translate(0,0)) and
-   are also flex-order/position-critical (mobile `order`, desktop
-   `position: absolute`), so they only fade — opacity doesn't touch
-   `transform` and can't fight either concern. Social links have no static
-   transform (their hover effect lives on a ::after pseudo-element), so
-   they can slide+fade like the title. Skipped entirely under
-   prefers-reduced-motion. */
+   Own keyframes, not AOS — plays once on load via CSS `animation`
+   (`animation-fill-mode: both`), never re-triggers on scroll since
+   nothing here is scroll-driven. Title, CTA and social links have no
+   competing static transform, so they slide+fade directly. Greeting
+   and polaroid DO carry a per-breakpoint resting transform (see
+   --hero-greeting-rest / --hero-polaroid-rest above), so their
+   keyframes read that var and append the entrance offset on top of it
+   instead of overwriting it — the animation's end state always
+   matches whatever the current breakpoint's static position is.
+   Skipped entirely under prefers-reduced-motion. */
 @media (prefers-reduced-motion: no-preference) {
-  .hero__title {
-    animation: hero-enter-up 700ms ease-out both;
+  .hero__greeting-container {
+    animation: hero-enter-greeting 900ms ease-out both;
   }
 
-  .hero__polaroid {
-    animation: hero-enter-fade 700ms ease-out 150ms both;
+  .hero__title {
+    animation: hero-enter-up 900ms ease-out 150ms both;
   }
 
   .hero__cta {
-    animation: hero-enter-fade 700ms ease-out 300ms both;
+    animation: hero-enter-up 900ms ease-out 300ms both;
+  }
+
+  .hero__polaroid {
+    animation: hero-enter-polaroid 900ms ease-out 450ms both;
   }
 
   .hero__social-link:nth-child(1) {
-    animation: hero-enter-up 700ms ease-out 450ms both;
+    animation: hero-enter-up 900ms ease-out 600ms both;
   }
 
   .hero__social-link:nth-child(2) {
-    animation: hero-enter-up 700ms ease-out 500ms both;
+    animation: hero-enter-up 900ms ease-out 630ms both;
   }
 
   .hero__social-link:nth-child(3) {
-    animation: hero-enter-up 700ms ease-out 550ms both;
+    animation: hero-enter-up 900ms ease-out 660ms both;
   }
 }
 
 @keyframes hero-enter-up {
   from {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(48px);
   }
   to {
     opacity: 1;
@@ -835,11 +845,24 @@ html[lang="de"] .hero__greeting-container:hover .hero__greeting-icon {
   }
 }
 
-@keyframes hero-enter-fade {
+@keyframes hero-enter-greeting {
   from {
     opacity: 0;
+    transform: var(--hero-greeting-rest, translateY(0)) translateY(48px);
   }
   to {
     opacity: 1;
+    transform: var(--hero-greeting-rest, translateY(0));
+  }
+}
+
+@keyframes hero-enter-polaroid {
+  from {
+    opacity: 0;
+    transform: var(--hero-polaroid-rest, rotate(8deg)) translateY(48px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: var(--hero-polaroid-rest, rotate(8deg)) scale(1);
   }
 }

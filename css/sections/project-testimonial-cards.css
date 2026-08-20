@@ -279,8 +279,12 @@
   }
 
   /* Card base — the sticker PNG already carries the rounded corners, so no
-     clipping needed. overflow:visible also lets a card grow past its
-     aspect-ratio when the quote needs more lines. */
+     clipping needed. overflow:visible lets a card grow past its natural
+     size when the quote needs more lines. Below, min-height (not
+     aspect-ratio) keeps that natural sticker size as a floor: on a card
+     that isn't a flex/grid item, aspect-ratio is a hard, definite size —
+     content that needs more room overflows past it instead of growing it —
+     whereas min-height is only a floor and lets the box grow with content. */
   .testimonial-card {
     width: clamp(280px, 86vw, 327px);
     height: auto;
@@ -293,7 +297,7 @@
      Cards 1 + 3 use pre-rotated mobile stickers — no CSS rotation on top,
      otherwise the tilt doubles and the text leaves the paper. */
   .testimonial-wrap:nth-child(1) .testimonial-card {
-    aspect-ratio: 326 / 342;
+    min-height: 342px;
     z-index: 3;
     transform: none;
     margin-right: 0;
@@ -301,14 +305,14 @@
   }
 
   .testimonial-wrap:nth-child(2) .testimonial-card {
-    aspect-ratio: 327 / 393;
+    min-height: 393px;
     z-index: 2;
     transform: none;
     margin-bottom: -5px;
   }
 
   .testimonial-wrap:nth-child(3) .testimonial-card {
-    aspect-ratio: 326 / 342;
+    min-height: 342px;
     height: auto;
     z-index: 1;
     transform: none;

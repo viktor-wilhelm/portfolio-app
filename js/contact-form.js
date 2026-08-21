@@ -12,6 +12,8 @@ const REQUIRED_ERROR_MESSAGES = {
   message: "What do you need to develop?",
 };
 
+const MIN_TEXT_LENGTH = 2;
+
 /**
  * Returns the current language from localStorage.
  * @returns {string} Language code ('de' or 'en').
@@ -28,30 +30,28 @@ function getCurrentLang() {
  * @param {string} message
  */
 function setInputError(input, message) {
-  input.placeholder = message;
   input.classList.add("input--error");
   const errorEl = document.getElementById(`${input.id}-error`);
   if (errorEl) errorEl.textContent = message;
 }
 
 /**
- * Clears error state and restores the translated placeholder.
+ * Clears a field's error overlay, revealing its typed value/placeholder again.
  * @param {HTMLElement} input
  */
 function clearInputError(input) {
-  input.placeholder = translations[getCurrentLang()][input.dataset.i18nPlaceholder];
   input.classList.remove("input--error");
   const errorEl = document.getElementById(`${input.id}-error`);
   if (errorEl) errorEl.textContent = "";
 }
 
 /**
- * Checks whether a text input has a non-whitespace value.
- * @param {HTMLInputElement} input
+ * Checks whether a trimmed value meets the minimum text length.
+ * @param {string} value
  * @returns {boolean}
  */
-function isFieldFilled(input) {
-  return input.value.trim().length > 0;
+function isLongEnough(value) {
+  return value.trim().length >= MIN_TEXT_LENGTH;
 }
 
 /**
@@ -66,16 +66,23 @@ function isEmailFormatValid(value) {
 }
 
 /**
- * Validates a required text input.
+ * Validates a required text input with a minimum length: empty and
+ * too-short values get distinct messages.
  * @param {HTMLInputElement} input
  * @returns {boolean}
  */
-function validateTextField(input) {
-  const valid = isFieldFilled(input);
-  valid
-    ? clearInputError(input)
-    : setInputError(input, REQUIRED_ERROR_MESSAGES[input.id]);
-  return valid;
+function validateMinLengthField(input) {
+  const value = input.value.trim();
+  if (value === "") {
+    setInputError(input, REQUIRED_ERROR_MESSAGES[input.id]);
+    return false;
+  }
+  if (!isLongEnough(value)) {
+    setInputError(input, translations[getCurrentLang()].errorTooShort);
+    return false;
+  }
+  clearInputError(input);
+  return true;
 }
 
 /**
@@ -89,13 +96,9 @@ function validateEmailField() {
     return false;
   }
   const valid = isEmailFormatValid(value);
-  if (valid) {
-    clearInputError(emailInput);
-  } else {
-    const message = translations[getCurrentLang()].errorEmail;
-    setInputError(emailInput, message);
-    showToast(message, emailInput);
-  }
+  valid
+    ? clearInputError(emailInput)
+    : setInputError(emailInput, translations[getCurrentLang()].errorEmail);
   return valid;
 }
 
@@ -116,9 +119,9 @@ function validatePrivacy() {
  */
 function isFormValid() {
   return (
-    isFieldFilled(nameInput) &&
+    isLongEnough(nameInput.value) &&
     isEmailFormatValid(emailInput.value) &&
-    isFieldFilled(messageInput) &&
+    isLongEnough(messageInput.value) &&
     privacyInput.checked
   );
 }
@@ -155,9 +158,9 @@ function showFormSuccess(form, t) {
  */
 async function handleFormSubmit(event) {
   event.preventDefault();
-  const nameValid = validateTextField(nameInput);
+  const nameValid = validateMinLengthField(nameInput);
   const emailValid = validateEmailField();
-  const msgValid = validateTextField(messageInput);
+  const msgValid = validateMinLengthField(messageInput);
   const privacyValid = validatePrivacy();
   updateSubmitButton();
   if (!nameValid || !emailValid || !msgValid || !privacyValid) return;
@@ -179,13 +182,14 @@ async function handleFormSubmit(event) {
   }
 }
 
-nameInput.addEventListener("blur", () => { validateTextField(nameInput); updateSubmitButton(); });
+nameInput.addEventListener("blur", () => { validateMinLengthField(nameInput); updateSubmitButton(); });
 emailInput.addEventListener("blur", () => { validateEmailField(); updateSubmitButton(); });
-messageInput.addEventListener("blur", () => { validateTextField(messageInput); updateSubmitButton(); });
+messageInput.addEventListener("blur", () => { validateMinLengthField(messageInput); updateSubmitButton(); });
 privacyInput.addEventListener("change", () => { validatePrivacy(); updateSubmitButton(); });
 
 [nameInput, emailInput, messageInput].forEach((input) => {
-  input.addEventListener("input", updateSubmitButton);
+  input.addEventListener("focus", () => clearInputError(input));
+  input.addEventListener("input", () => { clearInputError(input); updateSubmitButton(); });
 });
 
 document.getElementById("contact-form").addEventListener("submit", handleFormSubmit);

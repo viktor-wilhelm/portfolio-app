@@ -141,17 +141,23 @@
 }
 
 .form__group input:not(.form__checkbox),
-.form__group textarea {
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid var(--color-yellow);
-  border-radius: 0;
-  padding: 0 0 1rem 1rem;
+.form__group textarea,
+.form__field .form__error--overlay {
   font-family: var(--font-base);
   font-size: 1.125rem;
   font-weight: 400;
   line-height: 1.2;
   letter-spacing: 0;
+  padding: 0 0 1rem 1rem;
+}
+
+.form__group input:not(.form__checkbox),
+.form__group textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--color-yellow);
+  border-radius: 0;
   color: var(--color-text-light);
   -webkit-text-fill-color: var(--color-text-light);
   outline: none;
@@ -188,27 +194,40 @@
   -webkit-text-fill-color: var(--color-text-muted);
 }
 
-.form__group input.input--error::placeholder,
-.form__group textarea.input--error::placeholder {
-  color: var(--color-error);
-  -webkit-text-fill-color: var(--color-error);
+/* While a field is in error state, its typed value/placeholder is hidden
+   (not cleared) so .form__error--overlay can show the message in its place;
+   the real value stays in the DOM and reappears once the error clears. */
+.form__group input.input--error:not(.form__checkbox),
+.form__group textarea.input--error {
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  caret-color: transparent;
 }
 
-/* Per Figma, the name/email/message errors show inside the field itself (as
-   its placeholder) instead of an extra row below the underline. These stay
-   in the accessibility tree so aria-live still announces them. */
-#name-error,
-#email-error,
-#message-error {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
+.form__group input.input--error::placeholder,
+.form__group textarea.input--error::placeholder {
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* input/textarea and their error overlay share one grid cell: the row's
+   height is driven by whichever is taller, so a message that wraps to two
+   lines grows the field (and pushes its underline down) instead of being
+   clipped or overlapping the next field. */
+.form__field {
+  display: grid;
+}
+
+.form__field input:not(.form__checkbox),
+.form__field textarea,
+.form__field .form__error--overlay {
+  grid-area: 1 / 1;
+  min-width: 0;
+}
+
+.form__error--overlay {
+  color: var(--color-error);
+  pointer-events: none;
 }
 
 .form__group:hover input:not(.form__checkbox),

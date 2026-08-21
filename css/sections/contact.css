@@ -141,17 +141,24 @@
 }
 
 .form__group input:not(.form__checkbox),
-.form__group textarea {
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid var(--color-yellow);
-  border-radius: 0;
-  padding: 0 0 1rem 1rem;
+.form__group textarea,
+.form__field .form__error--overlay,
+.form__field-sizer {
   font-family: var(--font-base);
   font-size: 1.125rem;
   font-weight: 400;
   line-height: 1.2;
   letter-spacing: 0;
+  padding: 0 0 1rem 1rem;
+}
+
+.form__group input:not(.form__checkbox),
+.form__group textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--color-yellow);
+  border-radius: 0;
   color: var(--color-text-light);
   -webkit-text-fill-color: var(--color-text-light);
   outline: none;
@@ -188,27 +195,53 @@
   -webkit-text-fill-color: var(--color-text-muted);
 }
 
-.form__group input.input--error::placeholder,
-.form__group textarea.input--error::placeholder {
-  color: var(--color-error);
-  -webkit-text-fill-color: var(--color-error);
+/* While a field is in error state, its typed value/placeholder is hidden
+   (not cleared) so .form__error--overlay can show the message in its place;
+   the real value stays in the DOM and reappears once the error clears. */
+.form__group input.input--error:not(.form__checkbox),
+.form__group textarea.input--error {
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  caret-color: transparent;
 }
 
-/* Per Figma, the name/email/message errors show inside the field itself (as
-   its placeholder) instead of an extra row below the underline. These stay
-   in the accessibility tree so aria-live still announces them. */
-#name-error,
-#email-error,
-#message-error {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
+.form__group input.input--error::placeholder,
+.form__group textarea.input--error::placeholder {
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* input/textarea, their error overlay, and (for the textarea) an invisible
+   sizing mirror all share one grid cell: the row's height is driven by
+   whichever is taller, so wrapped content or a wrapped error message grows
+   the field (and pushes its underline down) instead of being clipped or
+   overlapping the next field. */
+.form__field {
+  display: grid;
+}
+
+.form__field input:not(.form__checkbox),
+.form__field textarea,
+.form__field .form__error--overlay,
+.form__field-sizer {
+  grid-area: 1 / 1;
+  min-width: 0;
+}
+
+.form__error--overlay {
+  color: var(--color-error);
+  pointer-events: none;
+}
+
+/* Mirrors the textarea's own current text (typed value, or placeholder when
+   empty) so the field's height always tracks its real single-/multi-line
+   content, in every state — not just while an error is showing. Invisible;
+   exists purely to size the shared grid row. */
+.form__field-sizer {
+  color: transparent;
+  pointer-events: none;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
 .form__group:hover input:not(.form__checkbox),
@@ -286,7 +319,7 @@
   font-size: 15px;
   font-weight: 400;
   line-height: 1.2;
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--color-text-light);
   padding-left: 0;
   margin: 0;
   cursor: default;
@@ -363,6 +396,18 @@
 .form__submit:disabled {
   opacity: 0.35;
   cursor: not-allowed;
+  /* Lets the wrapper receive the click/keyboard-activation attempt instead
+     of it being silently swallowed by the native disabled button. */
+  pointer-events: none;
+}
+
+.form__submit-wrap {
+  display: inline-flex;
+  outline: none;
+}
+
+.form__submit-wrap:has(.form__submit:disabled) {
+  cursor: not-allowed;
 }
 
 .form__submit:not(:disabled):hover {
@@ -390,6 +435,11 @@
 
 .form__feedback--success.form__feedback--hidden {
   opacity: 0;
+}
+
+.form__feedback--error {
+  font-weight: 600;
+  color: var(--color-error);
 }
 
 /* ── Responsive (≤ 900px) ─────────────────────────────────── */
@@ -488,11 +538,6 @@
 /* ── Narrow phones only (≤ 370px) ──────────────────────────── */
 
 @media (max-width: 370px) {
-  .form__group textarea {
-    min-height: 3.75rem;
-    padding-bottom: 1.5rem;
-  }
-
   .form__group textarea::placeholder {
     font-size: 1rem;
     line-height: 1.35;

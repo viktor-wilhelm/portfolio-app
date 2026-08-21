@@ -645,7 +645,8 @@
               <div class="form__group">
                 <label for="message" data-i18n="formMessageQuestion">How can I help you?</label>
                 <div class="form__field">
-                  <textarea id="message" name="message" rows="2" data-i18n-placeholder="formMessagePlaceholder" placeholder="Hallo Viktor, ich interessiere mich für…" required aria-describedby="message-error"></textarea>
+                  <textarea id="message" name="message" rows="1" data-i18n-placeholder="formMessagePlaceholder" placeholder="Hallo Viktor, ich interessiere mich für…" required aria-describedby="message-error"></textarea>
+                  <span class="form__field-sizer" id="messageSizer" aria-hidden="true"></span>
                   <span class="form__error form__error--overlay" id="message-error" aria-live="polite"></span>
                 </div>
               </div>
@@ -673,7 +674,9 @@
                   draggable="false"
                 />
 
-                <button type="submit" class="form__submit" disabled data-i18n="formSubmit">Send</button>
+                <span class="form__submit-wrap" id="submitWrap" role="button" aria-disabled="true">
+                  <button type="submit" class="form__submit" disabled data-i18n="formSubmit">Send</button>
+                </span>
               </div>
 
               <div class="form__feedback" id="form-feedback" role="status" aria-live="polite"></div>

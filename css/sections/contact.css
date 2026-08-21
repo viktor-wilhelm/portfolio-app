@@ -142,7 +142,8 @@
 
 .form__group input:not(.form__checkbox),
 .form__group textarea,
-.form__field .form__error--overlay {
+.form__field .form__error--overlay,
+.form__field-sizer {
   font-family: var(--font-base);
   font-size: 1.125rem;
   font-weight: 400;
@@ -210,17 +211,19 @@
   -webkit-text-fill-color: transparent;
 }
 
-/* input/textarea and their error overlay share one grid cell: the row's
-   height is driven by whichever is taller, so a message that wraps to two
-   lines grows the field (and pushes its underline down) instead of being
-   clipped or overlapping the next field. */
+/* input/textarea, their error overlay, and (for the textarea) an invisible
+   sizing mirror all share one grid cell: the row's height is driven by
+   whichever is taller, so wrapped content or a wrapped error message grows
+   the field (and pushes its underline down) instead of being clipped or
+   overlapping the next field. */
 .form__field {
   display: grid;
 }
 
 .form__field input:not(.form__checkbox),
 .form__field textarea,
-.form__field .form__error--overlay {
+.form__field .form__error--overlay,
+.form__field-sizer {
   grid-area: 1 / 1;
   min-width: 0;
 }
@@ -228,6 +231,17 @@
 .form__error--overlay {
   color: var(--color-error);
   pointer-events: none;
+}
+
+/* Mirrors the textarea's own current text (typed value, or placeholder when
+   empty) so the field's height always tracks its real single-/multi-line
+   content, in every state — not just while an error is showing. Invisible;
+   exists purely to size the shared grid row. */
+.form__field-sizer {
+  color: transparent;
+  pointer-events: none;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
 .form__group:hover input:not(.form__checkbox),
@@ -305,7 +319,7 @@
   font-size: 15px;
   font-weight: 400;
   line-height: 1.2;
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--color-text-light);
   padding-left: 0;
   margin: 0;
   cursor: default;
@@ -382,6 +396,18 @@
 .form__submit:disabled {
   opacity: 0.35;
   cursor: not-allowed;
+  /* Lets the wrapper receive the click/keyboard-activation attempt instead
+     of it being silently swallowed by the native disabled button. */
+  pointer-events: none;
+}
+
+.form__submit-wrap {
+  display: inline-flex;
+  outline: none;
+}
+
+.form__submit-wrap:has(.form__submit:disabled) {
+  cursor: not-allowed;
 }
 
 .form__submit:not(:disabled):hover {
@@ -409,6 +435,11 @@
 
 .form__feedback--success.form__feedback--hidden {
   opacity: 0;
+}
+
+.form__feedback--error {
+  font-weight: 600;
+  color: var(--color-error);
 }
 
 /* ── Responsive (≤ 900px) ─────────────────────────────────── */
@@ -507,11 +538,6 @@
 /* ── Narrow phones only (≤ 370px) ──────────────────────────── */
 
 @media (max-width: 370px) {
-  .form__group textarea {
-    min-height: 3.75rem;
-    padding-bottom: 1.5rem;
-  }
-
   .form__group textarea::placeholder {
     font-size: 1rem;
     line-height: 1.35;

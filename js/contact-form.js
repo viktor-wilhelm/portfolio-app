@@ -3,6 +3,8 @@ const emailInput = document.getElementById("email");
 const messageInput = document.getElementById("message");
 const privacyInput = document.getElementById("privacy");
 const submitBtn = document.querySelector(".form__submit");
+const submitWrap = document.getElementById("submitWrap");
+const messageSizer = document.getElementById("messageSizer");
 const feedback = document.getElementById("form-feedback");
 
 /* Figma copy: shown verbatim regardless of the active site language. */
@@ -43,6 +45,15 @@ function clearInputError(input) {
   input.classList.remove("input--error");
   const errorEl = document.getElementById(`${input.id}-error`);
   if (errorEl) errorEl.textContent = "";
+}
+
+/**
+ * Mirrors the message textarea's current text (value, or placeholder when
+ * empty) into its invisible sizing element, so the shared grid row always
+ * grows to fit real single-/multi-line content, in every state.
+ */
+function syncMessageSizer() {
+  messageSizer.textContent = messageInput.value || messageInput.placeholder;
 }
 
 /**
@@ -128,9 +139,15 @@ function isFormValid() {
 
 /**
  * Enables or disables the submit button based on the validity of all fields.
+ * The wrapper's tabindex mirrors the disabled state: while disabled it takes
+ * over keyboard focus (the native button can't be focused/activated), and
+ * once enabled it steps aside so the real button behaves normally.
  */
 function updateSubmitButton() {
-  submitBtn.disabled = !isFormValid();
+  const valid = isFormValid();
+  submitBtn.disabled = !valid;
+  submitWrap.tabIndex = valid ? -1 : 0;
+  submitWrap.setAttribute("aria-disabled", String(!valid));
 }
 
 let successFeedbackTimeoutId = null;
@@ -145,7 +162,8 @@ function showFormSuccess(form, t) {
   feedback.className = "form__feedback form__feedback--success";
   form.reset();
   [nameInput, emailInput, messageInput].forEach(clearInputError);
-  submitBtn.disabled = true;
+  syncMessageSizer();
+  updateSubmitButton();
   clearTimeout(successFeedbackTimeoutId);
   successFeedbackTimeoutId = setTimeout(() => {
     feedback.classList.add("form__feedback--hidden");
@@ -187,11 +205,26 @@ emailInput.addEventListener("blur", () => { validateEmailField(); updateSubmitBu
 messageInput.addEventListener("blur", () => { validateMinLengthField(messageInput); updateSubmitButton(); });
 privacyInput.addEventListener("change", () => { validatePrivacy(); updateSubmitButton(); });
 
+submitWrap.addEventListener("click", () => {
+  if (!privacyInput.checked) validatePrivacy();
+});
+
+submitWrap.addEventListener("keydown", (event) => {
+  if (privacyInput.checked) return;
+  if (event.key !== "Enter" && event.key !== " ") return;
+  event.preventDefault();
+  validatePrivacy();
+});
+
 [nameInput, emailInput, messageInput].forEach((input) => {
   input.addEventListener("focus", () => clearInputError(input));
   input.addEventListener("input", () => { clearInputError(input); updateSubmitButton(); });
 });
 
+messageInput.addEventListener("input", syncMessageSizer);
+new MutationObserver(syncMessageSizer).observe(messageInput, { attributeFilter: ["placeholder"] });
+
 document.getElementById("contact-form").addEventListener("submit", handleFormSubmit);
 
+syncMessageSizer();
 updateSubmitButton();

@@ -814,7 +814,7 @@ html[lang="de"] .hero__greeting-container:hover .hero__greeting-icon {
   }
 
   .hero__cta {
-    animation: hero-enter-up 900ms ease-out 300ms both;
+    animation: hero-enter-up 900ms ease-out 300ms backwards;
   }
 
   .hero__polaroid {

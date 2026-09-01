@@ -613,8 +613,14 @@ html.detail-preload .detail__container {
     margin-top: 2rem;
   }
 
+  /* At >=481px the inherited 8rem margin-top clears the absolutely
+     positioned .header--detail (top: 3rem + var(--nav-height)) with room
+     to spare. Below 480px .detail__container's own padding-top shrinks
+     (see the fluid clamp() above), so 8rem started clipping into the
+     header — recompute the clearance from the header's actual height
+     instead of guessing a fixed value, so "Join" never overlaps the logo. */
   .detail__title {
-    margin-top: 3.5rem;
+    margin-top: calc(var(--nav-height) + 2rem);
   }
 
   .detail__section-heading {

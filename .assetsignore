@@ -12,3 +12,5 @@ package.json
 package-lock.json
 mail.php
 README.md
+.dev.vars
+.wrangler

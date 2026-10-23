@@ -133,6 +133,8 @@ python3 -m http.server 8000
 
 Open in browser: `http://localhost:5500` (Live Server) or `http://localhost:8000` (Python server).
 
+> **Contact form protection:** `/api/contact` is rate-limited (3 requests/minute per IP) and checks a Cloudflare Turnstile token. Turnstile is enabled once the Worker secret `TURNSTILE_SECRET` is set and the real site key replaces the test key in `index.html`. Visitors get a confirmation email in German or English (the active site language).
+
 > Note: the contact form posts to `/api/contact`, handled by the Worker (`npx wrangler dev`). Static servers like Live Server will show the form's local-dev success fallback instead.
 
 ---

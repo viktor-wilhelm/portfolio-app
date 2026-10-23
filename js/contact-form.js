@@ -156,9 +156,10 @@ let successFeedbackTimeoutId = null;
  * Resets the form to its success state.
  * @param {HTMLFormElement} form
  * @param {object} t
+ * @param {boolean} [confirmed] Whether the visitor's confirmation email was sent.
  */
-function showFormSuccess(form, t) {
-  feedback.textContent = t.successMessage;
+function showFormSuccess(form, t, confirmed = false) {
+  feedback.textContent = confirmed ? `${t.successMessage} ${t.successConfirmation}` : t.successMessage;
   feedback.className = "form__feedback form__feedback--success";
   form.reset();
   [nameInput, emailInput, messageInput].forEach(clearInputError);
@@ -183,20 +184,25 @@ async function handleFormSubmit(event) {
   updateSubmitButton();
   if (!nameValid || !emailValid || !msgValid || !privacyValid) return;
   const t = translations[getCurrentLang()];
+  let errorText = t.errorMessage;
   try {
     const response = await fetch("/api/contact", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(Object.fromEntries(new FormData(event.target))),
+      body: JSON.stringify({ ...Object.fromEntries(new FormData(event.target)), lang: getCurrentLang() }),
     });
     const data = await response.json();
+    if (response.status === 429) errorText = t.errorRateLimit;
+    if (response.status === 403) errorText = t.errorBotCheck;
     if (!response.ok || data?.success !== true) throw new Error();
-    showFormSuccess(event.target, t);
+    showFormSuccess(event.target, t, data.autoreply === true);
   } catch {
     const isLocalDev = ["localhost", "127.0.0.1"].includes(location.hostname);
     if (isLocalDev) { showFormSuccess(event.target, t); return; }
-    feedback.textContent = t.errorMessage;
+    feedback.textContent = errorText;
     feedback.className = "form__feedback form__feedback--error";
+  } finally {
+    window.turnstile?.reset();
   }
 }
 

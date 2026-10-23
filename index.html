@@ -683,7 +683,7 @@
               </div>
 
               <!-- Turnstile bot check (public site key; the secret lives in the Worker as TURNSTILE_SECRET) -->
-              <div class="cf-turnstile" data-sitekey="0x4AAAAAAFi3vPrp39LDBlwQ" data-appearance="interaction-only" data-language="auto"></div>
+              <div class="cf-turnstile" data-sitekey="0x4AAAAAAFi3vPrp39LDBlwQ" data-theme="dark" data-language="auto" data-callback="onTurnstileSuccess" data-error-callback="onTurnstileError" data-expired-callback="onTurnstileExpired" data-timeout-callback="onTurnstileExpired"></div>
 
               <div class="form__feedback" id="form-feedback" role="status" aria-live="polite"></div>
             </form>

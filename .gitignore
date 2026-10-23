@@ -31,3 +31,5 @@ node_modules/
 .github/copilot-instructions.md
 .github/workflows/BRANCH-MANAGEMENT.md
 .github/workflows/DEFINITION-OF-DONE.md
+.dev.vars
+.wrangler/

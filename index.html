@@ -682,6 +682,9 @@
                 </span>
               </div>
 
+              <!-- Turnstile bot check (public site key; the secret lives in the Worker as TURNSTILE_SECRET) -->
+              <div class="cf-turnstile" data-sitekey="0x4AAAAAAFi3vPrp39LDBlwQ" data-appearance="interaction-only" data-language="auto"></div>
+
               <div class="form__feedback" id="form-feedback" role="status" aria-live="polite"></div>
             </form>
           </div>
@@ -724,6 +727,7 @@
   
 
     <!-- Scripts -->
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <script src="js/header.js"></script>
     <script src="js/translations.js"></script>
     <script src="js/language.js"></script>

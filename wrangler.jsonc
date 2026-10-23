@@ -1,0 +1,17 @@
+{
+  "name": "portfolio",
+  "main": "worker.js",
+  "compatibility_date": "2026-10-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"]
+  },
+  "vars": {
+    "SMTP_HOST": "smtp.purelymail.com",
+    "SMTP_PORT": "465",
+    "MAIL_FROM": "noreply@portfolio.wilhelm-global.com",
+    "MAIL_TO": "hello@portfolio.wilhelm-global.com"
+  }
+}

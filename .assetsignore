@@ -1,0 +1,14 @@
+.git
+.github
+.vscode
+.gitignore
+.assetsignore
+.env*
+node_modules
+docs
+worker.js
+wrangler.jsonc
+package.json
+package-lock.json
+mail.php
+README.md

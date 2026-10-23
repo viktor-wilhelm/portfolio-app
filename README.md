@@ -10,7 +10,7 @@ A professional, bilingual (DE/EN) developer portfolio built as a single-page app
 [![No Framework](https://img.shields.io/badge/Framework-None-333333?style=flat)](#tech-stack)
 
 <!-- **[Live Demo (Ctrl + Click → new tab)](https://viktor-wilhelm.de)** -->
-**[Live Demo (Ctrl + Click → new tab)](https://portfolio.viktor-wilhelm.de/)**
+**[Live Demo (Ctrl + Click → new tab)](https://portfolio.wilhelm-global.com/)**
 
 ---
 
@@ -33,7 +33,7 @@ Beyond the visual design, the project reflects how I like to work: consistent na
 - **Bilingual UI (DE/EN)** — every string is translatable, with instant switching and the chosen language persisted via `localStorage`
 - **Responsive, mobile-first layout** — dedicated breakpoints at 480px / 768px / 900px, from small phones up to desktop
 - **Project detail pages** — dedicated case-study pages per project (description, implementation notes, tech tags, previous/next navigation)
-- **Contact form with custom validation** — `blur`-based validation, inline error messages, and a PHP backend (`mail.php`) for sending the message
+- **Contact form with custom validation** — `blur`-based validation, inline error messages, and a Cloudflare Worker (`worker.js`, SMTP via Purelymail) for sending the message
 - **Testimonials section** — feedback from colleagues, presented as hand-styled cards
 - **Accessible by default** — semantic landmarks, `aria-label`/`aria-live` where it matters, decorative images marked `aria-hidden`, visible focus states
 - **Locally hosted fonts & assets** — no external font or script CDNs
@@ -49,7 +49,7 @@ Beyond the visual design, the project reflects how I like to work: consistent na
 | Logic       | Vanilla JavaScript (ES6+)      |
 | i18n        | Custom language switcher       |
 | Persistence | `localStorage`                 |
-| Backend     | PHP (`mail.php`)               |
+| Backend     | Cloudflare Worker (`worker.js`) |
 | Build tool  | None                            |
 
 ---
@@ -62,7 +62,7 @@ portfolio-app/
 ├── project-detail.html     # Project case-study page (per project, via ?query)
 ├── legal-notice.html       # Imprint
 ├── privacy-policy.html     # Privacy policy
-├── mail.php                # Contact form backend
+├── worker.js               # Contact form backend (Cloudflare Worker)
 ├── assets/
 │   ├── fonts/               # Locally hosted fonts
 │   ├── img/                 # Images (max. 500 KB each)
@@ -133,7 +133,7 @@ python3 -m http.server 8000
 
 Open in browser: `http://localhost:5500` (Live Server) or `http://localhost:8000` (Python server).
 
-> Note: the contact form posts to `mail.php`, which requires a PHP-capable server (e.g. `php -S localhost:8000`) to actually send mail. Static servers like Live Server will show the form's local-dev success fallback instead.
+> Note: the contact form posts to `/api/contact`, handled by the Worker (`npx wrangler dev`). Static servers like Live Server will show the form's local-dev success fallback instead.
 
 ---
 

@@ -184,7 +184,7 @@ async function handleFormSubmit(event) {
   if (!nameValid || !emailValid || !msgValid || !privacyValid) return;
   const t = translations[getCurrentLang()];
   try {
-    const response = await fetch("mail.php", {
+    const response = await fetch("/api/contact", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(Object.fromEntries(new FormData(event.target))),

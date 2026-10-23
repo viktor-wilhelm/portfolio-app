@@ -16,6 +16,12 @@ const REQUIRED_ERROR_MESSAGES = {
 
 const MIN_TEXT_LENGTH = 2;
 
+/* Turnstile token, kept by the widget callbacks (data-callback attributes in index.html). */
+let turnstileToken = "";
+window.onTurnstileSuccess = (token) => { turnstileToken = token; };
+window.onTurnstileExpired = () => { turnstileToken = ""; };
+window.onTurnstileError = () => { turnstileToken = ""; };
+
 /**
  * Returns the current language from localStorage.
  * @returns {string} Language code ('de' or 'en').
@@ -184,12 +190,22 @@ async function handleFormSubmit(event) {
   updateSubmitButton();
   if (!nameValid || !emailValid || !msgValid || !privacyValid) return;
   const t = translations[getCurrentLang()];
+  const isLocalDev = ["localhost", "127.0.0.1"].includes(location.hostname);
+  if (!turnstileToken && !isLocalDev) {
+    feedback.textContent = t.errorBotPending;
+    feedback.className = "form__feedback form__feedback--error";
+    return;
+  }
   let errorText = t.errorMessage;
   try {
     const response = await fetch("/api/contact", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...Object.fromEntries(new FormData(event.target)), lang: getCurrentLang() }),
+      body: JSON.stringify({
+        ...Object.fromEntries(new FormData(event.target)),
+        "cf-turnstile-response": turnstileToken,
+        lang: getCurrentLang(),
+      }),
     });
     const data = await response.json();
     if (response.status === 429) errorText = t.errorRateLimit;
@@ -197,11 +213,11 @@ async function handleFormSubmit(event) {
     if (!response.ok || data?.success !== true) throw new Error();
     showFormSuccess(event.target, t, data.autoreply === true);
   } catch {
-    const isLocalDev = ["localhost", "127.0.0.1"].includes(location.hostname);
     if (isLocalDev) { showFormSuccess(event.target, t); return; }
     feedback.textContent = errorText;
     feedback.className = "form__feedback form__feedback--error";
   } finally {
+    turnstileToken = "";
     window.turnstile?.reset();
   }
 }

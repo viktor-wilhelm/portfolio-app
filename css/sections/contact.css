@@ -558,3 +558,8 @@
   user-select: text;
   -webkit-user-select: text;
 }
+
+.cf-turnstile {
+  margin: 0.5rem 0 1rem;
+  min-height: 65px;
+}

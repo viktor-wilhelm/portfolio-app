@@ -682,8 +682,8 @@
                 </span>
               </div>
 
-              <!-- Turnstile bot check; sitekey below is Cloudflare's always-pass test key, replace with the real one -->
-              <div class="cf-turnstile" data-sitekey="1x00000000000000000000AA" data-appearance="interaction-only" data-language="auto"></div>
+              <!-- Turnstile bot check (public site key; the secret lives in the Worker as TURNSTILE_SECRET) -->
+              <div class="cf-turnstile" data-sitekey="0x4AAAAAAFi3vPrp39LDBlwQ" data-appearance="interaction-only" data-language="auto"></div>
 
               <div class="form__feedback" id="form-feedback" role="status" aria-live="polite"></div>
             </form>
